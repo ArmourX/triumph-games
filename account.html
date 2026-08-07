@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account | Triumph Guides</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="hub.css">
+  <link rel="stylesheet" href="triumph-community.css">
+  <link rel="stylesheet" href="triumph-guides.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+</head>
+<body class="hub-page">
+  <header class="hub-header">
+    <div class="container hub-header-inner">
+      <a href="index.html" class="hub-brand"><span class="hub-logo-icon">T</span><span class="hub-logo-text">Triumph Guides</span></a>
+      <nav class="hub-games-nav">
+        <a href="elumia.html" class="hub-game-pill">Elumia</a>
+        <a href="battlerise.html" class="hub-game-pill">Battlerise</a>
+        <a href="armourx.html" class="hub-game-pill">ArmourX</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container hub-subpage tg-account-page">
+    <h1>Your Account</h1>
+    <p class="hub-subpage-intro">Sign in to vote on ratings, propose wiki edits, and write guides for BattleRise, Elumia, and ArmourX.</p>
+
+    <div id="tg-account-guest" class="tg-account-panel" hidden>
+      <h2>Sign in or create an account</h2>
+      <p>Use the same account across all Triumph Guides wikis. Edits require admin approval before publishing.</p>
+      <div class="tg-account-actions">
+        <button type="button" class="tg-btn tg-btn--primary" id="tg-show-signup">Create account</button>
+        <button type="button" class="tg-btn tg-btn--ghost" id="tg-show-login">Log in</button>
+      </div>
+    </div>
+
+    <div id="tg-account-user" class="tg-account-panel" hidden>
+      <div class="tg-account-profile">
+        <span class="tg-account-avatar" id="tg-account-avatar">?</span>
+        <div>
+          <h2 id="tg-account-name">Contributor</h2>
+          <p class="tg-account-meta">Contributor account · edits pending admin review</p>
+        </div>
+      </div>
+      <div class="tg-account-actions">
+        <a href="guide-create.html" class="tg-btn tg-btn--primary">Write a guide</a>
+        <a href="battlerise.html" class="tg-btn tg-btn--ghost">BattleRise wiki</a>
+        <a href="elumia.html" class="tg-btn tg-btn--ghost">Elumia wiki</a>
+        <a href="armourx.html" class="tg-btn tg-btn--ghost">ArmourX wiki</a>
+        <button type="button" class="tg-btn tg-btn--ghost" id="tg-logout-account">Log out</button>
+        <a href="admin.html" class="tg-btn tg-btn--primary" id="tg-admin-link" hidden>Admin review queue</a>
+      </div>
+      <h3>Your guides</h3>
+      <div id="tg-my-guides" class="tg-edits-list"></div>
+      <h3>Your pending edits</h3>
+      <div id="tg-my-edits" class="tg-edits-list"></div>
+    </div>
+  </div>
+
+  <footer class="hub-footer">
+    <div class="container hub-footer-inner">
+      <a href="index.html">&larr; Back to Triumph Guides</a>
+      <p>&copy; 2026 Triumph Guides</p>
+    </div>
+  </footer>
+
+  <script src="js/triumph-community.js"></script>
+  <script src="js/triumph-edits.js"></script>
+  <script src="js/triumph-user-guides.js"></script>
+  <script src="js/account-page.js"></script>
+</body>
+</html>

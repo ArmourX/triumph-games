@@ -1,0 +1,349 @@
+/* Triumph Guides community — auth modal & interactive ratings */
+
+.tg-modal-open { overflow: hidden; }
+
+.tg-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(4px);
+}
+
+.tg-modal-overlay[hidden] { display: none; }
+
+.tg-modal {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  padding: 1.75rem;
+  background: var(--hub-card, #16130e);
+  border: 1px solid var(--hub-border, rgba(255,255,255,0.08));
+  border-radius: 12px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+}
+
+.tg-modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background: transparent;
+  color: var(--hub-text-muted, rgba(245,242,235,0.55));
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.tg-modal-close:hover {
+  color: var(--hub-text, #f5f2eb);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.tg-modal-title {
+  font-family: var(--hub-display, Montserrat, sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.375rem;
+}
+
+.tg-modal-desc {
+  font-size: 0.8125rem;
+  color: var(--hub-text-muted);
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
+}
+
+.tg-modal-tabs {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1.25rem;
+  padding: 0.25rem;
+  background: var(--hub-surface, #14110c);
+  border-radius: 8px;
+  border: 1px solid var(--hub-border);
+}
+
+.tg-modal-tab {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--hub-text-muted);
+  cursor: pointer;
+}
+
+.tg-modal-tab.active {
+  background: var(--hub-accent-dim, rgba(233,187,115,0.1));
+  color: var(--hub-accent, #e9bb73);
+}
+
+.tg-auth-form { display: flex; flex-direction: column; gap: 0.875rem; }
+
+.tg-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.tg-field span {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--hub-text-muted);
+}
+
+.tg-field input {
+  padding: 0.625rem 0.875rem;
+  font-size: 0.875rem;
+  background: var(--hub-surface);
+  border: 1px solid var(--hub-border);
+  border-radius: 8px;
+  color: var(--hub-text);
+}
+
+.tg-field textarea {
+  padding: 0.625rem 0.875rem;
+  font-size: 0.875rem;
+  background: var(--hub-surface);
+  border: 1px solid var(--hub-border);
+  border-radius: 8px;
+  color: var(--hub-text);
+  resize: vertical;
+  min-height: 5rem;
+  font-family: inherit;
+}
+
+.tg-field input:focus,
+.tg-field textarea:focus {
+  outline: none;
+  border-color: rgba(233, 187, 115, 0.45);
+}
+
+.tg-form-error {
+  font-size: 0.8125rem;
+  color: #f07070;
+  margin: 0;
+}
+
+.tg-btn {
+  padding: 0.625rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.tg-btn--primary {
+  background: var(--hub-accent, #e9bb73);
+  color: #1a1408;
+}
+
+.tg-btn--primary:hover { filter: brightness(1.05); }
+
+.tg-link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  font-weight: 600;
+  color: var(--hub-accent);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.hub-contribute-btn--active {
+  background: var(--hub-accent-dim) !important;
+  color: var(--hub-accent) !important;
+  border-color: rgba(233, 187, 115, 0.35) !important;
+}
+
+.br-ratings-hint {
+  font-size: 0.8125rem;
+  color: var(--hub-text-muted);
+  margin: -0.5rem 0 1rem;
+}
+
+.br-rating-stars--vote {
+  display: flex;
+  justify-content: center;
+  gap: 0.125rem;
+}
+
+.br-star-btn {
+  padding: 0.125rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  border: none;
+  background: transparent;
+  color: rgba(233, 187, 115, 0.25);
+  cursor: pointer;
+  transition: color 0.12s, transform 0.12s;
+}
+
+.br-star-btn.is-filled,
+.br-star-btn.is-hover {
+  color: var(--hub-accent);
+}
+
+.br-star-btn:hover { transform: scale(1.12); }
+
+.br-rating-meta {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.6875rem;
+  color: var(--hub-text-muted);
+}
+
+.br-rating-yours {
+  color: var(--hub-accent);
+  font-weight: 600;
+}
+
+#tg-auth-bar {
+  font-size: 0.8125rem;
+  color: var(--hub-text-muted);
+  margin-bottom: 1rem;
+}
+
+/* Header account icon */
+.hub-header-inner,
+.header-inner {
+  position: relative;
+}
+
+.tg-header-auth {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  border: 1px solid var(--hub-border, rgba(255,255,255,0.12));
+  background: var(--hub-surface, #14110c);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  z-index: 2;
+}
+
+.tg-header-auth--on {
+  border-color: rgba(233, 187, 115, 0.45);
+  background: var(--hub-accent-dim, rgba(233,187,115,0.1));
+}
+
+.tg-header-auth-icon {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--hub-text-muted, rgba(245,242,235,0.55));
+}
+
+.tg-header-auth--on .tg-header-auth-icon { color: var(--hub-accent, #e9bb73); }
+
+.hub-header-inner:has(.tg-header-auth) .hub-brand,
+.header-inner:has(.tg-header-auth) .logo {
+  margin-left: 2.75rem;
+}
+
+.tg-modal--wide { max-width: 640px; }
+
+.tg-editable-wrap { position: relative; }
+.tg-edit-btn {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.25rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 1px solid var(--hub-border);
+  border-radius: 6px;
+  background: var(--hub-card);
+  color: var(--hub-accent);
+  cursor: pointer;
+  font-size: 0.875rem;
+  line-height: 1;
+  opacity: 0.85;
+}
+.tg-edit-btn:hover { opacity: 1; background: var(--hub-accent-dim); }
+
+.tg-btn--ghost {
+  background: transparent;
+  border: 1px solid var(--hub-border);
+  color: var(--hub-text);
+}
+
+.tg-account-page { max-width: 720px; }
+.tg-account-panel {
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  background: var(--hub-card);
+  border: 1px solid var(--hub-border);
+  border-radius: 10px;
+}
+.tg-account-profile { display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem; }
+.tg-account-avatar {
+  width: 3rem; height: 3rem; border-radius: 999px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--hub-accent-dim); color: var(--hub-accent); font-weight: 700;
+}
+.tg-account-meta { font-size: 0.8125rem; color: var(--hub-text-muted); margin: 0; }
+.tg-account-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+
+.tg-edits-list { display: flex; flex-direction: column; gap: 1rem; }
+.tg-edit-card {
+  padding: 1rem;
+  background: var(--hub-card);
+  border: 1px solid var(--hub-border);
+  border-radius: 8px;
+}
+.tg-edit-card header { font-size: 0.9375rem; margin-bottom: 0.35rem; }
+.tg-edit-game { font-size: 0.75rem; color: var(--hub-text-muted); margin: 0 0 0.75rem; }
+.tg-diff {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.tg-diff span {
+  display: block;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--hub-text-muted);
+  margin-bottom: 0.25rem;
+}
+.tg-diff pre {
+  margin: 0;
+  padding: 0.625rem;
+  font-size: 0.75rem;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  background: var(--hub-surface);
+  border-radius: 6px;
+  max-height: 180px;
+  overflow: auto;
+}
+.tg-edit-actions { display: flex; gap: 0.5rem; }
+.tg-empty { color: var(--hub-text-muted); font-size: 0.875rem; }
+.tg-edit-status { font-size: 0.75rem; color: var(--hub-accent); margin: 0; }
+
+@media (max-width: 640px) {
+  .tg-diff { grid-template-columns: 1fr; }
+}
+

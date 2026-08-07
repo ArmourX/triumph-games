@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artifacts | BattleRise | Triumph Guides</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="hub.css">
+  <link rel="stylesheet" href="battlerise-champion.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="triumph-community.css">
+</head>
+<body class="hub-page">
+  <header class="hub-header"><div class="container hub-header-inner"><a href="index.html" class="hub-brand"><span class="hub-logo-icon">T</span><span class="hub-logo-text">Triumph Guides</span></a><nav class="hub-games-nav"><a href="elumia.html" class="hub-game-pill">Elumia</a><a href="battlerise.html" class="hub-game-pill active">Battlerise</a><a href="armourx.html" class="hub-game-pill">ArmourX</a></nav></div></header>
+  <nav class="hub-nav"><div class="container hub-nav-inner"><a href="battlerise.html" class="hub-nav-link">Overview</a><a href="battlerise-champions.html" class="hub-nav-link">Champions</a><a href="battlerise-artifacts.html" class="hub-nav-link active">Artifacts</a><a href="battlerise-guides.html" class="hub-nav-link">Guides</a><a href="battlerise-tier-list.html" class="hub-nav-link">Tier List</a></div></nav>
+  <div class="container hub-subpage">
+    <h1>Artifact Database</h1>
+    <p class="hub-subpage-intro">Unique artifacts from the Megalords gear database — with real card art extracted from game asset bundles.</p>
+
+    <div class="br-filter-bar">
+      <input type="search" id="br-artifact-search" class="br-search" placeholder="Search artifacts…" aria-label="Search artifacts">
+      <button type="button" class="br-filter-btn active" data-artifact-filter="all">All</button>
+      <button type="button" class="br-filter-btn" data-artifact-filter="mythic">Mythic</button>
+      <button type="button" class="br-filter-btn" data-artifact-filter="str">STR</button>
+      <button type="button" class="br-filter-btn" data-artifact-filter="agi">AGI</button>
+      <button type="button" class="br-filter-btn" data-artifact-filter="int">INT</button>
+    </div>
+
+    <div class="br-artifact-grid" id="br-artifact-grid"></div>
+  </div>
+  <footer class="hub-footer"><div class="container hub-footer-inner"><a href="battlerise.html">&larr; Back to BattleRise hub</a><p>&copy; 2026 Triumph Guides. Artifact data from BattleRise dev files.</p></div></footer>
+  <script src="js/battlerise-data.js"></script>
+  <script src="js/battlerise-pages.js"></script>
+  <script src="js/triumph-community.js"></script>
+  <script src="js/triumph-edits.js"></script>
+</body>
+</html>

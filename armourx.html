@@ -3,27 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ArmourX Wiki &amp; Guides | Triumph Games</title>
+  <title>ArmourX Wiki &amp; Guides | Triumph Guides</title>
   <meta name="description" content="Find warriors, armor loadouts, strategies, guides and more for ArmourX.">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="hub.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="triumph-community.css">
 </head>
 <body class="hub-page">
   <header class="hub-header">
     <div class="container hub-header-inner">
       <a href="index.html" class="hub-brand">
-        <img src="https://www.triumphgames.io/images/image-1.png" alt="Triumph Games" class="hub-brand-logo">
+        <span class="hub-logo-icon">T</span>
+        <span class="hub-logo-text">Triumph Guides</span>
       </a>
-      <div class="hub-header-right">
-        <a href="index.html" class="hub-nav-link">Home</a>
-        <button class="hub-game-selector" type="button">
-          <img src="https://www.triumphgames.io/images/Logo_ArmourX_LOGO-ALT-WHITE.png" alt="ArmourX" class="hub-game-avatar">
-          <span>ArmourX</span>
-        </button>
-      </div>
+      <nav class="hub-games-nav" aria-label="Game hubs">
+        <a href="elumia.html" class="hub-game-pill">Elumia</a>
+        <a href="battlerise.html" class="hub-game-pill">Battlerise</a>
+        <a href="armourx.html" class="hub-game-pill active">ArmourX</a>
+      </nav>
     </div>
   </header>
 
@@ -52,15 +52,16 @@
     <nav class="hub-nav">
       <div class="container hub-nav-inner">
         <a href="armourx.html" class="hub-nav-link active">Overview</a>
-        <a href="#" class="hub-nav-link">Warriors</a>
-        <a href="#" class="hub-nav-link">Armor Sets</a>
-        <a href="#" class="hub-nav-link">Guides</a>
-        <a href="#" class="hub-nav-link">Tier List</a>
+        <a href="armourx-warriors.html" class="hub-nav-link">Warriors</a>
+        <a href="armourx-armor.html" class="hub-nav-link">Armor Sets</a>
+        <a href="armourx-guides.html" class="hub-nav-link">Guides</a>
+        <a href="armourx-tier-list.html" class="hub-nav-link">Tier List</a>
       </div>
     </nav>
 
     <!-- Description -->
     <section class="container hub-desc">
+      <div data-editable data-edit-game="armourx" data-edit-page="overview" data-edit-field="intro" data-edit-title="ArmourX Wiki" data-edit-label="Overview intro">
       <p>ArmourX wiki hub with warriors, armor sets, tier list, guides, news, and ARPG strategy resources.</p>
     </section>
 
@@ -96,7 +97,7 @@
         <!-- Featured Warriors -->
         <div class="hub-section-header">
           <h2>Featured Warriors</h2>
-          <a href="#" class="hub-view-all">View All</a>
+          <a href="armourx-warriors.html" class="hub-view-all">View All</a>
         </div>
 
         <div class="warrior-grid">
@@ -130,7 +131,7 @@
         <!-- Latest Guides -->
         <div class="hub-section-header">
           <h2>Latest Guides</h2>
-          <a href="#" class="hub-view-all">View All</a>
+          <a href="armourx-guides.html" class="hub-view-all">View All</a>
         </div>
 
         <div class="guide-list">
@@ -172,18 +173,15 @@
           </div>
           <div class="contributors-grid">
             <div class="contributor">
-              <div class="contributor-avatar">PN</div>
-              <span class="contributor-name">Pearl Nagy</span>
+              <span class="contributor-name">Lena Voss</span>
               <span class="contributor-role">Founder / Dev</span>
             </div>
             <div class="contributor">
-              <div class="contributor-avatar">RG</div>
-              <span class="contributor-name">Ryan Glee</span>
+              <span class="contributor-name">Dex Rivera</span>
               <span class="contributor-role">Content Creator</span>
             </div>
             <div class="contributor">
-              <div class="contributor-avatar">MS</div>
-              <span class="contributor-name">Michal Stasiak</span>
+              <span class="contributor-name">Yuki Tanaka</span>
               <span class="contributor-role">Game Designer</span>
             </div>
           </div>
@@ -193,9 +191,12 @@
   </main>
 
   <footer class="hub-footer">
-    <div class="container">
-      <p>&copy; 2026 Triumph Games. Game names and assets belong to their respective owners.</p>
+    <div class="container hub-footer-inner">
+      <a href="index.html">&larr; Back to Triumph Guides</a>
+      <p>&copy; 2026 Triumph Guides. Not affiliated with Triumph Games or any publishers.</p>
     </div>
   </footer>
+  <script src="js/triumph-community.js"></script>
+  <script src="js/triumph-edits.js"></script>
 </body>
 </html>

@@ -1,0 +1,498 @@
+/* HellHades-inspired champion detail pages */
+
+/* Champion detail uses header + nav offset via hub.css */
+
+.br-champion-hero {
+  background: linear-gradient(180deg, rgba(233, 187, 115, 0.08) 0%, var(--hub-bg) 100%);
+  border-bottom: 1px solid var(--hub-border);
+  padding: 2rem 0 1.5rem;
+}
+
+.br-champion-hero-inner {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.br-champion-portrait {
+  width: 200px;
+  border-radius: 12px;
+  border: 2px solid rgba(233, 187, 115, 0.35);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  aspect-ratio: 5 / 7;
+  object-fit: cover;
+  background: var(--hub-card);
+}
+
+.br-champion-title {
+  font-family: var(--hub-display);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  margin-bottom: 0.35rem;
+  line-height: 1.15;
+}
+
+.br-champion-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.br-meta-pill {
+  padding: 0.2rem 0.625rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-radius: 4px;
+  border: 1px solid var(--hub-border);
+  background: var(--hub-surface);
+}
+
+.br-meta-pill--legendary { color: #f5ba14; border-color: rgba(245, 186, 20, 0.35); }
+.br-meta-pill--epic { color: #b48cff; border-color: rgba(180, 140, 255, 0.35); }
+.br-meta-pill--rare { color: #6eb5ff; border-color: rgba(110, 181, 255, 0.35); }
+.br-meta-pill--mythic { color: #ff6b8a; border-color: rgba(255, 107, 138, 0.35); }
+
+.br-meta-pill--str { color: #e07070; }
+.br-meta-pill--agi { color: #6ecf9a; }
+.br-meta-pill--int { color: #7aabee; }
+
+.br-champion-updated {
+  font-size: 0.8125rem;
+  color: var(--hub-text-muted);
+}
+
+.br-champion-tabs {
+  position: sticky;
+  top: 68px;
+  z-index: 80;
+  background: rgba(12, 10, 6, 0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--hub-border);
+}
+
+.br-champion-tabs-inner {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.br-champion-tabs-inner::-webkit-scrollbar { display: none; }
+
+.br-champion-tab {
+  flex-shrink: 0;
+  padding: 0.875rem 1.125rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--hub-text-muted);
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.br-champion-tab:hover { color: var(--hub-text); }
+
+.br-champion-tab.active {
+  color: var(--hub-accent);
+  border-bottom-color: var(--hub-accent);
+}
+
+.br-champion-body {
+  padding: 2rem 0 3rem;
+}
+
+.br-section {
+  margin-bottom: 2.5rem;
+  scroll-margin-top: 130px;
+}
+
+.br-section h2 {
+  font-family: var(--hub-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--hub-border);
+}
+
+.br-section p {
+  color: var(--hub-text-muted);
+  max-width: 48rem;
+  margin-bottom: 0.875rem;
+}
+
+.br-ratings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.75rem;
+}
+
+.br-rating-card {
+  padding: 1rem;
+  background: var(--hub-card);
+  border: 1px solid var(--hub-border);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.br-rating-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--hub-text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.br-rating-stars {
+  font-size: 1.125rem;
+  letter-spacing: 0.1em;
+  color: var(--hub-accent);
+}
+
+.br-rating-stars .dim { color: rgba(233, 187, 115, 0.2); }
+
+.br-skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.br-skill-card {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 1rem;
+  padding: 1.125rem;
+  background: var(--hub-card);
+  border: 1px solid var(--hub-border);
+  border-radius: 8px;
+}
+
+.br-skill-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  background: var(--hub-surface);
+  border: 1px solid var(--hub-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--hub-display);
+  font-weight: 800;
+  font-size: 0.875rem;
+  color: var(--hub-accent);
+}
+
+.br-skill-name {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  margin-bottom: 0.25rem;
+}
+
+.br-skill-desc {
+  font-size: 0.8125rem;
+  color: var(--hub-text-muted);
+  line-height: 1.55;
+}
+
+.br-skill-meta {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--hub-text-muted);
+}
+
+.br-skill-meta span {
+  margin-right: 1rem;
+}
+
+.br-gear-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.br-gear-card {
+  padding: 1.125rem;
+  background: var(--hub-card);
+  border: 1px solid var(--hub-border);
+  border-radius: 8px;
+}
+
+.br-gear-card h3 {
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin-bottom: 0.625rem;
+  color: var(--hub-accent);
+}
+
+.br-gear-card ul {
+  list-style: none;
+  font-size: 0.8125rem;
+  color: var(--hub-text-muted);
+}
+
+.br-gear-card li {
+  padding: 0.25rem 0;
+  border-bottom: 1px solid var(--hub-border);
+}
+
+.br-gear-card li:last-child { border-bottom: none; }
+
+.br-artifact-recs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.br-artifact-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: var(--hub-surface);
+  border: 1px solid var(--hub-border);
+  border-radius: 999px;
+}
+
+.br-artifact-chip img {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.br-stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.br-stat {
+  padding: 0.5rem 0.875rem;
+  background: var(--hub-card);
+  border: 1px solid var(--hub-border);
+  border-radius: 6px;
+  font-size: 0.75rem;
+}
+
+.br-stat strong {
+  display: block;
+  color: var(--hub-accent);
+  font-size: 0.875rem;
+}
+
+/* Champions & artifacts listing enhancements */
+
+.br-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.br-filter-btn {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 999px;
+  border: 1px solid var(--hub-border);
+  background: var(--hub-surface);
+  color: var(--hub-text-muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.br-filter-btn:hover,
+.br-filter-btn.active {
+  border-color: rgba(233, 187, 115, 0.4);
+  color: var(--hub-accent);
+  background: var(--hub-accent-dim);
+}
+
+.br-search {
+  flex: 1;
+  min-width: 180px;
+  max-width: 280px;
+  padding: 0.5rem 0.875rem;
+  font-size: 0.8125rem;
+  background: var(--hub-surface);
+  border: 1px solid var(--hub-border);
+  border-radius: 8px;
+  color: var(--hub-text);
+}
+
+.br-search::placeholder { color: var(--hub-text-muted); }
+
+.warrior-card img.br-card-img {
+  width: 100%;
+  aspect-ratio: 5 / 7;
+  object-fit: cover;
+  border-radius: 6px 6px 0 0;
+  margin-bottom: 0.375rem;
+}
+
+.warrior-card--mythic {
+  background: linear-gradient(145deg, rgba(255, 107, 138, 0.15), var(--hub-card));
+  border-color: rgba(255, 107, 138, 0.35);
+}
+
+.br-artifact-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.br-artifact-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 0;
+  background: #1a1510;
+  border: 1px solid var(--hub-border);
+  border-radius: 10px;
+  overflow: hidden;
+  min-height: 180px;
+}
+
+.br-artifact-card-face {
+  position: relative;
+  padding: 0.625rem;
+  background: linear-gradient(180deg, #2a2218 0%, #120f0b 100%);
+  border-right: 1px solid rgba(233, 187, 115, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.br-artifact-row--legendary .br-artifact-card-face,
+.br-artifact-row--mythic .br-artifact-card-face {
+  box-shadow: inset 0 0 0 3px rgba(212, 168, 75, 0.55);
+}
+
+.br-artifact-row--epic .br-artifact-card-face {
+  box-shadow: inset 0 0 0 3px rgba(160, 100, 220, 0.45);
+}
+
+.br-artifact-row--rare .br-artifact-card-face,
+.br-artifact-row--common .br-artifact-card-face {
+  box-shadow: inset 0 0 0 2px rgba(100, 140, 200, 0.35);
+}
+
+.br-artifact-level {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 999px;
+  background: rgba(212, 168, 75, 0.9);
+  color: #1a1408;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.br-artifact-card-img {
+  width: 100%;
+  max-width: 110px;
+  height: auto;
+  aspect-ratio: 5 / 7;
+  object-fit: cover;
+  border-radius: 6px;
+  margin: 0.75rem 0 0.5rem;
+}
+
+.br-artifact-card-type {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.125rem;
+  font-size: 0.5625rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(245, 242, 235, 0.85);
+}
+
+.br-artifact-rarity-label { color: var(--hub-accent); }
+
+.br-artifact-panel {
+  padding: 1rem 1.125rem;
+  background: #221c16;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.br-artifact-name {
+  font-family: var(--hub-display, Montserrat, sans-serif);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--hub-accent);
+  margin: 0 0 0.5rem;
+}
+
+.br-artifact-section-label {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(233, 187, 115, 0.55);
+  margin: 0 0 0.5rem;
+}
+
+.br-artifact-stats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.br-artifact-stat {
+  font-size: 0.8125rem;
+  color: #b8b0e8;
+  padding: 0.125rem 0;
+}
+
+.br-artifact-stat--muted { color: var(--hub-text-muted); font-style: italic; }
+
+.br-artifact-more {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.25rem 0.625rem;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #fff;
+  background: rgba(46, 120, 70, 0.85);
+  border-radius: 999px;
+  align-self: flex-start;
+}
+
+@media (max-width: 640px) {
+  .br-artifact-row {
+    grid-template-columns: 1fr;
+  }
+
+  .br-artifact-card-face {
+    border-right: none;
+    border-bottom: 1px solid rgba(233, 187, 115, 0.15);
+  }
+}
+
+@media (max-width: 640px) {
+  .br-champion-hero-inner {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .br-champion-meta { justify-content: center; }
+}

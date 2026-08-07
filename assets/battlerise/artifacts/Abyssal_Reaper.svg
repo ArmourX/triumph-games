@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="560" viewBox="0 0 400 560">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c44" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#0c0a06"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="560" fill="url(#g)"/>
+  <rect x="16" y="16" width="368" height="528" rx="12" fill="none" stroke="#c44" stroke-opacity="0.35" stroke-width="2"/>
+  <text x="200" y="480" text-anchor="middle" fill="#f5f2eb" font-family="Montserrat, sans-serif" font-size="22" font-weight="700">Infernal Reaper</text>
+  <text x="200" y="510" text-anchor="middle" fill="#e9bb73" font-family="Inter, sans-serif" font-size="13">Mythic · STR</text>
+</svg>
