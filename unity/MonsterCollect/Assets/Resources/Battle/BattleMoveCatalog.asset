@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc27372087ce5d249b0d3a90958d692c, type: 3}
+  m_Name: BattleMoveCatalog
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterCollect.Battle.BattleMoveCatalog
+  Moves:
+  - {fileID: 11400000, guid: dc4f3582c39a9ec44808eab84ba42b1b, type: 2}
+  - {fileID: 11400000, guid: 35510448e439fb8448c6511dae37f1b3, type: 2}
+  - {fileID: 11400000, guid: dfadb8b863a230d489abc75af6d5dac2, type: 2}
+  - {fileID: 11400000, guid: 475e37eb6cee6874c83e9cd57baa9c76, type: 2}
+  - {fileID: 11400000, guid: 8207bf48f0bec89418402d338014c7a3, type: 2}
+  - {fileID: 11400000, guid: 9c1db44437d25594ca3ad31bb40f35f1, type: 2}
+  - {fileID: 11400000, guid: 41e41fd597452fa4e90a5e1fc4809d66, type: 2}
+  - {fileID: 11400000, guid: e41940c1fb72c1d42a4aa0c05cf426f7, type: 2}
+  - {fileID: 11400000, guid: 5c7fec8a436ad5f469ba41c3dde1fff5, type: 2}
+  - {fileID: 11400000, guid: c70577a99a072f44bb52acd724cbe22a, type: 2}
+  - {fileID: 11400000, guid: f7995144b4b6bfd4aa19accb982c6c00, type: 2}
+  - {fileID: 11400000, guid: 7abc69ae772ae474991aa54bd0e511d9, type: 2}
+  - {fileID: 11400000, guid: 74de080a2077fc04d98dd8779db2c880, type: 2}
+  - {fileID: 11400000, guid: aeef09377c9b9f844b501d8bedff591d, type: 2}

@@ -1,0 +1,33 @@
+{
+  "version": "1",
+  "events": [
+    {
+      "eventId": "community_celebration_2026",
+      "displayName": "Community Celebration",
+      "description": "All-year community event loaded from JSON. Edit Resources/Config/events.json to add seasons without rebuilding.",
+      "priority": 5,
+      "bannerColorHex": "#3366CC",
+      "scheduleKind": 1,
+      "localStartDate": "2026-01-01",
+      "localEndDate": "2026-12-31",
+      "modifiers": [
+        { "modifierType": 0, "value": 1.1 },
+        { "modifierType": 2, "value": 2 }
+      ],
+      "qrRules": [
+        { "ruleId": "triumph_url", "matchKind": "url_host", "matchValue": "triumph.games", "bonusMultiplier": 1.2, "variantTag": "Community" }
+      ],
+      "eventQuests": [
+        {
+          "questId": "community_scan_3",
+          "displayName": "Community Scanner",
+          "description": "Scan 3 codes during the celebration.",
+          "objectiveType": 1,
+          "targetCount": 3,
+          "coinReward": 25,
+          "trainerXpReward": 15
+        }
+      ]
+    }
+  ]
+}

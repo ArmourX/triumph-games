@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.triumph.monstercollect">
+
+    <!-- Required for WebCamTexture / QR scanning -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+
+    <application android:usesCleartextTraffic="false">
+        <!-- Unity merges this with the generated manifest; landscape is enforced via Player Settings. -->
+    </application>
+</manifest>

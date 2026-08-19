@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa3e2cf62f0ef8347af48b90a935dacf, type: 3}
+  m_Name: RanchItemCatalog
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterCollect.Ranch.RanchItemCatalog
+  Items:
+  - {fileID: 11400000, guid: 67187b3a24ebf5b49afcad55d0b6bf53, type: 2}
+  - {fileID: 11400000, guid: 716d72c8aa5fe2e428c326c81ce09468, type: 2}
+  - {fileID: 11400000, guid: b73d9d212deb06d48a84eb490f4b3916, type: 2}
+  - {fileID: 11400000, guid: c969cebae9bc0194cb699e7e741eb48b, type: 2}
+  - {fileID: 11400000, guid: cff0023c864567e44a4e24bc7ca660ab, type: 2}
+  - {fileID: 11400000, guid: aaf9fd80e643b54408283edf65f69bf8, type: 2}
+  - {fileID: 11400000, guid: 420c12691b183df4cb5f597f46d166c8, type: 2}
+  - {fileID: 11400000, guid: 71998b8f449166149ab24250135b1b75, type: 2}
+  - {fileID: 11400000, guid: 2d92e799a354aa742baa5496a3d3c2b4, type: 2}
+  - {fileID: 11400000, guid: 24b5392b13445594cb0f47d925761642, type: 2}
+  - {fileID: 11400000, guid: 3028d0dff1d9a7b40b53debe78348892, type: 2}
+  - {fileID: 11400000, guid: 83f4f38ae09bdf64ca1c333385389d1c, type: 2}
+  - {fileID: 11400000, guid: 283325a7155b3bb47895a36752805503, type: 2}

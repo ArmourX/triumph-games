@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 545d91b9713ffaa4b8ec491248612cfe, type: 3}
+  m_Name: war_cry
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterCollect.Battle.BattleMoveDefinition
+  MoveId: war_cry
+  DisplayName: War Cry
+  Element: 4
+  Category: 2
+  Power: 0
+  Accuracy: 95
+  AppliesStatus: 3
+  HasStatusEffect: 0
+  StatusDuration: 3
+  AppliesStatChange: 1
+  StatChange: 3
+  IsDefendMove: 0
+  OneUsePerBattle: 0
+  DamageMultiplier: 1

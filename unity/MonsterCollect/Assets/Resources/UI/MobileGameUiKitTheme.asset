@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8e4a2b1c3d54e6f9a0b1c2d3e4f5678, type: 3}
+  m_Name: MobileGameUiKitTheme
+  sceneBackground: {fileID: -5900999151167789326, guid: 39e0242329775814891ef673e48ae932, type: 3}
+  panelModal: {fileID: -4088049390063211046, guid: 39e0242329775814891ef673e48ae932, type: 3}
+  navBarBackground: {fileID: -1322464374932762594, guid: 7f9865cf6ac20f7468e13d5a5daff8ef, type: 3}
+  buttonPrimary: {fileID: -6429852113876469156, guid: 39e0242329775814891ef673e48ae932, type: 3}
+  buttonSecondary: {fileID: -5682083783033012612, guid: 39e0242329775814891ef673e48ae932, type: 3}
+  buttonTab: {fileID: 3288187814335824193, guid: 7f9865cf6ac20f7468e13d5a5daff8ef, type: 3}
+  buttonTabActive: {fileID: 141353405688747159, guid: 7f9865cf6ac20f7468e13d5a5daff8ef, type: 3}
+  headerBar: {fileID: -8760834427580073799, guid: 39e0242329775814891ef673e48ae932, type: 3}
+  titleFont: {fileID: 12800000, guid: 9c352b97d4c9f334c920e85edcd05523, type: 3}
+  bodyFont: {fileID: 12800000, guid: 2959ff48a89e689488ddeecfde03adea, type: 3}
+  labelFont: {fileID: 12800000, guid: ca88d0c4c11f8aa4a8ef35ba486b2aa8, type: 3}
+  titleColor: {r: 1, g: 0.98, b: 0.92, a: 1}
+  bodyColor: {r: 0.95, g: 0.97, b: 1, a: 1}
+  mutedColor: {r: 0.78, g: 0.84, b: 0.92, a: 1}
+  buttonLabelColor: {r: 1, g: 1, b: 1, a: 1}

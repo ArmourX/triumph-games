@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "battleRewardMultiplier": 1.0,
+  "scanEnergyCostMultiplier": 1.0,
+  "battleEnergyCostMultiplier": 1.0,
+  "maxScansPerDay": 15,
+  "rarityWeights": [
+    { "rarity": "Legendary", "cumulativePercent": 1 },
+    { "rarity": "Epic", "cumulativePercent": 5 },
+    { "rarity": "Rare", "cumulativePercent": 15 },
+    { "rarity": "Uncommon", "cumulativePercent": 40 }
+  ],
+  "activeEvents": []
+}

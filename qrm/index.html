@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0d1a14" />
+  <meta name="description" content="QRM — scan QR codes, raise monsters, battle, and explore in your browser." />
+  <title>QRM — Monster Collect</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">QRM</span>
+        <span class="brand-sub">Monster Collect</span>
+      </div>
+      <div class="hud">
+        <span id="hudCoins">🪙 50</span>
+        <span id="hudRank">Lv 1</span>
+        <span id="hudDex">Dex 0</span>
+      </div>
+    </header>
+
+    <nav class="tabs" aria-label="Main navigation">
+      <button type="button" class="tab active" data-screen="scan">Scan</button>
+      <button type="button" class="tab" data-screen="ranch">Ranch</button>
+      <button type="button" class="tab" data-screen="battle">Battle</button>
+      <button type="button" class="tab" data-screen="adventure">Adventure</button>
+      <button type="button" class="tab" data-screen="circuit">Circuit</button>
+    </nav>
+
+    <main id="screenRoot" class="screen-root"></main>
+
+    <footer class="footer">
+      <p>Browser demo — same deterministic QR monsters as the Unity app. Progress saves locally.</p>
+    </footer>
+  </div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
