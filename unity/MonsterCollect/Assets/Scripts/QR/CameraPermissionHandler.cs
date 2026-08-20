@@ -27,7 +27,7 @@ namespace MonsterCollect.QR
         {
 #if UNITY_ANDROID
             return Permission.HasUserAuthorizedPermission(Permission.Camera);
-#elif UNITY_IOS
+#elif UNITY_IOS || UNITY_WEBGL
             return Application.HasUserAuthorization(UserAuthorization.WebCam);
 #else
             // Editor / desktop: no runtime permission dialog.
@@ -74,7 +74,7 @@ namespace MonsterCollect.QR
                 yield break;
             }
 
-#if UNITY_IOS
+#if UNITY_IOS || UNITY_WEBGL
             yield return Application.RequestUserAuthorization(UserAuthorization.WebCam);
             Complete(Application.HasUserAuthorization(UserAuthorization.WebCam), onComplete);
 #elif UNITY_ANDROID

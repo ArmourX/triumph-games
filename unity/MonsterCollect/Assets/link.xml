@@ -1,0 +1,4 @@
+<linker>
+  <!-- Prevent IL2CPP from stripping ZXing barcode decoding on mobile builds. -->
+  <assembly fullname="zxing" preserve="all" />
+</linker>

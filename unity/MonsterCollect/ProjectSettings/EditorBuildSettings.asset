@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/QRScanScene.unity
-    guid: 1234567890abcdef1234567890abcdef
-  - enabled: 1
     path: Assets/Scenes/RanchScene.unity
     guid: 40e28e57eacb66642b0845d8e8055d57
+  - enabled: 1
+    path: Assets/Scenes/QRScanScene.unity
+    guid: 1234567890abcdef1234567890abcdef
   - enabled: 1
     path: Assets/Scenes/DexScene.unity
     guid: 00000000000000000000000000000000

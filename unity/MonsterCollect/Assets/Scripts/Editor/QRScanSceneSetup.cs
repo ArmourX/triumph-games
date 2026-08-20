@@ -54,7 +54,7 @@ namespace MonsterCollect.Editor
             resultText.fontSize = 36;
             resultText.alignment = TextAnchor.MiddleCenter;
             resultText.color = Color.white;
-            resultText.text = "Tap Scan to start";
+            resultText.text = "Tap Scan to photograph a QR code";
             resultGo.AddComponent<Outline>().effectColor = Color.black;
 
             // Scan button (bottom) — after preview/result so it stays on top for input

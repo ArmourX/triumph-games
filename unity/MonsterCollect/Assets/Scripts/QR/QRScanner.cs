@@ -102,11 +102,45 @@ namespace MonsterCollect.QR
 
         private void Start()
         {
-            // Open the scan scene ready to capture — avoids relying on a button tap through UI layers.
+            if (UsesBrowserPhotoCapture())
+            {
+                SetResultText("Tap Scan to photograph a QR code.");
+                return;
+            }
+
+            if (RequiresUserGestureToOpenCamera())
+            {
+                SetResultText("Tap Scan to open the camera.");
+                return;
+            }
+
             if (!isScanning)
             {
                 StartScanning();
             }
+        }
+
+        private void OnDisable()
+        {
+            StopScanningInternal();
+        }
+
+        private static bool RequiresUserGestureToOpenCamera()
+        {
+#if UNITY_WEBGL
+            return !UsesBrowserPhotoCapture();
+#else
+            return false;
+#endif
+        }
+
+        private static bool UsesBrowserPhotoCapture()
+        {
+#if UNITY_WEBGL && !UNITY_EDITOR
+            return Application.isMobilePlatform;
+#else
+            return false;
+#endif
         }
 
         private void ConfigurePreviewForInput()
@@ -144,7 +178,54 @@ namespace MonsterCollect.QR
                 return;
             }
 
+            if (UsesBrowserPhotoCapture())
+            {
+                BeginBrowserPhotoCapture();
+                return;
+            }
+
             StartCoroutine(StartScanningRoutine());
+        }
+
+        /// <summary>Called from WebGL jslib after the user takes a photo or the browser decodes a QR.</summary>
+        public void OnWebPhotoCaptured(string payloadOrDataUrl)
+        {
+            if (QRImageDecoder.TryDecodeDataUrl(payloadOrDataUrl, out string rawText))
+            {
+                HandleDecodeResult(rawText);
+            }
+            else
+            {
+                SetResultText("Could not read that QR. Try a clearer, closer photo.");
+                GameFeedbackService.Instance?.PlayError();
+            }
+
+            isScanning = false;
+            UpdateScanButtonLabel();
+        }
+
+        /// <summary>Called from WebGL jslib when photo capture fails or is cancelled.</summary>
+        public void OnWebPhotoFailed(string message)
+        {
+            isScanning = false;
+            UpdateScanButtonLabel();
+
+            if (string.IsNullOrWhiteSpace(message) || message.Contains("No photo"))
+            {
+                SetResultText("Tap Scan to photograph a QR code.");
+                return;
+            }
+
+            SetResultText(message);
+            GameFeedbackService.Instance?.PlayError();
+        }
+
+        private void BeginBrowserPhotoCapture()
+        {
+            isScanning = true;
+            UpdateScanButtonLabel();
+            SetResultText("Opening camera…");
+            WebGlQrBridge.OpenPhotoCapture(gameObject.name, nameof(OnWebPhotoCaptured), nameof(OnWebPhotoFailed));
         }
 
         /// <summary>Public API: stop camera and clear preview.</summary>
@@ -159,7 +240,7 @@ namespace MonsterCollect.QR
         {
             StopScanningInternal();
             UpdateScanButtonLabel();
-            SetResultText("Monster captured! Tap Scan to capture another.");
+            SetResultText("Monster captured! Tap Scan to scan another.");
         }
 
         /// <summary>Shows a persistent status line on the scan scene (used for energy/limit errors).</summary>
@@ -171,6 +252,16 @@ namespace MonsterCollect.QR
         /// <summary>Public API: toggle scan on/off (bound to Scan button).</summary>
         public void ToggleScanning()
         {
+            if (UsesBrowserPhotoCapture())
+            {
+                if (!isScanning)
+                {
+                    StartScanning();
+                }
+
+                return;
+            }
+
             if (isScanning)
             {
                 StopScanning();
@@ -188,30 +279,46 @@ namespace MonsterCollect.QR
 
             if (!permissionGranted)
             {
-                SetResultText("Camera permission required.");
+                SetResultText("Camera permission required. Check browser or app settings.");
                 yield break;
             }
+
+            // WebGL/mobile: device list stays empty until permission resolves; give the browser a frame.
+            yield return null;
+            yield return null;
 
             if (!TryStartWebCam())
             {
-                SetResultText("No camera found.");
+                SetResultText(RequiresUserGestureToOpenCamera()
+                    ? "No camera found. Tap Scan again after allowing camera access."
+                    : "No camera found.");
                 yield break;
             }
 
-            const float timeoutSeconds = 3f;
-            float deadline = Time.unscaledTime + timeoutSeconds;
-            while (webCamTexture != null &&
-                   webCamTexture.width <= 16 &&
-                   Time.unscaledTime < deadline)
-            {
-                yield return null;
-            }
+            float timeoutSeconds = GetCameraStartupTimeoutSeconds();
+            bool cameraReady = false;
+            yield return WaitForCameraReady(timeoutSeconds, ready => cameraReady = ready);
 
-            if (webCamTexture == null || webCamTexture.width <= 16)
+            if (!cameraReady)
             {
-                SetResultText("Camera failed to start.");
+                // WebGL browsers often lose the user-gesture chain after the permission dialog.
                 StopScanningInternal();
-                yield break;
+                yield return new WaitForSeconds(0.35f);
+
+                if (!TryStartWebCam())
+                {
+                    SetResultText("Camera failed to start. Tap Scan again.");
+                    yield break;
+                }
+
+                cameraReady = false;
+                yield return WaitForCameraReady(timeoutSeconds, ready => cameraReady = ready);
+                if (!cameraReady)
+                {
+                    SetResultText("Camera failed to start. Tap Scan again.");
+                    StopScanningInternal();
+                    yield break;
+                }
             }
 
             isScanning = true;
@@ -223,18 +330,36 @@ namespace MonsterCollect.QR
 
         private bool TryStartWebCam()
         {
-            WebCamDevice[] devices = WebCamTexture.devices;
-
-            if (devices == null || devices.Length == 0)
+            if (webCamTexture != null)
             {
-                Debug.LogError("[QRScanner] No WebCam devices available.");
-                return false;
+                if (webCamTexture.isPlaying)
+                {
+                    webCamTexture.Stop();
+                }
+
+                Destroy(webCamTexture);
+                webCamTexture = null;
             }
 
-            string deviceName = SelectCameraDevice(devices);
-            int requestWidth = Mathf.Min(Screen.width, MaxCameraWidth);
-            int requestHeight = Mathf.Min(Screen.height, MaxCameraHeight);
-            webCamTexture = new WebCamTexture(deviceName, requestWidth, requestHeight, 24);
+            int requestWidth;
+            int requestHeight;
+            GetRequestedCameraResolution(out requestWidth, out requestHeight);
+            const int requestedFps = 15;
+
+            WebCamDevice[] devices = WebCamTexture.devices;
+            if (devices != null && devices.Length > 0)
+            {
+                string deviceName = SelectCameraDevice(devices);
+                webCamTexture = new WebCamTexture(deviceName, requestWidth, requestHeight, requestedFps);
+                Debug.Log($"[QRScanner] Opening camera device: {deviceName} ({requestWidth}x{requestHeight})");
+            }
+            else
+            {
+                // WebGL often lists zero devices until the default stream is opened.
+                webCamTexture = new WebCamTexture(requestWidth, requestHeight, requestedFps);
+                Debug.Log($"[QRScanner] Opening default camera ({requestWidth}x{requestHeight})");
+            }
+
             webCamTexture.Play();
 
             if (previewImage != null)
@@ -242,8 +367,52 @@ namespace MonsterCollect.QR
                 previewImage.texture = webCamTexture;
             }
 
-            Debug.Log($"[QRScanner] Started WebCamTexture on device: {deviceName}");
-            return true;
+            return webCamTexture.isPlaying;
+        }
+
+        private static void GetRequestedCameraResolution(out int width, out int height)
+        {
+#if UNITY_WEBGL
+            width = 640;
+            height = 480;
+#else
+            width = Mathf.Clamp(Mathf.Min(Screen.width, MaxCameraWidth), 320, MaxCameraWidth);
+            height = Mathf.Clamp(Mathf.Min(Screen.height, MaxCameraHeight), 240, MaxCameraHeight);
+#endif
+        }
+
+        private static float GetCameraStartupTimeoutSeconds()
+        {
+#if UNITY_WEBGL
+            return Application.isMobilePlatform ? 15f : 8f;
+#else
+            return Application.isMobilePlatform ? 8f : 3f;
+#endif
+        }
+
+        private IEnumerator WaitForCameraReady(float timeoutSeconds, Action<bool> onComplete)
+        {
+            float deadline = Time.unscaledTime + timeoutSeconds;
+            while (Time.unscaledTime < deadline)
+            {
+                if (webCamTexture != null &&
+                    webCamTexture.isPlaying &&
+                    webCamTexture.width > 16 &&
+                    webCamTexture.height > 16)
+                {
+                    onComplete?.Invoke(true);
+                    yield break;
+                }
+
+                if (webCamTexture != null && !webCamTexture.isPlaying)
+                {
+                    webCamTexture.Play();
+                }
+
+                yield return null;
+            }
+
+            onComplete?.Invoke(false);
         }
 
         private string SelectCameraDevice(WebCamDevice[] devices)
@@ -625,7 +794,14 @@ namespace MonsterCollect.QR
             Text label = scanButton.GetComponentInChildren<Text>();
             if (label != null)
             {
-                label.text = isScanning ? "Stop" : "Scan";
+                if (UsesBrowserPhotoCapture())
+                {
+                    label.text = isScanning ? "Camera…" : "Scan";
+                }
+                else
+                {
+                    label.text = isScanning ? "Stop" : "Scan";
+                }
             }
         }
 

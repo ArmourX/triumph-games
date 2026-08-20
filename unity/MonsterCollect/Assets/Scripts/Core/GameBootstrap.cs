@@ -29,7 +29,7 @@ namespace MonsterCollect.Core
             AccessibilityService.ApplyTextScale();
             EventBannerPanel.EnsureVisible();
 
-            if (SceneManager.GetActiveScene().name == GameScenes.Scan && OnboardingService.ShouldShowTutorial)
+            if (SceneManager.GetActiveScene().name == GameScenes.Ranch && OnboardingService.ShouldShowTutorial)
             {
                 TutorialPanel.ShowPanel();
             }

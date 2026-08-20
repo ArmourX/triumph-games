@@ -10,8 +10,8 @@ namespace MonsterCollect.Editor
     {
         private static readonly string[] ScenePaths =
         {
-            "Assets/Scenes/QRScanScene.unity",
             "Assets/Scenes/RanchScene.unity",
+            "Assets/Scenes/QRScanScene.unity",
             "Assets/Scenes/DexScene.unity",
             "Assets/Scenes/BattleScene.unity"
         };
