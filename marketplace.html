@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="js/site-theme-init.js"></script>
+  <title>Marketplace | Legends of Elumia</title>
+  <meta name="description" content="Legends of Elumia marketplace mockup with TokenTrove hero and item imagery.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="marketplace.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body class="elumia-marketplace-page">
+  <div id="mp-gate" class="mp-gate">
+    <div class="mp-gate-card">
+      <p class="mp-gate-kicker">Legends of Elumia</p>
+      <h1 class="mp-gate-title">Marketplace preview</h1>
+      <p class="mp-gate-copy">Enter the preview password to access the marketplace mockup.</p>
+      <form id="mp-gate-form" class="mp-gate-form" autocomplete="off">
+        <label class="mp-gate-label" for="mp-gate-password">Password</label>
+        <input
+          id="mp-gate-password"
+          class="mp-gate-input"
+          type="password"
+          name="elumia-marketplace-key"
+          autocomplete="off"
+          autocapitalize="off"
+          autocorrect="off"
+          spellcheck="false"
+          placeholder="Enter password"
+          required
+        >
+        <p id="mp-gate-error" class="mp-gate-error" aria-live="polite"></p>
+        <button type="submit" class="btn btn-primary mp-gate-submit">Unlock</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="mp-app-root" class="mp-app-root">
+  <div class="mp-atmosphere" aria-hidden="true"></div>
+  <div class="mp-neon-haze" aria-hidden="true"></div>
+  <div class="mp-marquee" aria-hidden="true">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+  </div>
+  <div id="mp-particles" class="mp-particles" aria-hidden="true"></div>
+  <div id="mp-cursor-glow" class="mp-cursor-glow" aria-hidden="true"></div>
+  <div id="mp-sparkle-layer" class="mp-sparkle-layer" aria-hidden="true"></div>
+  <div class="mp-app">
+    <aside class="mp-sidebar" aria-label="App navigation">
+      <a href="elumia.html" class="mp-sidebar-brand">
+        <img
+          class="mp-sidebar-logo"
+          src="https://www.triumphgames.io/images/Logo_Elumia_v2-1.avif"
+          alt=""
+          width="40"
+          height="40"
+        >
+        <span class="mp-sidebar-brand-text">
+          <span class="mp-sidebar-brand-title">Legends of Elumia</span>
+          <span class="mp-sidebar-brand-sub">Marketplace</span>
+        </span>
+      </a>
+
+      <nav class="mp-sidebar-nav" aria-label="Primary">
+        <button type="button" class="mp-sidebar-item is-active" data-section="marketplace">
+          <span class="mp-sidebar-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V9.5Z"/></svg>
+          </span>
+          <span>Marketplace</span>
+        </button>
+        <button type="button" class="mp-sidebar-item" data-section="rewards">
+          <span class="mp-sidebar-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7-6.3-4.6L5.7 21l2.3-7-6-4.6h7.6L12 2Z"/></svg>
+          </span>
+          <span>Rewards</span>
+        </button>
+        <button type="button" class="mp-sidebar-item" data-section="community">
+          <span class="mp-sidebar-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M17 20h5v-2a4 4 0 0 0-4-4h-1M9 20H2v-2a4 4 0 0 1 4-4h1m8-4a4 4 0 1 0-8 0 4 4 0 0 0 8 0Zm6 4a3 3 0 1 0-6 0 3 3 0 0 0 6 0ZM9 7a3 3 0 1 0-6 0 3 3 0 0 0 6 0Z"/></svg>
+          </span>
+          <span>Community</span>
+        </button>
+        <button type="button" class="mp-sidebar-item" data-section="profile">
+          <span class="mp-sidebar-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          </span>
+          <span>Profile</span>
+        </button>
+      </nav>
+
+      <p class="mp-sidebar-note">Preview mockup · TokenTrove imagery</p>
+    </aside>
+
+    <div class="mp-main">
+      <div class="mp-hero-banner" aria-hidden="true">
+        <img src="https://www.triumphgames.io/images/Card_Image_Elumia.png" alt="">
+        <div class="mp-hero-banner-overlay"></div>
+      </div>
+
+      <header class="mp-topbar">
+        <div>
+          <p class="mp-topbar-kicker" id="mp-view-kicker">Marketplace</p>
+          <h1 class="mp-topbar-title" id="mp-view-title">Shop hero bundles</h1>
+        </div>
+        <div class="mp-topbar-actions">
+          <button id="mp-connect-wallet" type="button" class="btn btn-outline">Connect wallet</button>
+          <a href="elumia.html" class="btn btn-ghost">Wiki</a>
+        </div>
+      </header>
+
+      <!-- Marketplace section -->
+      <div id="mp-section-marketplace" class="mp-section-page">
+        <nav class="mp-subnav" aria-label="Marketplace views">
+          <button type="button" class="mp-subnav-link is-active" data-view="home">Home</button>
+          <button type="button" class="mp-subnav-link" data-view="collections">Collections</button>
+          <button type="button" class="mp-subnav-link" data-view="activity">Activity</button>
+          <button type="button" class="mp-subnav-link" data-view="mine">My listings</button>
+        </nav>
+
+        <div id="mp-view-home" class="mp-view">
+          <section class="mp-jackpot" id="mp-jackpot">
+            <div class="mp-jackpot-lights" aria-hidden="true"></div>
+            <p class="mp-jackpot-kicker">Live market volume</p>
+            <div class="mp-jackpot-row">
+              <span class="mp-jackpot-currency">$</span>
+              <strong id="mp-jackpot-value" class="mp-jackpot-value">454.6k</strong>
+            </div>
+            <p class="mp-jackpot-sub">Listings are live · timers are running · rewards spin is open</p>
+          </section>
+
+          <div class="mp-live-stats" id="mp-live-stats">
+            <div class="mp-stat mp-stat--pulse">
+              <span class="mp-stat-label">Floor price</span>
+              <span class="mp-stat-value" data-stat="floor">—</span>
+            </div>
+            <div class="mp-stat">
+              <span class="mp-stat-label">24h volume</span>
+              <span class="mp-stat-value" data-stat="volume">—</span>
+            </div>
+            <div class="mp-stat">
+              <span class="mp-stat-label">Live listings</span>
+              <span class="mp-stat-value" data-stat="listings">—</span>
+            </div>
+            <div class="mp-stat mp-stat--deal">
+              <span class="mp-stat-label">Top deal score</span>
+              <span class="mp-stat-value" data-stat="deals">—</span>
+            </div>
+          </div>
+
+          <div class="mp-ticker" aria-live="off">
+            <span class="mp-ticker-live"><span class="mp-sell-timer-dot"></span> LIVE</span>
+            <div class="mp-ticker-track" id="mp-ticker-track"></div>
+          </div>
+
+          <section class="mp-play-hub" id="mp-play-hub">
+            <div class="mp-play-hub-head">
+              <div>
+                <p class="mp-sell-kicker">Daily board</p>
+                <h2>Daily quests</h2>
+                <p>Inspect bundles, sweep the floor, and claim rewards before the midnight reset.</p>
+              </div>
+              <div class="mp-play-energy">
+                <span class="mp-play-energy-label">Daily reset</span>
+                <strong id="mp-daily-reset" class="mp-flash-timer">--:--:--</strong>
+                <div class="mp-energy-bar" aria-hidden="true">
+                  <span id="mp-energy-fill" class="mp-energy-fill"></span>
+                </div>
+                <span id="mp-energy-label" class="mp-energy-copy">0 / 4 quests</span>
+              </div>
+            </div>
+            <div id="mp-quest-board" class="mp-quest-board"></div>
+          </section>
+
+          <section class="mp-flash-deal" id="mp-flash-deal">
+            <div class="mp-flash-deal-copy">
+              <p class="mp-sell-kicker">Flash listing</p>
+              <h2 id="mp-flash-deal-title">Hot bundle dropping</h2>
+              <p id="mp-flash-deal-meta">A timed listing is about to expire — inspect it before it vanishes.</p>
+              <p class="mp-promo-timer">Expires in <strong id="mp-flash-deal-timer" class="mp-flash-timer">--:--</strong></p>
+              <button type="button" id="mp-flash-deal-btn" class="btn btn-primary">Inspect listing</button>
+            </div>
+            <div class="mp-flash-deal-art" id="mp-flash-deal-art"></div>
+          </section>
+
+          <div class="mp-mock-banner">
+            <strong>Mockup preview</strong> — fake bundle listings using real TokenTrove hero &amp; item images. Trades happen on
+            <a href="https://tokentrove.com/collection/LegendsofElumia" target="_blank" rel="noopener">TokenTrove</a>.
+          </div>
+
+          <div id="mp-loading" class="mp-loading"><span class="mp-loading-gem"></span> Loading mock listings…</div>
+          <div id="mp-error" class="mp-error" hidden></div>
+
+          <section class="mp-promo mp-promo--floor">
+            <div class="mp-promo-copy">
+              <h2>Floor bundle bounties</h2>
+              <p>Cheapest hero bundles in the catalog — sweep them before the timer resets.</p>
+              <p class="mp-promo-timer">Bounty pool refreshes in <strong id="mp-bounty-timer">--:--:--</strong></p>
+              <button type="button" id="mp-sweep-btn" class="btn btn-primary mp-sweep-btn">Sweep floor bundles</button>
+            </div>
+            <div class="mp-rail-wrap">
+              <button type="button" class="mp-rail-btn mp-rail-btn--prev" aria-label="Scroll left">‹</button>
+              <div id="mp-rail-floor" class="mp-rail" tabindex="0"></div>
+              <button type="button" class="mp-rail-btn mp-rail-btn--next" aria-label="Scroll right">›</button>
+            </div>
+          </section>
+
+          <section class="mp-section">
+            <div class="mp-section-head">
+              <div>
+                <h2>Best deals</h2>
+                <p>Most attached assets per dollar in this mock set.</p>
+              </div>
+            </div>
+            <div class="mp-rail-wrap">
+              <button type="button" class="mp-rail-btn mp-rail-btn--prev" aria-label="Scroll left">‹</button>
+              <div id="mp-rail-deals" class="mp-rail" tabindex="0"></div>
+              <button type="button" class="mp-rail-btn mp-rail-btn--next" aria-label="Scroll right">›</button>
+            </div>
+          </section>
+
+          <section class="mp-section mp-section--personal">
+            <div class="mp-section-head">
+              <div>
+                <h2>Just for you</h2>
+                <p id="mp-personal-copy">Connect your wallet to see personalized picks.</p>
+              </div>
+              <button id="mp-personal-login" type="button" class="btn btn-outline">Connect wallet</button>
+            </div>
+            <div class="mp-rail-wrap">
+              <button type="button" class="mp-rail-btn mp-rail-btn--prev" aria-label="Scroll left">‹</button>
+              <div id="mp-rail-personal" class="mp-rail mp-rail--personal"></div>
+              <button type="button" class="mp-rail-btn mp-rail-btn--next" aria-label="Scroll right">›</button>
+            </div>
+          </section>
+
+          <section class="mp-section">
+            <div class="mp-section-head">
+              <div>
+                <h2>Recent listings</h2>
+                <p>Latest mock hero bundles.</p>
+              </div>
+            </div>
+            <div class="mp-rail-wrap">
+              <button type="button" class="mp-rail-btn mp-rail-btn--prev" aria-label="Scroll left">‹</button>
+              <div id="mp-rail-recent" class="mp-rail" tabindex="0"></div>
+              <button type="button" class="mp-rail-btn mp-rail-btn--next" aria-label="Scroll right">›</button>
+            </div>
+          </section>
+
+          <section class="mp-section">
+            <div class="mp-section-head">
+              <div>
+                <h2>Top sales</h2>
+                <p>Highest mock sales from the last 30 days.</p>
+              </div>
+            </div>
+            <div id="mp-top-sales" class="mp-top-sales"></div>
+          </section>
+        </div>
+
+        <div id="mp-view-collections" class="mp-view" hidden>
+          <div class="mp-collection-grid" id="mp-collection-grid"></div>
+          <section class="mp-section" style="margin-top: 1.5rem;">
+            <div class="mp-section-head">
+              <div>
+                <h2 id="mp-collection-title">Browse collection</h2>
+                <p id="mp-collection-desc">Heroes, items, and companion pets.</p>
+              </div>
+              <div class="mp-collection-filters">
+                <input id="mp-search" class="mp-input" type="search" placeholder="Search hero, class, or #id">
+                <select id="mp-class-filter" class="mp-input" aria-label="Filter by class">
+                  <option value="all">All classes</option>
+                  <option value="champion">Champion</option>
+                  <option value="battlemage">Battlemage</option>
+                  <option value="assassin">Assassin</option>
+                  <option value="cleric">Cleric</option>
+                </select>
+                <select id="mp-sort-filter" class="mp-input" aria-label="Sort listings">
+                  <option value="newest">Newest</option>
+                  <option value="price-asc">Price: low to high</option>
+                  <option value="price-desc">Price: high to low</option>
+                </select>
+              </div>
+            </div>
+            <div id="mp-browse-grid" class="mp-browse-grid"></div>
+          </section>
+        </div>
+
+        <div id="mp-view-activity" class="mp-view" hidden>
+          <div id="mp-activity-feed" class="mp-activity-feed"></div>
+        </div>
+
+        <div id="mp-view-mine" class="mp-view" hidden>
+          <section class="mp-sell-wizard mp-panel">
+            <div class="mp-sell-aurora" aria-hidden="true"></div>
+            <div class="mp-sell-scanline" aria-hidden="true"></div>
+
+            <div class="mp-sell-timers">
+              <div class="mp-sell-timer mp-sell-timer--live">
+                <span class="mp-sell-timer-dot"></span>
+                <span>LIVE MARKET</span>
+              </div>
+              <div class="mp-sell-timer mp-sell-timer--window">
+                <span class="mp-sell-timer-label">Listing window closes</span>
+                <strong id="mp-sell-listing-timer" class="mp-flash-timer">--:--</strong>
+              </div>
+              <div id="mp-sell-bind-timer-wrap" class="mp-sell-timer mp-sell-timer--bind" hidden>
+                <span class="mp-sell-timer-label">Bind lock expires</span>
+                <strong id="mp-sell-bind-timer" class="mp-flash-timer">--:--</strong>
+              </div>
+              <div class="mp-sell-timer mp-sell-timer--score">
+                <span class="mp-sell-timer-label">Bundle power</span>
+                <strong id="mp-sell-bundle-score" class="mp-flash-timer mp-flash-timer--score">—</strong>
+              </div>
+            </div>
+
+            <div class="mp-sell-wizard-head">
+              <div>
+                <p class="mp-sell-kicker">List a bundle</p>
+                <h2>Bind hero &amp; inventory, then sell</h2>
+                <p class="mp-sell-intro">
+                  Choose <strong>one hero</strong> from your wallet, pick the NFT items that move with it,
+                  bind them together, then publish the bundle listing.
+                </p>
+              </div>
+              <div class="mp-sell-wallet-bar">
+                <div class="mp-sell-wallet-status">
+                  <span class="mp-sell-wallet-label">Wallet</span>
+                  <strong id="mp-sell-wallet-label">Not loaded</strong>
+                </div>
+                <div class="mp-sell-wallet-actions">
+                  <button type="button" id="mp-sell-use-profile" class="btn btn-outline btn-sm">Use profile wallet</button>
+                  <button type="button" id="mp-sell-test-wallet" class="btn btn-ghost btn-sm">Test wallet</button>
+                </div>
+              </div>
+            </div>
+
+            <ol class="mp-sell-steps" aria-label="Sell steps">
+              <li class="mp-sell-step-tab is-active" data-sell-step="hero"><span class="mp-step-glow"></span>1. Pick hero</li>
+              <li class="mp-sell-step-tab" data-sell-step="items"><span class="mp-step-glow"></span>2. Select items</li>
+              <li class="mp-sell-step-tab" data-sell-step="list"><span class="mp-step-glow"></span>3. Bind &amp; list</li>
+            </ol>
+
+            <div id="mp-sell-bound-banner" class="mp-sell-bound-banner" hidden>
+              <span class="mp-sell-bound-icon">⛓</span>
+              <div>
+                <strong id="mp-sell-bound-title">Hero bound</strong>
+                <p id="mp-sell-bound-copy">Inventory locked to this hero for listing.</p>
+              </div>
+              <button type="button" id="mp-sell-unbind" class="btn btn-ghost btn-sm">Unbind</button>
+            </div>
+
+            <div id="mp-sell-step-hero" class="mp-sell-step-panel">
+              <h3 class="mp-sell-step-title">Choose your hero</h3>
+              <p class="mp-sell-hint">Only one hero can be bound per wallet. This hero anchors your account inventory.</p>
+              <div id="mp-sell-heroes" class="mp-sell-hero-grid">
+                <p class="mp-empty">Load a wallet to see your heroes.</p>
+              </div>
+              <div class="mp-sell-step-actions">
+                <button type="button" id="mp-sell-next-items" class="btn btn-primary" disabled>Continue to items →</button>
+              </div>
+            </div>
+
+            <div id="mp-sell-step-items" class="mp-sell-step-panel" hidden>
+              <h3 class="mp-sell-step-title">Select inventory to bind</h3>
+              <p class="mp-sell-hint">
+                Pick every NFT that should transfer with
+                <strong id="mp-sell-selected-hero-name">your hero</strong>.
+                Unselected items stay in your wallet.
+              </p>
+              <div class="mp-sell-item-toolbar">
+                <button type="button" id="mp-sell-select-all" class="btn btn-ghost btn-sm">Select all</button>
+                <button type="button" id="mp-sell-clear-items" class="btn btn-ghost btn-sm">Clear</button>
+                <span id="mp-sell-item-count" class="mp-sell-item-count">0 selected</span>
+              </div>
+              <div id="mp-sell-items" class="mp-sell-item-grid">
+                <p class="mp-empty">No items in this wallet.</p>
+              </div>
+              <div class="mp-sell-step-actions">
+                <button type="button" id="mp-sell-back-hero" class="btn btn-ghost">← Back</button>
+                <button type="button" id="mp-sell-bind-btn" class="btn btn-primary mp-sell-bind-btn" disabled>
+                  <span class="mp-btn-shimmer"></span>
+                  Bind hero &amp; inventory
+                </button>
+              </div>
+            </div>
+
+            <div id="mp-sell-step-list" class="mp-sell-step-panel" hidden>
+              <h3 class="mp-sell-step-title">Review &amp; publish</h3>
+              <div id="mp-sell-bind-preview" class="mp-sell-bind-preview"></div>
+              <form id="mp-list-form" class="mp-list-form mp-sell-list-form">
+                <label>
+                  Bundle price (USD)
+                  <input id="mp-list-price" type="number" min="0.1" step="0.1" placeholder="25" required>
+                </label>
+                <button type="submit" class="btn btn-primary mp-sell-publish-btn">
+                  <span class="mp-btn-shimmer"></span>
+                  Publish bundle listing
+                </button>
+              </form>
+              <div class="mp-sell-step-actions">
+                <button type="button" id="mp-sell-back-items" class="btn btn-ghost">← Edit items</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="mp-panel" style="margin-top:1rem;">
+            <h2>Your published listings</h2>
+            <p>Bundles you have listed from this browser.</p>
+          </section>
+          <div id="mp-mine-grid" class="mp-browse-grid"></div>
+        </div>
+      </div>
+
+      <!-- Rewards section -->
+      <div id="mp-section-rewards" class="mp-section-page" hidden>
+        <div class="mp-placeholder-page">
+          <h2>Rewards</h2>
+          <p>Claim daily bounty, spin the well, and keep your streak going before the reset.</p>
+          <div class="mp-rewards-timers">
+            <div class="mp-sell-timer mp-sell-timer--live">
+              <span class="mp-sell-timer-dot"></span>
+              <span>LIVE BOUNTIES</span>
+            </div>
+            <div class="mp-sell-timer mp-bounty-balance-pill">
+              <span class="mp-sell-timer-label">Bounty balance</span>
+              <strong id="mp-bounty-balance">0</strong>
+            </div>
+            <div class="mp-sell-timer">
+              <span class="mp-sell-timer-label">Daily reset</span>
+              <strong id="mp-rewards-reset" class="mp-flash-timer">--:--:--</strong>
+            </div>
+            <div class="mp-sell-timer">
+              <span class="mp-sell-timer-label">Streak</span>
+              <strong id="mp-rewards-streak">0 days</strong>
+            </div>
+          </div>
+          <div class="mp-rewards-grid">
+            <article class="mp-reward-card" data-quest="login" tabindex="0">
+              <span class="mp-reward-icon">⚡</span>
+              <span class="mp-reward-value">250</span>
+              <span class="mp-reward-label">Daily login streak</span>
+              <span class="mp-reward-cta">Tap to claim</span>
+            </article>
+            <article class="mp-reward-card" data-quest="sweep" tabindex="0">
+              <span class="mp-reward-icon">🏆</span>
+              <span class="mp-reward-value">500</span>
+              <span class="mp-reward-label">Floor sweep bonus</span>
+              <span class="mp-reward-cta">Sweep first, then claim</span>
+            </article>
+            <article class="mp-reward-card" data-quest="vote" tabindex="0">
+              <span class="mp-reward-icon">✦</span>
+              <span class="mp-reward-value">120</span>
+              <span class="mp-reward-label">Community vote</span>
+              <span class="mp-reward-cta">Vote in Community</span>
+            </article>
+            <article class="mp-reward-card" data-quest="inspect" tabindex="0">
+              <span class="mp-reward-icon">👁</span>
+              <span class="mp-reward-value">80</span>
+              <span class="mp-reward-label">Inspect 3 bundles</span>
+              <span class="mp-reward-cta">Open listings to progress</span>
+            </article>
+          </div>
+          <div class="mp-mana-well">
+            <div class="mp-mana-well-copy">
+              <p class="mp-sell-kicker">Mana well</p>
+              <h3>Spin the bounty wheel</h3>
+              <p>Spend bounty points from daily quests. Each spin costs <strong>100 bounty</strong>.</p>
+              <p class="mp-mana-well-note">20 mock prizes — store credit, gear shards, bonus bounty, and neon cosmetics.</p>
+            </div>
+            <div class="mp-wheel-stage">
+              <div class="mp-wheel-pointer" aria-hidden="true"></div>
+              <div class="mp-wheel-hub" aria-hidden="true"></div>
+              <div class="mp-wheel-disc" id="mp-mana-wheel" role="img" aria-label="Bounty prize wheel with 20 segments">
+                <div class="mp-wheel-face" id="mp-wheel-face"></div>
+                <div class="mp-wheel-labels" id="mp-wheel-labels"></div>
+              </div>
+              <button type="button" id="mp-mana-spin" class="btn btn-primary mp-wheel-spin-btn">Spin · 100 bounty</button>
+            </div>
+            <p id="mp-mana-spin-result" class="mp-mana-spin-result" aria-live="polite"></p>
+          </div>
+          <p class="mp-placeholder-note">Rewards are mock bounty for this marketplace preview.</p>
+        </div>
+      </div>
+
+      <!-- Community section -->
+      <div id="mp-section-community" class="mp-section-page" hidden>
+        <div class="mp-community-page">
+          <div class="mp-community-head">
+            <div>
+              <p class="mp-sell-kicker">Guild hall</p>
+              <h2>Community votes</h2>
+              <p>Cast weighted ballots with your Elumia NFTs. Genesis heroes count for 30 points, Epoch NFTs for 10.</p>
+            </div>
+            <button type="button" id="mp-admin-toggle" class="btn btn-ghost btn-sm">Admin</button>
+          </div>
+
+          <section class="mp-vote-weight" id="mp-vote-weight">
+            <div class="mp-vote-weight-main">
+              <span class="mp-vote-weight-label">Your vote weight</span>
+              <strong id="mp-vote-power">0</strong>
+              <span class="mp-vote-weight-unit">points</span>
+            </div>
+            <div class="mp-vote-weight-breakdown">
+              <div class="mp-vote-chip mp-vote-chip--genesis">
+                <span>Genesis</span>
+                <strong id="mp-vote-genesis-count">0</strong>
+                <em>× 30</em>
+              </div>
+              <div class="mp-vote-chip mp-vote-chip--epoch">
+                <span>Epoch</span>
+                <strong id="mp-vote-epoch-count">0</strong>
+                <em>× 10</em>
+              </div>
+            </div>
+            <div class="mp-vote-weight-actions">
+              <button type="button" id="mp-vote-load-test" class="btn btn-outline btn-sm">Load test wallet</button>
+              <button type="button" id="mp-vote-load-profile" class="btn btn-ghost btn-sm">Use profile wallet</button>
+              <span id="mp-vote-wallet-label" class="mp-vote-wallet-label">No wallet loaded</span>
+            </div>
+          </section>
+
+          <section id="mp-admin-panel" class="mp-admin-panel" hidden>
+            <div class="mp-admin-gate" id="mp-admin-gate">
+              <h3>Admin access</h3>
+              <p>Enter the staff password to create community votes.</p>
+              <form id="mp-admin-gate-form" class="mp-admin-gate-form">
+                <input id="mp-admin-password" type="password" class="mp-input" placeholder="Password" autocomplete="off">
+                <button type="submit" class="btn btn-primary">Unlock</button>
+              </form>
+              <p id="mp-admin-gate-error" class="mp-admin-error" aria-live="polite"></p>
+            </div>
+            <form id="mp-admin-create" class="mp-admin-create" hidden>
+              <h3>Create a vote</h3>
+              <label>
+                Vote topic
+                <input id="mp-vote-topic" class="mp-input" type="text" placeholder="Should we raise the floor bounty?" required>
+              </label>
+              <label>
+                Image URL
+                <input id="mp-vote-image-url" class="mp-input" type="url" placeholder="https://…">
+              </label>
+              <label class="mp-admin-file">
+                Or upload image
+                <input id="mp-vote-image-file" type="file" accept="image/*">
+              </label>
+              <div id="mp-vote-image-preview" class="mp-vote-image-preview" hidden></div>
+              <div class="mp-admin-outcomes">
+                <span class="mp-admin-outcomes-label">Outcomes</span>
+                <div id="mp-vote-outcomes" class="mp-vote-outcomes">
+                  <input class="mp-input mp-outcome-input" type="text" value="Yes" required>
+                  <input class="mp-input mp-outcome-input" type="text" value="No" required>
+                </div>
+                <button type="button" id="mp-vote-add-outcome" class="btn btn-ghost btn-sm">+ Add outcome</button>
+              </div>
+              <div class="mp-admin-create-actions">
+                <button type="submit" class="btn btn-primary">Publish vote</button>
+                <button type="button" id="mp-admin-lock" class="btn btn-ghost">Lock admin</button>
+              </div>
+            </form>
+          </section>
+
+          <div id="mp-vote-list" class="mp-vote-list">
+            <p class="mp-empty">No votes yet. Admin can create the first topic.</p>
+          </div>
+
+          <section class="mp-community-guilds">
+            <h3>Guilds</h3>
+            <ul class="mp-community-list">
+              <li data-guild="traders"><strong>Elumia traders</strong> — 1,240 members · discuss floor prices</li>
+              <li data-guild="champion"><strong>Champion mains</strong> — 890 members · share hero builds</li>
+              <li data-guild="pets"><strong>Pet collectors</strong> — 412 members · companion showcase</li>
+            </ul>
+            <a class="btn btn-outline" href="https://tokentrove.com/collection/LegendsofElumia" target="_blank" rel="noopener">Visit TokenTrove community</a>
+          </section>
+        </div>
+      </div>
+
+      <!-- Profile section -->
+      <div id="mp-section-profile" class="mp-section-page" hidden>
+        <div id="mp-profile-gate" class="mp-profile-gate">
+          <div class="mp-profile-gate-inner">
+            <p class="mp-profile-gate-kicker">Adventurer login</p>
+            <h2 class="mp-profile-gate-title">Connect to view your hero &amp; inventory</h2>
+            <p class="mp-profile-gate-copy">Sign in with your wallet to load Heroes of Elumia and Items of Elumia from Immutable zkEVM.</p>
+
+            <div class="mp-profile-preview-row">
+              <div class="mp-profile-preview-card">
+                <div class="mp-profile-preview-avatar">
+                  <img id="mp-profile-preview-img" src="https://elumia.triumphcdn.com/mainnet-beta/characters/602.png" alt="">
+                </div>
+                <div class="mp-profile-preview-info">
+                  <p class="mp-profile-preview-label">Example adventurer</p>
+                  <h3 id="mp-profile-preview-name">Liluth Shalynn</h3>
+                  <p id="mp-profile-preview-meta">Battlemage · Hero #2275 · 3 items</p>
+                </div>
+              </div>
+              <button type="button" id="mp-profile-test" class="btn btn-outline mp-profile-test-btn">Test</button>
+            </div>
+
+            <div class="mp-profile-gate-actions">
+              <button type="button" id="mp-profile-connect-gate" class="btn btn-primary">Connect wallet</button>
+              <a class="btn btn-ghost" href="elumia-inventory.html" target="_blank" rel="noopener">Open full page</a>
+            </div>
+          </div>
+        </div>
+
+        <div id="mp-profile-app" class="mp-profile-app" hidden>
+          <div class="mp-profile-app-bar">
+            <button type="button" id="mp-profile-back" class="btn btn-ghost">← Back to login</button>
+          </div>
+          <iframe
+            id="mp-profile-frame"
+            class="mp-profile-frame"
+            title="Hero &amp; Inventory"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="mp-profile-connect-modal" class="mp-modal mp-profile-modal" hidden aria-hidden="true">
+    <div class="mp-modal-backdrop" data-close-profile-modal></div>
+    <div class="mp-modal-card" role="dialog" aria-modal="true" aria-labelledby="mp-profile-modal-title">
+      <button type="button" class="mp-modal-close" data-close-profile-modal aria-label="Close">×</button>
+      <h2 id="mp-profile-modal-title">Connect wallet</h2>
+      <p class="mp-profile-modal-copy">Paste a wallet address or connect MetaMask on Immutable zkEVM.</p>
+      <label class="mp-list-form-label" for="mp-profile-address">Wallet address</label>
+      <input id="mp-profile-address" class="mp-input" type="text" placeholder="0x…" autocomplete="off" spellcheck="false">
+      <div class="mp-profile-modal-actions">
+        <button type="button" id="mp-profile-load-address" class="btn btn-primary">Load profile</button>
+        <button type="button" id="mp-profile-metamask" class="btn btn-outline">MetaMask</button>
+      </div>
+      <p id="mp-profile-modal-status" class="mp-profile-modal-status" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <div id="mp-modal" class="mp-modal" hidden aria-hidden="true">
+    <div class="mp-modal-backdrop" data-close-modal></div>
+    <div class="mp-modal-card" role="dialog" aria-modal="true" aria-labelledby="mp-modal-title">
+      <button type="button" class="mp-modal-close" data-close-modal aria-label="Close">×</button>
+      <h2 id="mp-modal-title">Bundle details</h2>
+      <div id="mp-modal-body"></div>
+    </div>
+  </div>
+
+  <div id="mp-toast" class="mp-toast" aria-live="polite"></div>
+  </div>
+
+  <script src="js/marketplace-gate.js"></script>
+</body>
+</html>

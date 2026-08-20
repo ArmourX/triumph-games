@@ -177,6 +177,7 @@
 
 .tg-guide-status-badge--pending { background: rgba(233, 187, 115, 0.15); color: var(--hub-accent); }
 .tg-guide-status-badge--published { background: rgba(96, 180, 120, 0.15); color: #7ecf96; }
+.tg-guide-status-badge--mod { background: rgba(96, 160, 220, 0.15); color: #7eb8e0; }
 .tg-guide-status-badge--rejected { background: rgba(224, 112, 112, 0.15); color: #e07070; }
 
 .tg-guide-view-header {
@@ -272,4 +273,27 @@
   background: var(--hub-surface);
   border: 1px solid var(--hub-border);
   border-radius: 8px;
+}
+
+@media (max-width: 640px) {
+  .tg-guides-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tg-guides-toolbar .btn { width: 100%; }
+
+  .tg-guide-section-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .tg-guide-editor-actions {
+    flex-direction: column;
+  }
+
+  .tg-guide-editor-actions .btn { width: 100%; }
+
+  .tg-guide-image-item { width: 100%; max-width: 200px; }
 }

@@ -30,12 +30,14 @@ namespace MonsterCollect.Progression
             ProgressionSaveState state = TrainerProgressionService.State;
             string today = GetDayKey(DateTimeOffset.UtcNow.ToUnixTimeSeconds());
             string week = GetWeekKey(DateTimeOffset.UtcNow.ToUnixTimeSeconds());
+            bool dirty = false;
 
             if (state.dailyQuestDayKey != today)
             {
                 state.dailyQuestDayKey = today;
                 state.activeDailyQuestIds = PickQuestIds(QuestCategory.Daily, 3);
                 ResetQuestProgressForCategory(QuestCategory.Daily);
+                dirty = true;
             }
 
             if (state.weeklyQuestWeekKey != week)
@@ -43,10 +45,18 @@ namespace MonsterCollect.Progression
                 state.weeklyQuestWeekKey = week;
                 state.activeWeeklyQuestIds = PickQuestIds(QuestCategory.Weekly, 2);
                 ResetQuestProgressForCategory(QuestCategory.Weekly);
+                dirty = true;
             }
 
-            EnsureMainQuestProgress();
-            MonsterCollectionService.SaveProgression();
+            if (EnsureMainQuestProgress())
+            {
+                dirty = true;
+            }
+
+            if (dirty)
+            {
+                MonsterCollectionService.SaveProgression();
+            }
         }
 
         public static IReadOnlyList<string> GetActiveQuestIds(QuestCategory category)
@@ -370,19 +380,22 @@ namespace MonsterCollect.Progression
             return GetCurrentMainQuest()?.QuestId;
         }
 
-        private static void EnsureMainQuestProgress()
+        private static bool EnsureMainQuestProgress()
         {
             QuestDefinition main = GetCurrentMainQuest();
             if (main == null)
             {
-                return;
+                return false;
             }
 
             QuestProgressEntry progress = FindOrCreateProgress(main.QuestId);
             if (progress.rewardClaimed)
             {
-                return;
+                return false;
             }
+
+            int previous = progress.current;
+            bool wasCompleted = progress.completed;
 
             if (main.Objective == QuestObjectiveType.DiscoverDexEntries)
             {
@@ -398,6 +411,8 @@ namespace MonsterCollect.Progression
                 progress.current = main.TargetCount;
                 progress.completed = true;
             }
+
+            return previous != progress.current || wasCompleted != progress.completed;
         }
 
         private static string[] PickQuestIds(QuestCategory category, int count)

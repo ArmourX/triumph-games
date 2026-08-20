@@ -10,8 +10,8 @@ namespace MonsterCollect.Editor
     /// <summary>Locks landscape orientation and tunes UI scaling for mobile.</summary>
     public static class LandscapeMobileSetup
     {
-        /// <summary>Balance width/height matching so the Game view letterboxes cleanly.</summary>
-        private const float LandscapeMatchHeight = 0.5f;
+        /// <summary>Match height in landscape so UI stays sharp on wide screens.</summary>
+        private const float LandscapeMatchHeight = 1f;
 
         [MenuItem("Monster Collect/Configure Landscape (Mobile)")]
         public static void ConfigureLandscape()
@@ -110,7 +110,7 @@ namespace MonsterCollect.Editor
             scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
             scaler.referenceResolution = SceneUIBuilder.ReferenceResolution;
             scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
-            scaler.matchWidthOrHeight = 0.5f;
+            scaler.matchWidthOrHeight = LandscapeMatchHeight;
 
             EditorUtility.SetDirty(scaler);
         }

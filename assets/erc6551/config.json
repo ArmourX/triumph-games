@@ -1,0 +1,12 @@
+{
+  "network": "Robinhood Chain Testnet",
+  "chainId": 46630,
+  "rpcUrl": "https://rpc.testnet.chain.robinhood.com",
+  "explorer": "https://explorer.testnet.chain.robinhood.com",
+  "faucet": "https://faucet.testnet.chain.robinhood.com",
+  "registry": "0x000000006551c19487814612e58FE06813775758",
+  "collection": "Tester001",
+  "symbol": "T001",
+  "itemsContractStandard": "ERC-1155",
+  "itemsCatalog": "items/catalog.json"
+}

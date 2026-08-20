@@ -1,0 +1,44 @@
+{
+  "status": "deployed",
+  "message": "NFT and items contracts deployed on Robinhood testnet.",
+  "network": "robinhood-testnet",
+  "chainId": 46630,
+  "baseURI": "https://triumph-games.vercel.app/assets/erc6551/",
+  "rpc": "https://rpc.testnet.chain.robinhood.com",
+  "explorer": "https://explorer.testnet.chain.robinhood.com",
+  "deployer": "0x7D8D81410e3636D18D1b4ea7cDC2a3dfA36435e5",
+  "registry": "0x000000006551c19487814612e58FE06813775758",
+  "salt": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "nft": "0x5702E9EE7A5085642d15551C04fbB3914380D570",
+  "items": "0x24f3e6aab3576A4bd8966013743dA5c159e35638",
+  "tokenId": "1",
+  "tokenURI": "https://triumph-games.vercel.app/assets/erc6551/1.json",
+  "image": "https://triumph-games.vercel.app/assets/erc6551/hero/trainer.png",
+  "accountImplementation": "0x6609B1eC86C659349E32928660565C0ac65bd074",
+  "tokenBoundAccount": "0xcfFBCd8D42240768a61f3055a5FBA3B536b24033",
+  "itemsBaseURI": "https://triumph-games.vercel.app/assets/erc6551/items/",
+  "starterInventory": [
+    {
+      "id": 1,
+      "name": "Potion",
+      "amount": 5
+    },
+    {
+      "id": 2,
+      "name": "Pokeball",
+      "amount": 10
+    },
+    {
+      "id": 3,
+      "name": "Pokegold",
+      "amount": 100
+    },
+    {
+      "id": 4,
+      "name": "Rare Candy",
+      "amount": 3
+    }
+  ],
+  "mintedTo": "0x7D8D81410e3636D18D1b4ea7cDC2a3dfA36435e5",
+  "timestamp": "2026-08-18T11:05:20.270Z"
+}

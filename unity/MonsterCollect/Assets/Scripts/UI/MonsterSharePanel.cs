@@ -193,6 +193,7 @@ namespace MonsterCollect.UI
             }
 
             ReleaseQrTexture();
+            KitUi.RestyleExisting(transform);
             boundMonster = monster;
             activePayload = MonsterShareCodec.Encode(monster);
             qrTexture = QRCodeGenerator.GenerateTexture(activePayload, 420, 2);

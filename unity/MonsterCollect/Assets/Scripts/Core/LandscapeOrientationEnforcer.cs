@@ -17,16 +17,17 @@ namespace MonsterCollect.Core
 
         public static void Apply()
         {
-            if (applied && Screen.width >= Screen.height)
-            {
-                return;
-            }
-
             Screen.autorotateToPortrait = false;
             Screen.autorotateToPortraitUpsideDown = false;
             Screen.autorotateToLandscapeLeft = true;
             Screen.autorotateToLandscapeRight = true;
-            Screen.orientation = ScreenOrientation.LandscapeLeft;
+
+#if !UNITY_WEBGL
+            if (Screen.height > Screen.width)
+            {
+                Screen.orientation = ScreenOrientation.LandscapeLeft;
+            }
+#endif
 
             applied = true;
         }

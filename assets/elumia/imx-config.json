@@ -1,0 +1,39 @@
+{
+  "network": "Immutable zkEVM Mainnet",
+  "chainId": 13371,
+  "chainKey": "imtbl-zkevm-mainnet",
+  "rpc": "https://rpc.immutable.com",
+  "explorer": "https://explorer.immutable.com",
+  "immutableApi": "https://api.immutable.com/v1/chains/imtbl-zkevm-mainnet",
+  "passport": {
+    "chainId": 13371,
+    "clientId": "",
+    "redirectUri": "https://triumph-games.vercel.app/elumia-passport-callback",
+    "logoutRedirectUri": "https://triumph-games.vercel.app/elumia-inventory"
+  },
+  "gameUrl": "https://app.elumia.io",
+  "heroes": {
+    "name": "Legends of Elumia Heroes",
+    "contract": "0x8916ea9a8c36bf923920c5c84a77e1b118e915fa",
+    "type": "ERC721",
+    "symbol": "HOE",
+    "marketplace": "https://tokentrove.com/collection/LegendsofElumiaHeroes",
+    "collectionUri": "https://elumia.triumphcdn.com/imx/mainnet/heroes/collection.json"
+  },
+  "items": {
+    "name": "Legends of Elumia Items",
+    "contract": "0xee005214bc8e06f41c1b44d2067b8bb260884dfb",
+    "type": "ERC1155",
+    "marketplace": "https://tokentrove.com/collection/LegendsofElumiaItems",
+    "collectionUri": "https://elumia.triumphcdn.com/imx/mainnet/items/collection.json"
+  },
+  "legacyContracts": {
+    "heroes": ["0xb388977c8d678661bac65567c8cb2bb8ba3ba9e9"],
+    "items": [
+      "0x464ff383f3a8a7636a7c2aa809acaf8f202bc0ac",
+      "0x0bcd7b5de472a100db3136118e0bfc5d1c198f8b",
+      "0x8db6b8fce90b1704b3ba235449957f229f6751d8",
+      "0x302c638a8ace0456eddeb2ae4b3078bf7d1c4b8c"
+    ]
+  }
+}

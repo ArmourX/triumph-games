@@ -87,8 +87,20 @@ namespace MonsterCollect.UI
             }
         }
 
+        public static void ShowPanel()
+        {
+            SettingsPanel panel = Instance ?? FindObjectOfType<SettingsPanel>(true);
+            if (panel == null)
+            {
+                return;
+            }
+
+            panel.Show();
+        }
+
         public void Show()
         {
+            KitUi.RestyleExisting(transform);
             EnsureTopCloseButton();
             EnsureActionFooter();
             EnsureAccessibilitySection();

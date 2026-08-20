@@ -6,6 +6,7 @@ using MonsterCollect.Data;
 using MonsterCollect.Monster;
 using MonsterCollect.Progression;
 using MonsterCollect.Ranch;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,9 +29,9 @@ namespace MonsterCollect.UI
         }
 
         [SerializeField] private GameObject rootPanel;
-        [SerializeField] private Text titleText;
-        [SerializeField] private Text bodyText;
-        [SerializeField] private Text footerText;
+        [SerializeField] private TMP_Text titleText;
+        [SerializeField] private TMP_Text bodyText;
+        [SerializeField] private TMP_Text footerText;
         [SerializeField] private Button closeButton;
 
         private Tab currentTab = Tab.Explore;
@@ -59,23 +60,29 @@ namespace MonsterCollect.UI
             }
         }
 
-        public static void ShowPanel()
+        public static void ShowPanel() => Show(Tab.Explore);
+
+        public static void ShowFacilities() => Show(Tab.Facilities);
+
+        public static void ShowInventory() => Show(Tab.Inventory);
+
+        private static void Show(Tab tab)
         {
             RanchSystemsPanel panel = Instance ?? FindObjectOfType<RanchSystemsPanel>(true);
             if (panel == null)
             {
-                var canvas = FindObjectOfType<Canvas>();
+                Canvas canvas = KitUi.ResolveGameCanvas();
                 if (canvas == null)
                 {
                     return;
                 }
 
                 var go = new GameObject("RanchSystemsPanel", typeof(RectTransform), typeof(RanchSystemsPanel));
-                Transform parent = LandscapePlayFrame.FindContentRoot(canvas) ?? canvas.transform;
-                go.transform.SetParent(parent, false);
+                go.transform.SetParent(KitUi.OverlayParent(canvas), false);
                 panel = go.GetComponent<RanchSystemsPanel>();
             }
 
+            panel.currentTab = tab;
             panel.Show();
         }
 
@@ -115,47 +122,30 @@ namespace MonsterCollect.UI
             }
 
             uiBuilt = true;
+            var rect = GetComponent<RectTransform>() ?? gameObject.AddComponent<RectTransform>();
+            KitUi.Stretch(rect);
+            TmpFonts.PrepareCanvas(GetComponentInParent<Canvas>());
 
-            var dim = CreateImageChild("Dim", transform);
-            UiSkinUtility.ApplyDimOverlay(dim);
-            Stretch(dim.rectTransform);
-
-            var card = CreateImageChild("Card", transform);
-            UiSkinUtility.ApplyModalPanel(card);
-            var cardRect = card.rectTransform;
-            cardRect.anchorMin = new Vector2(0.04f, 0.06f);
-            cardRect.anchorMax = new Vector2(0.96f, 0.94f);
-            cardRect.offsetMin = Vector2.zero;
-            cardRect.offsetMax = Vector2.zero;
+            KitUi.Dim(transform);
+            Image card = KitUi.Card(transform);
 
             if (rootPanel == null)
             {
                 rootPanel = gameObject;
             }
 
-            var rect = GetComponent<RectTransform>() ?? gameObject.AddComponent<RectTransform>();
-            Stretch(rect);
+            titleText = KitUi.Label(card.transform, "Title", "Ranch", 34, TextAlignmentOptions.Center, title: true);
+            KitUi.AnchorTop(titleText.rectTransform, 0.88f, 0.98f);
 
-            titleText = CreateText("Title", card.transform, 34, FontStyle.Bold, TextAnchor.UpperCenter, title: true);
-            StretchTop(titleText.rectTransform, 0.88f, 0.98f);
+            bodyText = KitUi.Label(card.transform, "Body", string.Empty, 22, TextAlignmentOptions.TopLeft);
+            KitUi.Anchor(bodyText.rectTransform, 0.05f, 0.28f, 0.95f, 0.86f);
+            bodyText.enableWordWrapping = true;
 
-            bodyText = CreateText("Body", card.transform, 22, FontStyle.Normal, TextAnchor.UpperLeft);
-            bodyText.rectTransform.anchorMin = new Vector2(0.05f, 0.28f);
-            bodyText.rectTransform.anchorMax = new Vector2(0.95f, 0.86f);
-            bodyText.rectTransform.offsetMin = Vector2.zero;
-            bodyText.rectTransform.offsetMax = Vector2.zero;
-            bodyText.horizontalOverflow = HorizontalWrapMode.Wrap;
-            bodyText.verticalOverflow = VerticalWrapMode.Overflow;
-
-            footerText = CreateText("Footer", card.transform, 20, FontStyle.Italic, TextAnchor.LowerLeft);
-            StretchBottom(footerText.rectTransform, 0.02f, 0.12f);
-            UiSkinUtility.StyleMuted(footerText);
+            footerText = KitUi.Label(card.transform, "Footer", string.Empty, 20, TextAlignmentOptions.BottomLeft);
+            KitUi.Anchor(footerText.rectTransform, 0.04f, 0.02f, 0.78f, 0.12f);
 
             var tabRow = CreateRow("Tabs", card.transform);
-            tabRow.anchorMin = new Vector2(0.04f, 0.14f);
-            tabRow.anchorMax = new Vector2(0.96f, 0.24f);
-            tabRow.offsetMin = Vector2.zero;
-            tabRow.offsetMax = Vector2.zero;
+            KitUi.Anchor(tabRow, 0.04f, 0.14f, 0.96f, 0.24f);
 
             AddTab(tabRow, "Explore", Tab.Explore, 0f, 0.165f);
             AddTab(tabRow, "Items", Tab.Inventory, 0.17f, 0.335f);
@@ -165,12 +155,9 @@ namespace MonsterCollect.UI
             AddTab(tabRow, "Decorate", Tab.Customize, 0.85f, 1f);
 
             var actionRow = CreateRow("Actions", card.transform);
-            actionRow.anchorMin = new Vector2(0.04f, 0.24f);
-            actionRow.anchorMax = new Vector2(0.96f, 0.28f);
-            actionRow.offsetMin = Vector2.zero;
-            actionRow.offsetMax = Vector2.zero;
+            KitUi.Anchor(actionRow, 0.04f, 0.24f, 0.96f, 0.28f);
 
-            closeButton = CreateButton("Close", card.transform, "Close", Hide, 0.82f, 0.98f, 0.02f, 0.12f, secondary: true);
+            closeButton = KitUi.Button(card.transform, "Close", "CLOSE", 0.82f, 0.02f, 0.98f, 0.12f, Hide, secondary: true);
         }
 
         private void AddTab(RectTransform parent, string label, Tab tab, float minX, float maxX)

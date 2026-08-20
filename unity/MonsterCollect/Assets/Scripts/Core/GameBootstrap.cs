@@ -15,6 +15,8 @@ namespace MonsterCollect.Core
         private static void Initialize()
         {
             Application.targetFrameRate = 60;
+            AudioListener.volume = 0f;
+            AudioListener.pause = true;
             RemoteConfigService.Initialize();
             EventManager.Initialize();
             RanchBiomeService.RefreshUnlocksFromTrainerRank();

@@ -1,50 +1,94 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MonsterCollect.UI
 {
-    /// <summary>Hides global scene chrome so battle fills the play frame.</summary>
+    /// <summary>Hides global scene chrome so battle fills the play frame and nav cannot exit mid-fight.</summary>
     public static class BattleFocusLayout
     {
         private const float LeftRailWidth = 118f;
         private const float TopHudHeight = 84f;
 
+        private static Color contentColor = new Color(0.12f, 0.28f, 0.16f, 1f);
+        private static bool contentColorStored;
+
         public static void SetBattleFocus(bool focused)
         {
-            Canvas canvas = Object.FindObjectOfType<Canvas>();
+            Canvas canvas = KitUi.ResolveGameCanvas();
             if (canvas == null)
             {
                 return;
             }
 
+            Transform searchRoot = canvas.transform;
+            SetNamedActive(searchRoot, "LeftRail", !focused);
+            SetNamedActive(searchRoot, "TopHud", !focused);
+
             Transform safeArea = LandscapePlayFrame.FindContentRoot(canvas);
-            if (safeArea == null)
+            Transform content = FindNamed(safeArea != null ? safeArea : searchRoot, "Content");
+            if (content is RectTransform contentRect)
+            {
+                contentRect.offsetMin = focused
+                    ? Vector2.zero
+                    : new Vector2(LeftRailWidth, 12f);
+                contentRect.offsetMax = focused
+                    ? Vector2.zero
+                    : new Vector2(-16f, -TopHudHeight - 8f);
+
+                Image contentImage = content.GetComponent<Image>();
+                if (contentImage != null)
+                {
+                    if (!contentColorStored)
+                    {
+                        contentColor = contentImage.color;
+                        contentColorStored = true;
+                    }
+
+                    contentImage.color = focused ? Color.clear : contentColor;
+                    contentImage.raycastTarget = !focused;
+                }
+            }
+        }
+
+        private static void SetNamedActive(Transform root, string objectName, bool active)
+        {
+            Transform target = FindNamed(root, objectName);
+            if (target == null)
             {
                 return;
             }
 
-            Transform leftRail = safeArea.Find("LeftRail");
-            Transform topHud = safeArea.Find("TopHud");
-            Transform content = safeArea.Find("Content");
+            target.gameObject.SetActive(active);
+        }
 
-            if (leftRail != null)
+        private static Transform FindNamed(Transform root, string objectName)
+        {
+            if (root == null)
             {
-                leftRail.gameObject.SetActive(!focused);
+                return null;
             }
 
-            if (topHud != null)
+            if (root.name == objectName)
             {
-                topHud.gameObject.SetActive(!focused);
+                return root;
             }
 
-            if (content is RectTransform contentRect)
+            Transform direct = root.Find(objectName);
+            if (direct != null)
             {
-                contentRect.offsetMin = focused
-                    ? new Vector2(8f, 8f)
-                    : new Vector2(LeftRailWidth, 12f);
-                contentRect.offsetMax = focused
-                    ? new Vector2(-8f, -8f)
-                    : new Vector2(-16f, -TopHudHeight - 8f);
+                return direct;
             }
+
+            for (int i = 0; i < root.childCount; i++)
+            {
+                Transform found = FindNamed(root.GetChild(i), objectName);
+                if (found != null)
+                {
+                    return found;
+                }
+            }
+
+            return null;
         }
     }
 }

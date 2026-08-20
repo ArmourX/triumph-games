@@ -27,7 +27,7 @@ namespace MonsterCollect.Editor
             scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
             scaler.referenceResolution = ReferenceResolution;
             scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
-            scaler.matchWidthOrHeight = 0.5f;
+            scaler.matchWidthOrHeight = 1f;
 
             var letterboxGo = CreateUIObject("Letterbox", canvasGo.transform);
             StretchFullScreen(letterboxGo.GetComponent<RectTransform>());

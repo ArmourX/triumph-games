@@ -6,6 +6,7 @@ using MonsterCollect.Core;
 using MonsterCollect.Data;
 using MonsterCollect.Monster;
 using MonsterCollect.Social;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,9 +23,9 @@ namespace MonsterCollect.UI
         private Tab currentTab = Tab.Featured;
         private bool uiBuilt;
         private GameObject rootPanel;
-        private Text titleText;
-        private Text bodyText;
-        private Text footerText;
+        private TMP_Text titleText;
+        private TMP_Text bodyText;
+        private TMP_Text footerText;
         private Button closeButton;
         private readonly List<Button> actionButtons = new List<Button>();
         private string statusMessage = string.Empty;
@@ -56,16 +57,11 @@ namespace MonsterCollect.UI
             CommunityGalleryPanel panel = Instance ?? FindObjectOfType<CommunityGalleryPanel>(true);
             if (panel == null)
             {
-                Canvas canvas = FindObjectOfType<Canvas>();
-                if (canvas == null)
+                panel = KitUi.EnsureOverlay<CommunityGalleryPanel>("CommunityGalleryPanel");
+                if (panel == null)
                 {
                     return;
                 }
-
-                var go = new GameObject("CommunityGalleryPanel", typeof(RectTransform), typeof(CommunityGalleryPanel));
-                Transform parent = LandscapePlayFrame.FindContentRoot(canvas) ?? canvas.transform;
-                go.transform.SetParent(parent, false);
-                panel = go.GetComponent<CommunityGalleryPanel>();
             }
 
             panel.Show();
@@ -464,68 +460,43 @@ namespace MonsterCollect.UI
 
             uiBuilt = true;
             rootPanel = gameObject;
-            Font font = MobileGameUiKit.BodyFont;
-            var rect = GetComponent<RectTransform>() ?? gameObject.AddComponent<RectTransform>();
-            Stretch(rect);
+            KitUi.Stretch(GetComponent<RectTransform>() ?? gameObject.AddComponent<RectTransform>());
+            TmpFonts.PrepareCanvas(GetComponentInParent<Canvas>());
 
-            var dim = CreateImage("Dim", transform, new Color(0f, 0f, 0f, 0.74f));
-            Stretch(dim.rectTransform);
+            KitUi.Dim(transform);
+            Image card = KitUi.Card(transform);
 
-            var card = CreateImage("Card", transform, new Color(0.09f, 0.11f, 0.18f, 0.98f));
-            card.rectTransform.anchorMin = new Vector2(0.04f, 0.05f);
-            card.rectTransform.anchorMax = new Vector2(0.96f, 0.95f);
-            card.rectTransform.offsetMin = Vector2.zero;
-            card.rectTransform.offsetMax = Vector2.zero;
+            titleText = KitUi.Label(card.transform, "Title", "Community", 32, TextAlignmentOptions.Center, title: true);
+            KitUi.Anchor(titleText.rectTransform, 0.05f, 0.88f, 0.95f, 0.98f);
 
-            titleText = CreateText("Title", card.transform, font, 30, FontStyle.Bold, TextAnchor.UpperCenter);
-            titleText.rectTransform.anchorMin = new Vector2(0.05f, 0.88f);
-            titleText.rectTransform.anchorMax = new Vector2(0.95f, 0.98f);
-            titleText.rectTransform.offsetMin = Vector2.zero;
-            titleText.rectTransform.offsetMax = Vector2.zero;
+            bodyText = KitUi.Label(card.transform, "Body", string.Empty, 18, TextAlignmentOptions.TopLeft);
+            KitUi.Anchor(bodyText.rectTransform, 0.05f, 0.34f, 0.95f, 0.86f);
+            bodyText.enableWordWrapping = true;
 
-            bodyText = CreateText("Body", card.transform, font, 18, FontStyle.Normal, TextAnchor.UpperLeft);
-            bodyText.rectTransform.anchorMin = new Vector2(0.05f, 0.34f);
-            bodyText.rectTransform.anchorMax = new Vector2(0.95f, 0.86f);
-            bodyText.rectTransform.offsetMin = Vector2.zero;
-            bodyText.rectTransform.offsetMax = Vector2.zero;
-            bodyText.horizontalOverflow = HorizontalWrapMode.Wrap;
-            bodyText.verticalOverflow = VerticalWrapMode.Overflow;
-
-            footerText = CreateText("Footer", card.transform, font, 16, FontStyle.Italic, TextAnchor.LowerLeft);
-            footerText.rectTransform.anchorMin = new Vector2(0.05f, 0.02f);
-            footerText.rectTransform.anchorMax = new Vector2(0.52f, 0.12f);
-            footerText.rectTransform.offsetMin = Vector2.zero;
-            footerText.rectTransform.offsetMax = Vector2.zero;
-            footerText.color = new Color(0.7f, 0.8f, 0.92f);
+            footerText = KitUi.Label(card.transform, "Footer", string.Empty, 16, TextAlignmentOptions.BottomLeft);
+            KitUi.Anchor(footerText.rectTransform, 0.05f, 0.02f, 0.52f, 0.12f);
 
             var tabRow = new GameObject("Tabs", typeof(RectTransform)).GetComponent<RectTransform>();
             tabRow.SetParent(card.transform, false);
-            tabRow.anchorMin = new Vector2(0.04f, 0.14f);
-            tabRow.anchorMax = new Vector2(0.96f, 0.22f);
-            tabRow.offsetMin = Vector2.zero;
-            tabRow.offsetMax = Vector2.zero;
+            KitUi.Anchor(tabRow, 0.04f, 0.14f, 0.96f, 0.22f);
 
-            CreateTab(tabRow, font, "Featured", Tab.Featured, 0f, 0.16f);
-            CreateTab(tabRow, font, "Gallery", Tab.Gallery, 0.17f, 0.33f);
-            CreateTab(tabRow, font, "Weekly", Tab.Challenge, 0.34f, 0.50f);
-            CreateTab(tabRow, font, "Friends", Tab.Showcase, 0.51f, 0.67f);
-            CreateTab(tabRow, font, "Report", Tab.Report, 0.68f, 0.83f);
-            CreateTab(tabRow, font, "Mods", Tab.Mods, 0.84f, 1f);
+            CreateTab(tabRow, "Featured", Tab.Featured, 0f, 0.16f);
+            CreateTab(tabRow, "Gallery", Tab.Gallery, 0.17f, 0.33f);
+            CreateTab(tabRow, "Weekly", Tab.Challenge, 0.34f, 0.50f);
+            CreateTab(tabRow, "Friends", Tab.Showcase, 0.51f, 0.67f);
+            CreateTab(tabRow, "Report", Tab.Report, 0.68f, 0.83f);
+            CreateTab(tabRow, "Mods", Tab.Mods, 0.84f, 1f);
 
             var actionRowGo = new GameObject("ActionRow", typeof(RectTransform));
             actionRowGo.transform.SetParent(card.transform, false);
-            var actionRect = actionRowGo.GetComponent<RectTransform>();
-            actionRect.anchorMin = new Vector2(0.04f, 0.22f);
-            actionRect.anchorMax = new Vector2(0.96f, 0.33f);
-            actionRect.offsetMin = Vector2.zero;
-            actionRect.offsetMax = Vector2.zero;
+            KitUi.Anchor(actionRowGo.GetComponent<RectTransform>(), 0.04f, 0.22f, 0.96f, 0.33f);
 
-            closeButton = CreateButton("Close", card.transform, font, "Close", 0.78f, 0.02f, 0.96f, 0.11f);
+            closeButton = KitUi.Button(card.transform, "Close", "CLOSE", 0.78f, 0.02f, 0.96f, 0.11f, null, secondary: true);
         }
 
-        private void CreateTab(RectTransform row, Font font, string label, Tab tab, float minX, float maxX)
+        private void CreateTab(RectTransform row, string label, Tab tab, float minX, float maxX)
         {
-            Button button = CreateButton(label, row, font, label, minX, 0f, maxX, 1f);
+            Button button = KitUi.Button(row, label, label.ToUpperInvariant(), minX, 0f, maxX, 1f, null, secondary: true);
             button.onClick.AddListener(() =>
             {
                 currentTab = tab;
@@ -554,9 +525,7 @@ namespace MonsterCollect.UI
             float width = 1f / columns;
             float minY = rowIndex == 0 ? 0.52f : 0f;
             float maxY = rowIndex == 0 ? 1f : 0.48f;
-            Button button = CreateButton($"Action_{label}", row, MobileGameUiKit.BodyFont,
-                label, col * width, minY, (col + 1) * width - 0.01f, maxY);
-            button.onClick.AddListener(() => handler());
+            Button button = KitUi.Button(row, $"Action_{label}", label, col * width, minY, (col + 1) * width - 0.01f, maxY, handler);
             actionButtons.Add(button);
         }
 
@@ -571,59 +540,6 @@ namespace MonsterCollect.UI
             }
 
             actionButtons.Clear();
-        }
-
-        private static Image CreateImage(string name, Transform parent, Color color)
-        {
-            var go = new GameObject(name, typeof(RectTransform), typeof(Image));
-            go.transform.SetParent(parent, false);
-            var image = go.GetComponent<Image>();
-            image.color = color;
-            return image;
-        }
-
-        private static Text CreateText(string name, Transform parent, Font font, int size, FontStyle style, TextAnchor anchor)
-        {
-            var go = new GameObject(name, typeof(RectTransform), typeof(Text));
-            go.transform.SetParent(parent, false);
-            var text = go.GetComponent<Text>();
-            text.font = font;
-            text.fontSize = size;
-            text.fontStyle = style;
-            text.alignment = anchor;
-            text.color = Color.white;
-            return text;
-        }
-
-        private static Button CreateButton(string name, Transform parent, Font font, string label, float minX, float minY, float maxX, float maxY)
-        {
-            var go = new GameObject(name, typeof(RectTransform), typeof(Image), typeof(Button));
-            go.transform.SetParent(parent, false);
-            var rect = go.GetComponent<RectTransform>();
-            rect.anchorMin = new Vector2(minX, minY);
-            rect.anchorMax = new Vector2(maxX, maxY);
-            rect.offsetMin = Vector2.zero;
-            rect.offsetMax = Vector2.zero;
-            go.GetComponent<Image>().color = new Color(0.2f, 0.34f, 0.55f, 1f);
-
-            var labelGo = new GameObject("Label", typeof(RectTransform), typeof(Text));
-            labelGo.transform.SetParent(go.transform, false);
-            var labelText = labelGo.GetComponent<Text>();
-            labelText.font = font;
-            labelText.fontSize = 16;
-            labelText.alignment = TextAnchor.MiddleCenter;
-            labelText.color = Color.white;
-            labelText.text = label;
-            Stretch(labelGo.GetComponent<RectTransform>());
-            return go.GetComponent<Button>();
-        }
-
-        private static void Stretch(RectTransform rect)
-        {
-            rect.anchorMin = Vector2.zero;
-            rect.anchorMax = Vector2.one;
-            rect.offsetMin = Vector2.zero;
-            rect.offsetMax = Vector2.zero;
         }
     }
 }

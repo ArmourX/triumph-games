@@ -1,0 +1,13 @@
+{
+  "name": "Potion",
+  "description": "A classic healing item. Restores 20 HP to one companion in your party.",
+  "image": "items/potion.svg",
+  "external_url": "https://triumph-games.vercel.app/erc6551-test",
+  "attributes": [
+    { "trait_type": "Type", "value": "Item" },
+    { "trait_type": "Category", "value": "Consumable" },
+    { "trait_type": "Rarity", "value": "Common" },
+    { "trait_type": "Effect", "value": "Restore 20 HP" },
+    { "trait_type": "Stackable", "value": "Yes" }
+  ]
+}

@@ -25,6 +25,38 @@ namespace MonsterCollect.UI
         public Font bodyFont;
         public Font labelFont;
 
+        [Header("Home Hub Panels")]
+        public Sprite homeSunsetBackground;
+        public Sprite profileBar;
+        public Sprite currencyPill;
+        public Sprite sidePanelLeft;
+        public Sprite sidePanelRight;
+        public Sprite horizontalPanel;
+        public Sprite slotPanel;
+        public Sprite platformPedestal;
+
+        [Header("Home Hub Controls")]
+        public Sprite buttonAdventure;
+        public Sprite progressTrack;
+        public Sprite progressFill;
+        public Sprite notificationBadge;
+        public Sprite avatarFrame;
+        public Sprite levelBadgeSprite;
+        public Sprite iconChest;
+
+        [Header("Home Hub Icons")]
+        public Sprite iconGift;
+        public Sprite iconShop;
+        public Sprite iconMonsters;
+        public Sprite iconFriends;
+        public Sprite iconSettings;
+        public Sprite iconCalendar;
+        public Sprite iconLightning;
+        public Sprite iconShard;
+        public Sprite iconCoin;
+        public Sprite iconGem;
+        public Sprite iconTicket;
+
         [Header("Text Colors")]
         public Color titleColor = new Color(1f, 0.98f, 0.92f, 1f);
         public Color bodyColor = new Color(0.95f, 0.97f, 1f, 1f);
@@ -35,6 +67,7 @@ namespace MonsterCollect.UI
             sceneBackground != null &&
             panelModal != null &&
             buttonPrimary != null &&
-            bodyFont != null;
+            bodyFont != null &&
+            currencyPill != null;
     }
 }

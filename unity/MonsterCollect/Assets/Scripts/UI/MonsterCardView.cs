@@ -64,7 +64,8 @@ namespace MonsterCollect.UI
 
             if (backgroundImage != null)
             {
-                backgroundImage.color = new Color(monster.PrimaryColor.r, monster.PrimaryColor.g, monster.PrimaryColor.b, 0.35f);
+                UiSkinUtility.ApplyModalPanel(backgroundImage);
+                backgroundImage.color = new Color(monster.PrimaryColor.r, monster.PrimaryColor.g, monster.PrimaryColor.b, 0.55f);
             }
 
             if (accentImage != null)
@@ -82,8 +83,9 @@ namespace MonsterCollect.UI
 
             if (metaText != null)
             {
+                int level = RanchCollectionFilter.GetLevel(monster);
                 string fusionTag = monster.IsBred ? " · Fusion" : string.Empty;
-                metaText.text = $"#{monster.DexNumber:D3} · {monster.Species} · {monster.Rarity}{fusionTag}";
+                metaText.text = $"Lv.{level} · #{monster.DexNumber:D3} · {monster.Species} · {monster.Rarity}{fusionTag}";
             }
 
             if (statsText != null)

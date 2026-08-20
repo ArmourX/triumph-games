@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="js/site-theme-init.js"></script>
+  <title>Immutable Passport | Legends of Elumia</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="elumia-inventory.css">
+</head>
+<body class="elumia-inventory-page">
+  <main class="elumia-inv-page">
+    <div class="container">
+      <section class="elumia-inv-card" style="max-width: 520px; margin: 4rem auto;">
+        <h1 style="margin-top: 0;">Immutable Passport</h1>
+        <p id="elumia-passport-callback-status" class="elumia-inv-meta-desc">Completing sign-in…</p>
+        <div class="elumia-inv-actions" style="margin-top: 1rem;">
+          <a class="btn btn-primary" href="elumia-inventory">Back to inventory</a>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script type="module">
+    import { completePassportCallback } from "/js/elumia-immutable-wallet.bundle.mjs";
+
+    var status = document.getElementById("elumia-passport-callback-status");
+
+    function setStatus(message) {
+      if (status) status.textContent = message;
+    }
+
+    fetch("/assets/elumia/imx-config.json", { cache: "no-store" })
+      .then(function (res) {
+        if (!res.ok) throw new Error("Could not load Passport config.");
+        return res.json();
+      })
+      .then(function (config) {
+        if (!config.passport || !config.passport.clientId) {
+          setStatus("Passport client ID is not configured for this site.");
+          return null;
+        }
+        return completePassportCallback(config.passport);
+      })
+      .then(function (user) {
+        if (user) {
+          setStatus("Sign-in complete. You can close this window or return to inventory.");
+          if (window.opener && !window.opener.closed) {
+            try {
+              window.opener.postMessage({ type: "elumia-passport-complete" }, window.location.origin);
+            } catch (err) {
+              // Popup polling handles most flows; postMessage is a fallback.
+            }
+          }
+          setTimeout(function () {
+            window.location.href = "/elumia-inventory";
+          }, 800);
+        }
+      })
+      .catch(function (err) {
+        setStatus(err && err.message ? err.message : "Passport sign-in failed.");
+      });
+  </script>
+</body>
+</html>

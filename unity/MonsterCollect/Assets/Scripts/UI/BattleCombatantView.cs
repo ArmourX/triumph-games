@@ -33,7 +33,20 @@ namespace MonsterCollect.UI
 
             gameObject.SetActive(true);
             EnsurePortraitDisplay();
-            portraitDisplay.Bind(combatant.SourceData, 160, animated: true);
+            if (previewImage != null)
+            {
+                previewImage.color = Color.white;
+                previewImage.raycastTarget = false;
+            }
+
+            Image rootImage = GetComponent<Image>();
+            if (rootImage != null)
+            {
+                rootImage.color = Color.clear;
+                rootImage.raycastTarget = false;
+            }
+
+            portraitDisplay.Bind(combatant.SourceData, 220, animated: true);
             Refresh(combatant);
         }
 

@@ -27,9 +27,37 @@ namespace MonsterCollect.UI
         [SerializeField] private Button socialButton;
         [SerializeField] private Button scanShortcutButton;
 
-        private readonly List<MonsterCardView> cardPool = new List<MonsterCardView>();
-        private string selectedParentId;
+        public GameObject CollectionScreenRoot
+        {
+            get
+            {
+                if (cardContainer == null)
+                {
+                    return null;
+                }
 
+                Transform node = cardContainer;
+                while (node != null)
+                {
+                    if (node.name == "Content")
+                    {
+                        return node.gameObject;
+                    }
+
+                    node = node.parent;
+                }
+
+                return null;
+            }
+        }
+
+        private readonly List<MonsterCardView> cardPool = new List<MonsterCardView>();
+        private readonly List<MonsterData> filteredMonsters = new List<MonsterData>();
+        private string selectedParentId;
+        private bool refreshing;
+        private Dropdown rarityFilterDropdown;
+        private MonsterRarity? selectedRarityFilter;
+        private bool filterBarBuilt;
         private void OnEnable()
         {
             MonsterCollectionService.CollectionChanged += Refresh;
@@ -73,7 +101,32 @@ namespace MonsterCollect.UI
                 scanShortcutButton.onClick.AddListener(() => UnityEngine.SceneManagement.SceneManager.LoadScene(GameScenes.Scan));
             }
 
+            if (headerText != null)
+            {
+                UiSkinUtility.StyleTitle(headerText);
+            }
+
+            if (countText != null)
+            {
+                UiSkinUtility.StyleBody(countText);
+            }
+
+            if (emptyStateText != null)
+            {
+                UiSkinUtility.StyleBody(emptyStateText);
+            }
+
+            try
+            {
+                EnsureFilterBar();
+            }
+            catch (System.Exception exception)
+            {
+                Debug.LogError($"[RanchView] Filter bar failed: {exception.Message}");
+            }
+
             Refresh();
+            HomeHubController.Install(this);
             if (TournamentHubPanel.ConsumeShowOnLoad())
             {
                 TournamentHubPanel.ShowPanel();
@@ -112,6 +165,11 @@ namespace MonsterCollect.UI
             {
                 scanShortcutButton.onClick.RemoveAllListeners();
             }
+
+            if (rarityFilterDropdown != null)
+            {
+                rarityFilterDropdown.onValueChanged.RemoveListener(OnRarityFilterChanged);
+            }
         }
 
         public void OpenBreedingPanel()
@@ -130,11 +188,22 @@ namespace MonsterCollect.UI
 
         public void Refresh()
         {
+            if (refreshing)
+            {
+                return;
+            }
+
+            refreshing = true;
+            try
+            {
             raisingPanel?.Refresh();
 
             IReadOnlyList<MonsterData> monsters = MonsterCollectionService.Monsters;
+            filteredMonsters.Clear();
+            filteredMonsters.AddRange(RanchCollectionFilter.Apply(monsters, selectedRarityFilter));
             string activeId = MonsterCollectionService.ActiveMonsterId;
-            int count = monsters.Count;
+            int totalCount = monsters.Count;
+            int visibleCount = filteredMonsters.Count;
 
             if (headerText != null)
             {
@@ -144,27 +213,47 @@ namespace MonsterCollect.UI
 
             if (countText != null)
             {
-                countText.text = $"{count}/{MonsterCollectionService.MaxRanchSlots}";
+                if (selectedRarityFilter.HasValue && visibleCount != totalCount)
+                {
+                    countText.text = $"{visibleCount} shown · {totalCount}/{MonsterCollectionService.MaxRanchSlots}";
+                }
+                else
+                {
+                    countText.text = $"{totalCount}/{MonsterCollectionService.MaxRanchSlots}";
+                }
+
                 UiSkinUtility.StyleMuted(countText);
             }
 
             if (emptyStateText != null)
             {
-                emptyStateText.gameObject.SetActive(count == 0);
-                emptyStateText.text = "Scan a QR code to hatch your first QRmon.";
+                if (totalCount == 0)
+                {
+                    emptyStateText.gameObject.SetActive(true);
+                    emptyStateText.text = "Scan a QR code to hatch your first QRmon.";
+                }
+                else if (visibleCount == 0)
+                {
+                    emptyStateText.gameObject.SetActive(true);
+                    emptyStateText.text = $"No {selectedRarityFilter.Value} monsters in your ranch.";
+                }
+                else
+                {
+                    emptyStateText.gameObject.SetActive(false);
+                }
             }
 
-            EnsureCardPool(count);
+            EnsureCardPool(visibleCount);
 
             for (int i = 0; i < cardPool.Count; i++)
             {
                 MonsterCardView card = cardPool[i];
-                bool active = i < count;
+                bool active = i < visibleCount;
                 card.gameObject.SetActive(active);
 
                 if (active)
                 {
-                    MonsterData monster = monsters[i];
+                    MonsterData monster = filteredMonsters[i];
                     bool isSelected = !string.IsNullOrEmpty(selectedParentId) && monster.Id == selectedParentId;
                     card.Bind(monster, monster.Id == activeId, isSelected);
                 }
@@ -172,6 +261,11 @@ namespace MonsterCollect.UI
                 {
                     card.Bind(null, false);
                 }
+            }
+            }
+            finally
+            {
+                refreshing = false;
             }
         }
 
@@ -203,6 +297,132 @@ namespace MonsterCollect.UI
             {
                 detailPanel.Show(monster);
             }
+        }
+
+        private void EnsureFilterBar()
+        {
+            if (filterBarBuilt || cardContainer == null)
+            {
+                return;
+            }
+
+            Transform scrollRoot = cardContainer.parent != null ? cardContainer.parent.parent : null;
+            Transform contentRoot = scrollRoot != null ? scrollRoot.parent : null;
+            if (contentRoot == null)
+            {
+                return;
+            }
+
+            if (scrollRoot is RectTransform scrollRect)
+            {
+                if (scrollRect.anchorMax.y > 0.815f)
+                {
+                    scrollRect.anchorMax = new Vector2(scrollRect.anchorMax.x, 0.815f);
+                }
+            }
+
+            Font font = MobileGameUiKit.BodyFont;
+            if (font == null)
+            {
+                font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+            }
+
+            var filterGo = new GameObject("CollectionFilterBar", typeof(RectTransform), typeof(Image));
+            filterGo.transform.SetParent(contentRoot, false);
+            var filterRect = filterGo.GetComponent<RectTransform>();
+            filterRect.anchorMin = new Vector2(0.58f, 0.815f);
+            filterRect.anchorMax = new Vector2(0.99f, 0.885f);
+            filterRect.offsetMin = Vector2.zero;
+            filterRect.offsetMax = Vector2.zero;
+
+            Image filterBg = filterGo.GetComponent<Image>();
+            UiSkinUtility.ApplyModalPanel(filterBg);
+            filterBg.color = new Color(1f, 1f, 1f, 0.42f);
+
+            Text rarityLabel = CreateFilterLabel(filterGo.transform, font, "Rarity", new Vector2(0.03f, 0.14f), new Vector2(0.18f, 0.86f));
+            UiSkinUtility.StyleMuted(rarityLabel);
+
+            rarityFilterDropdown = CreateRarityDropdown(filterGo.transform, new Vector2(0.19f, 0.12f), new Vector2(0.62f, 0.88f));
+            PopulateRarityFilterOptions();
+            rarityFilterDropdown.onValueChanged.AddListener(OnRarityFilterChanged);
+
+            Text sortLabel = CreateFilterLabel(filterGo.transform, font, "Level high → low", new Vector2(0.64f, 0.14f), new Vector2(0.97f, 0.86f));
+            sortLabel.alignment = TextAnchor.MiddleRight;
+            UiSkinUtility.StyleMuted(sortLabel);
+
+            filterBarBuilt = true;
+        }
+
+        private static Text CreateFilterLabel(Transform parent, Font font, string text, Vector2 anchorMin, Vector2 anchorMax)
+        {
+            var go = new GameObject("Label", typeof(RectTransform), typeof(Text));
+            go.transform.SetParent(parent, false);
+            var rect = go.GetComponent<RectTransform>();
+            rect.anchorMin = anchorMin;
+            rect.anchorMax = anchorMax;
+            rect.offsetMin = Vector2.zero;
+            rect.offsetMax = Vector2.zero;
+
+            Text label = go.GetComponent<Text>();
+            label.font = font;
+            label.fontSize = 20;
+            label.fontStyle = FontStyle.Bold;
+            label.alignment = TextAnchor.MiddleLeft;
+            label.color = Color.white;
+            label.text = text;
+            label.raycastTarget = false;
+            return label;
+        }
+
+        private static Dropdown CreateRarityDropdown(Transform parent, Vector2 anchorMin, Vector2 anchorMax)
+        {
+            GameObject dropdownGo = DefaultControls.CreateDropdown(new DefaultControls.Resources());
+            dropdownGo.name = "RarityFilter";
+            dropdownGo.transform.SetParent(parent, false);
+
+            RectTransform dropdownRect = dropdownGo.GetComponent<RectTransform>();
+            dropdownRect.anchorMin = anchorMin;
+            dropdownRect.anchorMax = anchorMax;
+            dropdownRect.offsetMin = Vector2.zero;
+            dropdownRect.offsetMax = Vector2.zero;
+
+            Dropdown dropdown = dropdownGo.GetComponent<Dropdown>();
+            UiSkinUtility.StyleDropdown(dropdown);
+            return dropdown;
+        }
+
+        private void PopulateRarityFilterOptions()
+        {
+            if (rarityFilterDropdown == null)
+            {
+                return;
+            }
+
+            var options = new List<string> { "All rarities" };
+            options.Add(MonsterRarity.Common.ToString());
+            options.Add(MonsterRarity.Uncommon.ToString());
+            options.Add(MonsterRarity.Rare.ToString());
+            options.Add(MonsterRarity.Epic.ToString());
+            options.Add(MonsterRarity.Legendary.ToString());
+            rarityFilterDropdown.ClearOptions();
+            rarityFilterDropdown.AddOptions(options);
+            rarityFilterDropdown.SetValueWithoutNotify(0);
+            rarityFilterDropdown.RefreshShownValue();
+            UiSkinUtility.StyleDropdown(rarityFilterDropdown);
+        }
+
+        private void OnRarityFilterChanged(int optionIndex)
+        {
+            if (optionIndex <= 0)
+            {
+                selectedRarityFilter = null;
+            }
+            else
+            {
+                selectedRarityFilter = (MonsterRarity)(optionIndex - 1);
+            }
+
+            Refresh();
         }
     }
 }

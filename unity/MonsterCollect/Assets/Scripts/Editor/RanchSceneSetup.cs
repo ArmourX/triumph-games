@@ -23,9 +23,8 @@ namespace MonsterCollect.Editor
 
             GameObject canvasGo = SceneUIBuilder.CreateCanvas("Canvas");
             Transform uiRoot = SceneUIBuilder.GetCanvasContentRoot(canvasGo);
-            SceneUIBuilder.CreateNavigationBar(canvasGo.transform, GameScenes.Ranch);
 
-            // Content area below nav bar
+            // Content area — shown when the player opens MONSTERS from the home hub.
             var contentGo = SceneUIBuilder.CreateUIObject("Content", uiRoot);
             SceneUIBuilder.StretchBelowNavBar(contentGo.GetComponent<RectTransform>());
             var contentBg = contentGo.AddComponent<Image>();
@@ -77,7 +76,7 @@ namespace MonsterCollect.Editor
             var scrollGo = SceneUIBuilder.CreateUIObject("MonsterScroll", contentGo.transform);
             var scrollRect = scrollGo.GetComponent<RectTransform>();
             scrollRect.anchorMin = new Vector2(0.58f, 0.16f);
-            scrollRect.anchorMax = new Vector2(0.99f, 0.88f);
+            scrollRect.anchorMax = new Vector2(0.99f, 0.815f);
             scrollRect.offsetMin = Vector2.zero;
             scrollRect.offsetMax = Vector2.zero;
 

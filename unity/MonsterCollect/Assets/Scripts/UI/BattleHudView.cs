@@ -48,6 +48,23 @@ namespace MonsterCollect.UI
             HideLegacyCombatantPanels();
         }
 
+        private void HideChromeBackdrop()
+        {
+            Transform root = rootPanel != null ? rootPanel.transform : transform;
+            Image rootImage = root.GetComponent<Image>();
+            if (rootImage != null)
+            {
+                rootImage.color = Color.clear;
+                rootImage.raycastTarget = false;
+            }
+
+            Transform log = root.Find("BattleLog");
+            if (log != null && log.TryGetComponent(out Image logImage))
+            {
+                logImage.color = new Color(0.04f, 0.05f, 0.08f, 0.55f);
+            }
+        }
+
         private void HideLegacyCombatantPanels()
         {
             Transform root = rootPanel != null ? rootPanel.transform : transform;
@@ -68,6 +85,7 @@ namespace MonsterCollect.UI
         {
             arenaHud?.EnsureLayout();
             BattleFocusLayout.SetBattleFocus(true);
+            HideChromeBackdrop();
 
             if (rootPanel != null)
             {
@@ -432,7 +450,7 @@ namespace MonsterCollect.UI
             rect.anchorMax = anchorMax;
             rect.offsetMin = Vector2.zero;
             rect.offsetMax = Vector2.zero;
-            go.GetComponent<Image>().color = new Color(0.12f, 0.14f, 0.18f, 0.95f);
+            go.GetComponent<Image>().color = new Color(0.08f, 0.09f, 0.12f, 0.62f);
 
             var textGo = new GameObject("Label", typeof(RectTransform), typeof(Text));
             textGo.transform.SetParent(go.transform, false);

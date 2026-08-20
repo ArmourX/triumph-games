@@ -1,0 +1,10 @@
+{
+  "currency": "IMX",
+  "tokentrove": {
+    "heroes": "https://tokentrove.com/collection/LegendsofElumiaHeroes",
+    "items": "https://tokentrove.com/collection/LegendsofElumiaItems",
+    "collection": "https://tokentrove.com/collection/LegendsofElumia"
+  },
+  "featuredHeroTokenIds": ["2275", "603", "1204", "891", "1542", "2100"],
+  "demoSellerPrefix": "0xDemo…"
+}

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="js/site-theme-init.js"></script>
+  <title>Legends of Elumia | Staff</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="erc6551-test.css">
+</head>
+<body class="erc6551-test-page">
+  <div id="erc6551-gate" class="erc6551-gate">
+    <div class="erc6551-gate-card">
+      <p class="erc6551-gate-kicker">Legends of Elumia</p>
+      <h1 class="erc6551-gate-title">Staff access</h1>
+      <p class="erc6551-gate-copy">Enter the preview password to view Staff.</p>
+      <form id="erc6551-gate-form" class="erc6551-gate-form" autocomplete="off">
+        <label class="erc6551-gate-label" for="erc6551-gate-password">Password</label>
+        <input
+          id="erc6551-gate-password"
+          class="erc6551-gate-input"
+          type="text"
+          name="erc6551-vault-key"
+          autocomplete="off"
+          autocapitalize="off"
+          autocorrect="off"
+          spellcheck="false"
+          placeholder="Enter password"
+          required
+        >
+        <p id="erc6551-gate-error" class="erc6551-gate-error" aria-live="polite"></p>
+        <button type="submit" class="btn btn-primary erc6551-gate-submit">Unlock</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="erc6551-app" class="erc6551-app">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="erc6551-test.html" class="logo">
+          <span class="logo-text">Legends of Elumia</span>
+        </a>
+        <nav class="main-nav" aria-label="Main">
+          <a href="index.html">Home</a>
+          <a href="erc6551-test.html" aria-current="page">Staff</a>
+        </nav>
+        <div class="header-actions">
+          <button id="erc6551-header-connect" type="button" class="btn btn-outline">Connect wallet</button>
+          <a href="https://faucet.testnet.chain.robinhood.com" class="btn btn-ghost" target="_blank" rel="noopener">Faucet</a>
+          <a href="https://explorer.testnet.chain.robinhood.com" class="btn btn-primary" target="_blank" rel="noopener">Explorer</a>
+        </div>
+        <button class="mobile-menu-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </header>
+
+    <main class="erc6551-page">
+      <div class="container">
+        <section class="erc6551-hero">
+          <span class="erc6551-badge">Legends of Elumia · Robinhood testnet</span>
+          <h1>Staff</h1>
+          <p>
+            Preview Tester001 hero NFTs, token-bound account inventory, and on-chain holder data
+            on Robinhood Chain Testnet.
+          </p>
+        </section>
+
+        <div class="erc6551-grid">
+          <section class="erc6551-card erc6551-preview">
+            <div class="erc6551-section-head">
+              <h2>Tester001 hero</h2>
+              <span id="erc6551-preview-context" class="erc6551-context-badge">Deployment preview</span>
+            </div>
+            <div id="erc6551-token-picker" class="erc6551-token-picker" hidden></div>
+            <div class="erc6551-image-wrap erc6551-image-wrap--hero">
+              <img id="erc6551-preview-image" src="/assets/erc6551/hero/trainer.png" alt="Tester001 hero">
+            </div>
+            <div>
+              <div id="erc6551-preview-name" class="erc6551-meta-name">Loading…</div>
+              <p id="erc6551-preview-desc" class="erc6551-meta-desc"></p>
+              <div id="erc6551-traits" class="erc6551-traits"></div>
+            </div>
+            <div class="erc6551-actions">
+              <a id="erc6551-open-metadata" class="btn btn-outline" href="/assets/erc6551/1.json" target="_blank" rel="noopener">Open metadata JSON</a>
+              <a class="btn btn-ghost" href="/assets/erc6551/hero/trainer.png" target="_blank" rel="noopener">Open hero image</a>
+            </div>
+          </section>
+
+          <section class="erc6551-card erc6551-inventory-card">
+            <div class="erc6551-section-head">
+              <h2>Hero inventory</h2>
+              <button
+                id="erc6551-inventory-refresh"
+                type="button"
+                class="erc6551-icon-btn"
+                title="Refresh from chain"
+                aria-label="Refresh inventory from chain"
+              >↻</button>
+            </div>
+            <p id="erc6551-inventory-note" class="erc6551-inventory-note">Live on-chain inventory for the token-bound account.</p>
+            <div id="erc6551-inventory" class="erc6551-inventory"></div>
+          </section>
+        </div>
+
+        <section class="erc6551-card erc6551-mint-card">
+          <h2>Owner mint</h2>
+          <p class="erc6551-mint-note">
+            Connect the contract owner wallet, enter a recipient address, and mint a Tester001 hero NFT or items.
+            Items mint into the recipient's hero token-bound account when they already own a Tester001 NFT.
+          </p>
+          <div class="erc6551-mint-form">
+            <label class="erc6551-field" for="erc6551-recipient">
+              <span class="erc6551-field-label">Recipient wallet</span>
+              <input
+                id="erc6551-recipient"
+                class="erc6551-input"
+                type="text"
+                placeholder="0x..."
+                autocomplete="off"
+                spellcheck="false"
+              >
+            </label>
+            <div class="erc6551-mint-actions">
+              <button id="erc6551-mint-hero" type="button" class="btn btn-primary">Mint hero NFT</button>
+              <button id="erc6551-mint-starter" type="button" class="btn btn-outline">Mint starter item pack</button>
+            </div>
+            <div class="erc6551-mint-item-row">
+              <label class="erc6551-field erc6551-field--grow" for="erc6551-mint-item-select">
+                <span class="erc6551-field-label">Item</span>
+                <select id="erc6551-mint-item-select" class="erc6551-input erc6551-select">
+                  <option value="1">Potion</option>
+                  <option value="2">Pokeball</option>
+                  <option value="3">Pokegold</option>
+                  <option value="4">Rare Candy</option>
+                </select>
+              </label>
+              <label class="erc6551-field erc6551-field--amount" for="erc6551-mint-amount">
+                <span class="erc6551-field-label">Amount</span>
+                <input
+                  id="erc6551-mint-amount"
+                  class="erc6551-input"
+                  type="number"
+                  min="1"
+                  step="1"
+                  value="1"
+                >
+              </label>
+              <button id="erc6551-mint-item-btn" type="button" class="btn btn-outline erc6551-mint-item-btn">Mint item</button>
+            </div>
+          </div>
+          <p id="erc6551-mint-status" class="erc6551-mint-status" aria-live="polite"></p>
+        </section>
+
+        <div class="erc6551-grid" style="margin-top: 1.5rem;">
+          <section class="erc6551-card">
+            <h2>Deployment status</h2>
+            <div id="erc6551-status" class="erc6551-status is-pending">Loading deployment info…</div>
+            <dl id="erc6551-deployment-rows" class="erc6551-kv" style="margin-top: 1rem;"></dl>
+
+            <div class="erc6551-wallet">
+              <h2 style="margin-top: 0;">Wallet</h2>
+              <p>Connect a wallet and switch to Robinhood testnet to mint or preview your own hero.</p>
+              <div class="erc6551-actions">
+                <button id="erc6551-connect" type="button" class="btn btn-primary">Connect wallet</button>
+                <button id="erc6551-switch-network" type="button" class="btn btn-outline">Add / switch network</button>
+              </div>
+              <dl class="erc6551-kv" style="margin-top: 1rem;">
+                <div class="erc6551-kv-row">
+                  <dt>Address</dt>
+                  <dd id="erc6551-wallet-address">—</dd>
+                </div>
+                <div class="erc6551-kv-row">
+                  <dt>Balance</dt>
+                  <dd id="erc6551-wallet-balance">—</dd>
+                </div>
+              </dl>
+            </div>
+          </section>
+
+          <section class="erc6551-card erc6551-holders-card">
+            <h2>Holders</h2>
+            <div class="erc6551-holders-summary">
+              <span class="erc6551-holders-summary-label">Total holders</span>
+              <strong id="erc6551-holder-count" class="erc6551-holders-count">—</strong>
+            </div>
+            <label class="erc6551-field erc6551-holder-select-wrap" for="erc6551-holder-select">
+              <span class="erc6551-field-label">Preview holder</span>
+              <select id="erc6551-holder-select" class="erc6551-input erc6551-select">
+                <option value="">Select a holder to preview…</option>
+              </select>
+            </label>
+            <div id="erc6551-holders-list" class="erc6551-holders-list">
+              <p class="erc6551-holders-empty">Loading holders…</p>
+            </div>
+          </section>
+        </div>
+
+        <div class="erc6551-grid" style="margin-top: 1.5rem;">
+          <section class="erc6551-card">
+            <h2>This deployment</h2>
+            <dl class="erc6551-kv">
+              <div class="erc6551-kv-row">
+                <dt>Origin</dt>
+                <dd id="erc6551-origin">—</dd>
+              </div>
+              <div class="erc6551-kv-row">
+                <dt>Metadata URL</dt>
+                <dd id="erc6551-metadata-url">—</dd>
+              </div>
+              <div class="erc6551-kv-row">
+                <dt>Image URL</dt>
+                <dd id="erc6551-image-url">—</dd>
+              </div>
+            </dl>
+          </section>
+
+          <section class="erc6551-card">
+            <h2>Network config</h2>
+            <dl id="erc6551-config-rows" class="erc6551-kv"></dl>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/erc6551-gate.js"></script>
+</body>
+</html>

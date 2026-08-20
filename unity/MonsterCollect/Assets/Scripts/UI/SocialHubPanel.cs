@@ -9,6 +9,7 @@ using MonsterCollect.Sharing;
 using MonsterCollect.Social;
 using MonsterCollect.Social.Local;
 using MonsterCollect.Social.Online;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,9 +26,9 @@ namespace MonsterCollect.UI
         private Tab currentTab = Tab.Nearby;
         private bool uiBuilt;
         private GameObject rootPanel;
-        private Text titleText;
-        private Text bodyText;
-        private Text footerText;
+        private TMP_Text titleText;
+        private TMP_Text bodyText;
+        private TMP_Text footerText;
         private Button closeButton;
         private InputField friendCodeInput;
         private readonly List<Button> actionButtons = new List<Button>();
@@ -66,21 +67,31 @@ namespace MonsterCollect.UI
 
         public static void ShowPanel()
         {
+            Show(Tab.Nearby);
+        }
+
+        public static void ShowFriends()
+        {
+            Show(Tab.Friends);
+        }
+
+        private static void Show(Tab tab)
+        {
             SocialHubPanel panel = Instance ?? FindObjectOfType<SocialHubPanel>(true);
             if (panel == null)
             {
-                Canvas canvas = FindObjectOfType<Canvas>();
+                Canvas canvas = KitUi.ResolveGameCanvas();
                 if (canvas == null)
                 {
                     return;
                 }
 
                 var go = new GameObject("SocialHubPanel", typeof(RectTransform), typeof(SocialHubPanel));
-                Transform parent = LandscapePlayFrame.FindContentRoot(canvas) ?? canvas.transform;
-                go.transform.SetParent(parent, false);
+                go.transform.SetParent(KitUi.OverlayParent(canvas), false);
                 panel = go.GetComponent<SocialHubPanel>();
             }
 
+            panel.currentTab = tab;
             panel.Show();
         }
 
@@ -97,6 +108,11 @@ namespace MonsterCollect.UI
             }
 
             Refresh();
+            if (friendCodeInput != null)
+            {
+                friendCodeInput.gameObject.SetActive(currentTab == Tab.Friends || currentTab == Tab.Trades);
+            }
+
             rootPanel?.SetActive(true);
             gameObject.SetActive(true);
         }
@@ -516,95 +532,46 @@ namespace MonsterCollect.UI
 
             uiBuilt = true;
             rootPanel = gameObject;
-            Font font = MobileGameUiKit.BodyFont;
-            var rect = GetComponent<RectTransform>() ?? gameObject.AddComponent<RectTransform>();
-            Stretch(rect);
+            KitUi.Stretch(GetComponent<RectTransform>() ?? gameObject.AddComponent<RectTransform>());
+            TmpFonts.PrepareCanvas(GetComponentInParent<Canvas>());
 
-            var dim = CreateImage("Dim", transform, new Color(0f, 0f, 0f, 0.72f));
-            Stretch(dim.rectTransform);
+            KitUi.Dim(transform);
+            Image card = KitUi.Card(transform);
 
-            var card = CreateImage("Card", transform, new Color(0.1f, 0.12f, 0.17f, 0.98f));
-            var cardRect = card.rectTransform;
-            cardRect.anchorMin = new Vector2(0.04f, 0.06f);
-            cardRect.anchorMax = new Vector2(0.96f, 0.94f);
-            cardRect.offsetMin = Vector2.zero;
-            cardRect.offsetMax = Vector2.zero;
+            titleText = KitUi.Label(card.transform, "Title", "Social", 34, TextAlignmentOptions.Center, title: true);
+            KitUi.AnchorTop(titleText.rectTransform, 0.88f, 0.98f);
 
-            titleText = CreateText("Title", card.transform, font, 30, FontStyle.Bold, TextAnchor.UpperCenter);
-            AnchorTop(titleText.rectTransform, 0.88f, 0.98f);
+            bodyText = KitUi.Label(card.transform, "Body", string.Empty, 20, TextAlignmentOptions.TopLeft);
+            KitUi.Anchor(bodyText.rectTransform, 0.05f, 0.28f, 0.95f, 0.86f);
+            bodyText.enableWordWrapping = true;
 
-            bodyText = CreateText("Body", card.transform, font, 20, FontStyle.Normal, TextAnchor.UpperLeft);
-            bodyText.rectTransform.anchorMin = new Vector2(0.05f, 0.28f);
-            bodyText.rectTransform.anchorMax = new Vector2(0.95f, 0.86f);
-            bodyText.rectTransform.offsetMin = Vector2.zero;
-            bodyText.rectTransform.offsetMax = Vector2.zero;
-            bodyText.horizontalOverflow = HorizontalWrapMode.Wrap;
-            bodyText.verticalOverflow = VerticalWrapMode.Overflow;
+            footerText = KitUi.Label(card.transform, "Footer", string.Empty, 18, TextAlignmentOptions.BottomLeft);
+            KitUi.Anchor(footerText.rectTransform, 0.04f, 0.02f, 0.52f, 0.12f);
 
-            footerText = CreateText("Footer", card.transform, font, 18, FontStyle.Italic, TextAnchor.LowerLeft);
-            AnchorBottom(footerText.rectTransform, 0.02f, 0.12f);
-            footerText.color = new Color(0.65f, 0.75f, 0.85f);
-
-            var inputGo = new GameObject("FriendCodeInput", typeof(RectTransform), typeof(Image), typeof(InputField));
-            inputGo.transform.SetParent(card.transform, false);
-            var inputRect = inputGo.GetComponent<RectTransform>();
-            inputRect.anchorMin = new Vector2(0.05f, 0.24f);
-            inputRect.anchorMax = new Vector2(0.95f, 0.28f);
-            inputRect.offsetMin = Vector2.zero;
-            inputRect.offsetMax = Vector2.zero;
-            inputGo.GetComponent<Image>().color = new Color(0.15f, 0.18f, 0.24f, 1f);
-            friendCodeInput = inputGo.GetComponent<InputField>();
-
-            var placeholderGo = new GameObject("Placeholder", typeof(RectTransform), typeof(Text));
-            placeholderGo.transform.SetParent(inputGo.transform, false);
-            var placeholder = placeholderGo.GetComponent<Text>();
-            placeholder.font = font;
-            placeholder.text = "Friend code MC-XXXXXX";
-            placeholder.color = new Color(1f, 1f, 1f, 0.35f);
-            Stretch(placeholder.rectTransform);
-
-            var textGo = new GameObject("Text", typeof(RectTransform), typeof(Text));
-            textGo.transform.SetParent(inputGo.transform, false);
-            var inputText = textGo.GetComponent<Text>();
-            inputText.font = font;
-            inputText.color = Color.white;
-            inputText.supportRichText = false;
-            Stretch(textGo.GetComponent<RectTransform>());
-
-            friendCodeInput.textComponent = inputText;
-            friendCodeInput.placeholder = placeholder;
+            friendCodeInput = KitUi.LegacyInput(card.transform, "FriendCodeInput", "Friend code MC-XXXXXX", 0.05f, 0.24f, 0.95f, 0.28f);
             friendCodeInput.gameObject.SetActive(false);
 
             var tabRow = new GameObject("Tabs", typeof(RectTransform)).GetComponent<RectTransform>();
             tabRow.SetParent(card.transform, false);
-            tabRow.anchorMin = new Vector2(0.04f, 0.14f);
-            tabRow.anchorMax = new Vector2(0.96f, 0.22f);
-            tabRow.offsetMin = Vector2.zero;
-            tabRow.offsetMax = Vector2.zero;
+            KitUi.Anchor(tabRow, 0.04f, 0.14f, 0.96f, 0.22f);
 
-            CreateTab(tabRow, font, "Nearby", Tab.Nearby, 0f, 0.19f);
-            CreateTab(tabRow, font, "Friends", Tab.Friends, 0.2f, 0.39f);
-            CreateTab(tabRow, font, "Trades", Tab.Trades, 0.4f, 0.59f);
-            CreateTab(tabRow, font, "PvP", Tab.Pvp, 0.6f, 0.79f);
-            CreateTab(tabRow, font, "Boards", Tab.Leaderboards, 0.8f, 1f);
+            CreateTab(tabRow, "Nearby", Tab.Nearby, 0f, 0.19f);
+            CreateTab(tabRow, "Friends", Tab.Friends, 0.2f, 0.39f);
+            CreateTab(tabRow, "Trades", Tab.Trades, 0.4f, 0.59f);
+            CreateTab(tabRow, "PvP", Tab.Pvp, 0.6f, 0.79f);
+            CreateTab(tabRow, "Boards", Tab.Leaderboards, 0.8f, 1f);
 
-            var actionRowGo = new GameObject("Actions", typeof(RectTransform));
+            var actionRowGo = new GameObject("ActionRow", typeof(RectTransform));
             actionRowGo.transform.SetParent(card.transform, false);
-            var actionRect = actionRowGo.GetComponent<RectTransform>();
-            actionRect.anchorMin = new Vector2(0.04f, 0.22f);
-            actionRect.anchorMax = new Vector2(0.96f, 0.27f);
-            actionRect.offsetMin = Vector2.zero;
-            actionRect.offsetMax = Vector2.zero;
-            actionRowGo.name = "ActionRow";
+            KitUi.Anchor(actionRowGo.GetComponent<RectTransform>(), 0.04f, 0.22f, 0.96f, 0.27f);
 
-            closeButton = CreateButton("Close", card.transform, font, "Close", 0.78f, 0.02f, 0.96f, 0.11f);
-            Button communityButton = CreateButton("Community", card.transform, font, "Community", 0.54f, 0.02f, 0.76f, 0.11f);
-            communityButton.onClick.AddListener(CommunityGalleryPanel.ShowPanel);
+            closeButton = KitUi.Button(card.transform, "Close", "CLOSE", 0.78f, 0.02f, 0.96f, 0.11f, Hide, secondary: true);
+            KitUi.Button(card.transform, "Community", "COMMUNITY", 0.54f, 0.02f, 0.76f, 0.11f, CommunityGalleryPanel.ShowPanel);
         }
 
-        private void CreateTab(RectTransform row, Font font, string label, Tab tab, float minX, float maxX)
+        private void CreateTab(RectTransform row, string label, Tab tab, float minX, float maxX)
         {
-            Button button = CreateButton(label, row, font, label, minX, 0f, maxX, 1f);
+            Button button = KitUi.Button(row, label, label.ToUpperInvariant(), minX, 0f, maxX, 1f, null, secondary: true);
             button.onClick.AddListener(() =>
             {
                 currentTab = tab;
@@ -628,9 +595,7 @@ namespace MonsterCollect.UI
             int index = actionButtons.Count;
             float width = 0.24f;
             float minX = index * width;
-            Button button = CreateButton($"Action_{label}", row, MobileGameUiKit.BodyFont,
-                label, minX, 0f, minX + width - 0.01f, 1f);
-            button.onClick.AddListener(() => handler());
+            Button button = KitUi.Button(row, $"Action_{label}", label, minX, 0f, minX + width - 0.01f, 1f, handler);
             actionButtons.Add(button);
         }
 
@@ -645,76 +610,6 @@ namespace MonsterCollect.UI
             }
 
             actionButtons.Clear();
-        }
-
-        private static Image CreateImage(string name, Transform parent, Color color)
-        {
-            var go = new GameObject(name, typeof(RectTransform), typeof(Image));
-            go.transform.SetParent(parent, false);
-            var image = go.GetComponent<Image>();
-            image.color = color;
-            return image;
-        }
-
-        private static Text CreateText(string name, Transform parent, Font font, int size, FontStyle style, TextAnchor anchor)
-        {
-            var go = new GameObject(name, typeof(RectTransform), typeof(Text));
-            go.transform.SetParent(parent, false);
-            var text = go.GetComponent<Text>();
-            text.font = font;
-            text.fontSize = size;
-            text.fontStyle = style;
-            text.alignment = anchor;
-            text.color = Color.white;
-            return text;
-        }
-
-        private static Button CreateButton(string name, Transform parent, Font font, string label, float minX, float minY, float maxX, float maxY)
-        {
-            var go = new GameObject(name, typeof(RectTransform), typeof(Image), typeof(Button));
-            go.transform.SetParent(parent, false);
-            var rect = go.GetComponent<RectTransform>();
-            rect.anchorMin = new Vector2(minX, minY);
-            rect.anchorMax = new Vector2(maxX, maxY);
-            rect.offsetMin = Vector2.zero;
-            rect.offsetMax = Vector2.zero;
-            go.GetComponent<Image>().color = new Color(0.22f, 0.32f, 0.48f, 1f);
-
-            var labelGo = new GameObject("Label", typeof(RectTransform), typeof(Text));
-            labelGo.transform.SetParent(go.transform, false);
-            var labelText = labelGo.GetComponent<Text>();
-            labelText.font = font;
-            labelText.fontSize = 18;
-            labelText.alignment = TextAnchor.MiddleCenter;
-            labelText.color = Color.white;
-            labelText.text = label;
-            Stretch(labelGo.GetComponent<RectTransform>());
-
-            return go.GetComponent<Button>();
-        }
-
-        private static void Stretch(RectTransform rect)
-        {
-            rect.anchorMin = Vector2.zero;
-            rect.anchorMax = Vector2.one;
-            rect.offsetMin = Vector2.zero;
-            rect.offsetMax = Vector2.zero;
-        }
-
-        private static void AnchorTop(RectTransform rect, float minY, float maxY)
-        {
-            rect.anchorMin = new Vector2(0.05f, minY);
-            rect.anchorMax = new Vector2(0.95f, maxY);
-            rect.offsetMin = Vector2.zero;
-            rect.offsetMax = Vector2.zero;
-        }
-
-        private static void AnchorBottom(RectTransform rect, float minY, float maxY)
-        {
-            rect.anchorMin = new Vector2(0.05f, minY);
-            rect.anchorMax = new Vector2(0.95f, maxY);
-            rect.offsetMin = Vector2.zero;
-            rect.offsetMax = Vector2.zero;
         }
     }
 }

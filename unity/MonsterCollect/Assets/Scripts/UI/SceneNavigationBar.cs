@@ -43,10 +43,11 @@ namespace MonsterCollect.UI
             Bind(ranchButton, () => NavigateTo(GameScenes.Ranch));
             Bind(dexButton, () => NavigateTo(GameScenes.Dex));
             Bind(battleButton, () => NavigateTo(GameScenes.Battle));
-            Bind(settingsButton, OpenSettings);
+            Bind(settingsButton, SettingsPanel.ShowPanel);
             Bind(goalsButton, ProgressionHubPanel.ShowPanel);
             Bind(adventureButton, AdventureHubPanel.ShowPanel);
 
+            RestyleChrome();
             RefreshHighlights();
             RefreshHud();
         }
@@ -73,11 +74,39 @@ namespace MonsterCollect.UI
             Unbind(adventureButton);
         }
 
-        private void OpenSettings()
+        private void RestyleChrome()
         {
-            SettingsPanel panel = SettingsPanel.Instance ?? FindObjectOfType<SettingsPanel>(true);
-            panel?.Show();
-            GameFeedbackService.Instance?.PlayUiTap();
+            Image hud = GetComponent<Image>();
+            UiSkinUtility.ApplyNavBarBackground(hud);
+            KitUi.RestyleExisting(transform);
+
+            Transform rail = transform.parent != null ? transform.parent.Find("LeftRail") : null;
+            if (rail == null)
+            {
+                return;
+            }
+
+            Image railBg = rail.GetComponent<Image>();
+            if (railBg != null)
+            {
+                HomeHubUiFactory.ApplyPanel(railBg, MobileGameUiKit.Theme != null ? MobileGameUiKit.Theme.sidePanelLeft : null, 0.92f);
+            }
+
+            Button[] tabs = rail.GetComponentsInChildren<Button>(true);
+            for (int i = 0; i < tabs.Length; i++)
+            {
+                Image image = tabs[i].GetComponent<Image>();
+                if (image != null)
+                {
+                    UiSkinUtility.ApplyTabButton(image, false);
+                }
+
+                Text label = tabs[i].GetComponentInChildren<Text>();
+                if (label != null)
+                {
+                    UiSkinUtility.StyleButtonLabel(label);
+                }
+            }
         }
 
         private void NavigateTo(string sceneName)

@@ -67,6 +67,7 @@ namespace MonsterCollect.UI
 
         public void Show()
         {
+            KitUi.RestyleExisting(transform);
             if (rootPanel != null)
             {
                 rootPanel.SetActive(true);

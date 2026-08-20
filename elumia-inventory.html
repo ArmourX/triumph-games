@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="js/site-theme-init.js"></script>
+  <title>Hero &amp; Inventory | Legends of Elumia</title>
+  <meta name="description" content="View and manage your Legends of Elumia heroes and items on Immutable zkEVM.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="elumia-inventory.css">
+</head>
+<body class="elumia-inventory-page">
+  <div id="elumia-inv-gate" class="elumia-inv-gate">
+    <div class="elumia-inv-gate-card">
+      <p class="elumia-inv-gate-kicker">Legends of Elumia</p>
+      <h1 class="elumia-inv-gate-title">Item vault access</h1>
+      <p class="elumia-inv-gate-copy">Enter the preview password to view hero and inventory management.</p>
+      <form id="elumia-inv-gate-form" class="elumia-inv-gate-form" autocomplete="off">
+        <label class="elumia-inv-gate-label" for="elumia-inv-gate-password">Password</label>
+        <input
+          id="elumia-inv-gate-password"
+          class="elumia-inv-gate-input"
+          type="text"
+          name="elumia-vault-key"
+          autocomplete="off"
+          autocapitalize="off"
+          autocorrect="off"
+          spellcheck="false"
+          placeholder="Enter password"
+          required
+        >
+        <p id="elumia-inv-gate-error" class="elumia-inv-gate-error" aria-live="polite"></p>
+        <button type="submit" class="btn btn-primary elumia-inv-gate-submit">Unlock</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="elumia-inv-app" class="elumia-inv-app">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="elumia.html" class="logo">
+        <span class="logo-text">Legends of Elumia</span>
+      </a>
+      <nav class="main-nav" aria-label="Main">
+        <a href="elumia.html">Wiki</a>
+        <a href="elumia-inventory.html" aria-current="page">Hero &amp; Inventory</a>
+        <a href="marketplace.html">Marketplace</a>
+        <a href="erc6551-test.html">Staff</a>
+      </nav>
+      <div class="header-actions">
+        <button id="elumia-connect" type="button" class="btn btn-outline">Connect wallet</button>
+        <a id="elumia-market-heroes" class="btn btn-ghost" href="https://tokentrove.com/collection/LegendsofElumiaHeroes" target="_blank" rel="noopener">Buy heroes</a>
+        <a id="elumia-market-items" class="btn btn-primary" href="https://tokentrove.com/collection/LegendsofElumiaItems" target="_blank" rel="noopener">Buy items</a>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="elumia-inv-page">
+    <div class="container">
+      <section class="elumia-inv-hero elumia-inv-standalone-only">
+        <span class="elumia-inv-badge">Immutable zkEVM · Live contracts</span>
+        <h1>Hero &amp; inventory management</h1>
+        <p>
+          Connect your wallet to view Heroes of Elumia and Items of Elumia NFTs from the live
+          on-chain collections on TokenTrove.
+        </p>
+      </section>
+
+      <!-- RPG loadout: paperdoll | skills, bag below -->
+      <section class="elumia-inv-loadout" id="elumia-profile-banner">
+        <div class="elumia-inv-loadout-main">
+          <div class="elumia-inv-loadout-left">
+            <div class="elumia-inv-loadout-title-row">
+              <div class="elumia-inv-loadout-title">
+                <h2 class="elumia-inv-hero-heading">
+                  <span id="elumia-preview-context" class="elumia-inv-context">Connect wallet to load</span>
+                  <span id="elumia-preview-name" class="elumia-inv-hero-name"></span>
+                </h2>
+              </div>
+              <div class="elumia-inv-mode-toggle" role="tablist" aria-label="Hero panel">
+                <button type="button" id="elumia-mode-equip" class="elumia-inv-mode-btn is-active">Equipment</button>
+                <button type="button" id="elumia-mode-traits" class="elumia-inv-mode-btn">Traits</button>
+              </div>
+              <div class="elumia-inv-actions">
+                <a id="elumia-open-tokentrove-hero" class="btn btn-outline btn-sm" href="https://tokentrove.com/collection/LegendsofElumiaHeroes" target="_blank" rel="noopener">TokenTrove</a>
+                <a id="elumia-open-explorer-hero" class="btn btn-ghost btn-sm" href="https://explorer.immutable.com" target="_blank" rel="noopener">Explorer</a>
+                <button id="elumia-inventory-refresh" type="button" class="btn btn-ghost btn-sm elumia-inv-refresh-btn" title="Refresh" aria-label="Refresh inventory">↻</button>
+              </div>
+            </div>
+            <p id="elumia-preview-desc" class="elumia-inv-meta-desc elumia-inv-loadout-desc">Connect a wallet that owns Heroes of Elumia NFTs on Immutable zkEVM.</p>
+
+            <div class="elumia-inv-paperdoll-host">
+              <div class="elumia-inv-paperdoll">
+                <div class="elumia-inv-equip-col elumia-inv-equip-col--left" id="elumia-equip-left" aria-label="Left equipment"></div>
+                <div class="elumia-inv-hero-center">
+                  <div class="elumia-inv-image-wrap elumia-inv-image-wrap--profile">
+                    <img id="elumia-preview-image" src="https://elumia.triumphcdn.com/imx/mainnet/heroes/collectionLogo.png" alt="Legends of Elumia hero">
+                    <div id="elumia-sealed-overlay" class="elumia-inv-sealed-overlay" hidden aria-hidden="true">
+                      <span class="elumia-inv-sealed-label">Sealed</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="elumia-inv-equip-col elumia-inv-equip-col--right" id="elumia-equip-right" aria-label="Right equipment"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="elumia-inv-loadout-right elumia-inv-skills-panel">
+            <div class="elumia-inv-skills-head">
+              <div>
+                <p class="elumia-inv-bag-kicker">Hero</p>
+                <h2>Skills &amp; traits</h2>
+              </div>
+            </div>
+            <div id="elumia-hero-bar-grid" class="elumia-inv-hero-bar-grid" aria-label="Hero skills and traits"></div>
+          </div>
+        </div>
+
+        <div class="elumia-inv-loadout-bag">
+          <div id="elumia-hero-picker" class="elumia-inv-hero-picker" hidden aria-label="Select hero"></div>
+          <div class="elumia-inv-bag-head">
+            <div>
+              <p class="elumia-inv-bag-kicker">Inventory</p>
+              <h2>Bag</h2>
+            </div>
+            <button
+              type="button"
+              id="elumia-bundle-hero-btn"
+              class="btn btn-primary btn-sm elumia-inv-bundle-btn"
+              disabled
+            >Bundle hero</button>
+          </div>
+          <p id="elumia-inventory-note" class="elumia-inv-inventory-note elumia-inv-inventory-note--top">Unequipped items live here.</p>
+          <div id="elumia-bag-view" class="elumia-inv-bag-view">
+            <div id="elumia-inventory" class="elumia-inv-bag-grid">
+              <p class="elumia-inv-empty">Connect your wallet to load items.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="elumia-inv-grid elumia-inv-standalone-only" style="margin-top: 1.5rem;">
+        <section class="elumia-inv-card">
+          <h2>Wallet</h2>
+          <p class="elumia-inv-wallet-note">Connect with Immutable Passport or a browser wallet (MetaMask) on Immutable zkEVM mainnet.</p>
+          <div class="elumia-inv-actions">
+            <button id="elumia-connect-panel" type="button" class="btn btn-primary">Connect wallet</button>
+            <button id="elumia-switch-network" type="button" class="btn btn-outline">Switch to Immutable zkEVM</button>
+          </div>
+          <dl class="elumia-inv-kv" style="margin-top: 1rem;">
+            <div class="elumia-inv-kv-row">
+              <dt>Connection</dt>
+              <dd id="elumia-wallet-type">—</dd>
+            </div>
+            <div class="elumia-inv-kv-row">
+              <dt>Address</dt>
+              <dd id="elumia-wallet-address">—</dd>
+            </div>
+            <div class="elumia-inv-kv-row">
+              <dt>Hero count</dt>
+              <dd id="elumia-hero-count">—</dd>
+            </div>
+            <div class="elumia-inv-kv-row">
+              <dt>Item types</dt>
+              <dd id="elumia-item-count">—</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="elumia-inv-card">
+          <h2>Live collections</h2>
+          <dl id="elumia-contract-rows" class="elumia-inv-kv"></dl>
+          <div class="elumia-inv-actions" style="margin-top: 1rem;">
+            <a class="btn btn-outline" href="https://app.elumia.io" target="_blank" rel="noopener">Open Elumia game</a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <div id="elumia-bundle-modal" class="elumia-bundle-modal" hidden aria-hidden="true">
+    <div class="elumia-bundle-modal-backdrop" data-elumia-close-bundle></div>
+    <div class="elumia-bundle-modal-card" role="dialog" aria-modal="true" aria-labelledby="elumia-bundle-modal-title">
+      <button type="button" class="elumia-bundle-modal-close" data-elumia-close-bundle aria-label="Close">×</button>
+      <h2 id="elumia-bundle-modal-title">Bundle hero</h2>
+      <p id="elumia-bundle-copy" class="elumia-bundle-modal-copy">Choose a hero and the inventory you want to seal together.</p>
+
+      <section class="elumia-bundle-section">
+        <h3 class="elumia-bundle-section-title">1. Pick hero</h3>
+        <div id="elumia-bundle-heroes" class="elumia-bundle-hero-grid"></div>
+      </section>
+
+      <section class="elumia-bundle-section">
+        <h3 class="elumia-bundle-section-title">2. Select items</h3>
+        <div class="elumia-inv-bundle-toolbar">
+          <button type="button" id="elumia-bundle-select-all" class="btn btn-ghost btn-sm">Select all</button>
+          <button type="button" id="elumia-bundle-clear" class="btn btn-ghost btn-sm">Clear</button>
+          <span id="elumia-bundle-count" class="elumia-inv-bundle-count">0 selected</span>
+        </div>
+        <div id="elumia-bundle-items" class="elumia-inv-bundle-grid"></div>
+      </section>
+
+      <div class="elumia-inv-bundle-actions">
+        <button type="button" id="elumia-bundle-cancel" class="btn btn-ghost btn-sm">Cancel</button>
+        <button type="button" id="elumia-bundle-seal" class="btn btn-primary btn-sm">Seal bundle</button>
+        <button type="button" id="elumia-bundle-unseal" class="btn btn-outline btn-sm" hidden>Unseal</button>
+      </div>
+      <p id="elumia-bundle-status" class="elumia-inv-bundle-status" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <div id="elumia-connect-modal" class="elumia-connect-modal" hidden aria-hidden="true">
+    <div class="elumia-connect-modal-backdrop" data-elumia-close-modal></div>
+    <div class="elumia-connect-modal-card" role="dialog" aria-modal="true" aria-labelledby="elumia-connect-modal-title">
+      <button type="button" class="elumia-connect-modal-close" data-elumia-close-modal aria-label="Close">×</button>
+      <h2 id="elumia-connect-modal-title">Connect wallet</h2>
+      <p class="elumia-connect-modal-copy">Choose how you want to connect on Immutable zkEVM.</p>
+      <div class="elumia-connect-options">
+        <button type="button" id="elumia-connect-passport" class="elumia-connect-option">
+          <span class="elumia-connect-option-label">Immutable Passport</span>
+          <span class="elumia-connect-option-desc">Sign in with Google, Apple, or email</span>
+        </button>
+        <div class="elumia-connect-divider">or paste wallet address</div>
+        <label class="elumia-connect-address-label" for="elumia-passport-address">Passport / wallet address</label>
+        <input
+          id="elumia-passport-address"
+          class="elumia-connect-address-input"
+          type="text"
+          placeholder="0x…"
+          autocomplete="off"
+          spellcheck="false"
+        >
+        <button type="button" id="elumia-load-address" class="btn btn-outline elumia-connect-address-btn">Load inventory</button>
+        <button type="button" id="elumia-connect-metamask" class="elumia-connect-option">
+          <span class="elumia-connect-option-label">Browser wallet</span>
+          <span class="elumia-connect-option-desc">MetaMask or another EVM extension</span>
+        </button>
+      </div>
+      <p id="elumia-connect-modal-status" class="elumia-connect-modal-status" aria-live="polite"></p>
+    </div>
+  </div>
+  </div>
+
+  <script src="js/elumia-inventory-gate.js"></script>
+</body>
+</html>

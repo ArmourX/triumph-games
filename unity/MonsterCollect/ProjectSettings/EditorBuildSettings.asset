@@ -13,9 +13,10 @@ EditorBuildSettings:
     guid: 1234567890abcdef1234567890abcdef
   - enabled: 1
     path: Assets/Scenes/DexScene.unity
-    guid: 00000000000000000000000000000000
+    guid: 6ab83e7ba8ea9144c9fa78b8aaaa9184
   - enabled: 1
     path: Assets/Scenes/BattleScene.unity
     guid: e7592fb6633faa0419d1a5d9525af46d
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
   m_UseUCBPForAssetBundles: 0

@@ -26,14 +26,33 @@ namespace MonsterCollect.Editor
             EnsureThemeAsset(force: true);
             EditorUtility.DisplayDialog(
                 "UI Kit Theme",
-                "Mobile Game UI Kit theme created at Resources/UI/MobileGameUiKitTheme.asset.\n\nRun Setup All Scenes to refresh scene UI.",
+                "Mobile Game UI Kit theme updated at Resources/UI/MobileGameUiKitTheme.asset.\n\nStop and restart Play Mode on RanchScene to refresh the home hub.",
                 "OK");
         }
 
         [InitializeOnLoadMethod]
         private static void AutoEnsureTheme()
         {
-            EditorApplication.delayCall += () => EnsureThemeAsset(force: false);
+            ScheduleEnsureTheme();
+        }
+
+        private static void ScheduleEnsureTheme()
+        {
+            EditorApplication.delayCall -= EnsureThemeDeferred;
+            EditorApplication.delayCall += EnsureThemeDeferred;
+        }
+
+        private static void EnsureThemeDeferred()
+        {
+            if (EditorApplication.isCompiling ||
+                EditorApplication.isUpdating ||
+                EditorApplication.isPlayingOrWillChangePlaymode)
+            {
+                ScheduleEnsureTheme();
+                return;
+            }
+
+            EnsureThemeAsset(force: false);
         }
 
         private static void EnsureThemeAsset(bool force)
@@ -76,9 +95,35 @@ namespace MonsterCollect.Editor
             theme.bodyFont = AssetDatabase.LoadAssetAtPath<Font>(BodyFontPath);
             theme.labelFont = AssetDatabase.LoadAssetAtPath<Font>(LabelFontPath);
 
+            theme.profileBar = theme.headerBar;
+            theme.homeSunsetBackground = LoadSprite(Atlas2Path, "UI-pack_Sprite_2_0");
+            theme.currencyPill = LoadSprite(Atlas1Path, "UI-pack_Sprite_1_74");
+            theme.sidePanelLeft = LoadSprite(Atlas1Path, "UI-pack_Sprite_1_56");
+            theme.sidePanelRight = LoadSprite(Atlas2Path, "UI-pack_Sprite_2_6");
+            theme.horizontalPanel = LoadSprite(Atlas1Path, "UI-pack_Sprite_1_44");
+            theme.slotPanel = LoadSprite(Atlas1Path, "UI-pack_Sprite_1_57");
+            theme.platformPedestal = LoadSprite(Atlas2Path, "UI-pack_Sprite_2_5");
+            theme.buttonAdventure = LoadSprite(Atlas1Path, "UI-pack_Sprite_1_21");
+            theme.progressTrack = LoadSprite(Atlas2Path, "UI-pack_Sprite_2_3");
+            theme.progressFill = LoadSprite(Atlas1Path, "UI-pack_Sprite_1_45");
+            theme.notificationBadge = LoadSprite(Atlas1Path, "UI-pack_Sprite_1_32");
+            theme.avatarFrame = LoadSprite(Atlas1Path, "UI-pack_Sprite_1_26");
+            theme.levelBadgeSprite = LoadSprite(Atlas1Path, "UI-pack_Sprite_1_51");
+            theme.iconChest = LoadSprite(Atlas1Path, "UI-pack_Sprite_1_38");
+            theme.iconGift = LoadSprite(Atlas1Path, "UI-pack_Sprite_1_12");
+            theme.iconShop = LoadSprite(Atlas1Path, "UI-pack_Sprite_1_0");
+            theme.iconMonsters = LoadSprite(Atlas1Path, "UI-pack_Sprite_1_10");
+            theme.iconFriends = LoadSprite(Atlas1Path, "UI-pack_Sprite_1_11");
+            theme.iconSettings = LoadSprite(Atlas1Path, "UI-pack_Sprite_1_4");
+            theme.iconCalendar = LoadSprite(Atlas1Path, "UI-pack_Sprite_1_3");
+            theme.iconLightning = LoadSprite(Atlas1Path, "UI-pack_Sprite_1_61");
+            theme.iconShard = LoadSprite(Atlas1Path, "UI-pack_Sprite_1_77");
+            theme.iconCoin = LoadSprite(Atlas1Path, "UI-pack_Sprite_1_78");
+            theme.iconGem = LoadSprite(Atlas1Path, "UI-pack_Sprite_1_79");
+            theme.iconTicket = LoadSprite(Atlas2Path, "UI-pack_Sprite_2_8");
+
             EditorUtility.SetDirty(theme);
             AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
         }
 
         private static Sprite LoadSprite(string atlasPath, string spriteName)

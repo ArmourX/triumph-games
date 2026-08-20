@@ -1,0 +1,2975 @@
+{
+  "listings": [
+    {
+      "id": "mock-2275",
+      "seller": "0xA1b2…9f3e",
+      "price": 18.5,
+      "currency": "IMX",
+      "createdAt": 1787057300226,
+      "hero": {
+        "animation_url": null,
+        "attributes": [
+          {
+            "trait_type": "AFFINITY",
+            "value": "Water"
+          },
+          {
+            "trait_type": "BACKGROUND",
+            "value": "Courtyard"
+          },
+          {
+            "trait_type": "CLASS",
+            "value": "Battlemage"
+          },
+          {
+            "trait_type": "EYE COLOUR",
+            "value": "Purple"
+          },
+          {
+            "trait_type": "FACE",
+            "value": "Lyosalf"
+          },
+          {
+            "trait_type": "FATE",
+            "value": "Common"
+          },
+          {
+            "trait_type": "GENDER",
+            "value": "Female"
+          },
+          {
+            "trait_type": "GENERATION",
+            "value": "Genesis"
+          },
+          {
+            "trait_type": "HAIR COLOUR",
+            "value": "Brown"
+          },
+          {
+            "trait_type": "HAIRCUT",
+            "value": "The Pineapple"
+          },
+          {
+            "trait_type": "MOOD",
+            "value": "Disgusted"
+          },
+          {
+            "trait_type": "OUTFIT",
+            "value": "Spellmaker's Longcoat"
+          },
+          {
+            "trait_type": "OUTFIT COLOUR",
+            "value": "Nickel Hazelnut Crimson"
+          },
+          {
+            "trait_type": "RACE",
+            "value": "Elf"
+          },
+          {
+            "trait_type": "SKILL 1",
+            "value": "Astral Impact"
+          },
+          {
+            "trait_type": "SKILL 2",
+            "value": "Moonphase"
+          },
+          {
+            "trait_type": "SKILL 3",
+            "value": "Unforgiving Earth"
+          },
+          {
+            "trait_type": "SKIN TONE",
+            "value": "Beige"
+          }
+        ],
+        "chain": {
+          "id": "eip155:13371",
+          "name": "imtbl-zkevm-mainnet"
+        },
+        "contract_address": "0x8916ea9a8c36bf923920c5c84a77e1b118e915fa",
+        "contract_type": "ERC721",
+        "description": "Collection from Legends of Elumia. Hero#603",
+        "external_link": "https://app.elumia.io",
+        "external_url": "https://app.elumia.io",
+        "image": "https://elumia.triumphcdn.com/mainnet-beta/characters/602.png",
+        "indexed_at": "2026-06-02T13:43:10.92784Z",
+        "metadata_id": "019e8892-f464-7144-6017-bf34a0f4b89d",
+        "metadata_synced_at": "2026-06-02T13:43:12.738726Z",
+        "name": "Liluth Shalynn",
+        "token_id": "2275",
+        "updated_at": "2026-06-02T13:43:12.738726Z",
+        "youtube_url": null
+      },
+      "items": [],
+      "pet": {
+        "animation_url": null,
+        "attributes": [
+          {
+            "trait_type": "AGILITY",
+            "value": 11
+          },
+          {
+            "trait_type": "CANINE ALERTNESS PASSIVE EFFECT",
+            "value": 5
+          },
+          {
+            "trait_type": "CANINE PROTECTION SKILL",
+            "value": 5
+          },
+          {
+            "trait_type": "CLASS REQUIREMENT",
+            "value": "All"
+          },
+          {
+            "trait_type": "GAME_ASSET_ID",
+            "value": "5149479"
+          },
+          {
+            "trait_type": "INTELLIGENCE",
+            "value": 9
+          },
+          {
+            "trait_type": "LEVEL",
+            "value": 40
+          },
+          {
+            "trait_type": "MANA",
+            "value": 20
+          },
+          {
+            "trait_type": "QUALITY",
+            "value": "Legendary"
+          },
+          {
+            "trait_type": "SLOT",
+            "value": "Companion"
+          },
+          {
+            "trait_type": "STRENGTH",
+            "value": 15
+          },
+          {
+            "trait_type": "TIER",
+            "value": 1
+          }
+        ],
+        "chain": {
+          "id": "eip155:13371",
+          "name": "imtbl-zkevm-mainnet"
+        },
+        "contract_address": "0xee005214bc8e06f41c1b44d2067b8bb260884dfb",
+        "contract_type": "ERC1155",
+        "description": "This Shiba pet may seem reserved, but will put itself in front of enemies taking damage rather than let it's owner be harmed.",
+        "external_link": null,
+        "external_url": null,
+        "image": "https://nft.elumia.io/mainnet-beta/items/70005_4.png?ext=png",
+        "indexed_at": "2026-08-08T23:05:25.938803Z",
+        "metadata_id": "019fe39f-ae07-b054-d249-5c1e51c3a53d",
+        "metadata_synced_at": "2026-08-08T23:05:26.082734Z",
+        "name": "Quick White Shiba of Might",
+        "token_id": "254",
+        "total_supply": "1",
+        "updated_at": "2026-08-08T23:05:26.082734Z",
+        "youtube_url": null
+      },
+      "bundle": [
+        {
+          "animation_url": null,
+          "attributes": [
+            {
+              "trait_type": "AGILITY",
+              "value": 11
+            },
+            {
+              "trait_type": "CANINE ALERTNESS PASSIVE EFFECT",
+              "value": 5
+            },
+            {
+              "trait_type": "CANINE PROTECTION SKILL",
+              "value": 5
+            },
+            {
+              "trait_type": "CLASS REQUIREMENT",
+              "value": "All"
+            },
+            {
+              "trait_type": "GAME_ASSET_ID",
+              "value": "5149479"
+            },
+            {
+              "trait_type": "INTELLIGENCE",
+              "value": 9
+            },
+            {
+              "trait_type": "LEVEL",
+              "value": 40
+            },
+            {
+              "trait_type": "MANA",
+              "value": 20
+            },
+            {
+              "trait_type": "QUALITY",
+              "value": "Legendary"
+            },
+            {
+              "trait_type": "SLOT",
+              "value": "Companion"
+            },
+            {
+              "trait_type": "STRENGTH",
+              "value": 15
+            },
+            {
+              "trait_type": "TIER",
+              "value": 1
+            }
+          ],
+          "chain": {
+            "id": "eip155:13371",
+            "name": "imtbl-zkevm-mainnet"
+          },
+          "contract_address": "0xee005214bc8e06f41c1b44d2067b8bb260884dfb",
+          "contract_type": "ERC1155",
+          "description": "This Shiba pet may seem reserved, but will put itself in front of enemies taking damage rather than let it's owner be harmed.",
+          "external_link": null,
+          "external_url": null,
+          "image": "https://nft.elumia.io/mainnet-beta/items/70005_4.png?ext=png",
+          "indexed_at": "2026-08-08T23:05:25.938803Z",
+          "metadata_id": "019fe39f-ae07-b054-d249-5c1e51c3a53d",
+          "metadata_synced_at": "2026-08-08T23:05:26.082734Z",
+          "name": "Quick White Shiba of Might",
+          "token_id": "254",
+          "total_supply": "1",
+          "updated_at": "2026-08-08T23:05:26.082734Z",
+          "youtube_url": null
+        }
+      ],
+      "tokentroveHero": "https://tokentrove.com/collection/LegendsofElumiaHeroes/2275",
+      "score": 0.05
+    },
+    {
+      "id": "mock-2274",
+      "seller": "0xC4d5…2a1b",
+      "price": 22,
+      "currency": "IMX",
+      "createdAt": 1787050100226,
+      "hero": {
+        "animation_url": "",
+        "attributes": [
+          {
+            "trait_type": "AFFINITY",
+            "value": "Dark"
+          },
+          {
+            "trait_type": "AGILITY",
+            "value": 17
+          },
+          {
+            "trait_type": "BACKGROUND",
+            "value": "Courtyard"
+          },
+          {
+            "trait_type": "CLASS",
+            "value": "Champion"
+          },
+          {
+            "trait_type": "EXP",
+            "value": "32%"
+          },
+          {
+            "trait_type": "EYE COLOUR",
+            "value": "Blue"
+          },
+          {
+            "trait_type": "FACE",
+            "value": "Paper Tiger"
+          },
+          {
+            "trait_type": "FACIAL FEATURE",
+            "value": "Certified Wild"
+          },
+          {
+            "trait_type": "FATE",
+            "value": "Common"
+          },
+          {
+            "trait_type": "GENDER",
+            "value": "Male"
+          },
+          {
+            "trait_type": "GENERATION",
+            "value": "Genesis"
+          },
+          {
+            "trait_type": "HAIR COLOUR",
+            "value": "Plum Brown"
+          },
+          {
+            "trait_type": "HAIRCUT",
+            "value": "Wanderer's Dream"
+          },
+          {
+            "trait_type": "HEALTH",
+            "value": 32
+          },
+          {
+            "trait_type": "INTELLIGENCE",
+            "value": 16
+          },
+          {
+            "trait_type": "LEVEL",
+            "value": "41"
+          },
+          {
+            "trait_type": "MANA",
+            "value": 18
+          },
+          {
+            "trait_type": "MOOD",
+            "value": "Smirk"
+          },
+          {
+            "trait_type": "OUTFIT",
+            "value": "Braves's Doublet"
+          },
+          {
+            "trait_type": "OUTFIT COLOUR",
+            "value": "Silver Mahogany Green"
+          },
+          {
+            "trait_type": "RACE",
+            "value": "Human"
+          },
+          {
+            "trait_type": "SKILL 1",
+            "value": "Gore"
+          },
+          {
+            "trait_type": "SKILL 2",
+            "value": "Flurry"
+          },
+          {
+            "trait_type": "SKILL 3",
+            "value": "Galeforce"
+          },
+          {
+            "trait_type": "SKIN TONE",
+            "value": "Vanilla"
+          },
+          {
+            "trait_type": "STRENGTH",
+            "value": 22
+          }
+        ],
+        "chain": {
+          "id": "eip155:13371",
+          "name": "imtbl-zkevm-mainnet"
+        },
+        "contract_address": "0x8916ea9a8c36bf923920c5c84a77e1b118e915fa",
+        "contract_type": "ERC721",
+        "description": "Collection from Legends of Elumia. Hero#231",
+        "external_link": "https://app.elumia.io",
+        "external_url": "https://app.elumia.io",
+        "image": "https://elumia.triumphcdn.com/mainnet-beta/characters/230.png",
+        "indexed_at": "2026-06-02T13:43:10.937851Z",
+        "metadata_id": "019f5c3a-a682-f8ff-f654-b7165403d597",
+        "metadata_synced_at": "2026-07-13T16:06:15.42526Z",
+        "name": "Guermundus AzaÃ¯s",
+        "token_id": "2274",
+        "updated_at": "2026-07-13T16:06:15.42526Z",
+        "youtube_url": ""
+      },
+      "items": [],
+      "pet": null,
+      "bundle": [],
+      "tokentroveHero": "https://tokentrove.com/collection/LegendsofElumiaHeroes/2274",
+      "score": 0
+    },
+    {
+      "id": "mock-2273",
+      "seller": "0xE6f7…8c4d",
+      "price": 25.5,
+      "currency": "IMX",
+      "createdAt": 1787042900226,
+      "hero": {
+        "animation_url": null,
+        "attributes": [
+          {
+            "trait_type": "AFFINITY",
+            "value": "Dark"
+          },
+          {
+            "trait_type": "BACKGROUND",
+            "value": "Courtyard"
+          },
+          {
+            "trait_type": "CLASS",
+            "value": "Battlemage"
+          },
+          {
+            "trait_type": "EYE COLOUR",
+            "value": "Dark"
+          },
+          {
+            "trait_type": "FACE",
+            "value": "Lyosalf"
+          },
+          {
+            "trait_type": "FACIAL FEATURE",
+            "value": "Spectral Hoop"
+          },
+          {
+            "trait_type": "FATE",
+            "value": "Common"
+          },
+          {
+            "trait_type": "GENDER",
+            "value": "Female"
+          },
+          {
+            "trait_type": "GENERATION",
+            "value": "Genesis"
+          },
+          {
+            "trait_type": "HAIR COLOUR",
+            "value": "Dark Blue"
+          },
+          {
+            "trait_type": "HAIRCUT",
+            "value": "Battle-Theatre"
+          },
+          {
+            "trait_type": "MOOD",
+            "value": "Neutral"
+          },
+          {
+            "trait_type": "OUTFIT",
+            "value": "Arcanist's Jacket"
+          },
+          {
+            "trait_type": "OUTFIT COLOUR",
+            "value": "Gold Russet Green"
+          },
+          {
+            "trait_type": "RACE",
+            "value": "Elf"
+          },
+          {
+            "trait_type": "SKILL 1",
+            "value": "Astral Impact"
+          },
+          {
+            "trait_type": "SKILL 2",
+            "value": "Memorium's Gift"
+          },
+          {
+            "trait_type": "SKILL 3",
+            "value": "Time Hop"
+          },
+          {
+            "trait_type": "SKIN TONE",
+            "value": "Vanilla"
+          }
+        ],
+        "chain": {
+          "id": "eip155:13371",
+          "name": "imtbl-zkevm-mainnet"
+        },
+        "contract_address": "0x8916ea9a8c36bf923920c5c84a77e1b118e915fa",
+        "contract_type": "ERC721",
+        "description": "Collection from Legends of Elumia. Hero#554",
+        "external_link": "https://app.elumia.io",
+        "external_url": "https://app.elumia.io",
+        "image": "https://elumia.triumphcdn.com/mainnet-beta/characters/553.png",
+        "indexed_at": "2026-06-02T13:43:11.42314Z",
+        "metadata_id": "019e8892-f1f1-b954-2e98-34652d0607fc",
+        "metadata_synced_at": "2026-06-02T13:43:12.111931Z",
+        "name": "Llorva Olagella",
+        "token_id": "2273",
+        "updated_at": "2026-06-02T13:43:12.111931Z",
+        "youtube_url": null
+      },
+      "items": [],
+      "pet": null,
+      "bundle": [],
+      "tokentroveHero": "https://tokentrove.com/collection/LegendsofElumiaHeroes/2273",
+      "score": 0
+    },
+    {
+      "id": "mock-2272",
+      "seller": "0x1234…abcd",
+      "price": 31,
+      "currency": "IMX",
+      "createdAt": 1787035700226,
+      "hero": {
+        "animation_url": null,
+        "attributes": [
+          {
+            "trait_type": "AFFINITY",
+            "value": "Light"
+          },
+          {
+            "trait_type": "AGILITY",
+            "value": "15"
+          },
+          {
+            "trait_type": "BACKGROUND",
+            "value": "Courtyard"
+          },
+          {
+            "trait_type": "CLASS",
+            "value": "Battlemage"
+          },
+          {
+            "trait_type": "EXP",
+            "value": "0%"
+          },
+          {
+            "trait_type": "EYE COLOUR",
+            "value": "Turquoise"
+          },
+          {
+            "trait_type": "FACE",
+            "value": "Lyosalf"
+          },
+          {
+            "trait_type": "FACIAL FEATURE",
+            "value": ""
+          },
+          {
+            "trait_type": "FATE",
+            "value": "Common"
+          },
+          {
+            "trait_type": "GENDER",
+            "value": "Female"
+          },
+          {
+            "trait_type": "GENERATION",
+            "value": "Genesis"
+          },
+          {
+            "trait_type": "HAIR COLOUR",
+            "value": "Red"
+          },
+          {
+            "trait_type": "HAIRCUT",
+            "value": "After Hours"
+          },
+          {
+            "trait_type": "HEALTH",
+            "value": "14"
+          },
+          {
+            "trait_type": "INTELLIGENCE",
+            "value": "19"
+          },
+          {
+            "trait_type": "LEVEL",
+            "value": "30"
+          },
+          {
+            "trait_type": "MANA",
+            "value": "25"
+          },
+          {
+            "trait_type": "MOOD",
+            "value": "Smirk"
+          },
+          {
+            "trait_type": "OUTFIT",
+            "value": "Spellmaker's Longcoat"
+          },
+          {
+            "trait_type": "OUTFIT COLOUR",
+            "value": "Brass Hazelnut Blue"
+          },
+          {
+            "trait_type": "RACE",
+            "value": "Elf"
+          },
+          {
+            "trait_type": "SKILL 1",
+            "value": "Astral Impact"
+          },
+          {
+            "trait_type": "SKILL 2",
+            "value": "Memorium's Gift"
+          },
+          {
+            "trait_type": "SKILL 3",
+            "value": "Unforgiving Earth"
+          },
+          {
+            "trait_type": "SKIN TONE",
+            "value": "Espresso"
+          },
+          {
+            "trait_type": "STRENGTH",
+            "value": "10"
+          }
+        ],
+        "chain": {
+          "id": "eip155:13371",
+          "name": "imtbl-zkevm-mainnet"
+        },
+        "contract_address": "0x8916ea9a8c36bf923920c5c84a77e1b118e915fa",
+        "contract_type": "ERC721",
+        "description": "Collection from Legends of Elumia. Hero#480",
+        "external_link": "https://app.elumia.io",
+        "external_url": "https://app.elumia.io",
+        "image": "https://elumia.triumphcdn.com/mainnet-beta/characters/479.png",
+        "indexed_at": "2026-06-02T13:43:10.883207Z",
+        "metadata_id": "019e8892-f64a-d0b9-00c4-67cdd40392a8",
+        "metadata_synced_at": "2026-06-02T13:43:13.225575Z",
+        "name": "Meira Elgwyn",
+        "token_id": "2272",
+        "updated_at": "2026-06-02T13:43:13.225575Z",
+        "youtube_url": null
+      },
+      "items": [],
+      "pet": {
+        "animation_url": null,
+        "attributes": [
+          {
+            "trait_type": "AGILITY",
+            "value": 9
+          },
+          {
+            "trait_type": "BITE ATTACK SKILL",
+            "value": 4
+          },
+          {
+            "trait_type": "CANINE FORTITUDE PASSIVE EFFECT",
+            "value": 4
+          },
+          {
+            "trait_type": "CLASS REQUIREMENT",
+            "value": "All"
+          },
+          {
+            "trait_type": "GAME_ASSET_ID",
+            "value": "2615879"
+          },
+          {
+            "trait_type": "INTELLIGENCE",
+            "value": 11
+          },
+          {
+            "trait_type": "LEVEL",
+            "value": 30
+          },
+          {
+            "trait_type": "QUALITY",
+            "value": "Epic"
+          },
+          {
+            "trait_type": "SLOT",
+            "value": "Companion"
+          },
+          {
+            "trait_type": "STRENGTH",
+            "value": 16
+          },
+          {
+            "trait_type": "TIER",
+            "value": 1
+          }
+        ],
+        "chain": {
+          "id": "eip155:13371",
+          "name": "imtbl-zkevm-mainnet"
+        },
+        "contract_address": "0xee005214bc8e06f41c1b44d2067b8bb260884dfb",
+        "contract_type": "ERC1155",
+        "description": "This Pitbull is energetic and playful, but will attack hostile enemies no matter how dangerous they appear.",
+        "external_link": null,
+        "external_url": null,
+        "image": "https://nft.elumia.io/mainnet-beta/items/70006_3.png?ext=png",
+        "indexed_at": "2026-08-02T19:17:26.958998Z",
+        "metadata_id": "019fc3e8-ccac-84ca-9753-3bc2baa2bdae",
+        "metadata_synced_at": "2026-08-02T19:17:27.112386Z",
+        "name": "Quick Brown Pitbull of Might",
+        "token_id": "251",
+        "total_supply": "1",
+        "updated_at": "2026-08-02T19:17:27.112386Z",
+        "youtube_url": null
+      },
+      "bundle": [
+        {
+          "animation_url": null,
+          "attributes": [
+            {
+              "trait_type": "AGILITY",
+              "value": 9
+            },
+            {
+              "trait_type": "BITE ATTACK SKILL",
+              "value": 4
+            },
+            {
+              "trait_type": "CANINE FORTITUDE PASSIVE EFFECT",
+              "value": 4
+            },
+            {
+              "trait_type": "CLASS REQUIREMENT",
+              "value": "All"
+            },
+            {
+              "trait_type": "GAME_ASSET_ID",
+              "value": "2615879"
+            },
+            {
+              "trait_type": "INTELLIGENCE",
+              "value": 11
+            },
+            {
+              "trait_type": "LEVEL",
+              "value": 30
+            },
+            {
+              "trait_type": "QUALITY",
+              "value": "Epic"
+            },
+            {
+              "trait_type": "SLOT",
+              "value": "Companion"
+            },
+            {
+              "trait_type": "STRENGTH",
+              "value": 16
+            },
+            {
+              "trait_type": "TIER",
+              "value": 1
+            }
+          ],
+          "chain": {
+            "id": "eip155:13371",
+            "name": "imtbl-zkevm-mainnet"
+          },
+          "contract_address": "0xee005214bc8e06f41c1b44d2067b8bb260884dfb",
+          "contract_type": "ERC1155",
+          "description": "This Pitbull is energetic and playful, but will attack hostile enemies no matter how dangerous they appear.",
+          "external_link": null,
+          "external_url": null,
+          "image": "https://nft.elumia.io/mainnet-beta/items/70006_3.png?ext=png",
+          "indexed_at": "2026-08-02T19:17:26.958998Z",
+          "metadata_id": "019fc3e8-ccac-84ca-9753-3bc2baa2bdae",
+          "metadata_synced_at": "2026-08-02T19:17:27.112386Z",
+          "name": "Quick Brown Pitbull of Might",
+          "token_id": "251",
+          "total_supply": "1",
+          "updated_at": "2026-08-02T19:17:27.112386Z",
+          "youtube_url": null
+        }
+      ],
+      "tokentroveHero": "https://tokentrove.com/collection/LegendsofElumiaHeroes/2272",
+      "score": 0.03
+    },
+    {
+      "id": "mock-2271",
+      "seller": "0x9876…ef01",
+      "price": 14.2,
+      "currency": "IMX",
+      "createdAt": 1787028500226,
+      "hero": {
+        "animation_url": "",
+        "attributes": [
+          {
+            "trait_type": "AFFINITY",
+            "value": "Air"
+          },
+          {
+            "trait_type": "AGILITY",
+            "value": 29
+          },
+          {
+            "trait_type": "BACKGROUND",
+            "value": "Courtyard"
+          },
+          {
+            "trait_type": "CLASS",
+            "value": "Champion"
+          },
+          {
+            "trait_type": "EXP",
+            "value": "0%"
+          },
+          {
+            "trait_type": "EYE COLOUR",
+            "value": "Turquoise"
+          },
+          {
+            "trait_type": "FACE",
+            "value": "Paper Tiger"
+          },
+          {
+            "trait_type": "FACIAL FEATURE",
+            "value": "Joy and Jollies"
+          },
+          {
+            "trait_type": "FATE",
+            "value": "Common"
+          },
+          {
+            "trait_type": "GENDER",
+            "value": "Male"
+          },
+          {
+            "trait_type": "GENERATION",
+            "value": "Genesis"
+          },
+          {
+            "trait_type": "HAIR COLOUR",
+            "value": "Copper"
+          },
+          {
+            "trait_type": "HAIRCUT",
+            "value": "Simplified Stylized"
+          },
+          {
+            "trait_type": "HEALTH",
+            "value": 59
+          },
+          {
+            "trait_type": "INTELLIGENCE",
+            "value": 28
+          },
+          {
+            "trait_type": "LEVEL",
+            "value": "77"
+          },
+          {
+            "trait_type": "MANA",
+            "value": 27
+          },
+          {
+            "trait_type": "MOOD",
+            "value": "Disgusted"
+          },
+          {
+            "trait_type": "OUTFIT",
+            "value": "Skirmisher's Surcoat"
+          },
+          {
+            "trait_type": "OUTFIT COLOUR",
+            "value": "Silver Hazelnut Blue"
+          },
+          {
+            "trait_type": "RACE",
+            "value": "Human"
+          },
+          {
+            "trait_type": "SKILL 1",
+            "value": "Shield Shock"
+          },
+          {
+            "trait_type": "SKILL 2",
+            "value": "Deep Draught"
+          },
+          {
+            "trait_type": "SKILL 3",
+            "value": "Breathbreak"
+          },
+          {
+            "trait_type": "SKIN TONE",
+            "value": "Golden"
+          },
+          {
+            "trait_type": "STRENGTH",
+            "value": 34
+          }
+        ],
+        "chain": {
+          "id": "eip155:13371",
+          "name": "imtbl-zkevm-mainnet"
+        },
+        "contract_address": "0x8916ea9a8c36bf923920c5c84a77e1b118e915fa",
+        "contract_type": "ERC721",
+        "description": "Collection from Legends of Elumia. Hero#177",
+        "external_link": "https://app.elumia.io",
+        "external_url": "https://app.elumia.io",
+        "image": "https://elumia.triumphcdn.com/mainnet-beta/characters/176.png",
+        "indexed_at": "2026-06-02T13:43:11.314051Z",
+        "metadata_id": "019ec340-d0f9-5f65-bded-6847916fea7b",
+        "metadata_synced_at": "2026-06-13T23:11:05.465401Z",
+        "name": "Vincent Bettencourt",
+        "token_id": "2271",
+        "updated_at": "2026-06-13T23:11:05.465401Z",
+        "youtube_url": ""
+      },
+      "items": [],
+      "pet": null,
+      "bundle": [],
+      "tokentroveHero": "https://tokentrove.com/collection/LegendsofElumiaHeroes/2271",
+      "score": 0
+    },
+    {
+      "id": "mock-2270",
+      "seller": "0xA1b2…9f3e",
+      "price": 19.8,
+      "currency": "IMX",
+      "createdAt": 1787021300226,
+      "hero": {
+        "animation_url": null,
+        "attributes": [
+          {
+            "trait_type": "AFFINITY",
+            "value": "Dark"
+          },
+          {
+            "trait_type": "BACKGROUND",
+            "value": "Courtyard"
+          },
+          {
+            "trait_type": "CLASS",
+            "value": "Battlemage"
+          },
+          {
+            "trait_type": "EYE COLOUR",
+            "value": "Green"
+          },
+          {
+            "trait_type": "FACE",
+            "value": "Huldalf"
+          },
+          {
+            "trait_type": "FATE",
+            "value": "Common"
+          },
+          {
+            "trait_type": "GENDER",
+            "value": "Female"
+          },
+          {
+            "trait_type": "GENERATION",
+            "value": "Genesis"
+          },
+          {
+            "trait_type": "HAIR COLOUR",
+            "value": "Grey"
+          },
+          {
+            "trait_type": "HAIRCUT",
+            "value": "Battle-Ready"
+          },
+          {
+            "trait_type": "MOOD",
+            "value": "Disgusted"
+          },
+          {
+            "trait_type": "OUTFIT",
+            "value": "Arcanist's Jacket"
+          },
+          {
+            "trait_type": "OUTFIT COLOUR",
+            "value": "Nickel Mahogany Crimson"
+          },
+          {
+            "trait_type": "RACE",
+            "value": "Elf"
+          },
+          {
+            "trait_type": "SKILL 1",
+            "value": "Star Shower"
+          },
+          {
+            "trait_type": "SKILL 2",
+            "value": "Moonphase"
+          },
+          {
+            "trait_type": "SKILL 3",
+            "value": "Dilation"
+          },
+          {
+            "trait_type": "SKIN TONE",
+            "value": "Toffee"
+          }
+        ],
+        "chain": {
+          "id": "eip155:13371",
+          "name": "imtbl-zkevm-mainnet"
+        },
+        "contract_address": "0x8916ea9a8c36bf923920c5c84a77e1b118e915fa",
+        "contract_type": "ERC721",
+        "description": "Collection from Legends of Elumia. Hero#515",
+        "external_link": "https://app.elumia.io",
+        "external_url": "https://app.elumia.io",
+        "image": "https://elumia.triumphcdn.com/mainnet-beta/characters/514.png",
+        "indexed_at": "2026-06-02T13:43:11.048218Z",
+        "metadata_id": "019e8892-f64c-ba8b-5262-20a3d62a3da6",
+        "metadata_synced_at": "2026-06-02T13:43:13.226962Z",
+        "name": "Hycis Genbella",
+        "token_id": "2270",
+        "updated_at": "2026-06-02T13:43:13.226962Z",
+        "youtube_url": null
+      },
+      "items": [],
+      "pet": null,
+      "bundle": [],
+      "tokentroveHero": "https://tokentrove.com/collection/LegendsofElumiaHeroes/2270",
+      "score": 0
+    },
+    {
+      "id": "mock-2269",
+      "seller": "0xC4d5…2a1b",
+      "price": 42,
+      "currency": "IMX",
+      "createdAt": 1787014100226,
+      "hero": {
+        "animation_url": null,
+        "attributes": [
+          {
+            "trait_type": "AFFINITY",
+            "value": "Earth"
+          },
+          {
+            "trait_type": "BACKGROUND",
+            "value": "Courtyard"
+          },
+          {
+            "trait_type": "CLASS",
+            "value": "Battlemage"
+          },
+          {
+            "trait_type": "EYE COLOUR",
+            "value": "Blue"
+          },
+          {
+            "trait_type": "FACE",
+            "value": "Seilalf"
+          },
+          {
+            "trait_type": "FACIAL FEATURE",
+            "value": "Diadem"
+          },
+          {
+            "trait_type": "FATE",
+            "value": "Common"
+          },
+          {
+            "trait_type": "GENDER",
+            "value": "Female"
+          },
+          {
+            "trait_type": "GENERATION",
+            "value": "Genesis"
+          },
+          {
+            "trait_type": "HAIR COLOUR",
+            "value": "Red"
+          },
+          {
+            "trait_type": "HAIRCUT",
+            "value": "Task Master"
+          },
+          {
+            "trait_type": "MOOD",
+            "value": "Angry"
+          },
+          {
+            "trait_type": "OUTFIT",
+            "value": "Spellmaker's Longcoat"
+          },
+          {
+            "trait_type": "OUTFIT COLOUR",
+            "value": "Copper Russet Blue"
+          },
+          {
+            "trait_type": "RACE",
+            "value": "Elf"
+          },
+          {
+            "trait_type": "SKILL 1",
+            "value": "Solar Sear"
+          },
+          {
+            "trait_type": "SKILL 2",
+            "value": "Tandaia's Reprieve"
+          },
+          {
+            "trait_type": "SKILL 3",
+            "value": "Time Hop"
+          },
+          {
+            "trait_type": "SKIN TONE",
+            "value": "Wallnut"
+          }
+        ],
+        "chain": {
+          "id": "eip155:13371",
+          "name": "imtbl-zkevm-mainnet"
+        },
+        "contract_address": "0x8916ea9a8c36bf923920c5c84a77e1b118e915fa",
+        "contract_type": "ERC721",
+        "description": "Collection from Legends of Elumia. Hero#454",
+        "external_link": "https://app.elumia.io",
+        "external_url": "https://app.elumia.io",
+        "image": "https://elumia.triumphcdn.com/mainnet-beta/characters/453.png",
+        "indexed_at": "2026-06-02T13:43:11.044175Z",
+        "metadata_id": "019e8892-f476-f3dd-5859-d58a72a7d93c",
+        "metadata_synced_at": "2026-06-02T13:43:12.757313Z",
+        "name": "Maelyrra Reyven",
+        "token_id": "2269",
+        "updated_at": "2026-06-02T13:43:12.757313Z",
+        "youtube_url": null
+      },
+      "items": [],
+      "pet": {
+        "animation_url": null,
+        "attributes": [
+          {
+            "trait_type": "AGILITY",
+            "value": 11
+          },
+          {
+            "trait_type": "CANINE FORTITUDE PASSIVE EFFECT",
+            "value": 4
+          },
+          {
+            "trait_type": "CANINE PROTECTION SKILL",
+            "value": 4
+          },
+          {
+            "trait_type": "CLASS REQUIREMENT",
+            "value": "All"
+          },
+          {
+            "trait_type": "GAME_ASSET_ID",
+            "value": "3303560"
+          },
+          {
+            "trait_type": "INTELLIGENCE",
+            "value": 9
+          },
+          {
+            "trait_type": "LEVEL",
+            "value": 30
+          },
+          {
+            "trait_type": "QUALITY",
+            "value": "Epic"
+          },
+          {
+            "trait_type": "SLOT",
+            "value": "Companion"
+          },
+          {
+            "trait_type": "STRENGTH",
+            "value": 14
+          },
+          {
+            "trait_type": "TIER",
+            "value": 1
+          }
+        ],
+        "chain": {
+          "id": "eip155:13371",
+          "name": "imtbl-zkevm-mainnet"
+        },
+        "contract_address": "0xee005214bc8e06f41c1b44d2067b8bb260884dfb",
+        "contract_type": "ERC1155",
+        "description": "This Shiba pet may seem reserved, but will put itself in front of enemies taking damage rather than let it's owner be harmed.",
+        "external_link": null,
+        "external_url": null,
+        "image": "https://nft.elumia.io/mainnet-beta/items/70001_3.png?ext=png",
+        "indexed_at": "2026-07-30T03:40:23.923509Z",
+        "metadata_id": "019fb11b-d4a1-5865-0fe9-bf1a58317721",
+        "metadata_synced_at": "2026-07-30T03:40:24.07575Z",
+        "name": "Quick Brown Shiba of Might",
+        "token_id": "248",
+        "total_supply": "1",
+        "updated_at": "2026-07-30T03:40:24.07575Z",
+        "youtube_url": null
+      },
+      "bundle": [
+        {
+          "animation_url": null,
+          "attributes": [
+            {
+              "trait_type": "AGILITY",
+              "value": 11
+            },
+            {
+              "trait_type": "CANINE FORTITUDE PASSIVE EFFECT",
+              "value": 4
+            },
+            {
+              "trait_type": "CANINE PROTECTION SKILL",
+              "value": 4
+            },
+            {
+              "trait_type": "CLASS REQUIREMENT",
+              "value": "All"
+            },
+            {
+              "trait_type": "GAME_ASSET_ID",
+              "value": "3303560"
+            },
+            {
+              "trait_type": "INTELLIGENCE",
+              "value": 9
+            },
+            {
+              "trait_type": "LEVEL",
+              "value": 30
+            },
+            {
+              "trait_type": "QUALITY",
+              "value": "Epic"
+            },
+            {
+              "trait_type": "SLOT",
+              "value": "Companion"
+            },
+            {
+              "trait_type": "STRENGTH",
+              "value": 14
+            },
+            {
+              "trait_type": "TIER",
+              "value": 1
+            }
+          ],
+          "chain": {
+            "id": "eip155:13371",
+            "name": "imtbl-zkevm-mainnet"
+          },
+          "contract_address": "0xee005214bc8e06f41c1b44d2067b8bb260884dfb",
+          "contract_type": "ERC1155",
+          "description": "This Shiba pet may seem reserved, but will put itself in front of enemies taking damage rather than let it's owner be harmed.",
+          "external_link": null,
+          "external_url": null,
+          "image": "https://nft.elumia.io/mainnet-beta/items/70001_3.png?ext=png",
+          "indexed_at": "2026-07-30T03:40:23.923509Z",
+          "metadata_id": "019fb11b-d4a1-5865-0fe9-bf1a58317721",
+          "metadata_synced_at": "2026-07-30T03:40:24.07575Z",
+          "name": "Quick Brown Shiba of Might",
+          "token_id": "248",
+          "total_supply": "1",
+          "updated_at": "2026-07-30T03:40:24.07575Z",
+          "youtube_url": null
+        }
+      ],
+      "tokentroveHero": "https://tokentrove.com/collection/LegendsofElumiaHeroes/2269",
+      "score": 0.02
+    },
+    {
+      "id": "mock-2268",
+      "seller": "0xE6f7…8c4d",
+      "price": 27.3,
+      "currency": "IMX",
+      "createdAt": 1787006900226,
+      "hero": {
+        "animation_url": null,
+        "attributes": [
+          {
+            "trait_type": "AFFINITY",
+            "value": "Air"
+          },
+          {
+            "trait_type": "AGILITY",
+            "value": "21"
+          },
+          {
+            "trait_type": "BACKGROUND",
+            "value": "Courtyard"
+          },
+          {
+            "trait_type": "CLASS",
+            "value": "Battlemage"
+          },
+          {
+            "trait_type": "EXP",
+            "value": "0%"
+          },
+          {
+            "trait_type": "EYE COLOUR",
+            "value": "Orange"
+          },
+          {
+            "trait_type": "FACE",
+            "value": "Lyosalf"
+          },
+          {
+            "trait_type": "FACIAL FEATURE",
+            "value": "Loze Diadem"
+          },
+          {
+            "trait_type": "FATE",
+            "value": "Common"
+          },
+          {
+            "trait_type": "GENDER",
+            "value": "Female"
+          },
+          {
+            "trait_type": "GENERATION",
+            "value": "Genesis"
+          },
+          {
+            "trait_type": "HAIR COLOUR",
+            "value": "Light Brown"
+          },
+          {
+            "trait_type": "HAIRCUT",
+            "value": "Battle-Theatre"
+          },
+          {
+            "trait_type": "HEALTH",
+            "value": "15"
+          },
+          {
+            "trait_type": "INTELLIGENCE",
+            "value": "15"
+          },
+          {
+            "trait_type": "LEVEL",
+            "value": "40"
+          },
+          {
+            "trait_type": "MANA",
+            "value": "34"
+          },
+          {
+            "trait_type": "MOOD",
+            "value": "Focused"
+          },
+          {
+            "trait_type": "OUTFIT",
+            "value": "Spellmaker's Longcoat"
+          },
+          {
+            "trait_type": "OUTFIT COLOUR",
+            "value": "Copper Hazelnut Blue"
+          },
+          {
+            "trait_type": "RACE",
+            "value": "Elf"
+          },
+          {
+            "trait_type": "SKILL 1",
+            "value": "Solar Sear"
+          },
+          {
+            "trait_type": "SKILL 2",
+            "value": "Memorium's Gift"
+          },
+          {
+            "trait_type": "SKILL 3",
+            "value": "Unforgiving Earth"
+          },
+          {
+            "trait_type": "SKIN TONE",
+            "value": "Espresso"
+          },
+          {
+            "trait_type": "STRENGTH",
+            "value": "18"
+          }
+        ],
+        "chain": {
+          "id": "eip155:13371",
+          "name": "imtbl-zkevm-mainnet"
+        },
+        "contract_address": "0x8916ea9a8c36bf923920c5c84a77e1b118e915fa",
+        "contract_type": "ERC721",
+        "description": "Collection from Legends of Elumia. Hero#754",
+        "external_link": "https://app.elumia.io",
+        "external_url": "https://app.elumia.io",
+        "image": "https://nft.elumia.io/mainnet-beta/characters/753.png",
+        "indexed_at": "2026-06-02T13:43:11.442003Z",
+        "metadata_id": "019e8892-f6ce-8fac-54a8-d2259f0a4808",
+        "metadata_synced_at": "2026-06-02T13:43:13.357659Z",
+        "name": "Mathienne Caizorwyn",
+        "token_id": "2268",
+        "updated_at": "2026-06-02T13:43:13.357659Z",
+        "youtube_url": null
+      },
+      "items": [],
+      "pet": null,
+      "bundle": [],
+      "tokentroveHero": "https://tokentrove.com/collection/LegendsofElumiaHeroes/2268",
+      "score": 0
+    },
+    {
+      "id": "mock-2267",
+      "seller": "0x1234…abcd",
+      "price": 16.5,
+      "currency": "IMX",
+      "createdAt": 1786999700226,
+      "hero": {
+        "animation_url": null,
+        "attributes": [
+          {
+            "trait_type": "AFFINITY",
+            "value": "Light"
+          },
+          {
+            "trait_type": "AGILITY",
+            "value": "11"
+          },
+          {
+            "trait_type": "BACKGROUND",
+            "value": "Courtyard"
+          },
+          {
+            "trait_type": "CLASS",
+            "value": "Battlemage"
+          },
+          {
+            "trait_type": "EXP",
+            "value": "1%"
+          },
+          {
+            "trait_type": "EYE COLOUR",
+            "value": "Red"
+          },
+          {
+            "trait_type": "FACE",
+            "value": "Huldalf"
+          },
+          {
+            "trait_type": "FACIAL FEATURE",
+            "value": "Spectral Hoop"
+          },
+          {
+            "trait_type": "FATE",
+            "value": "Common"
+          },
+          {
+            "trait_type": "GENDER",
+            "value": "Female"
+          },
+          {
+            "trait_type": "GENERATION",
+            "value": "Genesis"
+          },
+          {
+            "trait_type": "HAIR COLOUR",
+            "value": "Blond"
+          },
+          {
+            "trait_type": "HAIRCUT",
+            "value": "Thrill"
+          },
+          {
+            "trait_type": "HEALTH",
+            "value": "13"
+          },
+          {
+            "trait_type": "INTELLIGENCE",
+            "value": "15"
+          },
+          {
+            "trait_type": "LEVEL",
+            "value": "34"
+          },
+          {
+            "trait_type": "MANA",
+            "value": "30"
+          },
+          {
+            "trait_type": "MOOD",
+            "value": "Bored"
+          },
+          {
+            "trait_type": "OUTFIT",
+            "value": "Spellmaker's Longcoat"
+          },
+          {
+            "trait_type": "OUTFIT COLOUR",
+            "value": "Copper Russet Blue"
+          },
+          {
+            "trait_type": "RACE",
+            "value": "Elf"
+          },
+          {
+            "trait_type": "SKILL 1",
+            "value": "Star Shower"
+          },
+          {
+            "trait_type": "SKILL 2",
+            "value": "Tandaia's Reprieve"
+          },
+          {
+            "trait_type": "SKILL 3",
+            "value": "Dilation"
+          },
+          {
+            "trait_type": "SKIN TONE",
+            "value": "Espresso"
+          },
+          {
+            "trait_type": "STRENGTH",
+            "value": "22"
+          }
+        ],
+        "chain": {
+          "id": "eip155:13371",
+          "name": "imtbl-zkevm-mainnet"
+        },
+        "contract_address": "0x8916ea9a8c36bf923920c5c84a77e1b118e915fa",
+        "contract_type": "ERC721",
+        "description": "Collection from Legends of Elumia. Hero#676",
+        "external_link": "https://app.elumia.io",
+        "external_url": "https://app.elumia.io",
+        "image": "https://elumia.triumphcdn.com/mainnet-beta/characters/675.png",
+        "indexed_at": "2026-06-02T13:43:10.971018Z",
+        "metadata_id": "019e8892-f213-7cfe-f402-c816e10077be",
+        "metadata_synced_at": "2026-06-02T13:43:12.133135Z",
+        "name": "Marcina",
+        "token_id": "2267",
+        "updated_at": "2026-06-02T13:43:12.133135Z",
+        "youtube_url": null
+      },
+      "items": [],
+      "pet": null,
+      "bundle": [],
+      "tokentroveHero": "https://tokentrove.com/collection/LegendsofElumiaHeroes/2267",
+      "score": 0
+    },
+    {
+      "id": "mock-2266",
+      "seller": "0x9876…ef01",
+      "price": 33,
+      "currency": "IMX",
+      "createdAt": 1786992500226,
+      "hero": {
+        "animation_url": null,
+        "attributes": [
+          {
+            "trait_type": "AFFINITY",
+            "value": "Earth"
+          },
+          {
+            "trait_type": "BACKGROUND",
+            "value": "Courtyard"
+          },
+          {
+            "trait_type": "CLASS",
+            "value": "Battlemage"
+          },
+          {
+            "trait_type": "EYE COLOUR",
+            "value": "Turquoise"
+          },
+          {
+            "trait_type": "FACE",
+            "value": "Huldalf"
+          },
+          {
+            "trait_type": "FATE",
+            "value": "Common"
+          },
+          {
+            "trait_type": "GENDER",
+            "value": "Female"
+          },
+          {
+            "trait_type": "GENERATION",
+            "value": "Genesis"
+          },
+          {
+            "trait_type": "HAIR COLOUR",
+            "value": "Blond"
+          },
+          {
+            "trait_type": "HAIRCUT",
+            "value": "Battle-Ready"
+          },
+          {
+            "trait_type": "MOOD",
+            "value": "Smirking"
+          },
+          {
+            "trait_type": "OUTFIT",
+            "value": "Spellmaker's Longcoat"
+          },
+          {
+            "trait_type": "OUTFIT COLOUR",
+            "value": "Brass Russet Green"
+          },
+          {
+            "trait_type": "RACE",
+            "value": "Elf"
+          },
+          {
+            "trait_type": "SKILL 1",
+            "value": "Star Shower"
+          },
+          {
+            "trait_type": "SKILL 2",
+            "value": "Tandaia's Reprieve"
+          },
+          {
+            "trait_type": "SKILL 3",
+            "value": "Dilation"
+          },
+          {
+            "trait_type": "SKIN TONE",
+            "value": "Golden"
+          }
+        ],
+        "chain": {
+          "id": "eip155:13371",
+          "name": "imtbl-zkevm-mainnet"
+        },
+        "contract_address": "0x8916ea9a8c36bf923920c5c84a77e1b118e915fa",
+        "contract_type": "ERC721",
+        "description": "Collection from Legends of Elumia. Hero#527",
+        "external_link": "https://app.elumia.io",
+        "external_url": "https://app.elumia.io",
+        "image": "https://elumia.triumphcdn.com/mainnet-beta/characters/526.png",
+        "indexed_at": "2026-06-02T13:43:10.914928Z",
+        "metadata_id": "019e8892-f211-7fc6-a144-6e1dab9805b9",
+        "metadata_synced_at": "2026-06-02T13:43:12.143612Z",
+        "name": "Cremia Omadithas",
+        "token_id": "2266",
+        "updated_at": "2026-06-02T13:43:12.143612Z",
+        "youtube_url": null
+      },
+      "items": [],
+      "pet": {
+        "animation_url": null,
+        "attributes": [
+          {
+            "trait_type": "AGILITY",
+            "value": 12
+          },
+          {
+            "trait_type": "CANINE ALERTNESS PASSIVE EFFECT",
+            "value": 4
+          },
+          {
+            "trait_type": "CLASS REQUIREMENT",
+            "value": "All"
+          },
+          {
+            "trait_type": "GAME_ASSET_ID",
+            "value": "3392424"
+          },
+          {
+            "trait_type": "GUARD DOG SKILL",
+            "value": 4
+          },
+          {
+            "trait_type": "INTELLIGENCE",
+            "value": 14
+          },
+          {
+            "trait_type": "LEVEL",
+            "value": 30
+          },
+          {
+            "trait_type": "QUALITY",
+            "value": "Epic"
+          },
+          {
+            "trait_type": "SLOT",
+            "value": "Companion"
+          },
+          {
+            "trait_type": "STRENGTH",
+            "value": 10
+          },
+          {
+            "trait_type": "TIER",
+            "value": 1
+          }
+        ],
+        "chain": {
+          "id": "eip155:13371",
+          "name": "imtbl-zkevm-mainnet"
+        },
+        "contract_address": "0xee005214bc8e06f41c1b44d2067b8bb260884dfb",
+        "contract_type": "ERC1155",
+        "description": "This Great Dane has a smooth coat and is gentle and patient, but will bite enemies if they see their owner is being hurt.",
+        "external_link": null,
+        "external_url": null,
+        "image": "https://nft.elumia.io/mainnet-beta/items/70017_3.png?ext=png",
+        "indexed_at": "2026-07-30T03:24:31.919859Z",
+        "metadata_id": "019fb10d-4d5c-0083-1edc-62ed3292f95a",
+        "metadata_synced_at": "2026-07-30T03:24:32.053682Z",
+        "name": "Quick White Dane of Might",
+        "token_id": "245",
+        "total_supply": "0",
+        "updated_at": "2026-07-30T04:22:26.193088Z",
+        "youtube_url": null
+      },
+      "bundle": [
+        {
+          "animation_url": null,
+          "attributes": [
+            {
+              "trait_type": "AGILITY",
+              "value": 12
+            },
+            {
+              "trait_type": "CANINE ALERTNESS PASSIVE EFFECT",
+              "value": 4
+            },
+            {
+              "trait_type": "CLASS REQUIREMENT",
+              "value": "All"
+            },
+            {
+              "trait_type": "GAME_ASSET_ID",
+              "value": "3392424"
+            },
+            {
+              "trait_type": "GUARD DOG SKILL",
+              "value": 4
+            },
+            {
+              "trait_type": "INTELLIGENCE",
+              "value": 14
+            },
+            {
+              "trait_type": "LEVEL",
+              "value": 30
+            },
+            {
+              "trait_type": "QUALITY",
+              "value": "Epic"
+            },
+            {
+              "trait_type": "SLOT",
+              "value": "Companion"
+            },
+            {
+              "trait_type": "STRENGTH",
+              "value": 10
+            },
+            {
+              "trait_type": "TIER",
+              "value": 1
+            }
+          ],
+          "chain": {
+            "id": "eip155:13371",
+            "name": "imtbl-zkevm-mainnet"
+          },
+          "contract_address": "0xee005214bc8e06f41c1b44d2067b8bb260884dfb",
+          "contract_type": "ERC1155",
+          "description": "This Great Dane has a smooth coat and is gentle and patient, but will bite enemies if they see their owner is being hurt.",
+          "external_link": null,
+          "external_url": null,
+          "image": "https://nft.elumia.io/mainnet-beta/items/70017_3.png?ext=png",
+          "indexed_at": "2026-07-30T03:24:31.919859Z",
+          "metadata_id": "019fb10d-4d5c-0083-1edc-62ed3292f95a",
+          "metadata_synced_at": "2026-07-30T03:24:32.053682Z",
+          "name": "Quick White Dane of Might",
+          "token_id": "245",
+          "total_supply": "0",
+          "updated_at": "2026-07-30T04:22:26.193088Z",
+          "youtube_url": null
+        }
+      ],
+      "tokentroveHero": "https://tokentrove.com/collection/LegendsofElumiaHeroes/2266",
+      "score": 0.03
+    },
+    {
+      "id": "mock-2265",
+      "seller": "0xA1b2…9f3e",
+      "price": 21,
+      "currency": "IMX",
+      "createdAt": 1786985300226,
+      "hero": {
+        "animation_url": null,
+        "attributes": [
+          {
+            "trait_type": "AFFINITY",
+            "value": "Fire"
+          },
+          {
+            "trait_type": "BACKGROUND",
+            "value": "Courtyard"
+          },
+          {
+            "trait_type": "CLASS",
+            "value": "Champion"
+          },
+          {
+            "trait_type": "EYE COLOUR",
+            "value": "Orange"
+          },
+          {
+            "trait_type": "FACE",
+            "value": "Toy Wolf"
+          },
+          {
+            "trait_type": "FACIAL FEATURE",
+            "value": "Mini Hoop"
+          },
+          {
+            "trait_type": "FATE",
+            "value": "Common"
+          },
+          {
+            "trait_type": "GENDER",
+            "value": "Male"
+          },
+          {
+            "trait_type": "GENERATION",
+            "value": "Genesis"
+          },
+          {
+            "trait_type": "HAIR COLOUR",
+            "value": "Light Brown"
+          },
+          {
+            "trait_type": "HAIRCUT",
+            "value": "Commander's Wake"
+          },
+          {
+            "trait_type": "MOOD",
+            "value": "Disgusted"
+          },
+          {
+            "trait_type": "OUTFIT",
+            "value": "Braves's Doublet"
+          },
+          {
+            "trait_type": "OUTFIT COLOUR",
+            "value": "Brass Hazelnut Crimson"
+          },
+          {
+            "trait_type": "RACE",
+            "value": "Human"
+          },
+          {
+            "trait_type": "SKILL 1",
+            "value": "Shield Shock"
+          },
+          {
+            "trait_type": "SKILL 2",
+            "value": "Elu's Kindling"
+          },
+          {
+            "trait_type": "SKILL 3",
+            "value": "Kaion Fury"
+          },
+          {
+            "trait_type": "SKIN TONE",
+            "value": "Golden"
+          }
+        ],
+        "chain": {
+          "id": "eip155:13371",
+          "name": "imtbl-zkevm-mainnet"
+        },
+        "contract_address": "0x8916ea9a8c36bf923920c5c84a77e1b118e915fa",
+        "contract_type": "ERC721",
+        "description": "Collection from Legends of Elumia. Hero#251",
+        "external_link": "https://app.elumia.io",
+        "external_url": "https://app.elumia.io",
+        "image": "https://elumia.triumphcdn.com/mainnet-beta/characters/250.png",
+        "indexed_at": "2026-06-02T13:43:11.563802Z",
+        "metadata_id": "019e8892-f462-e129-070b-0bda1d4920e1",
+        "metadata_synced_at": "2026-06-02T13:43:12.718597Z",
+        "name": "Phaedromus Catulus",
+        "token_id": "2265",
+        "updated_at": "2026-06-02T13:43:12.718597Z",
+        "youtube_url": null
+      },
+      "items": [],
+      "pet": null,
+      "bundle": [],
+      "tokentroveHero": "https://tokentrove.com/collection/LegendsofElumiaHeroes/2265",
+      "score": 0
+    },
+    {
+      "id": "mock-2264",
+      "seller": "0xC4d5…2a1b",
+      "price": 29.5,
+      "currency": "IMX",
+      "createdAt": 1786978100226,
+      "hero": {
+        "animation_url": "",
+        "attributes": [
+          {
+            "trait_type": "AFFINITY",
+            "value": "Fire"
+          },
+          {
+            "trait_type": "AGILITY",
+            "value": 29
+          },
+          {
+            "trait_type": "BACKGROUND",
+            "value": "Courtyard"
+          },
+          {
+            "trait_type": "CLASS",
+            "value": "Battlemage"
+          },
+          {
+            "trait_type": "EXP",
+            "value": "100%"
+          },
+          {
+            "trait_type": "EYE COLOUR",
+            "value": "Orange"
+          },
+          {
+            "trait_type": "FACE",
+            "value": "Lyosalf"
+          },
+          {
+            "trait_type": "FACIAL FEATURE",
+            "value": "Spell Reader"
+          },
+          {
+            "trait_type": "FATE",
+            "value": "Common"
+          },
+          {
+            "trait_type": "GENDER",
+            "value": "Female"
+          },
+          {
+            "trait_type": "GENERATION",
+            "value": "Genesis"
+          },
+          {
+            "trait_type": "HAIR COLOUR",
+            "value": "Light Blond"
+          },
+          {
+            "trait_type": "HAIRCUT",
+            "value": "Single Braid"
+          },
+          {
+            "trait_type": "HEALTH",
+            "value": 35
+          },
+          {
+            "trait_type": "INTELLIGENCE",
+            "value": 42
+          },
+          {
+            "trait_type": "LEVEL",
+            "value": "90"
+          },
+          {
+            "trait_type": "MANA",
+            "value": 64
+          },
+          {
+            "trait_type": "MOOD",
+            "value": "Angry"
+          },
+          {
+            "trait_type": "OUTFIT",
+            "value": "Mage's Flares"
+          },
+          {
+            "trait_type": "OUTFIT COLOUR",
+            "value": "Silver Charcoal Blue"
+          },
+          {
+            "trait_type": "RACE",
+            "value": "Elf"
+          },
+          {
+            "trait_type": "SKILL 1",
+            "value": "Astral Impact"
+          },
+          {
+            "trait_type": "SKILL 2",
+            "value": "Memoriumâs Gift"
+          },
+          {
+            "trait_type": "SKILL 3",
+            "value": "Time Hop"
+          },
+          {
+            "trait_type": "SKIN TONE",
+            "value": "Cocoa"
+          },
+          {
+            "trait_type": "STRENGTH",
+            "value": 33
+          }
+        ],
+        "chain": {
+          "id": "eip155:13371",
+          "name": "imtbl-zkevm-mainnet"
+        },
+        "contract_address": "0x8916ea9a8c36bf923920c5c84a77e1b118e915fa",
+        "contract_type": "ERC721",
+        "description": "Collection from Legends of Elumia. Hero#590",
+        "external_link": "https://app.elumia.io",
+        "external_url": "https://app.elumia.io",
+        "image": "https://elumia.triumphcdn.com/mainnet-beta/characters/589.png",
+        "indexed_at": "2026-06-02T13:43:11.425082Z",
+        "metadata_id": "019f3fcf-2a2a-da1e-d1d4-236d72036db4",
+        "metadata_synced_at": "2026-07-08T03:39:29.19331Z",
+        "name": "Phelorna Liaro",
+        "token_id": "2264",
+        "updated_at": "2026-07-08T03:39:29.19331Z",
+        "youtube_url": ""
+      },
+      "items": [],
+      "pet": null,
+      "bundle": [],
+      "tokentroveHero": "https://tokentrove.com/collection/LegendsofElumiaHeroes/2264",
+      "score": 0
+    }
+  ],
+  "sales": [
+    {
+      "id": "sale-mock-2269",
+      "listingId": "mock-2269",
+      "price": 42,
+      "currency": "IMX",
+      "soldAt": 1786927700226,
+      "hero": {
+        "animation_url": null,
+        "attributes": [
+          {
+            "trait_type": "AFFINITY",
+            "value": "Earth"
+          },
+          {
+            "trait_type": "BACKGROUND",
+            "value": "Courtyard"
+          },
+          {
+            "trait_type": "CLASS",
+            "value": "Battlemage"
+          },
+          {
+            "trait_type": "EYE COLOUR",
+            "value": "Blue"
+          },
+          {
+            "trait_type": "FACE",
+            "value": "Seilalf"
+          },
+          {
+            "trait_type": "FACIAL FEATURE",
+            "value": "Diadem"
+          },
+          {
+            "trait_type": "FATE",
+            "value": "Common"
+          },
+          {
+            "trait_type": "GENDER",
+            "value": "Female"
+          },
+          {
+            "trait_type": "GENERATION",
+            "value": "Genesis"
+          },
+          {
+            "trait_type": "HAIR COLOUR",
+            "value": "Red"
+          },
+          {
+            "trait_type": "HAIRCUT",
+            "value": "Task Master"
+          },
+          {
+            "trait_type": "MOOD",
+            "value": "Angry"
+          },
+          {
+            "trait_type": "OUTFIT",
+            "value": "Spellmaker's Longcoat"
+          },
+          {
+            "trait_type": "OUTFIT COLOUR",
+            "value": "Copper Russet Blue"
+          },
+          {
+            "trait_type": "RACE",
+            "value": "Elf"
+          },
+          {
+            "trait_type": "SKILL 1",
+            "value": "Solar Sear"
+          },
+          {
+            "trait_type": "SKILL 2",
+            "value": "Tandaia's Reprieve"
+          },
+          {
+            "trait_type": "SKILL 3",
+            "value": "Time Hop"
+          },
+          {
+            "trait_type": "SKIN TONE",
+            "value": "Wallnut"
+          }
+        ],
+        "chain": {
+          "id": "eip155:13371",
+          "name": "imtbl-zkevm-mainnet"
+        },
+        "contract_address": "0x8916ea9a8c36bf923920c5c84a77e1b118e915fa",
+        "contract_type": "ERC721",
+        "description": "Collection from Legends of Elumia. Hero#454",
+        "external_link": "https://app.elumia.io",
+        "external_url": "https://app.elumia.io",
+        "image": "https://elumia.triumphcdn.com/mainnet-beta/characters/453.png",
+        "indexed_at": "2026-06-02T13:43:11.044175Z",
+        "metadata_id": "019e8892-f476-f3dd-5859-d58a72a7d93c",
+        "metadata_synced_at": "2026-06-02T13:43:12.757313Z",
+        "name": "Maelyrra Reyven",
+        "token_id": "2269",
+        "updated_at": "2026-06-02T13:43:12.757313Z",
+        "youtube_url": null
+      }
+    },
+    {
+      "id": "sale-mock-2266",
+      "listingId": "mock-2266",
+      "price": 33,
+      "currency": "IMX",
+      "soldAt": 1786819700226,
+      "hero": {
+        "animation_url": null,
+        "attributes": [
+          {
+            "trait_type": "AFFINITY",
+            "value": "Earth"
+          },
+          {
+            "trait_type": "BACKGROUND",
+            "value": "Courtyard"
+          },
+          {
+            "trait_type": "CLASS",
+            "value": "Battlemage"
+          },
+          {
+            "trait_type": "EYE COLOUR",
+            "value": "Turquoise"
+          },
+          {
+            "trait_type": "FACE",
+            "value": "Huldalf"
+          },
+          {
+            "trait_type": "FATE",
+            "value": "Common"
+          },
+          {
+            "trait_type": "GENDER",
+            "value": "Female"
+          },
+          {
+            "trait_type": "GENERATION",
+            "value": "Genesis"
+          },
+          {
+            "trait_type": "HAIR COLOUR",
+            "value": "Blond"
+          },
+          {
+            "trait_type": "HAIRCUT",
+            "value": "Battle-Ready"
+          },
+          {
+            "trait_type": "MOOD",
+            "value": "Smirking"
+          },
+          {
+            "trait_type": "OUTFIT",
+            "value": "Spellmaker's Longcoat"
+          },
+          {
+            "trait_type": "OUTFIT COLOUR",
+            "value": "Brass Russet Green"
+          },
+          {
+            "trait_type": "RACE",
+            "value": "Elf"
+          },
+          {
+            "trait_type": "SKILL 1",
+            "value": "Star Shower"
+          },
+          {
+            "trait_type": "SKILL 2",
+            "value": "Tandaia's Reprieve"
+          },
+          {
+            "trait_type": "SKILL 3",
+            "value": "Dilation"
+          },
+          {
+            "trait_type": "SKIN TONE",
+            "value": "Golden"
+          }
+        ],
+        "chain": {
+          "id": "eip155:13371",
+          "name": "imtbl-zkevm-mainnet"
+        },
+        "contract_address": "0x8916ea9a8c36bf923920c5c84a77e1b118e915fa",
+        "contract_type": "ERC721",
+        "description": "Collection from Legends of Elumia. Hero#527",
+        "external_link": "https://app.elumia.io",
+        "external_url": "https://app.elumia.io",
+        "image": "https://elumia.triumphcdn.com/mainnet-beta/characters/526.png",
+        "indexed_at": "2026-06-02T13:43:10.914928Z",
+        "metadata_id": "019e8892-f211-7fc6-a144-6e1dab9805b9",
+        "metadata_synced_at": "2026-06-02T13:43:12.143612Z",
+        "name": "Cremia Omadithas",
+        "token_id": "2266",
+        "updated_at": "2026-06-02T13:43:12.143612Z",
+        "youtube_url": null
+      }
+    },
+    {
+      "id": "sale-mock-2272",
+      "listingId": "mock-2272",
+      "price": 31,
+      "currency": "IMX",
+      "soldAt": 1786776500226,
+      "hero": {
+        "animation_url": null,
+        "attributes": [
+          {
+            "trait_type": "AFFINITY",
+            "value": "Light"
+          },
+          {
+            "trait_type": "AGILITY",
+            "value": "15"
+          },
+          {
+            "trait_type": "BACKGROUND",
+            "value": "Courtyard"
+          },
+          {
+            "trait_type": "CLASS",
+            "value": "Battlemage"
+          },
+          {
+            "trait_type": "EXP",
+            "value": "0%"
+          },
+          {
+            "trait_type": "EYE COLOUR",
+            "value": "Turquoise"
+          },
+          {
+            "trait_type": "FACE",
+            "value": "Lyosalf"
+          },
+          {
+            "trait_type": "FACIAL FEATURE",
+            "value": ""
+          },
+          {
+            "trait_type": "FATE",
+            "value": "Common"
+          },
+          {
+            "trait_type": "GENDER",
+            "value": "Female"
+          },
+          {
+            "trait_type": "GENERATION",
+            "value": "Genesis"
+          },
+          {
+            "trait_type": "HAIR COLOUR",
+            "value": "Red"
+          },
+          {
+            "trait_type": "HAIRCUT",
+            "value": "After Hours"
+          },
+          {
+            "trait_type": "HEALTH",
+            "value": "14"
+          },
+          {
+            "trait_type": "INTELLIGENCE",
+            "value": "19"
+          },
+          {
+            "trait_type": "LEVEL",
+            "value": "30"
+          },
+          {
+            "trait_type": "MANA",
+            "value": "25"
+          },
+          {
+            "trait_type": "MOOD",
+            "value": "Smirk"
+          },
+          {
+            "trait_type": "OUTFIT",
+            "value": "Spellmaker's Longcoat"
+          },
+          {
+            "trait_type": "OUTFIT COLOUR",
+            "value": "Brass Hazelnut Blue"
+          },
+          {
+            "trait_type": "RACE",
+            "value": "Elf"
+          },
+          {
+            "trait_type": "SKILL 1",
+            "value": "Astral Impact"
+          },
+          {
+            "trait_type": "SKILL 2",
+            "value": "Memorium's Gift"
+          },
+          {
+            "trait_type": "SKILL 3",
+            "value": "Unforgiving Earth"
+          },
+          {
+            "trait_type": "SKIN TONE",
+            "value": "Espresso"
+          },
+          {
+            "trait_type": "STRENGTH",
+            "value": "10"
+          }
+        ],
+        "chain": {
+          "id": "eip155:13371",
+          "name": "imtbl-zkevm-mainnet"
+        },
+        "contract_address": "0x8916ea9a8c36bf923920c5c84a77e1b118e915fa",
+        "contract_type": "ERC721",
+        "description": "Collection from Legends of Elumia. Hero#480",
+        "external_link": "https://app.elumia.io",
+        "external_url": "https://app.elumia.io",
+        "image": "https://elumia.triumphcdn.com/mainnet-beta/characters/479.png",
+        "indexed_at": "2026-06-02T13:43:10.883207Z",
+        "metadata_id": "019e8892-f64a-d0b9-00c4-67cdd40392a8",
+        "metadata_synced_at": "2026-06-02T13:43:13.225575Z",
+        "name": "Meira Elgwyn",
+        "token_id": "2272",
+        "updated_at": "2026-06-02T13:43:13.225575Z",
+        "youtube_url": null
+      }
+    },
+    {
+      "id": "sale-mock-2264",
+      "listingId": "mock-2264",
+      "price": 29.5,
+      "currency": "IMX",
+      "soldAt": 1786632500226,
+      "hero": {
+        "animation_url": "",
+        "attributes": [
+          {
+            "trait_type": "AFFINITY",
+            "value": "Fire"
+          },
+          {
+            "trait_type": "AGILITY",
+            "value": 29
+          },
+          {
+            "trait_type": "BACKGROUND",
+            "value": "Courtyard"
+          },
+          {
+            "trait_type": "CLASS",
+            "value": "Battlemage"
+          },
+          {
+            "trait_type": "EXP",
+            "value": "100%"
+          },
+          {
+            "trait_type": "EYE COLOUR",
+            "value": "Orange"
+          },
+          {
+            "trait_type": "FACE",
+            "value": "Lyosalf"
+          },
+          {
+            "trait_type": "FACIAL FEATURE",
+            "value": "Spell Reader"
+          },
+          {
+            "trait_type": "FATE",
+            "value": "Common"
+          },
+          {
+            "trait_type": "GENDER",
+            "value": "Female"
+          },
+          {
+            "trait_type": "GENERATION",
+            "value": "Genesis"
+          },
+          {
+            "trait_type": "HAIR COLOUR",
+            "value": "Light Blond"
+          },
+          {
+            "trait_type": "HAIRCUT",
+            "value": "Single Braid"
+          },
+          {
+            "trait_type": "HEALTH",
+            "value": 35
+          },
+          {
+            "trait_type": "INTELLIGENCE",
+            "value": 42
+          },
+          {
+            "trait_type": "LEVEL",
+            "value": "90"
+          },
+          {
+            "trait_type": "MANA",
+            "value": 64
+          },
+          {
+            "trait_type": "MOOD",
+            "value": "Angry"
+          },
+          {
+            "trait_type": "OUTFIT",
+            "value": "Mage's Flares"
+          },
+          {
+            "trait_type": "OUTFIT COLOUR",
+            "value": "Silver Charcoal Blue"
+          },
+          {
+            "trait_type": "RACE",
+            "value": "Elf"
+          },
+          {
+            "trait_type": "SKILL 1",
+            "value": "Astral Impact"
+          },
+          {
+            "trait_type": "SKILL 2",
+            "value": "Memoriumâs Gift"
+          },
+          {
+            "trait_type": "SKILL 3",
+            "value": "Time Hop"
+          },
+          {
+            "trait_type": "SKIN TONE",
+            "value": "Cocoa"
+          },
+          {
+            "trait_type": "STRENGTH",
+            "value": 33
+          }
+        ],
+        "chain": {
+          "id": "eip155:13371",
+          "name": "imtbl-zkevm-mainnet"
+        },
+        "contract_address": "0x8916ea9a8c36bf923920c5c84a77e1b118e915fa",
+        "contract_type": "ERC721",
+        "description": "Collection from Legends of Elumia. Hero#590",
+        "external_link": "https://app.elumia.io",
+        "external_url": "https://app.elumia.io",
+        "image": "https://elumia.triumphcdn.com/mainnet-beta/characters/589.png",
+        "indexed_at": "2026-06-02T13:43:11.425082Z",
+        "metadata_id": "019f3fcf-2a2a-da1e-d1d4-236d72036db4",
+        "metadata_synced_at": "2026-07-08T03:39:29.19331Z",
+        "name": "Phelorna Liaro",
+        "token_id": "2264",
+        "updated_at": "2026-07-08T03:39:29.19331Z",
+        "youtube_url": ""
+      }
+    },
+    {
+      "id": "sale-mock-2268",
+      "listingId": "mock-2268",
+      "price": 27.3,
+      "currency": "IMX",
+      "soldAt": 1786574900226,
+      "hero": {
+        "animation_url": null,
+        "attributes": [
+          {
+            "trait_type": "AFFINITY",
+            "value": "Air"
+          },
+          {
+            "trait_type": "AGILITY",
+            "value": "21"
+          },
+          {
+            "trait_type": "BACKGROUND",
+            "value": "Courtyard"
+          },
+          {
+            "trait_type": "CLASS",
+            "value": "Battlemage"
+          },
+          {
+            "trait_type": "EXP",
+            "value": "0%"
+          },
+          {
+            "trait_type": "EYE COLOUR",
+            "value": "Orange"
+          },
+          {
+            "trait_type": "FACE",
+            "value": "Lyosalf"
+          },
+          {
+            "trait_type": "FACIAL FEATURE",
+            "value": "Loze Diadem"
+          },
+          {
+            "trait_type": "FATE",
+            "value": "Common"
+          },
+          {
+            "trait_type": "GENDER",
+            "value": "Female"
+          },
+          {
+            "trait_type": "GENERATION",
+            "value": "Genesis"
+          },
+          {
+            "trait_type": "HAIR COLOUR",
+            "value": "Light Brown"
+          },
+          {
+            "trait_type": "HAIRCUT",
+            "value": "Battle-Theatre"
+          },
+          {
+            "trait_type": "HEALTH",
+            "value": "15"
+          },
+          {
+            "trait_type": "INTELLIGENCE",
+            "value": "15"
+          },
+          {
+            "trait_type": "LEVEL",
+            "value": "40"
+          },
+          {
+            "trait_type": "MANA",
+            "value": "34"
+          },
+          {
+            "trait_type": "MOOD",
+            "value": "Focused"
+          },
+          {
+            "trait_type": "OUTFIT",
+            "value": "Spellmaker's Longcoat"
+          },
+          {
+            "trait_type": "OUTFIT COLOUR",
+            "value": "Copper Hazelnut Blue"
+          },
+          {
+            "trait_type": "RACE",
+            "value": "Elf"
+          },
+          {
+            "trait_type": "SKILL 1",
+            "value": "Solar Sear"
+          },
+          {
+            "trait_type": "SKILL 2",
+            "value": "Memorium's Gift"
+          },
+          {
+            "trait_type": "SKILL 3",
+            "value": "Unforgiving Earth"
+          },
+          {
+            "trait_type": "SKIN TONE",
+            "value": "Espresso"
+          },
+          {
+            "trait_type": "STRENGTH",
+            "value": "18"
+          }
+        ],
+        "chain": {
+          "id": "eip155:13371",
+          "name": "imtbl-zkevm-mainnet"
+        },
+        "contract_address": "0x8916ea9a8c36bf923920c5c84a77e1b118e915fa",
+        "contract_type": "ERC721",
+        "description": "Collection from Legends of Elumia. Hero#754",
+        "external_link": "https://app.elumia.io",
+        "external_url": "https://app.elumia.io",
+        "image": "https://nft.elumia.io/mainnet-beta/characters/753.png",
+        "indexed_at": "2026-06-02T13:43:11.442003Z",
+        "metadata_id": "019e8892-f6ce-8fac-54a8-d2259f0a4808",
+        "metadata_synced_at": "2026-06-02T13:43:13.357659Z",
+        "name": "Mathienne Caizorwyn",
+        "token_id": "2268",
+        "updated_at": "2026-06-02T13:43:13.357659Z",
+        "youtube_url": null
+      }
+    },
+    {
+      "id": "sale-mock-2273",
+      "listingId": "mock-2273",
+      "price": 25.5,
+      "currency": "IMX",
+      "soldAt": 1786524500226,
+      "hero": {
+        "animation_url": null,
+        "attributes": [
+          {
+            "trait_type": "AFFINITY",
+            "value": "Dark"
+          },
+          {
+            "trait_type": "BACKGROUND",
+            "value": "Courtyard"
+          },
+          {
+            "trait_type": "CLASS",
+            "value": "Battlemage"
+          },
+          {
+            "trait_type": "EYE COLOUR",
+            "value": "Dark"
+          },
+          {
+            "trait_type": "FACE",
+            "value": "Lyosalf"
+          },
+          {
+            "trait_type": "FACIAL FEATURE",
+            "value": "Spectral Hoop"
+          },
+          {
+            "trait_type": "FATE",
+            "value": "Common"
+          },
+          {
+            "trait_type": "GENDER",
+            "value": "Female"
+          },
+          {
+            "trait_type": "GENERATION",
+            "value": "Genesis"
+          },
+          {
+            "trait_type": "HAIR COLOUR",
+            "value": "Dark Blue"
+          },
+          {
+            "trait_type": "HAIRCUT",
+            "value": "Battle-Theatre"
+          },
+          {
+            "trait_type": "MOOD",
+            "value": "Neutral"
+          },
+          {
+            "trait_type": "OUTFIT",
+            "value": "Arcanist's Jacket"
+          },
+          {
+            "trait_type": "OUTFIT COLOUR",
+            "value": "Gold Russet Green"
+          },
+          {
+            "trait_type": "RACE",
+            "value": "Elf"
+          },
+          {
+            "trait_type": "SKILL 1",
+            "value": "Astral Impact"
+          },
+          {
+            "trait_type": "SKILL 2",
+            "value": "Memorium's Gift"
+          },
+          {
+            "trait_type": "SKILL 3",
+            "value": "Time Hop"
+          },
+          {
+            "trait_type": "SKIN TONE",
+            "value": "Vanilla"
+          }
+        ],
+        "chain": {
+          "id": "eip155:13371",
+          "name": "imtbl-zkevm-mainnet"
+        },
+        "contract_address": "0x8916ea9a8c36bf923920c5c84a77e1b118e915fa",
+        "contract_type": "ERC721",
+        "description": "Collection from Legends of Elumia. Hero#554",
+        "external_link": "https://app.elumia.io",
+        "external_url": "https://app.elumia.io",
+        "image": "https://elumia.triumphcdn.com/mainnet-beta/characters/553.png",
+        "indexed_at": "2026-06-02T13:43:11.42314Z",
+        "metadata_id": "019e8892-f1f1-b954-2e98-34652d0607fc",
+        "metadata_synced_at": "2026-06-02T13:43:12.111931Z",
+        "name": "Llorva Olagella",
+        "token_id": "2273",
+        "updated_at": "2026-06-02T13:43:12.111931Z",
+        "youtube_url": null
+      }
+    },
+    {
+      "id": "sale-mock-2274",
+      "listingId": "mock-2274",
+      "price": 22,
+      "currency": "IMX",
+      "soldAt": 1786445300226,
+      "hero": {
+        "animation_url": "",
+        "attributes": [
+          {
+            "trait_type": "AFFINITY",
+            "value": "Dark"
+          },
+          {
+            "trait_type": "AGILITY",
+            "value": 17
+          },
+          {
+            "trait_type": "BACKGROUND",
+            "value": "Courtyard"
+          },
+          {
+            "trait_type": "CLASS",
+            "value": "Champion"
+          },
+          {
+            "trait_type": "EXP",
+            "value": "32%"
+          },
+          {
+            "trait_type": "EYE COLOUR",
+            "value": "Blue"
+          },
+          {
+            "trait_type": "FACE",
+            "value": "Paper Tiger"
+          },
+          {
+            "trait_type": "FACIAL FEATURE",
+            "value": "Certified Wild"
+          },
+          {
+            "trait_type": "FATE",
+            "value": "Common"
+          },
+          {
+            "trait_type": "GENDER",
+            "value": "Male"
+          },
+          {
+            "trait_type": "GENERATION",
+            "value": "Genesis"
+          },
+          {
+            "trait_type": "HAIR COLOUR",
+            "value": "Plum Brown"
+          },
+          {
+            "trait_type": "HAIRCUT",
+            "value": "Wanderer's Dream"
+          },
+          {
+            "trait_type": "HEALTH",
+            "value": 32
+          },
+          {
+            "trait_type": "INTELLIGENCE",
+            "value": 16
+          },
+          {
+            "trait_type": "LEVEL",
+            "value": "41"
+          },
+          {
+            "trait_type": "MANA",
+            "value": 18
+          },
+          {
+            "trait_type": "MOOD",
+            "value": "Smirk"
+          },
+          {
+            "trait_type": "OUTFIT",
+            "value": "Braves's Doublet"
+          },
+          {
+            "trait_type": "OUTFIT COLOUR",
+            "value": "Silver Mahogany Green"
+          },
+          {
+            "trait_type": "RACE",
+            "value": "Human"
+          },
+          {
+            "trait_type": "SKILL 1",
+            "value": "Gore"
+          },
+          {
+            "trait_type": "SKILL 2",
+            "value": "Flurry"
+          },
+          {
+            "trait_type": "SKILL 3",
+            "value": "Galeforce"
+          },
+          {
+            "trait_type": "SKIN TONE",
+            "value": "Vanilla"
+          },
+          {
+            "trait_type": "STRENGTH",
+            "value": 22
+          }
+        ],
+        "chain": {
+          "id": "eip155:13371",
+          "name": "imtbl-zkevm-mainnet"
+        },
+        "contract_address": "0x8916ea9a8c36bf923920c5c84a77e1b118e915fa",
+        "contract_type": "ERC721",
+        "description": "Collection from Legends of Elumia. Hero#231",
+        "external_link": "https://app.elumia.io",
+        "external_url": "https://app.elumia.io",
+        "image": "https://elumia.triumphcdn.com/mainnet-beta/characters/230.png",
+        "indexed_at": "2026-06-02T13:43:10.937851Z",
+        "metadata_id": "019f5c3a-a682-f8ff-f654-b7165403d597",
+        "metadata_synced_at": "2026-07-13T16:06:15.42526Z",
+        "name": "Guermundus AzaÃ¯s",
+        "token_id": "2274",
+        "updated_at": "2026-07-13T16:06:15.42526Z",
+        "youtube_url": ""
+      }
+    },
+    {
+      "id": "sale-mock-2265",
+      "listingId": "mock-2265",
+      "price": 21,
+      "currency": "IMX",
+      "soldAt": 1786294100226,
+      "hero": {
+        "animation_url": null,
+        "attributes": [
+          {
+            "trait_type": "AFFINITY",
+            "value": "Fire"
+          },
+          {
+            "trait_type": "BACKGROUND",
+            "value": "Courtyard"
+          },
+          {
+            "trait_type": "CLASS",
+            "value": "Champion"
+          },
+          {
+            "trait_type": "EYE COLOUR",
+            "value": "Orange"
+          },
+          {
+            "trait_type": "FACE",
+            "value": "Toy Wolf"
+          },
+          {
+            "trait_type": "FACIAL FEATURE",
+            "value": "Mini Hoop"
+          },
+          {
+            "trait_type": "FATE",
+            "value": "Common"
+          },
+          {
+            "trait_type": "GENDER",
+            "value": "Male"
+          },
+          {
+            "trait_type": "GENERATION",
+            "value": "Genesis"
+          },
+          {
+            "trait_type": "HAIR COLOUR",
+            "value": "Light Brown"
+          },
+          {
+            "trait_type": "HAIRCUT",
+            "value": "Commander's Wake"
+          },
+          {
+            "trait_type": "MOOD",
+            "value": "Disgusted"
+          },
+          {
+            "trait_type": "OUTFIT",
+            "value": "Braves's Doublet"
+          },
+          {
+            "trait_type": "OUTFIT COLOUR",
+            "value": "Brass Hazelnut Crimson"
+          },
+          {
+            "trait_type": "RACE",
+            "value": "Human"
+          },
+          {
+            "trait_type": "SKILL 1",
+            "value": "Shield Shock"
+          },
+          {
+            "trait_type": "SKILL 2",
+            "value": "Elu's Kindling"
+          },
+          {
+            "trait_type": "SKILL 3",
+            "value": "Kaion Fury"
+          },
+          {
+            "trait_type": "SKIN TONE",
+            "value": "Golden"
+          }
+        ],
+        "chain": {
+          "id": "eip155:13371",
+          "name": "imtbl-zkevm-mainnet"
+        },
+        "contract_address": "0x8916ea9a8c36bf923920c5c84a77e1b118e915fa",
+        "contract_type": "ERC721",
+        "description": "Collection from Legends of Elumia. Hero#251",
+        "external_link": "https://app.elumia.io",
+        "external_url": "https://app.elumia.io",
+        "image": "https://elumia.triumphcdn.com/mainnet-beta/characters/250.png",
+        "indexed_at": "2026-06-02T13:43:11.563802Z",
+        "metadata_id": "019e8892-f462-e129-070b-0bda1d4920e1",
+        "metadata_synced_at": "2026-06-02T13:43:12.718597Z",
+        "name": "Phaedromus Catulus",
+        "token_id": "2265",
+        "updated_at": "2026-06-02T13:43:12.718597Z",
+        "youtube_url": null
+      }
+    }
+  ],
+  "generatedAt": "2026-08-18T12:48:20.226Z"
+}

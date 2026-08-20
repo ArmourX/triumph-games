@@ -1,0 +1,27 @@
+{
+  "name": "Tester001 Hero #1",
+  "description": "Main Tester001 hero NFT with an ERC-6551 token-bound account. This trainer carries potions, pokeballs, pokegold, and rare candy in their on-chain inventory.",
+  "image": "hero/trainer.png",
+  "external_url": "https://triumph-games.vercel.app/erc6551-test",
+  "attributes": [
+    { "trait_type": "Collection", "value": "Tester001" },
+    { "trait_type": "Role", "value": "Hero" },
+    { "trait_type": "Class", "value": "Trainer" },
+    { "trait_type": "Standard", "value": "ERC-6551" },
+    { "trait_type": "Network", "value": "Robinhood Chain Testnet" },
+    { "trait_type": "Companion", "value": "Electric Partner" },
+    { "trait_type": "Region", "value": "Mountain Pass" }
+  ],
+  "properties": {
+    "inventory": {
+      "standard": "ERC-1155",
+      "catalog": "items/catalog.json",
+      "starterItems": [
+        { "id": 1, "name": "Potion", "amount": 5 },
+        { "id": 2, "name": "Pokeball", "amount": 10 },
+        { "id": 3, "name": "Pokegold", "amount": 100 },
+        { "id": 4, "name": "Rare Candy", "amount": 3 }
+      ]
+    }
+  }
+}

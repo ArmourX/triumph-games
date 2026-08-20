@@ -6,6 +6,7 @@ using MonsterCollect.Core;
 using MonsterCollect.Data;
 using MonsterCollect.Monster;
 using MonsterCollect.Social.Online;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,8 +24,8 @@ namespace MonsterCollect.UI
         private Screen screen = Screen.Home;
         private bool uiBuilt;
         private GameObject rootPanel;
-        private Text titleText;
-        private Text bodyText;
+        private TMP_Text titleText;
+        private TMP_Text bodyText;
         private RectTransform buttonColumn;
         private readonly List<Button> buttons = new List<Button>();
         private readonly List<string> partyIds = new List<string>();
@@ -61,16 +62,11 @@ namespace MonsterCollect.UI
             TournamentHubPanel panel = Instance ?? FindObjectOfType<TournamentHubPanel>(true);
             if (panel == null)
             {
-                Canvas canvas = FindObjectOfType<Canvas>();
-                if (canvas == null)
+                panel = KitUi.EnsureOverlay<TournamentHubPanel>("TournamentHubPanel");
+                if (panel == null)
                 {
                     return;
                 }
-
-                var go = new GameObject("TournamentHubPanel", typeof(RectTransform), typeof(TournamentHubPanel));
-                Transform parent = LandscapePlayFrame.FindContentRoot(canvas) ?? canvas.transform;
-                go.transform.SetParent(parent, false);
-                panel = go.GetComponent<TournamentHubPanel>();
             }
 
             panel.Show();
@@ -451,112 +447,22 @@ namespace MonsterCollect.UI
 
             uiBuilt = true;
             rootPanel = gameObject;
-            Font font = MobileGameUiKit.BodyFont;
-            Stretch(GetComponent<RectTransform>() ?? gameObject.AddComponent<RectTransform>());
+            KitUi.Stretch(GetComponent<RectTransform>() ?? gameObject.AddComponent<RectTransform>());
+            TmpFonts.PrepareCanvas(GetComponentInParent<Canvas>());
 
-            var dim = CreateImage("Dim", transform, new Color(0f, 0f, 0f, 0.72f));
-            Stretch(dim.rectTransform);
+            KitUi.Dim(transform);
+            Image card = KitUi.Card(transform, 0.16f, 0.06f, 0.84f, 0.94f);
 
-            var card = CreateImage("Card", transform, new Color(0.12f, 0.1f, 0.18f, 0.97f));
-            card.rectTransform.anchorMin = new Vector2(0.18f, 0.06f);
-            card.rectTransform.anchorMax = new Vector2(0.82f, 0.94f);
-            card.rectTransform.offsetMin = Vector2.zero;
-            card.rectTransform.offsetMax = Vector2.zero;
+            titleText = KitUi.Label(card.transform, "Title", "Circuit", 34, TextAlignmentOptions.Center, title: true);
+            KitUi.Anchor(titleText.rectTransform, 0.06f, 0.88f, 0.94f, 0.98f);
 
-            titleText = CreateText("Title", transform, font, 32, FontStyle.Bold, TextAnchor.MiddleCenter);
-            titleText.rectTransform.anchorMin = new Vector2(0.18f, 0.84f);
-            titleText.rectTransform.anchorMax = new Vector2(0.82f, 0.94f);
-
-            var bodyScrollGo = new GameObject("BodyScroll", typeof(RectTransform), typeof(Image), typeof(Mask), typeof(ScrollRect));
-            bodyScrollGo.transform.SetParent(transform, false);
-            var bodyScrollRect = bodyScrollGo.GetComponent<RectTransform>();
-            bodyScrollRect.anchorMin = new Vector2(0.18f, 0.62f);
-            bodyScrollRect.anchorMax = new Vector2(0.82f, 0.83f);
-            bodyScrollRect.offsetMin = Vector2.zero;
-            bodyScrollRect.offsetMax = Vector2.zero;
-            bodyScrollGo.GetComponent<Image>().color = new Color(0.08f, 0.06f, 0.14f, 0.55f);
-            bodyScrollGo.GetComponent<Mask>().showMaskGraphic = true;
-
-            bodyText = CreateText("Body", bodyScrollGo.transform, font, 18, FontStyle.Normal, TextAnchor.UpperCenter);
-            bodyText.horizontalOverflow = HorizontalWrapMode.Wrap;
-            bodyText.verticalOverflow = VerticalWrapMode.Overflow;
-            bodyText.rectTransform.anchorMin = new Vector2(0f, 1f);
-            bodyText.rectTransform.anchorMax = new Vector2(1f, 1f);
-            bodyText.rectTransform.pivot = new Vector2(0.5f, 1f);
-            bodyText.rectTransform.offsetMin = new Vector2(12f, 0f);
-            bodyText.rectTransform.offsetMax = new Vector2(-12f, -8f);
-            var bodyFitter = bodyText.gameObject.AddComponent<ContentSizeFitter>();
-            bodyFitter.horizontalFit = ContentSizeFitter.FitMode.Unconstrained;
-            bodyFitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
-            var bodyScroll = bodyScrollGo.GetComponent<ScrollRect>();
-            bodyScroll.content = bodyText.rectTransform;
-            bodyScroll.horizontal = false;
-            bodyScroll.vertical = true;
-            bodyScroll.movementType = ScrollRect.MovementType.Clamped;
-
-            var viewportGo = new GameObject("ButtonViewport", typeof(RectTransform), typeof(Image), typeof(Mask), typeof(ScrollRect));
-            viewportGo.transform.SetParent(transform, false);
-            var viewportRect = viewportGo.GetComponent<RectTransform>();
-            viewportRect.anchorMin = new Vector2(0.28f, 0.10f);
-            viewportRect.anchorMax = new Vector2(0.72f, 0.60f);
-            viewportRect.offsetMin = Vector2.zero;
-            viewportRect.offsetMax = Vector2.zero;
-            viewportGo.GetComponent<Image>().color = new Color(0.1f, 0.08f, 0.16f, 0.4f);
-            viewportGo.GetComponent<Mask>().showMaskGraphic = false;
-
-            var columnGo = new GameObject("ButtonColumn", typeof(RectTransform), typeof(VerticalLayoutGroup), typeof(ContentSizeFitter));
-            columnGo.transform.SetParent(viewportGo.transform, false);
-            buttonColumn = columnGo.GetComponent<RectTransform>();
-            buttonColumn.anchorMin = new Vector2(0f, 1f);
-            buttonColumn.anchorMax = new Vector2(1f, 1f);
-            buttonColumn.pivot = new Vector2(0.5f, 1f);
-            buttonColumn.offsetMin = Vector2.zero;
-            buttonColumn.offsetMax = Vector2.zero;
-
-            var layout = columnGo.GetComponent<VerticalLayoutGroup>();
-            layout.spacing = 10f;
-            layout.childAlignment = TextAnchor.MiddleCenter;
-            layout.childControlHeight = true;
-            layout.childControlWidth = true;
-            layout.childForceExpandHeight = false;
-            layout.childForceExpandWidth = true;
-            layout.padding = new RectOffset(10, 10, 10, 10);
-
-            var fitter = columnGo.GetComponent<ContentSizeFitter>();
-            fitter.horizontalFit = ContentSizeFitter.FitMode.Unconstrained;
-            fitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
-
-            var buttonScroll = viewportGo.GetComponent<ScrollRect>();
-            buttonScroll.content = buttonColumn;
-            buttonScroll.viewport = viewportRect;
-            buttonScroll.horizontal = false;
-            buttonScroll.vertical = true;
-            buttonScroll.movementType = ScrollRect.MovementType.Clamped;
-            buttonScroll.scrollSensitivity = 24f;
+            bodyText = KitUi.ScrollLabel(card.transform, 0.06f, 0.58f, 0.94f, 0.86f, TextAlignmentOptions.Top);
+            buttonColumn = KitUi.ButtonColumn(card.transform, 0.18f, 0.06f, 0.82f, 0.56f);
         }
 
         private void AddCenterButton(string label, Action onClick)
         {
-            var go = new GameObject(label, typeof(RectTransform), typeof(Image), typeof(Button), typeof(LayoutElement));
-            go.transform.SetParent(buttonColumn, false);
-            go.GetComponent<Image>().color = new Color(0.38f, 0.22f, 0.55f, 1f);
-            go.GetComponent<LayoutElement>().preferredHeight = 56f;
-            go.GetComponent<LayoutElement>().minHeight = 52f;
-
-            var textGo = new GameObject("Label", typeof(RectTransform), typeof(Text));
-            textGo.transform.SetParent(go.transform, false);
-            Stretch(textGo.GetComponent<RectTransform>());
-            var text = textGo.GetComponent<Text>();
-            text.font = MobileGameUiKit.BodyFont;
-            text.fontSize = 20;
-            text.fontStyle = FontStyle.Bold;
-            text.alignment = TextAnchor.MiddleCenter;
-            text.color = Color.white;
-            text.text = label;
-
-            Button button = go.GetComponent<Button>();
-            button.onClick.AddListener(() => onClick());
-            buttons.Add(button);
+            buttons.Add(KitUi.ColumnButton(buttonColumn, label, onClick));
         }
 
         private void ClearButtons()
@@ -570,39 +476,6 @@ namespace MonsterCollect.UI
             }
 
             buttons.Clear();
-        }
-
-        private static Image CreateImage(string name, Transform parent, Color color)
-        {
-            var go = new GameObject(name, typeof(RectTransform), typeof(Image));
-            go.transform.SetParent(parent, false);
-            var image = go.GetComponent<Image>();
-            image.color = color;
-            return image;
-        }
-
-        private static Text CreateText(string name, Transform parent, Font font, int size, FontStyle style, TextAnchor align)
-        {
-            var go = new GameObject(name, typeof(RectTransform), typeof(Text));
-            go.transform.SetParent(parent, false);
-            var text = go.GetComponent<Text>();
-            text.font = font;
-            text.fontSize = size;
-            text.fontStyle = style;
-            text.alignment = align;
-            text.color = Color.white;
-            var rect = go.GetComponent<RectTransform>();
-            rect.offsetMin = Vector2.zero;
-            rect.offsetMax = Vector2.zero;
-            return text;
-        }
-
-        private static void Stretch(RectTransform rect)
-        {
-            rect.anchorMin = Vector2.zero;
-            rect.anchorMax = Vector2.one;
-            rect.offsetMin = Vector2.zero;
-            rect.offsetMax = Vector2.zero;
         }
     }
 }

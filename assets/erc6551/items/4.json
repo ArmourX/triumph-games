@@ -1,0 +1,13 @@
+{
+  "name": "Rare Candy",
+  "description": "A mysterious sweet that instantly raises a companion by one level.",
+  "image": "items/rare-candy.svg",
+  "external_url": "https://triumph-games.vercel.app/erc6551-test",
+  "attributes": [
+    { "trait_type": "Type", "value": "Item" },
+    { "trait_type": "Category", "value": "Consumable" },
+    { "trait_type": "Rarity", "value": "Rare" },
+    { "trait_type": "Effect", "value": "Level +1" },
+    { "trait_type": "Stackable", "value": "Yes" }
+  ]
+}

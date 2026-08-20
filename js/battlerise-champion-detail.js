@@ -111,7 +111,11 @@
     return names.map(function (name) {
       var art = data.artifacts.find(function (a) { return a.name === name; });
       var icon = art && art.image ? art.image : "";
-      return '<span class="br-artifact-chip">' + (icon ? '<img src="' + icon + '" alt="">' : "") + name + "</span>";
+      var inner = (icon ? '<img src="' + icon + '" alt="">' : "") + name;
+      if (art && art.icon) {
+        return '<a class="br-artifact-chip" href="battlerise-artifacts.html#artifact-' + encodeURIComponent(art.icon) + '">' + inner + "</a>";
+      }
+      return '<span class="br-artifact-chip">' + inner + "</span>";
     }).join("");
   }
 

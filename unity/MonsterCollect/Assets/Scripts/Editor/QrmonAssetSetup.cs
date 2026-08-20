@@ -1,4 +1,5 @@
 #if UNITY_EDITOR
+using MonsterCollect.Appearance;
 using UnityEditor;
 using UnityEngine;
 
@@ -17,6 +18,8 @@ namespace MonsterCollect.Editor
             ConfigureImporter(ResourcesPath);
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
+            QrmonPortraitProvider.ClearCache();
+            MonsterAppearanceCompositor.ClearCache();
             Debug.Log("[QrmonAssetSetup] QRmon portrait configured at Resources/Creatures/QRmon.png.");
         }
 
@@ -50,7 +53,18 @@ namespace MonsterCollect.Editor
                 return;
             }
 
-            System.IO.File.Copy(SourcePath, ResourcesPath, true);
+            byte[] bytes = System.IO.File.ReadAllBytes(SourcePath);
+            var texture = new Texture2D(2, 2, TextureFormat.RGBA32, false);
+            if (!texture.LoadImage(bytes))
+            {
+                Object.DestroyImmediate(texture);
+                System.IO.File.Copy(SourcePath, ResourcesPath, true);
+                return;
+            }
+
+            PortraitBackdropUtility.StripEdgeConnectedBackdrop(texture);
+            System.IO.File.WriteAllBytes(ResourcesPath, texture.EncodeToPNG());
+            Object.DestroyImmediate(texture);
         }
 
         private static void ConfigureImporter(string assetPath)

@@ -11,6 +11,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8e4a2b1c3d54e6f9a0b1c2d3e4f5678, type: 3}
   m_Name: MobileGameUiKitTheme
+  m_EditorClassIdentifier: 
   sceneBackground: {fileID: -5900999151167789326, guid: 39e0242329775814891ef673e48ae932, type: 3}
   panelModal: {fileID: -4088049390063211046, guid: 39e0242329775814891ef673e48ae932, type: 3}
   navBarBackground: {fileID: -1322464374932762594, guid: 7f9865cf6ac20f7468e13d5a5daff8ef, type: 3}
@@ -22,6 +23,32 @@ MonoBehaviour:
   titleFont: {fileID: 12800000, guid: 9c352b97d4c9f334c920e85edcd05523, type: 3}
   bodyFont: {fileID: 12800000, guid: 2959ff48a89e689488ddeecfde03adea, type: 3}
   labelFont: {fileID: 12800000, guid: ca88d0c4c11f8aa4a8ef35ba486b2aa8, type: 3}
+  homeSunsetBackground: {fileID: -809804992619026284, guid: 39e0242329775814891ef673e48ae932, type: 3}
+  profileBar: {fileID: -8760834427580073799, guid: 39e0242329775814891ef673e48ae932, type: 3}
+  currencyPill: {fileID: 32978900350387816, guid: 7f9865cf6ac20f7468e13d5a5daff8ef, type: 3}
+  sidePanelLeft: {fileID: -1322916990549689837, guid: 7f9865cf6ac20f7468e13d5a5daff8ef, type: 3}
+  sidePanelRight: {fileID: -5387661022228723480, guid: 39e0242329775814891ef673e48ae932, type: 3}
+  horizontalPanel: {fileID: -1541865002599254229, guid: 7f9865cf6ac20f7468e13d5a5daff8ef, type: 3}
+  slotPanel: {fileID: -8902363998838629117, guid: 7f9865cf6ac20f7468e13d5a5daff8ef, type: 3}
+  platformPedestal: {fileID: 7303528380627309444, guid: 39e0242329775814891ef673e48ae932, type: 3}
+  buttonAdventure: {fileID: 534250303759604497, guid: 7f9865cf6ac20f7468e13d5a5daff8ef, type: 3}
+  progressTrack: {fileID: 7375623448582939881, guid: 39e0242329775814891ef673e48ae932, type: 3}
+  progressFill: {fileID: -1996936005633665729, guid: 7f9865cf6ac20f7468e13d5a5daff8ef, type: 3}
+  notificationBadge: {fileID: -4706323772729162963, guid: 7f9865cf6ac20f7468e13d5a5daff8ef, type: 3}
+  avatarFrame: {fileID: -2870524360630259796, guid: 7f9865cf6ac20f7468e13d5a5daff8ef, type: 3}
+  levelBadgeSprite: {fileID: -2989345837320457496, guid: 7f9865cf6ac20f7468e13d5a5daff8ef, type: 3}
+  iconChest: {fileID: 2637422141927586871, guid: 7f9865cf6ac20f7468e13d5a5daff8ef, type: 3}
+  iconGift: {fileID: -3981515943121409145, guid: 7f9865cf6ac20f7468e13d5a5daff8ef, type: 3}
+  iconShop: {fileID: 1294846321271332230, guid: 7f9865cf6ac20f7468e13d5a5daff8ef, type: 3}
+  iconMonsters: {fileID: -5105358367007125212, guid: 7f9865cf6ac20f7468e13d5a5daff8ef, type: 3}
+  iconFriends: {fileID: 3271692925405711974, guid: 7f9865cf6ac20f7468e13d5a5daff8ef, type: 3}
+  iconSettings: {fileID: -356021269268722583, guid: 7f9865cf6ac20f7468e13d5a5daff8ef, type: 3}
+  iconCalendar: {fileID: 1627666245294327043, guid: 7f9865cf6ac20f7468e13d5a5daff8ef, type: 3}
+  iconLightning: {fileID: -8550149856088595828, guid: 7f9865cf6ac20f7468e13d5a5daff8ef, type: 3}
+  iconShard: {fileID: -1452040262866815692, guid: 7f9865cf6ac20f7468e13d5a5daff8ef, type: 3}
+  iconCoin: {fileID: 8580286285322991341, guid: 7f9865cf6ac20f7468e13d5a5daff8ef, type: 3}
+  iconGem: {fileID: 7887720934130920627, guid: 7f9865cf6ac20f7468e13d5a5daff8ef, type: 3}
+  iconTicket: {fileID: -7338417401194041014, guid: 39e0242329775814891ef673e48ae932, type: 3}
   titleColor: {r: 1, g: 0.98, b: 0.92, a: 1}
   bodyColor: {r: 0.95, g: 0.97, b: 1, a: 1}
   mutedColor: {r: 0.78, g: 0.84, b: 0.92, a: 1}

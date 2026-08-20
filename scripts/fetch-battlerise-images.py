@@ -199,6 +199,43 @@ def build_display_stats(entry: dict) -> tuple[list[str], int]:
     return formatted[:2], hidden
 
 
+def build_roll(g: dict) -> dict:
+    stats = [format_stat(s) for s in g.get("stats") or [] if s.get("value")]
+    substat_rolls = []
+    for d in sorted(g.get("statDistributions") or [], key=lambda x: -x.get("value", 0)):
+        if d.get("value", 0) > 0:
+            label = STAT_LABELS.get(d.get("type", -1), "Stat")
+            substat_rolls.append(f"+{d['value']}% {label} (substat roll)")
+    unique_count = len(g.get("unique_slots") or [])
+    slot_count = len(g.get("slots") or [])
+    notes = []
+    if unique_count:
+        notes.append(f"{unique_count} unique ability slot{'s' if unique_count > 1 else ''}")
+    elif slot_count:
+        notes.append(f"{slot_count} ability slot{'s' if slot_count > 1 else ''}")
+    level = g.get("level", 1)
+    return {
+        "id": g.get("id"),
+        "level": level,
+        "label": f"Level {level}",
+        "stats": stats,
+        "substatRolls": substat_rolls,
+        "notes": notes,
+    }
+
+
+def dedupe_rolls(rolls: list[dict]) -> list[dict]:
+    seen: set[tuple] = set()
+    out: list[dict] = []
+    for r in sorted(rolls, key=lambda x: (x["level"], x["id"])):
+        key = (r["level"], tuple(r["stats"]), tuple(r["substatRolls"]), tuple(r["notes"]))
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(r)
+    return out
+
+
 def lookup_card_image(icon: str, cards: dict[str, str], stories: dict[str, str], icons: dict[str, str]) -> str:
     if icon in cards:
         return cards[icon]
@@ -285,13 +322,15 @@ def build_characters(api: dict, sprites: dict[str, str]) -> list[dict]:
 
 def build_artifacts(api: dict, cards: dict[str, str], icons: dict[str, str], stories: dict[str, str]) -> list[dict]:
     rank = {"Common": 0, "Rare": 1, "Epic": 2, "Legendary": 3, "Mythic": 4}
-    seen: dict[str, dict] = {}
+    by_icon: dict[str, dict] = {}
+    rolls_map: dict[str, list[dict]] = {}
 
     for g in api.get("gearItemsPrototypes", []):
         name = g.get("name", "")
         icon = g.get("icon", "")
-        if not name:
+        if not name or not icon:
             continue
+        rolls_map.setdefault(icon, []).append(g)
         rarity = rarity_name(g.get("rarity", 1))
         gear_type = g.get("type", 0)
         card_image = lookup_card_image(icon, cards, stories, icons)
@@ -314,11 +353,23 @@ def build_artifacts(api: dict, cards: dict[str, str], icons: dict[str, str], sto
         display_stats, hidden = build_display_stats({**entry, "statDistributions": g.get("statDistributions"), "unique_slots": g.get("unique_slots"), "slots": g.get("slots")})
         entry["displayStats"] = display_stats
         entry["hiddenCount"] = hidden
-        prev = seen.get(name)
-        if not prev or rank[rarity] > rank[prev["rarity"]]:
-            seen[name] = entry
+        prev = by_icon.get(icon)
+        if not prev or rank[rarity] > rank[prev["rarity"]] or (rank[rarity] == rank[prev["rarity"]] and entry["level"] > prev["level"]):
+            by_icon[icon] = entry
 
-    return sorted(seen.values(), key=lambda a: (-rank[a["rarity"]], a["name"]))
+    artifacts = []
+    for icon, entry in by_icon.items():
+        rolls = dedupe_rolls([build_roll(g) for g in rolls_map.get(icon, [])])
+        if rolls:
+            entry["rolls"] = rolls
+            default = rolls[-1]
+            entry["level"] = default["level"]
+            entry["displayStats"] = default["stats"][:2]
+            extra = len(default["stats"]) - 2 + len(default["substatRolls"]) + len(default["notes"])
+            entry["hiddenCount"] = max(0, extra)
+        artifacts.append(entry)
+
+    return sorted(artifacts, key=lambda a: (-rank[a["rarity"]], a["name"]))
 
 
 def generate_champion_pages(champions: list[dict]):

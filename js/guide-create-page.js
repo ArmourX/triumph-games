@@ -4,6 +4,7 @@
   var params = new URLSearchParams(window.location.search);
   var editId = params.get("id");
   var defaultGame = params.get("game") || "battlerise";
+  var postType = params.get("type") === "article" ? "article" : "guide";
 
   var guestEl = document.getElementById("tg-guide-guest");
   var editorWrap = document.getElementById("tg-guide-editor-wrap");
@@ -83,8 +84,8 @@
       var file = e.target.files[0];
       if (!file) return;
       var guideId = currentGuideId || "draft";
-      TUG.uploadImage(file, guideId).then(function (imageId) {
-        sec.images.push({ id: imageId, caption: "" });
+      TUG.uploadImage(file, guideId).then(function (img) {
+        sec.images.push({ id: img.url, url: img.url, caption: "" });
         renderSectionImages(card, sec);
         e.target.value = "";
       }).catch(function (err) {
@@ -101,7 +102,7 @@
     var wrap = card.querySelector("[data-images]");
     wrap.innerHTML = "";
     sec.images.forEach(function (img, imgIdx) {
-      TUG.getImageUrl(img.id).then(function (url) {
+      TUG.getImageUrl(img.url || img.id).then(function (url) {
         if (!url) return;
         var item = document.createElement("div");
         item.className = "tg-guide-image-item";
@@ -171,6 +172,7 @@
 
   function initEditor() {
     document.getElementById("guide-game").value = defaultGame;
+    document.getElementById("guide-editor-title").textContent = postType === "article" ? "Write an Article" : "Write a Guide";
     updateBackLink(defaultGame);
     if (!sectionData.length) {
       sectionData = [{ id: TUG.uid("sec"), heading: "", body: "", images: [] }];
@@ -182,8 +184,8 @@
   function saveDraft() {
     var data = collectFormData();
     var promise = currentGuideId
-      ? TUG.updateGuide(currentGuideId, data)
-      : TUG.createGuide(Object.assign({}, data, { status: "draft" }));
+      ? TUG.updateGuide(currentGuideId, Object.assign(data, { type: postType }))
+      : TUG.createGuide(Object.assign({}, data, { type: postType, status: "draft" }));
 
     return promise.then(function (guide) {
       currentGuideId = guide.id;
@@ -215,8 +217,8 @@
     e.preventDefault();
     var data = collectFormData();
     var savePromise = currentGuideId
-      ? TUG.updateGuide(currentGuideId, data)
-      : TUG.createGuide(Object.assign({}, data, { status: "draft" }));
+      ? TUG.updateGuide(currentGuideId, Object.assign(data, { type: postType }))
+      : TUG.createGuide(Object.assign({}, data, { type: postType, status: "draft" }));
 
     savePromise.then(function (guide) {
       currentGuideId = guide.id;
@@ -247,17 +249,17 @@
   });
 
   function refresh() {
-    var session = TC.getSession();
-    if (!session) {
-      guestEl.hidden = false;
-      editorWrap.hidden = true;
-      return;
-    }
-    guestEl.hidden = true;
-    editorWrap.hidden = false;
-    initEditor();
+    TC.refreshSession().then(function (session) {
+      if (!session) {
+        guestEl.hidden = false;
+        editorWrap.hidden = true;
+        return;
+      }
+      guestEl.hidden = true;
+      editorWrap.hidden = false;
+      initEditor();
+    });
   }
 
   refresh();
-  TC.updateAuthUI();
 })();

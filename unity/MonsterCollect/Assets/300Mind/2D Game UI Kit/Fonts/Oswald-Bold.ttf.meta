@@ -3,10 +3,10 @@ guid: 2959ff48a89e689488ddeecfde03adea
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
-  fontSize: 16
+  fontSize: 72
   forceTextureCase: -2
   characterSpacing: 0
-  characterPadding: 1
+  characterPadding: 8
   includeFontData: 1
   fontNames:
   - Oswald

@@ -20,6 +20,7 @@ namespace MonsterCollect.Editor
         public static void SetupAllScenes()
         {
             MobileGameUiKitSetup.EnsureThemeAsset();
+            UiKitTextureSetup.ConfigureUiAtlases();
             QrmonAssetSetup.SetupQrmonSprites();
             QRScanSceneSetup.SetupScene();
             RanchSceneSetup.SetupScene();

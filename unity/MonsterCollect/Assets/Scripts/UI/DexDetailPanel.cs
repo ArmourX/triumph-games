@@ -38,6 +38,7 @@ namespace MonsterCollect.UI
 
         public void Show(DexEntry entry, bool isUnlocked)
         {
+            KitUi.RestyleExisting(transform);
             if (entry == null)
             {
                 return;

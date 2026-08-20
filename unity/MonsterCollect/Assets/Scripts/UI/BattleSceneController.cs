@@ -33,6 +33,7 @@ namespace MonsterCollect.UI
         private void Awake()
         {
             EnsureViews();
+            KitUi.RestyleExisting(transform);
 
             if (setupView != null)
             {
@@ -215,6 +216,7 @@ namespace MonsterCollect.UI
             }
 
             battleManager.StartBattle(pendingPlayer, pendingOpponent);
+            BattleFocusLayout.SetBattleFocus(true);
             hudView?.Show();
             hudView?.Bind(battleManager.Context);
             hudView?.Refresh(battleManager);

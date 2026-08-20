@@ -114,9 +114,6 @@ namespace MonsterCollect.Appearance
             MonsterPartCatalog catalog = MonsterAppearanceResolver.Catalog;
             var texture = CreateBlank(size);
 
-            Color background = Color.Lerp(data.GetDisplayPrimaryColor(), data.GetDisplaySecondaryColor(), 0.12f);
-            FillBackground(texture, size, background, data);
-
             var layers = BuildLayerList(catalog, selection, data);
             float scaleFactor = size / 128f;
 
@@ -189,22 +186,6 @@ namespace MonsterCollect.Appearance
 
             layers.Sort((a, b) => a.SortOrder.CompareTo(b.SortOrder));
             return layers;
-        }
-
-        private static void FillBackground(Texture2D texture, int size, Color background, MonsterData data)
-        {
-            float cx = size * 0.5f;
-            float cy = size * 0.5f;
-
-            for (int y = 0; y < size; y++)
-            {
-                for (int x = 0; x < size; x++)
-                {
-                    float vignette = 1f - Vector2.Distance(new Vector2(x, y), new Vector2(cx, cy)) / (size * 0.72f);
-                    Color pixel = Color.Lerp(background, Color.Lerp(data.GetDisplayPrimaryColor(), data.GetDisplaySecondaryColor(), x / (float)size), 0.12f * vignette);
-                    texture.SetPixel(x, y, pixel);
-                }
-            }
         }
 
         private static void DrawSpriteLayer(Texture2D target, int size, LayerDrawInfo layer, float scaleFactor)
@@ -333,6 +314,8 @@ namespace MonsterCollect.Appearance
             }
         }
 
+        private const int PortraitBakeVersion = 2;
+
         private static string BuildCacheKey(MonsterData data, int size)
         {
             MonsterAppearanceSelection selection = data.GetAppearanceSelection();
@@ -340,6 +323,7 @@ namespace MonsterCollect.Appearance
             Color secondary = data.GetDisplaySecondaryColor();
 
             return string.Concat(
+                "v", PortraitBakeVersion, "|",
                 data.FullHash ?? data.Id ?? data.DexNumber.ToString(),
                 "|", size,
                 "|", data.EvolutionStage,
@@ -366,7 +350,7 @@ namespace MonsterCollect.Appearance
             var clear = new Color[size * size];
             for (int i = 0; i < clear.Length; i++)
             {
-                clear[i] = new Color(0.12f, 0.12f, 0.14f, 1f);
+                clear[i] = Color.clear;
             }
 
             texture.SetPixels(clear);

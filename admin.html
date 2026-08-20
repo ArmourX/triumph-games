@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="js/site-theme-init.js"></script>
   <title>Admin Review | Triumph Guides</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="hub.css">
@@ -21,16 +22,39 @@
   </header>
 
   <div class="container hub-subpage">
-    <h1>Admin Review Queue</h1>
-    <p class="hub-subpage-intro">Review contributor edits and user-submitted guides. Approve to publish or reject to discard.</p>
+    <h1>Admin Dashboard</h1>
+    <p class="hub-subpage-intro">Review contributor edits and user-submitted guides. Manage users and published content.</p>
     <div id="tg-admin-denied" class="tg-account-panel" hidden>
-      <p>Admin access required. Sign in with the <strong>admin</strong> account to review submissions.</p>
+      <p>Admin access required. Sign in with an admin account (e.g. <strong>admin</strong> or <strong>Tester</strong>) to review submissions.</p>
       <a href="account.html" class="tg-btn tg-btn--primary">Go to account</a>
     </div>
-    <h2 class="tg-guides-section-title" id="tg-admin-guides-heading" hidden>Pending guides</h2>
-    <div id="tg-admin-guides" class="tg-edits-list" hidden></div>
-    <h2 class="tg-guides-section-title" id="tg-admin-edits-heading" hidden>Pending wiki edits</h2>
-    <div id="tg-admin-queue" class="tg-edits-list" hidden></div>
+
+    <div id="tg-admin-main" hidden>
+      <div class="tg-admin-tabs" role="tablist">
+        <button type="button" class="tg-admin-tab active" data-tab="queue" role="tab">Review queue</button>
+        <button type="button" class="tg-admin-tab" data-tab="posts" role="tab">All guides &amp; articles</button>
+        <button type="button" class="tg-admin-tab" data-tab="users" role="tab">Users</button>
+      </div>
+
+      <div id="tg-admin-panel-queue" class="tg-admin-panel" role="tabpanel">
+        <h2 class="tg-guides-section-title">Pending Elumia item submissions</h2>
+        <div id="tg-admin-elumia-items" class="tg-edits-list"></div>
+        <h2 class="tg-guides-section-title">Pending guides &amp; articles</h2>
+        <div id="tg-admin-guides" class="tg-edits-list"></div>
+        <h2 class="tg-guides-section-title">Pending wiki edits</h2>
+        <div id="tg-admin-queue" class="tg-edits-list"></div>
+      </div>
+
+      <div id="tg-admin-panel-posts" class="tg-admin-panel" hidden role="tabpanel">
+        <h2 class="tg-guides-section-title">All guides &amp; articles</h2>
+        <div id="tg-admin-all-posts" class="tg-edits-list"></div>
+      </div>
+
+      <div id="tg-admin-panel-users" class="tg-admin-panel" hidden role="tabpanel">
+        <h2 class="tg-guides-section-title">Registered users</h2>
+        <div id="tg-admin-users" class="tg-edits-list"></div>
+      </div>
+    </div>
   </div>
 
   <footer class="hub-footer">
@@ -40,6 +64,11 @@
     </div>
   </footer>
 
+  <script src="js/site-config.js"></script>
+  <script src="js/site-ui.js"></script>
+  <script src="js/site-theme.js"></script>
+  <script src="js/coming-soon-gate.js"></script>
+  <script src="js/triumph-api.js"></script>
   <script src="js/triumph-community.js"></script>
   <script src="js/triumph-edits.js"></script>
   <script src="js/triumph-user-guides.js"></script>

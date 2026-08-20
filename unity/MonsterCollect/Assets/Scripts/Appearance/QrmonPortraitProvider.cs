@@ -8,10 +8,14 @@ namespace MonsterCollect.Appearance
     public static class QrmonPortraitProvider
     {
         public const string SheetResourcePath = "Creatures/QRmon";
+        private const int PortraitBakeVersion = 2;
 
         private static readonly Dictionary<string, Texture2D> PortraitCache = new Dictionary<string, Texture2D>();
         private static Sprite portraitSprite;
         private static bool loadAttempted;
+        private static Color[] strippedSourcePixels;
+        private static int strippedSourceWidth;
+        private static int strippedSourceHeight;
 
         public static bool IsAvailable => EnsureLoaded();
 
@@ -22,7 +26,7 @@ namespace MonsterCollect.Appearance
                 return null;
             }
 
-            string key = $"{data.FullHash}_{size}";
+            string key = $"v{PortraitBakeVersion}_{data.FullHash}_{size}";
             if (PortraitCache.TryGetValue(key, out Texture2D cached))
             {
                 return cached;
@@ -59,6 +63,9 @@ namespace MonsterCollect.Appearance
             }
 
             PortraitCache.Clear();
+            strippedSourcePixels = null;
+            strippedSourceWidth = 0;
+            strippedSourceHeight = 0;
         }
 
         private static bool EnsureLoaded()
@@ -91,13 +98,10 @@ namespace MonsterCollect.Appearance
                 filterMode = FilterMode.Bilinear
             };
 
-            Color background = Color.Lerp(data.GetDisplayPrimaryColor(), data.GetDisplaySecondaryColor(), 0.15f);
-            background.a = 1f;
             var pixels = new Color32[size * size];
-            var bg = (Color32)background;
             for (int i = 0; i < pixels.Length; i++)
             {
-                pixels[i] = bg;
+                pixels[i] = new Color32(0, 0, 0, 0);
             }
 
             texture.SetPixels32(pixels);
@@ -122,7 +126,7 @@ namespace MonsterCollect.Appearance
                 return;
             }
 
-            Color[] src = ReadSpritePixels(sprite, rect, srcW, srcH);
+            Color[] src = GetStrippedSourcePixels(sprite, rect, srcW, srcH);
             if (src == null || src.Length == 0)
             {
                 return;
@@ -146,9 +150,7 @@ namespace MonsterCollect.Appearance
                     int srcX = Mathf.Min(srcW - 1, Mathf.RoundToInt(x / scale));
                     Color sample = src[srcY * srcW + srcX];
 
-                    // Treat near-black backdrop as transparent so the monster reads on UI cards.
-                    if (sample.a <= 0.03f ||
-                        (sample.r < 0.08f && sample.g < 0.08f && sample.b < 0.08f))
+                    if (PortraitBackdropUtility.IsTransparentOrBackdrop(sample))
                     {
                         continue;
                     }
@@ -157,9 +159,41 @@ namespace MonsterCollect.Appearance
                     blended.r *= tint.r;
                     blended.g *= tint.g;
                     blended.b *= tint.b;
-                    target.SetPixel(offsetX + x, offsetY + y, blended);
+
+                    int dstX = offsetX + x;
+                    int dstY = offsetY + y;
+                    Color dst = target.GetPixel(dstX, dstY);
+                    float srcA = blended.a;
+                    Color composite = new Color(
+                        blended.r * srcA + dst.r * (1f - srcA),
+                        blended.g * srcA + dst.g * (1f - srcA),
+                        blended.b * srcA + dst.b * (1f - srcA),
+                        srcA + dst.a * (1f - srcA));
+                    target.SetPixel(dstX, dstY, composite);
                 }
             }
+        }
+
+        private static Color[] GetStrippedSourcePixels(Sprite sprite, Rect rect, int width, int height)
+        {
+            if (strippedSourcePixels != null &&
+                strippedSourceWidth == width &&
+                strippedSourceHeight == height)
+            {
+                return strippedSourcePixels;
+            }
+
+            Color[] src = ReadSpritePixels(sprite, rect, width, height);
+            if (src == null || src.Length == 0)
+            {
+                return null;
+            }
+
+            PortraitBackdropUtility.StripEdgeConnectedBackdrop(src, width, height);
+            strippedSourcePixels = src;
+            strippedSourceWidth = width;
+            strippedSourceHeight = height;
+            return strippedSourcePixels;
         }
 
         private static Color[] ReadSpritePixels(Sprite sprite, Rect rect, int width, int height)
@@ -207,5 +241,6 @@ namespace MonsterCollect.Appearance
                 RenderTexture.ReleaseTemporary(renderTarget);
             }
         }
+
     }
 }

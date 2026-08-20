@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="js/site-theme-init.js"></script>
   <title>Guides | BattleRise | Triumph Guides</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="hub.css">
@@ -18,19 +19,25 @@
     <p class="hub-subpage-intro">Team building, artifact farming, and mode-specific strategies.</p>
     <div class="tg-guides-toolbar">
       <a href="guide-create.html?game=battlerise" class="tg-btn tg-btn--primary" id="write-guide-btn">Write a guide</a>
+      <a href="guide-create.html?game=battlerise&type=article" class="tg-btn tg-btn--ghost" id="write-article-btn">Write an article</a>
     </div>
     <h2 class="tg-guides-section-title">Featured guides</h2>
     <div class="guide-page-list">
-      <a href="#" class="guide-page-item"><h2>Beginner Tips for Rerolling</h2><p>Best starter champions and how to build your first competitive team.</p></a>
-      <a href="#" class="guide-page-item"><h2>Gauntlet Mode Guide</h2><p>8-player speed dungeon strategies and optimal compositions.</p></a>
-      <a href="#" class="guide-page-item"><h2>Artifact Farming Guide</h2><p>Best seasons and dungeons to farm artifacts for trading.</p></a>
-      <a href="#" class="guide-page-item"><h2>Live PvP Arena Guide</h2><p>Meta teams, counter picks, and ranking climb tips.</p></a>
+      <a href="battlerise-guide-beginner-rerolling.html" class="guide-page-item guide-page-item--official"><h2>Beginner Tips for Rerolling</h2><p>Best starter champions and how to build your first competitive team.</p><span class="tg-guide-official-tag">Official</span></a>
     </div>
+    <h2 class="tg-guides-section-title">Community articles</h2>
+    <p id="community-articles-empty" class="tg-empty" hidden>No community articles yet.</p>
+    <div id="community-articles-list" class="guide-page-list"></div>
     <h2 class="tg-guides-section-title">Community guides</h2>
     <p id="community-guides-empty" class="tg-empty" hidden>No community guides yet. Be the first to write one!</p>
     <div id="community-guides-list" class="guide-page-list"></div>
   </div>
   <footer class="hub-footer"><div class="container hub-footer-inner"><a href="battlerise.html">&larr; Back to BattleRise hub</a><p>&copy; 2026 Triumph Guides</p></div></footer>
+    <script src="js/site-config.js"></script>
+  <script src="js/site-ui.js"></script>
+  <script src="js/site-theme.js"></script>
+  <script src="js/coming-soon-gate.js"></script>
+  <script src="js/triumph-api.js"></script>
   <script src="js/triumph-community.js"></script>
   <script src="js/triumph-edits.js"></script>
   <script src="js/triumph-user-guides.js"></script>

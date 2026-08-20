@@ -35,11 +35,36 @@ Requires `UnityPy` and `attrs>=23.2.0`.
 
 ## Run locally
 
-Open `index.html` in your browser, or:
+For static pages only:
 
 ```bash
 npx serve .
 ```
+
+For the full site with login, edits, guides, and articles (API + database):
+
+```bash
+npm install
+cp .env.example .env.local   # fill in Turso, JWT_SECRET, BLOB token
+npm run db:init              # create tables (once)
+npx vercel dev               # serves site + /api routes
+```
+
+### Backend environment variables (Vercel → Settings → Environment Variables)
+
+| Variable | Purpose |
+|----------|---------|
+| `TURSO_DATABASE_URL` | Turso/libSQL database URL ([turso.tech](https://turso.tech)) |
+| `TURSO_AUTH_TOKEN` | Turso auth token |
+| `JWT_SECRET` | Random string for session tokens (min 16 chars) |
+| `BLOB_READ_WRITE_TOKEN` | Added automatically when you connect a [Vercel Blob](https://vercel.com/docs/storage/vercel-blob) store to the project (Storage → Create → Blob). Required for guide/article image uploads. |
+
+### What users can edit
+
+- **Allowed:** wiki text (intros, champion overviews, lore), community ratings, guides & articles (text + uploaded images)
+- **Locked:** champion portraits, artifact images, and all `battlerise-data.js` catalog data (synced from megalords.com only)
+
+Admin account: sign up with username `admin` (first registration) for the review queue at `admin.html`.
 
 ## License
 

@@ -1,0 +1,55 @@
+{
+  "name": "Tester001 Items",
+  "description": "ERC-1155 consumables and currency held inside the Tester001 token-bound account.",
+  "standard": "ERC-1155",
+  "items": [
+    {
+      "id": 1,
+      "slug": "potion",
+      "name": "Potion",
+      "symbol": "POTION",
+      "category": "Consumable",
+      "rarity": "Common",
+      "effect": "Restores 20 HP to one companion.",
+      "starterAmount": 5,
+      "image": "items/potion.svg",
+      "metadata": "items/1.json"
+    },
+    {
+      "id": 2,
+      "slug": "pokeball",
+      "name": "Pokeball",
+      "symbol": "BALL",
+      "category": "Capture",
+      "rarity": "Common",
+      "effect": "Standard capture device for wild companions.",
+      "starterAmount": 10,
+      "image": "items/pokeball.svg",
+      "metadata": "items/2.json"
+    },
+    {
+      "id": 3,
+      "slug": "pokegold",
+      "name": "Pokegold",
+      "symbol": "PGOLD",
+      "category": "Currency",
+      "rarity": "Common",
+      "effect": "In-world currency used at shops and trainers.",
+      "starterAmount": 100,
+      "image": "items/pokegold.svg",
+      "metadata": "items/3.json"
+    },
+    {
+      "id": 4,
+      "slug": "rare-candy",
+      "name": "Rare Candy",
+      "symbol": "CANDY",
+      "category": "Consumable",
+      "rarity": "Rare",
+      "effect": "Instantly raises a companion by one level.",
+      "starterAmount": 3,
+      "image": "items/rare-candy.svg",
+      "metadata": "items/4.json"
+    }
+  ]
+}

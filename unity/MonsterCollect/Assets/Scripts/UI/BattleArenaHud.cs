@@ -45,17 +45,12 @@ namespace MonsterCollect.UI
 
         public void EnsureLayout()
         {
-            if (layoutBuilt)
-            {
-                return;
-            }
-
             Font font = MobileGameUiKit.BodyFont;
             Transform root = transform;
 
             if (arenaBackground == null)
             {
-                arenaBackground = CreateStretchImage(root, "ArenaBackground", new Color(0.18f, 0.42f, 0.22f, 1f));
+                arenaBackground = CreateStretchImage(root, "ArenaBackground", Color.clear);
                 arenaBackground.transform.SetAsFirstSibling();
             }
 
@@ -63,25 +58,58 @@ namespace MonsterCollect.UI
             {
                 arenaRing = CreateAnchoredImage(root, "ArenaRing",
                     new Vector2(0.22f, 0.18f), new Vector2(0.78f, 0.72f),
-                    new Color(0.45f, 0.32f, 0.18f, 0.55f));
+                    Color.clear);
             }
 
             if (playerNameplate == null)
             {
                 playerNameplate = CreateNameplate(root, font, "PlayerNameplate",
-                    new Vector2(0.03f, 0.04f), new Vector2(0.34f, 0.16f), TextAnchor.MiddleLeft);
+                    new Vector2(0.02f, 0.06f), new Vector2(0.36f, 0.22f), TextAnchor.MiddleLeft);
             }
 
             if (opponentNameplate == null)
             {
                 opponentNameplate = CreateNameplate(root, font, "OpponentNameplate",
-                    new Vector2(0.66f, 0.82f), new Vector2(0.97f, 0.94f), TextAnchor.MiddleRight);
+                    new Vector2(0.64f, 0.68f), new Vector2(0.98f, 0.84f), TextAnchor.MiddleRight);
             }
 
             EnsureTopMatchBar(root, font);
             EnsureActionBar(root, font);
             EnsureOpponentIntent(root, font);
+            ApplyArenaLook();
             layoutBuilt = true;
+        }
+
+        private void ApplyArenaLook()
+        {
+            if (arenaBackground != null)
+            {
+                Sprite backdrop = MobileGameUiKit.Theme != null
+                    ? MobileGameUiKit.Theme.homeSunsetBackground ?? MobileGameUiKit.Theme.sceneBackground
+                    : null;
+                if (backdrop != null)
+                {
+                    arenaBackground.sprite = backdrop;
+                    arenaBackground.color = Color.white;
+                    arenaBackground.type = Image.Type.Simple;
+                    arenaBackground.preserveAspect = false;
+                }
+                else
+                {
+                    arenaBackground.sprite = null;
+                    arenaBackground.color = Color.clear;
+                }
+
+                arenaBackground.raycastTarget = false;
+            }
+
+            if (arenaRing != null)
+            {
+                arenaRing.sprite = null;
+                arenaRing.color = Color.clear;
+                arenaRing.raycastTarget = false;
+                arenaRing.enabled = false;
+            }
         }
 
         public void OnBattleStarted()
@@ -193,11 +221,18 @@ namespace MonsterCollect.UI
             var barGo = new GameObject("TopMatchBar", typeof(RectTransform), typeof(Image));
             barGo.transform.SetParent(root, false);
             var barRect = barGo.GetComponent<RectTransform>();
-            barRect.anchorMin = new Vector2(0.18f, 0.90f);
-            barRect.anchorMax = new Vector2(0.82f, 0.985f);
+            barRect.anchorMin = new Vector2(0f, 0.90f);
+            barRect.anchorMax = new Vector2(1f, 1f);
             barRect.offsetMin = Vector2.zero;
             barRect.offsetMax = Vector2.zero;
-            barGo.GetComponent<Image>().color = new Color(0.08f, 0.1f, 0.14f, 0.88f);
+            var barImage = barGo.GetComponent<Image>();
+            barImage.color = new Color(0.04f, 0.05f, 0.08f, 0.72f);
+            if (MobileGameUiKit.Theme?.headerBar != null)
+            {
+                barImage.sprite = MobileGameUiKit.Theme.headerBar;
+                barImage.color = new Color(1f, 1f, 1f, 0.42f);
+                barImage.type = Image.Type.Simple;
+            }
 
             playerTrainerNameText = CreateAnchoredText(barGo.transform, font, "PlayerName", 20, FontStyle.Bold,
                 new Vector2(0.12f, 0.58f), new Vector2(0.42f, 0.92f), TextAnchor.MiddleLeft);
@@ -237,7 +272,7 @@ namespace MonsterCollect.UI
             energyRect.anchorMax = new Vector2(0.88f, 0.96f);
             energyRect.offsetMin = Vector2.zero;
             energyRect.offsetMax = Vector2.zero;
-            energyGo.GetComponent<Image>().color = new Color(0.1f, 0.14f, 0.22f, 0.95f);
+            energyGo.GetComponent<Image>().color = new Color(0.06f, 0.08f, 0.12f, 0.55f);
 
             var energyBadgeGo = new GameObject("EnergyBadge", typeof(RectTransform), typeof(Image));
             energyBadgeGo.transform.SetParent(energyGo.transform, false);
@@ -288,7 +323,7 @@ namespace MonsterCollect.UI
             intentRect.anchorMax = new Vector2(0.88f, 0.81f);
             intentRect.offsetMin = Vector2.zero;
             intentRect.offsetMax = Vector2.zero;
-            intentGo.GetComponent<Image>().color = new Color(0.1f, 0.12f, 0.16f, 0.82f);
+            intentGo.GetComponent<Image>().color = new Color(0.08f, 0.09f, 0.12f, 0.55f);
             opponentIntentText = CreateAnchoredText(intentGo.transform, font, "Label", 18, FontStyle.Bold,
                 new Vector2(0.06f, 0.1f), new Vector2(0.94f, 0.9f), TextAnchor.MiddleLeft);
             opponentIntentText.color = new Color(0.92f, 0.92f, 0.96f);
@@ -318,7 +353,8 @@ namespace MonsterCollect.UI
             bannerRect.offsetMin = Vector2.zero;
             bannerRect.offsetMax = Vector2.zero;
             var bannerImage = bannerGo.GetComponent<Image>();
-            bannerImage.color = new Color(0.92f, 0.78f, 0.18f, 0.98f);
+            bannerImage.color = new Color(0.95f, 0.82f, 0.18f, 0.92f);
+            bannerGo.transform.localRotation = Quaternion.Euler(0f, 0f, nameAlign == TextAnchor.MiddleLeft ? 3.5f : -3.5f);
 
             var nameText = CreateAnchoredText(bannerGo.transform, font, "Name", 22, FontStyle.Bold,
                 new Vector2(0.04f, 0.08f), new Vector2(0.58f, 0.92f), nameAlign);
@@ -351,7 +387,7 @@ namespace MonsterCollect.UI
             bgRect.anchorMax = new Vector2(1f, 0.85f);
             bgRect.offsetMin = Vector2.zero;
             bgRect.offsetMax = Vector2.zero;
-            bgGo.GetComponent<Image>().color = new Color(0.08f, 0.08f, 0.1f, 0.95f);
+            bgGo.GetComponent<Image>().color = new Color(0.06f, 0.07f, 0.09f, 0.62f);
 
             var fillGo = new GameObject("Fill", typeof(RectTransform), typeof(Image));
             fillGo.transform.SetParent(bgGo.transform, false);

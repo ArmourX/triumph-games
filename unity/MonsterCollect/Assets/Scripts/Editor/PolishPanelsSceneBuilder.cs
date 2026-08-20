@@ -20,7 +20,8 @@ namespace MonsterCollect.Editor
 
             var backdropGo = SceneUIBuilder.CreateUIObject("Backdrop", panelRoot.transform);
             SceneUIBuilder.StretchFullScreen(backdropGo.GetComponent<RectTransform>());
-            backdropGo.AddComponent<Image>().color = new Color(0f, 0f, 0f, 0.78f);
+            var backdropImage = backdropGo.AddComponent<Image>();
+            UiSkinUtility.ApplyDimOverlay(backdropImage);
 
             var cardGo = SceneUIBuilder.CreateUIObject("Card", panelRoot.transform);
             var cardRect = cardGo.GetComponent<RectTransform>();
@@ -28,7 +29,8 @@ namespace MonsterCollect.Editor
             cardRect.anchorMax = new Vector2(0.84f, 0.92f);
             cardRect.offsetMin = Vector2.zero;
             cardRect.offsetMax = Vector2.zero;
-            cardGo.AddComponent<Image>().color = new Color(0.12f, 0.12f, 0.16f, 0.98f);
+            var cardImage = cardGo.AddComponent<Image>();
+            UiSkinUtility.ApplyModalPanel(cardImage);
 
             CreateLabel(cardGo.transform, font, "Title", "Settings", 38, FontStyle.Bold,
                 new Vector2(0.08f, 0.92f), new Vector2(0.88f, 0.98f), TextAnchor.MiddleLeft, Color.white);
@@ -88,7 +90,8 @@ namespace MonsterCollect.Editor
 
             var backdropGo = SceneUIBuilder.CreateUIObject("Backdrop", panelRoot.transform);
             SceneUIBuilder.StretchFullScreen(backdropGo.GetComponent<RectTransform>());
-            backdropGo.AddComponent<Image>().color = new Color(0f, 0f, 0f, 0.82f);
+            var backdropImage = backdropGo.AddComponent<Image>();
+            UiSkinUtility.ApplyDimOverlay(backdropImage);
 
             var cardGo = SceneUIBuilder.CreateUIObject("Card", panelRoot.transform);
             var cardRect = cardGo.GetComponent<RectTransform>();
@@ -96,7 +99,8 @@ namespace MonsterCollect.Editor
             cardRect.anchorMax = new Vector2(0.92f, 0.86f);
             cardRect.offsetMin = Vector2.zero;
             cardRect.offsetMax = Vector2.zero;
-            cardGo.AddComponent<Image>().color = new Color(0.14f, 0.1f, 0.16f, 0.98f);
+            var cardImage = cardGo.AddComponent<Image>();
+            UiSkinUtility.ApplyModalPanel(cardImage);
 
             CreateLabel(cardGo.transform, font, "Title", "Debug Cheats", 38, FontStyle.Bold,
                 new Vector2(0.08f, 0.88f), new Vector2(0.92f, 0.96f), TextAnchor.MiddleLeft, Color.white);

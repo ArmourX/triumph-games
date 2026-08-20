@@ -34,6 +34,21 @@ namespace MonsterCollect.UI
 
         private void Start()
         {
+            if (headerText != null)
+            {
+                UiSkinUtility.StyleTitle(headerText);
+            }
+
+            if (countText != null)
+            {
+                UiSkinUtility.StyleBody(countText);
+            }
+
+            if (emptyStateText != null)
+            {
+                UiSkinUtility.StyleBody(emptyStateText);
+            }
+
             Refresh();
         }
 

@@ -92,6 +92,7 @@ namespace MonsterCollect.UI
             }
 
             boundMonster = monster;
+            KitUi.RestyleExisting(transform);
             MonsterEvolutionService.EnsureIdentityFields(monster);
             MonsterRaisingService.EnsureRaisingState(monster);
             EnsureExtraButtons();

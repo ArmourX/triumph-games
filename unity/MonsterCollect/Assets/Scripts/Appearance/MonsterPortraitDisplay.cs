@@ -1,4 +1,5 @@
 using MonsterCollect.Monster;
+using MonsterCollect.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -50,12 +51,14 @@ namespace MonsterCollect.Appearance
                 animatedView.gameObject.SetActive(false);
             }
 
-            boundTexture = MonsterAppearanceCompositor.GetOrCreatePortrait(data, size);
+            boundTexture = MonsterAppearanceCompositor.GetOrCreatePortrait(data, Mathf.Max(size * 2, size));
 
             if (bakedImage != null)
             {
                 bakedImage.enabled = true;
+                bakedImage.color = Color.white;
                 bakedImage.texture = boundTexture;
+                UiSharpnessUtility.ApplyCrispRawImage(bakedImage);
             }
         }
 

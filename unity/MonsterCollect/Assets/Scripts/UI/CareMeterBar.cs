@@ -21,11 +21,13 @@ namespace MonsterCollect.UI
             if (labelText != null)
             {
                 labelText.text = label;
+                UiSkinUtility.StyleBody(labelText);
             }
 
             if (valueText != null)
             {
                 valueText.text = $"{Mathf.RoundToInt(clamped)}";
+                UiSkinUtility.StyleBody(valueText);
             }
 
             if (fillImage != null)

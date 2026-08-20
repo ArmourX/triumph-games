@@ -521,7 +521,7 @@ window.BATTLERISE_DATA = {
       "spec": "NONE",
       "icon": "Arx_Defender_Sword",
       "slug": "arx-defender-s-sword",
-      "level": 25,
+      "level": 40,
       "gearType": 12,
       "gearTypeLabel": "Material",
       "image": "assets/battlerise/artifacts/cards/Arx_Defender_Sword.png",
@@ -536,9 +536,53 @@ window.BATTLERISE_DATA = {
       "story": "Arx Excelsum, a stronghold nestled in the north of Avalon, is the last bastion protecting mortals from the evil of the Forbidden Highlands - and perhaps from evil in all its forms. \n\nValiant priests not only study the mysteries of the world, but also train their bodies and martial virtues. It is believed that as long as at least one Arx Defender's sword is raised, the Light of Anu won't be extinguished, and goodness and righteousness will remain in brave hearts, inspiring them to fight.",
       "storyTitle": "Brave Hearts of Avalon",
       "displayStats": [
-        "+35% Damage"
+        "+300% Damage"
       ],
-      "hiddenCount": 2
+      "hiddenCount": 1,
+      "rolls": [
+        {
+          "id": 321,
+          "level": 1,
+          "label": "Level 1",
+          "stats": [
+            "+35% Damage"
+          ],
+          "substatRolls": [
+            "+120% Damage (substat roll)"
+          ],
+          "notes": [
+            "1 ability slot"
+          ]
+        },
+        {
+          "id": 474,
+          "level": 25,
+          "label": "Level 25",
+          "stats": [
+            "+35% Damage"
+          ],
+          "substatRolls": [
+            "+200% Damage (substat roll)"
+          ],
+          "notes": [
+            "2 unique ability slots"
+          ]
+        },
+        {
+          "id": 530,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [
+            "+300% Damage"
+          ],
+          "substatRolls": [
+            "+200% Damage (substat roll)"
+          ],
+          "notes": [
+            "2 unique ability slots"
+          ]
+        }
+      ]
     },
     {
       "id": 527,
@@ -555,11 +599,23 @@ window.BATTLERISE_DATA = {
       "stats": [],
       "story": "There was a time when thunder-wielding dragons terrorized the land. These colossal beasts, with scales shimmering like storm clouds, could summon lightning and thunder from the sky, destroying everything in their path. People trembled in fear at their roar, which heralded storms and devastation. But as the years passed, these dragons vanished, leaving behind only legends of a time when the sky was their kingdom.",
       "storyTitle": "Thunderdrake",
-      "displayStats": [
-        "+100% Health",
-        "+50% Speed"
-      ],
-      "hiddenCount": 1
+      "displayStats": [],
+      "hiddenCount": 1,
+      "rolls": [
+        {
+          "id": 527,
+          "level": 10,
+          "label": "Level 10",
+          "stats": [],
+          "substatRolls": [
+            "+100% Health (substat roll)",
+            "+50% Speed (substat roll)"
+          ],
+          "notes": [
+            "1 unique ability slot"
+          ]
+        }
+      ]
     },
     {
       "id": 376,
@@ -585,7 +641,108 @@ window.BATTLERISE_DATA = {
       "displayStats": [
         "+120% Health"
       ],
-      "hiddenCount": 2
+      "hiddenCount": 1,
+      "rolls": [
+        {
+          "id": 410,
+          "level": 3,
+          "label": "Level 3",
+          "stats": [
+            "+120% Health"
+          ],
+          "substatRolls": [
+            "+50% Health (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 298,
+          "level": 4,
+          "label": "Level 4",
+          "stats": [
+            "+120% Health"
+          ],
+          "substatRolls": [
+            "+50% Health (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 355,
+          "level": 6,
+          "label": "Level 6",
+          "stats": [
+            "+120% Health"
+          ],
+          "substatRolls": [
+            "+50% Health (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 356,
+          "level": 8,
+          "label": "Level 8",
+          "stats": [
+            "+120% Health"
+          ],
+          "substatRolls": [
+            "+50% Health (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 357,
+          "level": 12,
+          "label": "Level 12",
+          "stats": [
+            "+120% Health"
+          ],
+          "substatRolls": [
+            "+50% Health (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 358,
+          "level": 14,
+          "label": "Level 14",
+          "stats": [
+            "+120% Health"
+          ],
+          "substatRolls": [
+            "+50% Health (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 376,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+120% Health"
+          ],
+          "substatRolls": [
+            "+50% Health (substat roll)"
+          ],
+          "notes": [
+            "2 unique ability slots"
+          ]
+        },
+        {
+          "id": 429,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+120% Health"
+          ],
+          "substatRolls": [
+            "+50% Health (substat roll)",
+            "+10% Speed (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 322,
@@ -594,7 +751,7 @@ window.BATTLERISE_DATA = {
       "spec": "AGI",
       "icon": "Jester",
       "slug": "harlequin-wear",
-      "level": 28,
+      "level": 40,
       "gearType": 7,
       "gearTypeLabel": "Clothing",
       "image": "assets/battlerise/artifacts/cards/Jester.png",
@@ -617,7 +774,43 @@ window.BATTLERISE_DATA = {
         "+35 Crit Rate",
         "+50% Speed"
       ],
-      "hiddenCount": 2
+      "hiddenCount": 4,
+      "rolls": [
+        {
+          "id": 322,
+          "level": 28,
+          "label": "Level 28",
+          "stats": [
+            "+35 Crit Rate",
+            "+50% Speed"
+          ],
+          "substatRolls": [
+            "+100% Damage (substat roll)",
+            "+100% Speed (substat roll)",
+            "+30% Crit Rate (substat roll)"
+          ],
+          "notes": [
+            "2 unique ability slots"
+          ]
+        },
+        {
+          "id": 526,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [
+            "+35 Crit Rate",
+            "+50% Speed"
+          ],
+          "substatRolls": [
+            "+100% Damage (substat roll)",
+            "+100% Speed (substat roll)",
+            "+30% Crit Rate (substat roll)"
+          ],
+          "notes": [
+            "2 unique ability slots"
+          ]
+        }
+      ]
     },
     {
       "id": 445,
@@ -626,7 +819,7 @@ window.BATTLERISE_DATA = {
       "spec": "STR",
       "icon": "Ifrits_Gift",
       "slug": "ifrit-s-gift",
-      "level": 20,
+      "level": 34,
       "gearType": 3,
       "gearTypeLabel": "Spell",
       "image": "assets/battlerise/artifacts/cards/Ifrits_Gift.png",
@@ -649,7 +842,71 @@ window.BATTLERISE_DATA = {
         "+800% Health",
         "+30 Crit Rate"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 3,
+      "rolls": [
+        {
+          "id": 277,
+          "level": 5,
+          "label": "Level 5",
+          "stats": [
+            "+110% Health",
+            "+10% Damage"
+          ],
+          "substatRolls": [
+            "+55% Health (substat roll)",
+            "+30% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 445,
+          "level": 20,
+          "label": "Level 20",
+          "stats": [
+            "+800% Health",
+            "+30 Crit Rate"
+          ],
+          "substatRolls": [
+            "+55% Health (substat roll)",
+            "+30% Damage (substat roll)"
+          ],
+          "notes": [
+            "1 ability slot"
+          ]
+        },
+        {
+          "id": 469,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+800% Health",
+            "+30 Crit Rate"
+          ],
+          "substatRolls": [
+            "+55% Health (substat roll)",
+            "+30% Damage (substat roll)"
+          ],
+          "notes": [
+            "1 ability slot"
+          ]
+        },
+        {
+          "id": 496,
+          "level": 34,
+          "label": "Level 34",
+          "stats": [
+            "+800% Health",
+            "+30 Crit Rate"
+          ],
+          "substatRolls": [
+            "+55% Health (substat roll)",
+            "+30% Damage (substat roll)"
+          ],
+          "notes": [
+            "1 ability slot"
+          ]
+        }
+      ]
     },
     {
       "id": 385,
@@ -658,7 +915,7 @@ window.BATTLERISE_DATA = {
       "spec": "STR",
       "icon": "Abyssal_Reaper",
       "slug": "infernal-reaper",
-      "level": 30,
+      "level": 40,
       "gearType": 12,
       "gearTypeLabel": "Material",
       "image": "assets/battlerise/artifacts/cards/Abyssal_Reaper.png",
@@ -675,7 +932,97 @@ window.BATTLERISE_DATA = {
       "displayStats": [
         "+220% Damage"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 1,
+      "rolls": [
+        {
+          "id": 317,
+          "level": 15,
+          "label": "Level 15",
+          "stats": [
+            "+220% Damage"
+          ],
+          "substatRolls": [
+            "+135% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 383,
+          "level": 20,
+          "label": "Level 20",
+          "stats": [
+            "+220% Damage"
+          ],
+          "substatRolls": [
+            "+135% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 384,
+          "level": 25,
+          "label": "Level 25",
+          "stats": [
+            "+220% Damage"
+          ],
+          "substatRolls": [
+            "+135% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 385,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+220% Damage"
+          ],
+          "substatRolls": [
+            "+135% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 484,
+          "level": 35,
+          "label": "Level 35",
+          "stats": [
+            "+220% Damage"
+          ],
+          "substatRolls": [
+            "+135% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 518,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [
+            "+220% Damage"
+          ],
+          "substatRolls": [
+            "+180% Damage (substat roll)"
+          ],
+          "notes": [
+            "4 unique ability slots"
+          ]
+        },
+        {
+          "id": 531,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [
+            "+220% Damage"
+          ],
+          "substatRolls": [
+            "+180% Damage (substat roll)"
+          ],
+          "notes": [
+            "2 unique ability slots"
+          ]
+        }
+      ]
     },
     {
       "id": 443,
@@ -684,7 +1031,7 @@ window.BATTLERISE_DATA = {
       "spec": "NONE",
       "icon": "Light_of_Hope",
       "slug": "light-of-hope",
-      "level": 30,
+      "level": 40,
       "gearType": 5,
       "gearTypeLabel": "Relic",
       "image": "assets/battlerise/artifacts/cards/Light_of_Hope.png",
@@ -692,10 +1039,59 @@ window.BATTLERISE_DATA = {
       "stats": [],
       "story": "In the deepest darkness of the dungeons, the only thing that can save a lost traveler is courage and skill. However, if this fails there is still hope, this hope can be rekindled by a lantern enchanted with the soul of Seraph.",
       "storyTitle": "In Darkest Deep",
-      "displayStats": [
-        "+150% Health"
-      ],
-      "hiddenCount": 1
+      "displayStats": [],
+      "hiddenCount": 1,
+      "rolls": [
+        {
+          "id": 448,
+          "level": 20,
+          "label": "Level 20",
+          "stats": [],
+          "substatRolls": [
+            "+150% Health (substat roll)"
+          ],
+          "notes": [
+            "1 unique ability slot"
+          ]
+        },
+        {
+          "id": 443,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [],
+          "substatRolls": [
+            "+150% Health (substat roll)"
+          ],
+          "notes": [
+            "1 unique ability slot"
+          ]
+        },
+        {
+          "id": 495,
+          "level": 36,
+          "label": "Level 36",
+          "stats": [],
+          "substatRolls": [
+            "+150% Health (substat roll)"
+          ],
+          "notes": [
+            "1 unique ability slot"
+          ]
+        },
+        {
+          "id": 536,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [],
+          "substatRolls": [
+            "+150% Health (substat roll)",
+            "+150% Speed (substat roll)"
+          ],
+          "notes": [
+            "1 unique ability slot"
+          ]
+        }
+      ]
     },
     {
       "id": 373,
@@ -704,7 +1100,7 @@ window.BATTLERISE_DATA = {
       "spec": "NONE",
       "icon": "Mimic",
       "slug": "mimic",
-      "level": 30,
+      "level": 36,
       "gearType": 2,
       "gearTypeLabel": "Minion",
       "image": "assets/battlerise/artifacts/cards/Mimic.png",
@@ -727,7 +1123,152 @@ window.BATTLERISE_DATA = {
         "+33% Damage",
         "+50% Magic RES"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 1,
+      "rolls": [
+        {
+          "id": 319,
+          "level": 18,
+          "label": "Level 18",
+          "stats": [
+            "+33% Damage",
+            "+50% Magic RES"
+          ],
+          "substatRolls": [
+            "+75% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 365,
+          "level": 19,
+          "label": "Level 19",
+          "stats": [
+            "+33% Damage",
+            "+50% Magic RES"
+          ],
+          "substatRolls": [
+            "+75% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 366,
+          "level": 20,
+          "label": "Level 20",
+          "stats": [
+            "+33% Damage",
+            "+50% Magic RES"
+          ],
+          "substatRolls": [
+            "+75% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 367,
+          "level": 21,
+          "label": "Level 21",
+          "stats": [
+            "+33% Damage",
+            "+50% Magic RES"
+          ],
+          "substatRolls": [
+            "+75% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 368,
+          "level": 22,
+          "label": "Level 22",
+          "stats": [
+            "+33% Damage",
+            "+50% Magic RES"
+          ],
+          "substatRolls": [
+            "+75% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 369,
+          "level": 23,
+          "label": "Level 23",
+          "stats": [
+            "+33% Damage",
+            "+50% Magic RES"
+          ],
+          "substatRolls": [
+            "+75% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 370,
+          "level": 24,
+          "label": "Level 24",
+          "stats": [
+            "+33% Damage",
+            "+50% Magic RES"
+          ],
+          "substatRolls": [
+            "+75% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 371,
+          "level": 25,
+          "label": "Level 25",
+          "stats": [
+            "+33% Damage",
+            "+50% Magic RES"
+          ],
+          "substatRolls": [
+            "+75% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 372,
+          "level": 26,
+          "label": "Level 26",
+          "stats": [
+            "+33% Damage",
+            "+50% Magic RES"
+          ],
+          "substatRolls": [
+            "+75% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 373,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+33% Damage",
+            "+50% Magic RES"
+          ],
+          "substatRolls": [
+            "+75% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 490,
+          "level": 36,
+          "label": "Level 36",
+          "stats": [
+            "+33% Damage",
+            "+50% Magic RES"
+          ],
+          "substatRolls": [
+            "+75% Damage (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 438,
@@ -736,7 +1277,7 @@ window.BATTLERISE_DATA = {
       "spec": "NONE",
       "icon": "Necromancers_Veil",
       "slug": "necromancer-s-veil",
-      "level": 15,
+      "level": 30,
       "gearType": 3,
       "gearTypeLabel": "Spell",
       "image": "assets/battlerise/artifacts/cards/Necromancers_Veil.png",
@@ -759,7 +1300,97 @@ window.BATTLERISE_DATA = {
         "+20% Health",
         "+2% Damage"
       ],
-      "hiddenCount": 2
+      "hiddenCount": 3,
+      "rolls": [
+        {
+          "id": 273,
+          "level": 1,
+          "label": "Level 1",
+          "stats": [
+            "+20% Health",
+            "+2% Damage"
+          ],
+          "substatRolls": [
+            "+40% Damage (substat roll)",
+            "+40% Health (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 340,
+          "level": 5,
+          "label": "Level 5",
+          "stats": [
+            "+20% Health",
+            "+2% Damage"
+          ],
+          "substatRolls": [
+            "+40% Damage (substat roll)",
+            "+40% Health (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 341,
+          "level": 7,
+          "label": "Level 7",
+          "stats": [
+            "+20% Health",
+            "+2% Damage"
+          ],
+          "substatRolls": [
+            "+40% Damage (substat roll)",
+            "+40% Health (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 342,
+          "level": 11,
+          "label": "Level 11",
+          "stats": [
+            "+20% Health",
+            "+2% Damage"
+          ],
+          "substatRolls": [
+            "+40% Damage (substat roll)",
+            "+40% Health (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 438,
+          "level": 15,
+          "label": "Level 15",
+          "stats": [
+            "+20% Health",
+            "+2% Damage"
+          ],
+          "substatRolls": [
+            "+60% Health (substat roll)",
+            "+40% Damage (substat roll)"
+          ],
+          "notes": [
+            "2 unique ability slots"
+          ]
+        },
+        {
+          "id": 473,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+20% Health",
+            "+2% Damage"
+          ],
+          "substatRolls": [
+            "+80% Health (substat roll)",
+            "+40% Damage (substat roll)"
+          ],
+          "notes": [
+            "2 unique ability slots"
+          ]
+        }
+      ]
     },
     {
       "id": 394,
@@ -801,7 +1432,135 @@ window.BATTLERISE_DATA = {
         "+50% Health",
         "+5% Speed"
       ],
-      "hiddenCount": 2
+      "hiddenCount": 6,
+      "rolls": [
+        {
+          "id": 314,
+          "level": 16,
+          "label": "Level 16",
+          "stats": [
+            "+50% Health",
+            "+5% Speed",
+            "+5 Crit Rate",
+            "+33% Damage"
+          ],
+          "substatRolls": [
+            "+25% Health (substat roll)",
+            "+25% Speed (substat roll)",
+            "+25% Crit Rate (substat roll)",
+            "+25% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 389,
+          "level": 17,
+          "label": "Level 17",
+          "stats": [
+            "+50% Health",
+            "+5% Speed",
+            "+5 Crit Rate",
+            "+33% Damage"
+          ],
+          "substatRolls": [
+            "+25% Health (substat roll)",
+            "+25% Speed (substat roll)",
+            "+25% Crit Rate (substat roll)",
+            "+25% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 390,
+          "level": 18,
+          "label": "Level 18",
+          "stats": [
+            "+50% Health",
+            "+5% Speed",
+            "+5 Crit Rate",
+            "+33% Damage"
+          ],
+          "substatRolls": [
+            "+25% Health (substat roll)",
+            "+25% Speed (substat roll)",
+            "+25% Crit Rate (substat roll)",
+            "+25% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 391,
+          "level": 19,
+          "label": "Level 19",
+          "stats": [
+            "+50% Health",
+            "+5% Speed",
+            "+5 Crit Rate",
+            "+33% Damage"
+          ],
+          "substatRolls": [
+            "+25% Health (substat roll)",
+            "+25% Speed (substat roll)",
+            "+25% Crit Rate (substat roll)",
+            "+25% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 392,
+          "level": 20,
+          "label": "Level 20",
+          "stats": [
+            "+50% Health",
+            "+5% Speed",
+            "+5 Crit Rate",
+            "+33% Damage"
+          ],
+          "substatRolls": [
+            "+25% Health (substat roll)",
+            "+25% Speed (substat roll)",
+            "+25% Crit Rate (substat roll)",
+            "+25% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 393,
+          "level": 24,
+          "label": "Level 24",
+          "stats": [
+            "+50% Health",
+            "+5% Speed",
+            "+5 Crit Rate",
+            "+33% Damage"
+          ],
+          "substatRolls": [
+            "+25% Health (substat roll)",
+            "+25% Speed (substat roll)",
+            "+25% Crit Rate (substat roll)",
+            "+25% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 394,
+          "level": 28,
+          "label": "Level 28",
+          "stats": [
+            "+50% Health",
+            "+5% Speed",
+            "+5 Crit Rate",
+            "+33% Damage"
+          ],
+          "substatRolls": [
+            "+50% Health (substat roll)",
+            "+50% Speed (substat roll)",
+            "+50% Crit Rate (substat roll)",
+            "+50% Damage (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 303,
@@ -810,7 +1569,7 @@ window.BATTLERISE_DATA = {
       "spec": "NONE",
       "icon": "Phoenix_Fury",
       "slug": "phoenix-loyality",
-      "level": 10,
+      "level": 33,
       "gearType": 2,
       "gearTypeLabel": "Minion",
       "image": "assets/battlerise/artifacts/cards/Phoenix_Fury.png",
@@ -843,7 +1602,77 @@ window.BATTLERISE_DATA = {
         "+10% Speed",
         "+9 Crit Rate"
       ],
-      "hiddenCount": 2
+      "hiddenCount": 5,
+      "rolls": [
+        {
+          "id": 303,
+          "level": 10,
+          "label": "Level 10",
+          "stats": [
+            "+10% Speed",
+            "+9 Crit Rate",
+            "+70% Damage",
+            "+350% Health"
+          ],
+          "substatRolls": [
+            "+30% Crit Rate (substat roll)",
+            "+30% Damage (substat roll)",
+            "+30% Health (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 359,
+          "level": 20,
+          "label": "Level 20",
+          "stats": [
+            "+10% Speed",
+            "+9 Crit Rate",
+            "+70% Damage",
+            "+350% Health"
+          ],
+          "substatRolls": [
+            "+30% Crit Rate (substat roll)",
+            "+30% Damage (substat roll)",
+            "+30% Health (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 360,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+10% Speed",
+            "+9 Crit Rate",
+            "+70% Damage",
+            "+350% Health"
+          ],
+          "substatRolls": [
+            "+30% Damage (substat roll)",
+            "+30% Health (substat roll)",
+            "+11% Crit Rate (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 487,
+          "level": 33,
+          "label": "Level 33",
+          "stats": [
+            "+10% Speed",
+            "+9 Crit Rate",
+            "+70% Damage",
+            "+350% Health"
+          ],
+          "substatRolls": [
+            "+30% Crit Rate (substat roll)",
+            "+30% Damage (substat roll)",
+            "+30% Health (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 315,
@@ -852,7 +1681,7 @@ window.BATTLERISE_DATA = {
       "spec": "STR",
       "icon": "Sword_of_Justice",
       "slug": "plate-of-justice",
-      "level": 20,
+      "level": 40,
       "gearType": 4,
       "gearTypeLabel": "Armor",
       "image": "assets/battlerise/artifacts/cards/Sword_of_Justice.png",
@@ -880,7 +1709,53 @@ window.BATTLERISE_DATA = {
         "+900% Health",
         "+70% Damage"
       ],
-      "hiddenCount": 1
+      "hiddenCount": 2,
+      "rolls": [
+        {
+          "id": 315,
+          "level": 20,
+          "label": "Level 20",
+          "stats": [
+            "+900% Health",
+            "+70% Damage",
+            "+150% Armor"
+          ],
+          "substatRolls": [
+            "+60% Health (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 462,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+900% Health",
+            "+70% Damage",
+            "+150% Armor"
+          ],
+          "substatRolls": [
+            "+200% Health (substat roll)"
+          ],
+          "notes": [
+            "1 unique ability slot"
+          ]
+        },
+        {
+          "id": 488,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [
+            "+900% Health",
+            "+70% Damage",
+            "+150% Armor"
+          ],
+          "substatRolls": [
+            "+220% Health (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 449,
@@ -889,7 +1764,7 @@ window.BATTLERISE_DATA = {
       "spec": "NONE",
       "icon": "Purity_Breeze",
       "slug": "purity-breeze",
-      "level": 20,
+      "level": 37,
       "gearType": 3,
       "gearTypeLabel": "Spell",
       "image": "assets/battlerise/artifacts/cards/Purity_Breeze.png",
@@ -912,7 +1787,93 @@ window.BATTLERISE_DATA = {
         "+3 Crit Rate",
         "+10% Damage"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 4,
+      "rolls": [
+        {
+          "id": 286,
+          "level": 10,
+          "label": "Level 10",
+          "stats": [
+            "+3 Crit Rate",
+            "+10% Damage"
+          ],
+          "substatRolls": [
+            "+100% Speed (substat roll)",
+            "+20% Armor (substat roll)",
+            "+20% Magic RES (substat roll)",
+            "+20% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 449,
+          "level": 20,
+          "label": "Level 20",
+          "stats": [
+            "+3 Crit Rate",
+            "+10% Damage"
+          ],
+          "substatRolls": [
+            "+105% Speed (substat roll)",
+            "+20% Armor (substat roll)",
+            "+20% Magic RES (substat roll)",
+            "+20% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 450,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+3 Crit Rate",
+            "+10% Damage"
+          ],
+          "substatRolls": [
+            "+110% Speed (substat roll)",
+            "+20% Damage (substat roll)",
+            "+10% Armor (substat roll)",
+            "+10% Magic RES (substat roll)"
+          ],
+          "notes": [
+            "1 unique ability slot"
+          ]
+        },
+        {
+          "id": 463,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+3 Crit Rate",
+            "+10% Damage"
+          ],
+          "substatRolls": [
+            "+150% Speed (substat roll)",
+            "+20% Damage (substat roll)",
+            "+10% Armor (substat roll)",
+            "+10% Magic RES (substat roll)"
+          ],
+          "notes": [
+            "1 unique ability slot"
+          ]
+        },
+        {
+          "id": 502,
+          "level": 37,
+          "label": "Level 37",
+          "stats": [
+            "+3 Crit Rate",
+            "+10% Damage"
+          ],
+          "substatRolls": [
+            "+80% Speed (substat roll)",
+            "+20% Armor (substat roll)",
+            "+20% Magic RES (substat roll)",
+            "+20% Damage (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 409,
@@ -921,7 +1882,7 @@ window.BATTLERISE_DATA = {
       "spec": "STR",
       "icon": "Shield_of_Darkness",
       "slug": "shield-of-darkness",
-      "level": 30,
+      "level": 40,
       "gearType": 8,
       "gearTypeLabel": "Shield",
       "image": "assets/battlerise/artifacts/cards/Shield_of_Darkness.png",
@@ -949,7 +1910,105 @@ window.BATTLERISE_DATA = {
         "+430% Health",
         "+300% Armor"
       ],
-      "hiddenCount": 2
+      "hiddenCount": 3,
+      "rolls": [
+        {
+          "id": 331,
+          "level": 15,
+          "label": "Level 15",
+          "stats": [
+            "+430% Health",
+            "+300% Armor",
+            "+-150% Magic RES"
+          ],
+          "substatRolls": [
+            "+50% Health (substat roll)",
+            "+30% Armor (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 441,
+          "level": 20,
+          "label": "Level 20",
+          "stats": [
+            "+430% Health",
+            "+300% Armor",
+            "+-150% Magic RES"
+          ],
+          "substatRolls": [
+            "+110% Health (substat roll)",
+            "+28% Armor (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 466,
+          "level": 24,
+          "label": "Level 24",
+          "stats": [
+            "+430% Health",
+            "+300% Armor",
+            "+-150% Magic RES"
+          ],
+          "substatRolls": [
+            "+110% Health (substat roll)",
+            "+28% Armor (substat roll)"
+          ],
+          "notes": [
+            "1 unique ability slot"
+          ]
+        },
+        {
+          "id": 447,
+          "level": 25,
+          "label": "Level 25",
+          "stats": [
+            "+430% Health",
+            "+300% Armor",
+            "+-150% Magic RES"
+          ],
+          "substatRolls": [
+            "+110% Health (substat roll)",
+            "+28% Armor (substat roll)"
+          ],
+          "notes": [
+            "1 unique ability slot"
+          ]
+        },
+        {
+          "id": 409,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+430% Health",
+            "+300% Armor",
+            "+-150% Magic RES"
+          ],
+          "substatRolls": [
+            "+110% Health (substat roll)",
+            "+28% Armor (substat roll)"
+          ],
+          "notes": [
+            "1 unique ability slot"
+          ]
+        },
+        {
+          "id": 508,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [
+            "+430% Health",
+            "+300% Armor",
+            "+-150% Magic RES"
+          ],
+          "substatRolls": [
+            "+110% Health (substat roll)",
+            "+28% Armor (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 411,
@@ -958,7 +2017,7 @@ window.BATTLERISE_DATA = {
       "spec": "NONE",
       "icon": "Silvacrans_Bow",
       "slug": "silvacran-s-bow",
-      "level": 10,
+      "level": 15,
       "gearType": 12,
       "gearTypeLabel": "Material",
       "image": "assets/battlerise/artifacts/cards/Silvacrans_Bow.png",
@@ -978,10 +2037,75 @@ window.BATTLERISE_DATA = {
       "story": "Among range weapons, the bows of the native Verdants have no equal. Legend tells that each of them is enchanted with the soul of fallen warriors, and it is their intercession that leads the arrows fired straight to the target.",
       "storyTitle": "Firstborn Archers Legacy",
       "displayStats": [
-        "+60% Speed",
-        "+60% Damage"
+        "+25% Speed",
+        "+25% Damage"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 3,
+      "rolls": [
+        {
+          "id": 440,
+          "level": 1,
+          "label": "Level 1",
+          "stats": [
+            "+25% Speed",
+            "+25% Damage"
+          ],
+          "substatRolls": [
+            "+60% Speed (substat roll)",
+            "+43% Damage (substat roll)"
+          ],
+          "notes": [
+            "1 ability slot"
+          ]
+        },
+        {
+          "id": 411,
+          "level": 10,
+          "label": "Level 10",
+          "stats": [
+            "+60% Speed",
+            "+60% Damage"
+          ],
+          "substatRolls": [
+            "+40% Damage (substat roll)"
+          ],
+          "notes": [
+            "1 ability slot"
+          ]
+        },
+        {
+          "id": 412,
+          "level": 10,
+          "label": "Level 10",
+          "stats": [
+            "+25% Speed",
+            "+25% Damage"
+          ],
+          "substatRolls": [
+            "+60% Speed (substat roll)",
+            "+43% Damage (substat roll)"
+          ],
+          "notes": [
+            "1 ability slot"
+          ]
+        },
+        {
+          "id": 455,
+          "level": 15,
+          "label": "Level 15",
+          "stats": [
+            "+25% Speed",
+            "+25% Damage"
+          ],
+          "substatRolls": [
+            "+60% Speed (substat roll)",
+            "+43% Damage (substat roll)"
+          ],
+          "notes": [
+            "2 unique ability slots"
+          ]
+        }
+      ]
     },
     {
       "id": 514,
@@ -1018,7 +2142,54 @@ window.BATTLERISE_DATA = {
         "+8% Speed",
         "+7 Crit Rate"
       ],
-      "hiddenCount": 1
+      "hiddenCount": 3,
+      "rolls": [
+        {
+          "id": 299,
+          "level": 10,
+          "label": "Level 10",
+          "stats": [
+            "+8% Speed",
+            "+7 Crit Rate",
+            "+100% Magic RES"
+          ],
+          "substatRolls": [
+            "+50% Crit Rate (substat roll)",
+            "+30% Speed (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 513,
+          "level": 20,
+          "label": "Level 20",
+          "stats": [
+            "+8% Speed",
+            "+7 Crit Rate",
+            "+100% Magic RES"
+          ],
+          "substatRolls": [
+            "+80% Speed (substat roll)",
+            "+30% Crit Rate (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 514,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+8% Speed",
+            "+7 Crit Rate",
+            "+100% Magic RES"
+          ],
+          "substatRolls": [
+            "+80% Speed (substat roll)",
+            "+15% Crit Rate (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 374,
@@ -1035,10 +2206,22 @@ window.BATTLERISE_DATA = {
       "stats": [],
       "story": "Dark Lords have many vicious habits, such as catalyzing the souls of their defeated enemies. \n\nTheir actions can often be described as senseless, tyrannical, and vile. However, none of their actions are without purpose. \n\nBehind every monstrosity they've unleashed, there is an even greater plot that the common folk cannot fathom. Dark magic, staffs, and weapons are only the tools to carry out that plan.",
       "storyTitle": "Master of Evil",
-      "displayStats": [
-        "+150% Damage"
-      ],
-      "hiddenCount": 1
+      "displayStats": [],
+      "hiddenCount": 0,
+      "rolls": [
+        {
+          "id": 374,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [],
+          "substatRolls": [
+            "+150% Damage (substat roll)"
+          ],
+          "notes": [
+            "1 unique ability slot"
+          ]
+        }
+      ]
     },
     {
       "id": 320,
@@ -1047,7 +2230,7 @@ window.BATTLERISE_DATA = {
       "spec": "INT",
       "icon": "Ancient_Past",
       "slug": "ancestral-inspiration",
-      "level": 30,
+      "level": 40,
       "gearType": 3,
       "gearTypeLabel": "Spell",
       "image": "assets/battlerise/artifacts/cards/Ancient_Past.png",
@@ -1070,7 +2253,57 @@ window.BATTLERISE_DATA = {
         "+230% Health",
         "+200% Magic RES"
       ],
-      "hiddenCount": 2
+      "hiddenCount": 3,
+      "rolls": [
+        {
+          "id": 320,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+230% Health",
+            "+200% Magic RES"
+          ],
+          "substatRolls": [
+            "+100% Health (substat roll)",
+            "+100% Speed (substat roll)"
+          ],
+          "notes": [
+            "2 unique ability slots"
+          ]
+        },
+        {
+          "id": 481,
+          "level": 32,
+          "label": "Level 32",
+          "stats": [
+            "+230% Health",
+            "+200% Magic RES"
+          ],
+          "substatRolls": [
+            "+100% Health (substat roll)",
+            "+100% Speed (substat roll)"
+          ],
+          "notes": [
+            "2 unique ability slots"
+          ]
+        },
+        {
+          "id": 532,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [
+            "+230% Health",
+            "+200% Magic RES"
+          ],
+          "substatRolls": [
+            "+100% Health (substat roll)",
+            "+100% Speed (substat roll)"
+          ],
+          "notes": [
+            "2 unique ability slots"
+          ]
+        }
+      ]
     },
     {
       "id": 467,
@@ -1079,7 +2312,7 @@ window.BATTLERISE_DATA = {
       "spec": "INT",
       "icon": "Ancient_Wisdom",
       "slug": "ancient-wisdom",
-      "level": 30,
+      "level": 38,
       "gearType": 5,
       "gearTypeLabel": "Relic",
       "image": "assets/battlerise/artifacts/cards/Ancient_Wisdom.png",
@@ -1107,7 +2340,57 @@ window.BATTLERISE_DATA = {
         "+10 Crit Rate",
         "+60% Magic RES"
       ],
-      "hiddenCount": 1
+      "hiddenCount": 4,
+      "rolls": [
+        {
+          "id": 297,
+          "level": 6,
+          "label": "Level 6",
+          "stats": [
+            "+10 Crit Rate",
+            "+60% Magic RES",
+            "+25% Damage"
+          ],
+          "substatRolls": [
+            "+30% Crit Rate (substat roll)",
+            "+30% Damage (substat roll)",
+            "+30% Magic RES (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 467,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+10 Crit Rate",
+            "+60% Magic RES",
+            "+25% Damage"
+          ],
+          "substatRolls": [
+            "+90% Damage (substat roll)",
+            "+30% Magic RES (substat roll)",
+            "+10% Crit Rate (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 505,
+          "level": 38,
+          "label": "Level 38",
+          "stats": [
+            "+10 Crit Rate",
+            "+60% Magic RES",
+            "+25% Damage"
+          ],
+          "substatRolls": [
+            "+45% Damage (substat roll)",
+            "+30% Crit Rate (substat roll)",
+            "+30% Magic RES (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 521,
@@ -1124,11 +2407,64 @@ window.BATTLERISE_DATA = {
       "stats": [],
       "story": "There are dark corners that no sane person ventures into . But if an unfortunate twist of fate brings you to one of these places, know that from now on your life rests in the cold chitinous clutches of the shadow god, Uruk.",
       "storyTitle": "Hidden in the shadows",
-      "displayStats": [
-        "+100% Damage",
-        "+30% Crit Rate"
-      ],
-      "hiddenCount": 4
+      "displayStats": [],
+      "hiddenCount": 2,
+      "rolls": [
+        {
+          "id": 453,
+          "level": 10,
+          "label": "Level 10",
+          "stats": [],
+          "substatRolls": [
+            "+100% Damage (substat roll)",
+            "+30% Crit Rate (substat roll)",
+            "+20% Speed (substat roll)"
+          ],
+          "notes": [
+            "3 unique ability slots"
+          ]
+        },
+        {
+          "id": 525,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [],
+          "substatRolls": [
+            "+100% Damage (substat roll)",
+            "+30% Crit Rate (substat roll)",
+            "+20% Speed (substat roll)"
+          ],
+          "notes": [
+            "3 unique ability slots"
+          ]
+        },
+        {
+          "id": 520,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [],
+          "substatRolls": [
+            "+60% Damage (substat roll)",
+            "+50% Speed (substat roll)",
+            "+10% Crit Rate (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 521,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [],
+          "substatRolls": [
+            "+100% Damage (substat roll)",
+            "+30% Crit Rate (substat roll)",
+            "+20% Speed (substat roll)"
+          ],
+          "notes": [
+            "3 unique ability slots"
+          ]
+        }
+      ]
     },
     {
       "id": 515,
@@ -1170,7 +2506,29 @@ window.BATTLERISE_DATA = {
         "+10% Speed",
         "+15% Damage"
       ],
-      "hiddenCount": 3
+      "hiddenCount": 7,
+      "rolls": [
+        {
+          "id": 515,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [
+            "+10% Speed",
+            "+15% Damage",
+            "+5 Crit Rate",
+            "+30% Magic RES"
+          ],
+          "substatRolls": [
+            "+130% Damage (substat roll)",
+            "+30% Speed (substat roll)",
+            "+10% Magic RES (substat roll)",
+            "+5% Crit Rate (substat roll)"
+          ],
+          "notes": [
+            "1 unique ability slot"
+          ]
+        }
+      ]
     },
     {
       "id": 386,
@@ -1179,7 +2537,7 @@ window.BATTLERISE_DATA = {
       "spec": "NONE",
       "icon": "Coward",
       "slug": "coward-s-armor",
-      "level": 30,
+      "level": 38,
       "gearType": 6,
       "gearTypeLabel": "Tale",
       "image": "assets/battlerise/artifacts/cards/Coward.png",
@@ -1212,7 +2570,73 @@ window.BATTLERISE_DATA = {
         "+200% Health",
         "+30% Speed"
       ],
-      "hiddenCount": 2
+      "hiddenCount": 4,
+      "rolls": [
+        {
+          "id": 311,
+          "level": 16,
+          "label": "Level 16",
+          "stats": [
+            "+200% Health",
+            "+30% Speed",
+            "+-5 Crit Rate",
+            "+-30% Damage"
+          ],
+          "substatRolls": [
+            "+60% Health (substat roll)",
+            "+60% Speed (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 464,
+          "level": 25,
+          "label": "Level 25",
+          "stats": [
+            "+200% Health",
+            "+30% Speed",
+            "+-5 Crit Rate",
+            "+-30% Damage"
+          ],
+          "substatRolls": [
+            "+70% Speed (substat roll)",
+            "+50% Health (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 386,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+200% Health",
+            "+30% Speed",
+            "+-5 Crit Rate",
+            "+-30% Damage"
+          ],
+          "substatRolls": [
+            "+60% Health (substat roll)",
+            "+60% Speed (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 491,
+          "level": 38,
+          "label": "Level 38",
+          "stats": [
+            "+200% Health",
+            "+30% Speed",
+            "+-5 Crit Rate",
+            "+-30% Damage"
+          ],
+          "substatRolls": [
+            "+60% Health (substat roll)",
+            "+60% Speed (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 480,
@@ -1244,7 +2668,54 @@ window.BATTLERISE_DATA = {
         "+20% Speed",
         "+15% Damage"
       ],
-      "hiddenCount": 5
+      "hiddenCount": 3,
+      "rolls": [
+        {
+          "id": 439,
+          "level": 15,
+          "label": "Level 15",
+          "stats": [
+            "+20% Speed",
+            "+15% Damage"
+          ],
+          "substatRolls": [
+            "+90% Speed (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 307,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+20% Speed",
+            "+15% Damage"
+          ],
+          "substatRolls": [
+            "+90% Speed (substat roll)",
+            "+90% Health (substat roll)"
+          ],
+          "notes": [
+            "5 unique ability slots"
+          ]
+        },
+        {
+          "id": 480,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [
+            "+20% Speed",
+            "+15% Damage"
+          ],
+          "substatRolls": [
+            "+90% Health (substat roll)",
+            "+80% Speed (substat roll)"
+          ],
+          "notes": [
+            "5 unique ability slots"
+          ]
+        }
+      ]
     },
     {
       "id": 435,
@@ -1253,7 +2724,7 @@ window.BATTLERISE_DATA = {
       "spec": "NONE",
       "icon": "Depriving_Basinet",
       "slug": "depriving-basinet",
-      "level": 21,
+      "level": 30,
       "gearType": 11,
       "gearTypeLabel": "Helmet",
       "image": "assets/battlerise/artifacts/cards/Depriving_Basinet.png",
@@ -1276,7 +2747,103 @@ window.BATTLERISE_DATA = {
         "+60% Armor",
         "+10% Health"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 2,
+      "rolls": [
+        {
+          "id": 279,
+          "level": 5,
+          "label": "Level 5",
+          "stats": [
+            "+60% Armor",
+            "+10% Health"
+          ],
+          "substatRolls": [
+            "+70% Armor (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 432,
+          "level": 15,
+          "label": "Level 15",
+          "stats": [
+            "+60% Armor",
+            "+10% Health"
+          ],
+          "substatRolls": [
+            "+70% Armor (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 433,
+          "level": 17,
+          "label": "Level 17",
+          "stats": [
+            "+60% Armor",
+            "+10% Health"
+          ],
+          "substatRolls": [
+            "+70% Armor (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 434,
+          "level": 19,
+          "label": "Level 19",
+          "stats": [
+            "+60% Armor",
+            "+10% Health"
+          ],
+          "substatRolls": [
+            "+70% Armor (substat roll)",
+            "+30% Damage (substat roll)",
+            "+30% Health (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 435,
+          "level": 21,
+          "label": "Level 21",
+          "stats": [
+            "+60% Armor",
+            "+10% Health"
+          ],
+          "substatRolls": [
+            "+70% Armor (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 436,
+          "level": 24,
+          "label": "Level 24",
+          "stats": [
+            "+60% Armor",
+            "+10% Health"
+          ],
+          "substatRolls": [
+            "+70% Armor (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 444,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+60% Armor",
+            "+10% Health"
+          ],
+          "substatRolls": [
+            "+40% Armor (substat roll)",
+            "+40% Health (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 281,
@@ -1285,7 +2852,7 @@ window.BATTLERISE_DATA = {
       "spec": "NONE",
       "icon": "Divinity_Spark",
       "slug": "divinity-spark",
-      "level": 5,
+      "level": 8,
       "gearType": 3,
       "gearTypeLabel": "Spell",
       "image": "assets/battlerise/artifacts/cards/Divinity_Spark.png",
@@ -1313,7 +2880,73 @@ window.BATTLERISE_DATA = {
         "+50% Health",
         "+10% Speed"
       ],
-      "hiddenCount": 1
+      "hiddenCount": 4,
+      "rolls": [
+        {
+          "id": 281,
+          "level": 5,
+          "label": "Level 5",
+          "stats": [
+            "+50% Health",
+            "+10% Speed",
+            "+100% Magic RES"
+          ],
+          "substatRolls": [
+            "+40% Speed (substat roll)",
+            "+40% Magic RES (substat roll)",
+            "+10% Health (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 347,
+          "level": 6,
+          "label": "Level 6",
+          "stats": [
+            "+50% Health",
+            "+10% Speed",
+            "+100% Magic RES"
+          ],
+          "substatRolls": [
+            "+40% Speed (substat roll)",
+            "+40% Magic RES (substat roll)",
+            "+10% Health (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 348,
+          "level": 7,
+          "label": "Level 7",
+          "stats": [
+            "+50% Health",
+            "+10% Speed",
+            "+100% Magic RES"
+          ],
+          "substatRolls": [
+            "+40% Speed (substat roll)",
+            "+40% Magic RES (substat roll)",
+            "+10% Health (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 349,
+          "level": 8,
+          "label": "Level 8",
+          "stats": [
+            "+50% Health",
+            "+10% Speed",
+            "+100% Magic RES"
+          ],
+          "substatRolls": [
+            "+40% Speed (substat roll)",
+            "+40% Magic RES (substat roll)",
+            "+10% Health (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 364,
@@ -1322,7 +2955,7 @@ window.BATTLERISE_DATA = {
       "spec": "STR",
       "icon": "Dragon_Helmet",
       "slug": "dragon-sallet",
-      "level": 16,
+      "level": 25,
       "gearType": 11,
       "gearTypeLabel": "Helmet",
       "image": "assets/battlerise/artifacts/cards/Dragon_Helmet.png",
@@ -1345,7 +2978,107 @@ window.BATTLERISE_DATA = {
         "+220% Health",
         "+110% Armor"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 2,
+      "rolls": [
+        {
+          "id": 316,
+          "level": 12,
+          "label": "Level 12",
+          "stats": [
+            "+220% Health",
+            "+110% Armor"
+          ],
+          "substatRolls": [
+            "+60% Health (substat roll)",
+            "+40% Armor (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 361,
+          "level": 13,
+          "label": "Level 13",
+          "stats": [
+            "+220% Health",
+            "+110% Armor"
+          ],
+          "substatRolls": [
+            "+60% Health (substat roll)",
+            "+40% Armor (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 362,
+          "level": 14,
+          "label": "Level 14",
+          "stats": [
+            "+220% Health",
+            "+110% Armor"
+          ],
+          "substatRolls": [
+            "+60% Health (substat roll)",
+            "+40% Armor (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 363,
+          "level": 15,
+          "label": "Level 15",
+          "stats": [
+            "+220% Health",
+            "+110% Armor"
+          ],
+          "substatRolls": [
+            "+60% Health (substat roll)",
+            "+40% Armor (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 364,
+          "level": 16,
+          "label": "Level 16",
+          "stats": [
+            "+220% Health",
+            "+110% Armor"
+          ],
+          "substatRolls": [
+            "+60% Health (substat roll)",
+            "+40% Armor (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 452,
+          "level": 20,
+          "label": "Level 20",
+          "stats": [
+            "+220% Health",
+            "+110% Armor"
+          ],
+          "substatRolls": [
+            "+60% Health (substat roll)",
+            "+35% Armor (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 465,
+          "level": 25,
+          "label": "Level 25",
+          "stats": [
+            "+220% Health",
+            "+110% Armor"
+          ],
+          "substatRolls": [
+            "+60% Health (substat roll)",
+            "+35% Armor (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 296,
@@ -1354,7 +3087,7 @@ window.BATTLERISE_DATA = {
       "spec": "STR",
       "icon": "Dragon_Slayer_Sword",
       "slug": "dragonslayer-sword",
-      "level": 10,
+      "level": 40,
       "gearType": 12,
       "gearTypeLabel": "Material",
       "image": "assets/battlerise/artifacts/cards/Dragon_Slayer_Sword.png",
@@ -1382,7 +3115,54 @@ window.BATTLERISE_DATA = {
         "+8% Speed",
         "+8 Crit Rate"
       ],
-      "hiddenCount": 1
+      "hiddenCount": 3,
+      "rolls": [
+        {
+          "id": 296,
+          "level": 10,
+          "label": "Level 10",
+          "stats": [
+            "+8% Speed",
+            "+8 Crit Rate",
+            "+40% Damage"
+          ],
+          "substatRolls": [
+            "+60% Damage (substat roll)",
+            "+20% Speed (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 486,
+          "level": 33,
+          "label": "Level 33",
+          "stats": [
+            "+8% Speed",
+            "+8 Crit Rate",
+            "+40% Damage"
+          ],
+          "substatRolls": [
+            "+60% Damage (substat roll)",
+            "+20% Speed (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 517,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [
+            "+8% Speed",
+            "+8 Crit Rate",
+            "+40% Damage"
+          ],
+          "substatRolls": [
+            "+80% Damage (substat roll)",
+            "+20% Speed (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 353,
@@ -1391,7 +3171,7 @@ window.BATTLERISE_DATA = {
       "spec": "NONE",
       "icon": "Dwarven_Beverage",
       "slug": "dwarven-beverage",
-      "level": 14,
+      "level": 40,
       "gearType": 5,
       "gearTypeLabel": "Relic",
       "image": "assets/battlerise/artifacts/cards/Dwarven_Beverage.png",
@@ -1414,7 +3194,114 @@ window.BATTLERISE_DATA = {
         "+25% Damage",
         "+30% Armor"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 2,
+      "rolls": [
+        {
+          "id": 291,
+          "level": 10,
+          "label": "Level 10",
+          "stats": [
+            "+25% Damage",
+            "+30% Armor"
+          ],
+          "substatRolls": [
+            "+80% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 350,
+          "level": 11,
+          "label": "Level 11",
+          "stats": [
+            "+25% Damage",
+            "+30% Armor"
+          ],
+          "substatRolls": [
+            "+80% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 351,
+          "level": 12,
+          "label": "Level 12",
+          "stats": [
+            "+25% Damage",
+            "+30% Armor"
+          ],
+          "substatRolls": [
+            "+80% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 352,
+          "level": 13,
+          "label": "Level 13",
+          "stats": [
+            "+25% Damage",
+            "+30% Armor"
+          ],
+          "substatRolls": [
+            "+80% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 353,
+          "level": 14,
+          "label": "Level 14",
+          "stats": [
+            "+25% Damage",
+            "+30% Armor"
+          ],
+          "substatRolls": [
+            "+80% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 354,
+          "level": 15,
+          "label": "Level 15",
+          "stats": [
+            "+25% Damage",
+            "+30% Armor"
+          ],
+          "substatRolls": [
+            "+80% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 489,
+          "level": 34,
+          "label": "Level 34",
+          "stats": [
+            "+25% Damage",
+            "+30% Armor"
+          ],
+          "substatRolls": [
+            "+80% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 533,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [
+            "+25% Damage",
+            "+30% Armor"
+          ],
+          "substatRolls": [
+            "+80% Damage (substat roll)",
+            "+80% Health (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 407,
@@ -1423,7 +3310,7 @@ window.BATTLERISE_DATA = {
       "spec": "INT",
       "icon": "Armor",
       "slug": "enchanted-cuirass",
-      "level": 29,
+      "level": 30,
       "gearType": 5,
       "gearTypeLabel": "Relic",
       "image": "assets/battlerise/artifacts/cards/Armor.png",
@@ -1451,7 +3338,73 @@ window.BATTLERISE_DATA = {
         "+80% Health",
         "+240% Magic RES"
       ],
-      "hiddenCount": 1
+      "hiddenCount": 4,
+      "rolls": [
+        {
+          "id": 329,
+          "level": 15,
+          "label": "Level 15",
+          "stats": [
+            "+80% Health",
+            "+240% Magic RES",
+            "+240% Armor"
+          ],
+          "substatRolls": [
+            "+100% Health (substat roll)",
+            "+30% Armor (substat roll)",
+            "+30% Magic RES (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 406,
+          "level": 28,
+          "label": "Level 28",
+          "stats": [
+            "+80% Health",
+            "+240% Magic RES",
+            "+240% Armor"
+          ],
+          "substatRolls": [
+            "+100% Health (substat roll)",
+            "+30% Armor (substat roll)",
+            "+30% Magic RES (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 407,
+          "level": 29,
+          "label": "Level 29",
+          "stats": [
+            "+80% Health",
+            "+240% Magic RES",
+            "+240% Armor"
+          ],
+          "substatRolls": [
+            "+100% Crit Rate (substat roll)",
+            "+30% Armor (substat roll)",
+            "+30% Magic RES (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 408,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+80% Health",
+            "+240% Magic RES",
+            "+240% Armor"
+          ],
+          "substatRolls": [
+            "+100% Health (substat roll)",
+            "+30% Armor (substat roll)",
+            "+30% Magic RES (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 458,
@@ -1460,7 +3413,7 @@ window.BATTLERISE_DATA = {
       "spec": "STR",
       "icon": "Executioner",
       "slug": "executioner-s-attribute",
-      "level": 30,
+      "level": 40,
       "gearType": 7,
       "gearTypeLabel": "Clothing",
       "image": "assets/battlerise/artifacts/cards/Executioner.png",
@@ -1468,11 +3421,43 @@ window.BATTLERISE_DATA = {
       "stats": [],
       "story": "The death penalty, although outlawed in many civilized regions, can still be found where enforcers enjoy respect and the opportunity to develop their unusual passion.",
       "storyTitle": "Passion for Execution",
-      "displayStats": [
-        "+60% Health",
-        "+60% Damage"
-      ],
-      "hiddenCount": 0
+      "displayStats": [],
+      "hiddenCount": 0,
+      "rolls": [
+        {
+          "id": 459,
+          "level": 28,
+          "label": "Level 28",
+          "stats": [],
+          "substatRolls": [
+            "+60% Health (substat roll)",
+            "+60% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 458,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [],
+          "substatRolls": [
+            "+60% Health (substat roll)",
+            "+60% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 509,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [],
+          "substatRolls": [
+            "+60% Health (substat roll)",
+            "+60% Damage (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 457,
@@ -1489,10 +3474,20 @@ window.BATTLERISE_DATA = {
       "stats": [],
       "story": "Fights to the death have always fascinated crowds, winners of tournaments can earn quite a bit of money, which they are eager to show off through their expensive weapons and armor.",
       "storyTitle": "Golden Plates",
-      "displayStats": [
-        "+200% Health"
-      ],
-      "hiddenCount": 0
+      "displayStats": [],
+      "hiddenCount": 0,
+      "rolls": [
+        {
+          "id": 457,
+          "level": 25,
+          "label": "Level 25",
+          "stats": [],
+          "substatRolls": [
+            "+200% Health (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 293,
@@ -1501,7 +3496,7 @@ window.BATTLERISE_DATA = {
       "spec": "INT",
       "icon": "Heart_of_Aetherstone",
       "slug": "heart-of-etherstone",
-      "level": 10,
+      "level": 35,
       "gearType": 5,
       "gearTypeLabel": "Relic",
       "image": "assets/battlerise/artifacts/cards/Heart_of_Aetherstone.png",
@@ -1518,7 +3513,37 @@ window.BATTLERISE_DATA = {
       "displayStats": [
         "+360% Health"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 3,
+      "rolls": [
+        {
+          "id": 293,
+          "level": 10,
+          "label": "Level 10",
+          "stats": [
+            "+360% Health"
+          ],
+          "substatRolls": [
+            "+100% Health (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 519,
+          "level": 35,
+          "label": "Level 35",
+          "stats": [
+            "+360% Health"
+          ],
+          "substatRolls": [
+            "+300% Health (substat roll)",
+            "+20% Armor (substat roll)",
+            "+20% Magic RES (substat roll)"
+          ],
+          "notes": [
+            "3 unique ability slots"
+          ]
+        }
+      ]
     },
     {
       "id": 528,
@@ -1535,11 +3560,23 @@ window.BATTLERISE_DATA = {
       "stats": [],
       "story": "The mask of the infernal samurai inspires terror wherever it appears. It adds not only courage but also hides the power of ancient demons, anyone who possesses it gains their strength and cunning.",
       "storyTitle": "Infernal Mask",
-      "displayStats": [
-        "+160% Speed",
-        "+140% Damage"
-      ],
-      "hiddenCount": 4
+      "displayStats": [],
+      "hiddenCount": 1,
+      "rolls": [
+        {
+          "id": 528,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [],
+          "substatRolls": [
+            "+160% Speed (substat roll)",
+            "+140% Damage (substat roll)"
+          ],
+          "notes": [
+            "4 unique ability slots"
+          ]
+        }
+      ]
     },
     {
       "id": 529,
@@ -1556,11 +3593,24 @@ window.BATTLERISE_DATA = {
       "stats": [],
       "story": "A magical staff possessing the power to draw vitality from the infernal dimension. Anyone who holds it is able to regenerate his wounds incredibly quickly, however, sacrificing one tormented soul in Lemegeton.",
       "storyTitle": "Infernal Soulcatcher",
-      "displayStats": [
-        "+333% Magic RES",
-        "+111% Health"
-      ],
-      "hiddenCount": 2
+      "displayStats": [],
+      "hiddenCount": 2,
+      "rolls": [
+        {
+          "id": 529,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [],
+          "substatRolls": [
+            "+333% Magic RES (substat roll)",
+            "+111% Health (substat roll)",
+            "+111% Speed (substat roll)"
+          ],
+          "notes": [
+            "1 unique ability slot"
+          ]
+        }
+      ]
     },
     {
       "id": 333,
@@ -1586,7 +3636,23 @@ window.BATTLERISE_DATA = {
       "displayStats": [
         "+350% Health"
       ],
-      "hiddenCount": 2
+      "hiddenCount": 1,
+      "rolls": [
+        {
+          "id": 333,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+350% Health"
+          ],
+          "substatRolls": [
+            "+120% Health (substat roll)"
+          ],
+          "notes": [
+            "2 unique ability slots"
+          ]
+        }
+      ]
     },
     {
       "id": 305,
@@ -1604,7 +3670,17 @@ window.BATTLERISE_DATA = {
       "story": "Greed can be the downfall of many... But those driven by a pure instinct of selfishness can often do terrible but remarkable things.\n\nSome can build great empires on the misery of the ignorant, while others can parasite on the naive for a long time - and become incredibly, suspiciously rich. But there is a danger; their greed can consume them and lead them to the brink of madness.",
       "storyTitle": "The Market of Wonders and Sins",
       "displayStats": [],
-      "hiddenCount": 0
+      "hiddenCount": 0,
+      "rolls": [
+        {
+          "id": 305,
+          "level": 1,
+          "label": "Level 1",
+          "stats": [],
+          "substatRolls": [],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 325,
@@ -1613,7 +3689,7 @@ window.BATTLERISE_DATA = {
       "spec": "INT",
       "icon": "Plaguedoctor",
       "slug": "plague-of-decay",
-      "level": 25,
+      "level": 33,
       "gearType": 3,
       "gearTypeLabel": "Spell",
       "image": "assets/battlerise/artifacts/cards/Plaguedoctor.png",
@@ -1646,7 +3722,41 @@ window.BATTLERISE_DATA = {
         "+-350% Health",
         "+30% Speed"
       ],
-      "hiddenCount": 2
+      "hiddenCount": 4,
+      "rolls": [
+        {
+          "id": 325,
+          "level": 25,
+          "label": "Level 25",
+          "stats": [
+            "+-350% Health",
+            "+30% Speed",
+            "+30% Damage",
+            "+350% Magic RES"
+          ],
+          "substatRolls": [
+            "+100% Damage (substat roll)",
+            "+100% Speed (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 482,
+          "level": 33,
+          "label": "Level 33",
+          "stats": [
+            "+-350% Health",
+            "+30% Speed",
+            "+30% Damage",
+            "+350% Magic RES"
+          ],
+          "substatRolls": [
+            "+100% Damage (substat roll)",
+            "+100% Speed (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 426,
@@ -1655,7 +3765,7 @@ window.BATTLERISE_DATA = {
       "spec": "INT",
       "icon": "Magician_and_Orb",
       "slug": "prophecy-orb",
-      "level": 25,
+      "level": 40,
       "gearType": 3,
       "gearTypeLabel": "Spell",
       "image": "assets/battlerise/artifacts/cards/Magician_and_Orb.png",
@@ -1663,10 +3773,43 @@ window.BATTLERISE_DATA = {
       "stats": [],
       "story": "Magic is a power... and a responsibility. It can be used in many ways. Only those who wield it know its limits. But the miraculous happens when magic meets fate. Fate as we know it isn't a factor that can be seen or changed, is it? \n\nPerhaps these magical orbs hold the answers...",
       "storyTitle": "A Look into Elsewhere",
-      "displayStats": [
-        "+80% Speed"
-      ],
-      "hiddenCount": 0
+      "displayStats": [],
+      "hiddenCount": 1,
+      "rolls": [
+        {
+          "id": 426,
+          "level": 25,
+          "label": "Level 25",
+          "stats": [],
+          "substatRolls": [
+            "+80% Speed (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 336,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [],
+          "substatRolls": [
+            "+80% Speed (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 534,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [],
+          "substatRolls": [
+            "+180% Speed (substat roll)",
+            "+20% Crit Rate (substat roll)"
+          ],
+          "notes": [
+            "1 unique ability slot"
+          ]
+        }
+      ]
     },
     {
       "id": 330,
@@ -1698,7 +3841,25 @@ window.BATTLERISE_DATA = {
         "+31% Speed",
         "+10 Crit Rate"
       ],
-      "hiddenCount": 1
+      "hiddenCount": 3,
+      "rolls": [
+        {
+          "id": 330,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+31% Speed",
+            "+10 Crit Rate"
+          ],
+          "substatRolls": [
+            "+100% Speed (substat roll)",
+            "+8% Crit Rate (substat roll)"
+          ],
+          "notes": [
+            "1 unique ability slot"
+          ]
+        }
+      ]
     },
     {
       "id": 511,
@@ -1740,7 +3901,65 @@ window.BATTLERISE_DATA = {
         "+-140% Health",
         "+110% Damage"
       ],
-      "hiddenCount": 4
+      "hiddenCount": 4,
+      "rolls": [
+        {
+          "id": 310,
+          "level": 17,
+          "label": "Level 17",
+          "stats": [
+            "+-140% Health",
+            "+110% Damage",
+            "+-50% Magic RES",
+            "+-50% Armor"
+          ],
+          "substatRolls": [],
+          "notes": []
+        },
+        {
+          "id": 381,
+          "level": 22,
+          "label": "Level 22",
+          "stats": [
+            "+-140% Health",
+            "+110% Damage",
+            "+-50% Magic RES",
+            "+-50% Armor"
+          ],
+          "substatRolls": [],
+          "notes": []
+        },
+        {
+          "id": 382,
+          "level": 24,
+          "label": "Level 24",
+          "stats": [
+            "+-140% Health",
+            "+110% Damage",
+            "+-50% Magic RES",
+            "+-50% Armor"
+          ],
+          "substatRolls": [],
+          "notes": []
+        },
+        {
+          "id": 511,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [
+            "+-140% Health",
+            "+110% Damage",
+            "+-50% Magic RES",
+            "+-50% Armor"
+          ],
+          "substatRolls": [
+            "+335% Damage (substat roll)"
+          ],
+          "notes": [
+            "2 unique ability slots"
+          ]
+        }
+      ]
     },
     {
       "id": 520,
@@ -1757,11 +3976,64 @@ window.BATTLERISE_DATA = {
       "stats": [],
       "story": "Where darkness and solitude, where you will never see the sun's rays, there in the midst of dense nets you will encounter servants of the shadow god Uruk. Following the lead of their master, they wait for the right moment to strike a blow at an unsuspecting victim.",
       "storyTitle": "Web of Shadows",
-      "displayStats": [
-        "+60% Damage",
-        "+50% Speed"
-      ],
-      "hiddenCount": 1
+      "displayStats": [],
+      "hiddenCount": 2,
+      "rolls": [
+        {
+          "id": 453,
+          "level": 10,
+          "label": "Level 10",
+          "stats": [],
+          "substatRolls": [
+            "+100% Damage (substat roll)",
+            "+30% Crit Rate (substat roll)",
+            "+20% Speed (substat roll)"
+          ],
+          "notes": [
+            "3 unique ability slots"
+          ]
+        },
+        {
+          "id": 525,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [],
+          "substatRolls": [
+            "+100% Damage (substat roll)",
+            "+30% Crit Rate (substat roll)",
+            "+20% Speed (substat roll)"
+          ],
+          "notes": [
+            "3 unique ability slots"
+          ]
+        },
+        {
+          "id": 520,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [],
+          "substatRolls": [
+            "+60% Damage (substat roll)",
+            "+50% Speed (substat roll)",
+            "+10% Crit Rate (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 521,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [],
+          "substatRolls": [
+            "+100% Damage (substat roll)",
+            "+30% Crit Rate (substat roll)",
+            "+20% Speed (substat roll)"
+          ],
+          "notes": [
+            "3 unique ability slots"
+          ]
+        }
+      ]
     },
     {
       "id": 343,
@@ -1770,7 +4042,7 @@ window.BATTLERISE_DATA = {
       "spec": "NONE",
       "icon": "Skullcrusher",
       "slug": "skullcrusher",
-      "level": 8,
+      "level": 25,
       "gearType": 13,
       "gearTypeLabel": "Exotic",
       "image": "assets/battlerise/artifacts/cards/Skullcrusher.png",
@@ -1787,7 +4059,74 @@ window.BATTLERISE_DATA = {
       "displayStats": [
         "+35% Damage"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 2,
+      "rolls": [
+        {
+          "id": 343,
+          "level": 8,
+          "label": "Level 8",
+          "stats": [
+            "+35% Damage"
+          ],
+          "substatRolls": [
+            "+120% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 344,
+          "level": 12,
+          "label": "Level 12",
+          "stats": [
+            "+35% Damage"
+          ],
+          "substatRolls": [
+            "+120% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 345,
+          "level": 15,
+          "label": "Level 15",
+          "stats": [
+            "+35% Damage"
+          ],
+          "substatRolls": [
+            "+100% Damage (substat roll)",
+            "+20% Speed (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 346,
+          "level": 20,
+          "label": "Level 20",
+          "stats": [
+            "+35% Damage"
+          ],
+          "substatRolls": [
+            "+100% Damage (substat roll)",
+            "+20% Speed (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 422,
+          "level": 25,
+          "label": "Level 25",
+          "stats": [
+            "+35% Damage"
+          ],
+          "substatRolls": [
+            "+100% Damage (substat roll)",
+            "+20% Speed (substat roll)"
+          ],
+          "notes": [
+            "2 unique ability slots"
+          ]
+        }
+      ]
     },
     {
       "id": 283,
@@ -1796,7 +4135,7 @@ window.BATTLERISE_DATA = {
       "spec": "NONE",
       "icon": "Souldrainer",
       "slug": "souldrainer",
-      "level": 8,
+      "level": 40,
       "gearType": 12,
       "gearTypeLabel": "Material",
       "image": "assets/battlerise/artifacts/cards/Souldrainer.png",
@@ -1829,7 +4168,140 @@ window.BATTLERISE_DATA = {
         "+10% Speed",
         "+15% Damage"
       ],
-      "hiddenCount": 2
+      "hiddenCount": 6,
+      "rolls": [
+        {
+          "id": 283,
+          "level": 8,
+          "label": "Level 8",
+          "stats": [
+            "+10% Speed",
+            "+15% Damage",
+            "+5 Crit Rate",
+            "+30% Magic RES"
+          ],
+          "substatRolls": [
+            "+30% Speed (substat roll)",
+            "+30% Damage (substat roll)",
+            "+10% Crit Rate (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 437,
+          "level": 10,
+          "label": "Level 10",
+          "stats": [
+            "+10% Speed",
+            "+15% Damage",
+            "+5 Crit Rate",
+            "+30% Magic RES"
+          ],
+          "substatRolls": [
+            "+60% Damage (substat roll)",
+            "+30% Speed (substat roll)",
+            "+5% Crit Rate (substat roll)"
+          ],
+          "notes": [
+            "2 unique ability slots"
+          ]
+        },
+        {
+          "id": 431,
+          "level": 15,
+          "label": "Level 15",
+          "stats": [
+            "+10% Speed",
+            "+15% Damage",
+            "+5 Crit Rate",
+            "+30% Magic RES"
+          ],
+          "substatRolls": [
+            "+60% Damage (substat roll)",
+            "+30% Speed (substat roll)",
+            "+5% Crit Rate (substat roll)"
+          ],
+          "notes": [
+            "2 unique ability slots"
+          ]
+        },
+        {
+          "id": 430,
+          "level": 20,
+          "label": "Level 20",
+          "stats": [
+            "+10% Speed",
+            "+15% Damage",
+            "+5 Crit Rate",
+            "+30% Magic RES"
+          ],
+          "substatRolls": [
+            "+60% Damage (substat roll)",
+            "+30% Speed (substat roll)",
+            "+5% Crit Rate (substat roll)"
+          ],
+          "notes": [
+            "2 unique ability slots"
+          ]
+        },
+        {
+          "id": 413,
+          "level": 25,
+          "label": "Level 25",
+          "stats": [
+            "+10% Speed",
+            "+15% Damage",
+            "+5 Crit Rate",
+            "+30% Magic RES"
+          ],
+          "substatRolls": [
+            "+60% Damage (substat roll)",
+            "+30% Speed (substat roll)",
+            "+5% Crit Rate (substat roll)"
+          ],
+          "notes": [
+            "2 unique ability slots"
+          ]
+        },
+        {
+          "id": 417,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+10% Speed",
+            "+15% Damage",
+            "+5 Crit Rate",
+            "+30% Magic RES"
+          ],
+          "substatRolls": [
+            "+60% Damage (substat roll)",
+            "+30% Speed (substat roll)",
+            "+5% Crit Rate (substat roll)"
+          ],
+          "notes": [
+            "2 unique ability slots"
+          ]
+        },
+        {
+          "id": 494,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [
+            "+10% Speed",
+            "+15% Damage",
+            "+5 Crit Rate",
+            "+30% Magic RES"
+          ],
+          "substatRolls": [
+            "+60% Damage (substat roll)",
+            "+30% Speed (substat roll)",
+            "+5% Crit Rate (substat roll)"
+          ],
+          "notes": [
+            "2 unique ability slots"
+          ]
+        }
+      ]
     },
     {
       "id": 308,
@@ -1866,7 +4338,26 @@ window.BATTLERISE_DATA = {
         "+70% Speed",
         "+200% Damage"
       ],
-      "hiddenCount": 5
+      "hiddenCount": 4,
+      "rolls": [
+        {
+          "id": 308,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [
+            "+70% Speed",
+            "+200% Damage",
+            "+100% Magic RES"
+          ],
+          "substatRolls": [
+            "+120% Damage (substat roll)",
+            "+120% Speed (substat roll)"
+          ],
+          "notes": [
+            "4 unique ability slots"
+          ]
+        }
+      ]
     },
     {
       "id": 475,
@@ -1875,7 +4366,7 @@ window.BATTLERISE_DATA = {
       "spec": "INT",
       "icon": "Giant_and_Wizard",
       "slug": "titanic-familiar",
-      "level": 30,
+      "level": 40,
       "gearType": 2,
       "gearTypeLabel": "Minion",
       "image": "assets/battlerise/artifacts/cards/Giant_and_Wizard.png",
@@ -1883,11 +4374,33 @@ window.BATTLERISE_DATA = {
       "stats": [],
       "story": "Powerful wizards are capable of summoning familiars, faithful servants who are ready to fulfill their every request. The most powerful archmages are surrounded by titanic guards who, at the cost of their own existence, guard their rulers and eliminate any threat.",
       "storyTitle": "Dauntless minion",
-      "displayStats": [
-        "+100% Health",
-        "+100% Damage"
-      ],
-      "hiddenCount": 0
+      "displayStats": [],
+      "hiddenCount": 1,
+      "rolls": [
+        {
+          "id": 475,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [],
+          "substatRolls": [
+            "+100% Health (substat roll)",
+            "+100% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 507,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [],
+          "substatRolls": [
+            "+100% Health (substat roll)",
+            "+100% Damage (substat roll)",
+            "+100% Speed (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 461,
@@ -1913,7 +4426,34 @@ window.BATTLERISE_DATA = {
       "displayStats": [
         "+20% Damage"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 1,
+      "rolls": [
+        {
+          "id": 282,
+          "level": 5,
+          "label": "Level 5",
+          "stats": [
+            "+20% Damage"
+          ],
+          "substatRolls": [
+            "+100% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 461,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+20% Damage"
+          ],
+          "substatRolls": [
+            "+130% Damage (substat roll)",
+            "+50% Speed (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 285,
@@ -1922,7 +4462,7 @@ window.BATTLERISE_DATA = {
       "spec": "STR",
       "icon": "Vitality_Emblem",
       "slug": "vitality-emblem",
-      "level": 8,
+      "level": 22,
       "gearType": 15,
       "gearTypeLabel": "Necklace",
       "image": "assets/battlerise/artifacts/cards/Vitality_Emblem.png",
@@ -1945,7 +4485,67 @@ window.BATTLERISE_DATA = {
         "+300% Health",
         "+70% Armor"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 2,
+      "rolls": [
+        {
+          "id": 285,
+          "level": 8,
+          "label": "Level 8",
+          "stats": [
+            "+300% Health",
+            "+70% Armor"
+          ],
+          "substatRolls": [
+            "+90% Health (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 423,
+          "level": 12,
+          "label": "Level 12",
+          "stats": [
+            "+300% Health",
+            "+70% Armor"
+          ],
+          "substatRolls": [
+            "+90% Health (substat roll)"
+          ],
+          "notes": [
+            "2 unique ability slots"
+          ]
+        },
+        {
+          "id": 424,
+          "level": 18,
+          "label": "Level 18",
+          "stats": [
+            "+300% Health",
+            "+70% Armor"
+          ],
+          "substatRolls": [
+            "+90% Health (substat roll)"
+          ],
+          "notes": [
+            "2 unique ability slots"
+          ]
+        },
+        {
+          "id": 425,
+          "level": 22,
+          "label": "Level 22",
+          "stats": [
+            "+300% Health",
+            "+70% Armor"
+          ],
+          "substatRolls": [
+            "+90% Health (substat roll)"
+          ],
+          "notes": [
+            "2 unique ability slots"
+          ]
+        }
+      ]
     },
     {
       "id": 501,
@@ -1977,7 +4577,39 @@ window.BATTLERISE_DATA = {
         "+30% Magic RES",
         "+8% Damage"
       ],
-      "hiddenCount": 1
+      "hiddenCount": 3,
+      "rolls": [
+        {
+          "id": 274,
+          "level": 3,
+          "label": "Level 3",
+          "stats": [
+            "+30% Magic RES",
+            "+8% Damage"
+          ],
+          "substatRolls": [
+            "+40% Damage (substat roll)",
+            "+40% Magic RES (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 501,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [
+            "+30% Magic RES",
+            "+8% Damage"
+          ],
+          "substatRolls": [
+            "+140% Damage (substat roll)",
+            "+40% Magic RES (substat roll)"
+          ],
+          "notes": [
+            "1 unique ability slot"
+          ]
+        }
+      ]
     },
     {
       "id": 510,
@@ -1994,11 +4626,23 @@ window.BATTLERISE_DATA = {
       "stats": [],
       "story": "Few true Firstborns remain on Eos, and even fewer have survived in the form of living beings. \n\nCortrax is as old as Eos itself, having seen the formation of runes and forests. And when it became clear that the forests and the creatures that inhabited them would remain the domain of Nanthos it was he who became their guardian. Radiating the magic of nature, the immortal dragon in the heart of the Silvacran forest guards the order of his mother's domain.\n\nDespite the centuries, the blade can still cut through a piece of paper, and Avalonian priests say they can feel a slight tremor of power when they pick wthe weapon up. \n\nPerhaps its creators found a way to magically draw dragons from the sky?",
       "storyTitle": "Son of Nanthos",
-      "displayStats": [
-        "+100% Health",
-        "+100% Speed"
-      ],
-      "hiddenCount": 3
+      "displayStats": [],
+      "hiddenCount": 1,
+      "rolls": [
+        {
+          "id": 510,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [],
+          "substatRolls": [
+            "+100% Health (substat roll)",
+            "+100% Speed (substat roll)"
+          ],
+          "notes": [
+            "3 unique ability slots"
+          ]
+        }
+      ]
     },
     {
       "id": 326,
@@ -2007,7 +4651,7 @@ window.BATTLERISE_DATA = {
       "spec": "NONE",
       "icon": "Opulence",
       "slug": "abundant-coat",
-      "level": 20,
+      "level": 25,
       "gearType": 7,
       "gearTypeLabel": "Clothing",
       "image": "assets/battlerise/artifacts/cards/Opulence.png",
@@ -2015,11 +4659,42 @@ window.BATTLERISE_DATA = {
       "stats": [],
       "story": "The wealthiest have no remorse about eating and drinking to their hearts' content and enjoying themselves to the fullest. Despite that, beggars and the poor can only dream of being accepted and helped by the upper class. \n\nOn the contrary, the wealthiest are the first to humiliate those poorer than themselves.",
       "storyTitle": "Wealth\u2019s Dark Side",
-      "displayStats": [
-        "+10% Health",
-        "+10% Speed"
-      ],
-      "hiddenCount": 4
+      "displayStats": [],
+      "hiddenCount": 4,
+      "rolls": [
+        {
+          "id": 326,
+          "level": 20,
+          "label": "Level 20",
+          "stats": [],
+          "substatRolls": [
+            "+10% Health (substat roll)",
+            "+10% Speed (substat roll)",
+            "+10% Armor (substat roll)",
+            "+10% Magic RES (substat roll)",
+            "+10% Damage (substat roll)"
+          ],
+          "notes": [
+            "1 unique ability slot"
+          ]
+        },
+        {
+          "id": 477,
+          "level": 25,
+          "label": "Level 25",
+          "stats": [],
+          "substatRolls": [
+            "+10% Health (substat roll)",
+            "+10% Speed (substat roll)",
+            "+10% Armor (substat roll)",
+            "+10% Magic RES (substat roll)",
+            "+10% Damage (substat roll)"
+          ],
+          "notes": [
+            "1 unique ability slot"
+          ]
+        }
+      ]
     },
     {
       "id": 292,
@@ -2045,7 +4720,24 @@ window.BATTLERISE_DATA = {
       "displayStats": [
         "+30 Crit Rate"
       ],
-      "hiddenCount": 3
+      "hiddenCount": 2,
+      "rolls": [
+        {
+          "id": 292,
+          "level": 6,
+          "label": "Level 6",
+          "stats": [
+            "+30 Crit Rate"
+          ],
+          "substatRolls": [
+            "+70% Speed (substat roll)",
+            "+30% Crit Rate (substat roll)"
+          ],
+          "notes": [
+            "3 unique ability slots"
+          ]
+        }
+      ]
     },
     {
       "id": 535,
@@ -2062,10 +4754,20 @@ window.BATTLERISE_DATA = {
       "stats": [],
       "story": "In a world of magic, there are forces strong enough to tame the brutal nature of the beast. Among them: the power of dominance\u2026 and the power of love.",
       "storyTitle": "Beauty and the Beast Within",
-      "displayStats": [
-        "+222% Speed"
-      ],
-      "hiddenCount": 0
+      "displayStats": [],
+      "hiddenCount": 0,
+      "rolls": [
+        {
+          "id": 535,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [],
+          "substatRolls": [
+            "+222% Speed (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 318,
@@ -2074,7 +4776,7 @@ window.BATTLERISE_DATA = {
       "spec": "NONE",
       "icon": "Born_in_Hell",
       "slug": "born-in-infernal",
-      "level": 30,
+      "level": 40,
       "gearType": 3,
       "gearTypeLabel": "Spell",
       "image": "assets/battlerise/artifacts/cards/Born_in_Hell.png",
@@ -2097,7 +4799,107 @@ window.BATTLERISE_DATA = {
         "+6% Speed",
         "+66% Damage"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 2,
+      "rolls": [
+        {
+          "id": 395,
+          "level": 20,
+          "label": "Level 20",
+          "stats": [
+            "+6% Speed",
+            "+66% Damage"
+          ],
+          "substatRolls": [
+            "+70% Damage (substat roll)",
+            "+30% Speed (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 396,
+          "level": 21,
+          "label": "Level 21",
+          "stats": [
+            "+6% Speed",
+            "+66% Damage"
+          ],
+          "substatRolls": [
+            "+70% Damage (substat roll)",
+            "+30% Speed (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 397,
+          "level": 22,
+          "label": "Level 22",
+          "stats": [
+            "+6% Speed",
+            "+66% Damage"
+          ],
+          "substatRolls": [
+            "+70% Damage (substat roll)",
+            "+30% Speed (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 398,
+          "level": 23,
+          "label": "Level 23",
+          "stats": [
+            "+6% Speed",
+            "+66% Damage"
+          ],
+          "substatRolls": [
+            "+70% Damage (substat roll)",
+            "+30% Speed (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 318,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+6% Speed",
+            "+66% Damage"
+          ],
+          "substatRolls": [
+            "+140% Speed (substat roll)",
+            "+60% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 492,
+          "level": 39,
+          "label": "Level 39",
+          "stats": [
+            "+6% Speed",
+            "+66% Damage"
+          ],
+          "substatRolls": [
+            "+70% Damage (substat roll)",
+            "+30% Speed (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 512,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [
+            "+6% Speed",
+            "+66% Damage"
+          ],
+          "substatRolls": [
+            "+100% Damage (substat roll)",
+            "+40% Speed (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 301,
@@ -2106,7 +4908,7 @@ window.BATTLERISE_DATA = {
       "spec": "NONE",
       "icon": "Codex_Rune",
       "slug": "codex-rune",
-      "level": 9,
+      "level": 35,
       "gearType": 5,
       "gearTypeLabel": "Relic",
       "image": "assets/battlerise/artifacts/cards/Codex_Rune.png",
@@ -2129,7 +4931,51 @@ window.BATTLERISE_DATA = {
         "+200% Health",
         "+90% Magic RES"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 2,
+      "rolls": [
+        {
+          "id": 301,
+          "level": 9,
+          "label": "Level 9",
+          "stats": [
+            "+200% Health",
+            "+90% Magic RES"
+          ],
+          "substatRolls": [
+            "+40% Health (substat roll)",
+            "+40% Magic RES (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 468,
+          "level": 27,
+          "label": "Level 27",
+          "stats": [
+            "+200% Health",
+            "+90% Magic RES"
+          ],
+          "substatRolls": [
+            "+40% Health (substat roll)",
+            "+30% Magic RES (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 506,
+          "level": 35,
+          "label": "Level 35",
+          "stats": [
+            "+200% Health",
+            "+90% Magic RES"
+          ],
+          "substatRolls": [
+            "+140% Health (substat roll)",
+            "+40% Magic RES (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 539,
@@ -2166,7 +5012,90 @@ window.BATTLERISE_DATA = {
         "+195% Health",
         "+180% Magic RES"
       ],
-      "hiddenCount": 1
+      "hiddenCount": 5,
+      "rolls": [
+        {
+          "id": 332,
+          "level": 20,
+          "label": "Level 20",
+          "stats": [
+            "+195% Health",
+            "+180% Magic RES",
+            "+180% Armor"
+          ],
+          "substatRolls": [
+            "+60% Health (substat roll)",
+            "+30% Magic RES (substat roll)",
+            "+30% Armor (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 399,
+          "level": 24,
+          "label": "Level 24",
+          "stats": [
+            "+195% Health",
+            "+180% Magic RES",
+            "+180% Armor"
+          ],
+          "substatRolls": [
+            "+60% Health (substat roll)",
+            "+30% Magic RES (substat roll)",
+            "+30% Armor (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 400,
+          "level": 26,
+          "label": "Level 26",
+          "stats": [
+            "+195% Health",
+            "+180% Magic RES",
+            "+180% Armor"
+          ],
+          "substatRolls": [
+            "+60% Health (substat roll)",
+            "+30% Magic RES (substat roll)",
+            "+30% Armor (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 401,
+          "level": 28,
+          "label": "Level 28",
+          "stats": [
+            "+195% Health",
+            "+180% Magic RES",
+            "+180% Armor"
+          ],
+          "substatRolls": [
+            "+60% Health (substat roll)",
+            "+30% Magic RES (substat roll)",
+            "+30% Armor (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 539,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [
+            "+195% Health",
+            "+180% Magic RES",
+            "+180% Armor"
+          ],
+          "substatRolls": [
+            "+60% Health (substat roll)",
+            "+30% Magic RES (substat roll)",
+            "+30% Armor (substat roll)",
+            "+30% Speed (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 290,
@@ -2198,7 +5127,23 @@ window.BATTLERISE_DATA = {
         "+100% Armor",
         "+250% Health"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 2,
+      "rolls": [
+        {
+          "id": 290,
+          "level": 10,
+          "label": "Level 10",
+          "stats": [
+            "+100% Armor",
+            "+250% Health"
+          ],
+          "substatRolls": [
+            "+45% Health (substat roll)",
+            "+40% Armor (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 446,
@@ -2230,7 +5175,39 @@ window.BATTLERISE_DATA = {
         "+380% Health",
         "+45% Damage"
       ],
-      "hiddenCount": 3
+      "hiddenCount": 4,
+      "rolls": [
+        {
+          "id": 334,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+380% Health",
+            "+45% Damage"
+          ],
+          "substatRolls": [
+            "+110% Magic RES (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 446,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+380% Health",
+            "+45% Damage"
+          ],
+          "substatRolls": [
+            "+100% Health (substat roll)",
+            "+30% Magic RES (substat roll)",
+            "+30% Armor (substat roll)"
+          ],
+          "notes": [
+            "3 unique ability slots"
+          ]
+        }
+      ]
     },
     {
       "id": 304,
@@ -2262,7 +5239,24 @@ window.BATTLERISE_DATA = {
         "+10% Speed",
         "+100% Health"
       ],
-      "hiddenCount": 1
+      "hiddenCount": 2,
+      "rolls": [
+        {
+          "id": 304,
+          "level": 1,
+          "label": "Level 1",
+          "stats": [
+            "+10% Speed",
+            "+100% Health"
+          ],
+          "substatRolls": [
+            "+200% Speed (substat roll)"
+          ],
+          "notes": [
+            "1 unique ability slot"
+          ]
+        }
+      ]
     },
     {
       "id": 284,
@@ -2271,7 +5265,7 @@ window.BATTLERISE_DATA = {
       "spec": "STR",
       "icon": "Abyssal_Cry",
       "slug": "infernal-cry",
-      "level": 6,
+      "level": 36,
       "gearType": 3,
       "gearTypeLabel": "Spell",
       "image": "assets/battlerise/artifacts/cards/Abyssal_Cry.png",
@@ -2294,7 +5288,37 @@ window.BATTLERISE_DATA = {
         "+5% Speed",
         "+12% Damage"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 2,
+      "rolls": [
+        {
+          "id": 284,
+          "level": 6,
+          "label": "Level 6",
+          "stats": [
+            "+5% Speed",
+            "+12% Damage"
+          ],
+          "substatRolls": [
+            "+50% Damage (substat roll)",
+            "+40% Speed (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 497,
+          "level": 36,
+          "label": "Level 36",
+          "stats": [
+            "+5% Speed",
+            "+12% Damage"
+          ],
+          "substatRolls": [
+            "+50% Damage (substat roll)",
+            "+40% Speed (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 398,
@@ -2303,7 +5327,7 @@ window.BATTLERISE_DATA = {
       "spec": "NONE",
       "icon": "Born_in_Hell",
       "slug": "infernal-skin",
-      "level": 23,
+      "level": 40,
       "gearType": 3,
       "gearTypeLabel": "Spell",
       "image": "assets/battlerise/artifacts/cards/Born_in_Hell.png",
@@ -2326,7 +5350,107 @@ window.BATTLERISE_DATA = {
         "+6% Speed",
         "+66% Damage"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 2,
+      "rolls": [
+        {
+          "id": 395,
+          "level": 20,
+          "label": "Level 20",
+          "stats": [
+            "+6% Speed",
+            "+66% Damage"
+          ],
+          "substatRolls": [
+            "+70% Damage (substat roll)",
+            "+30% Speed (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 396,
+          "level": 21,
+          "label": "Level 21",
+          "stats": [
+            "+6% Speed",
+            "+66% Damage"
+          ],
+          "substatRolls": [
+            "+70% Damage (substat roll)",
+            "+30% Speed (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 397,
+          "level": 22,
+          "label": "Level 22",
+          "stats": [
+            "+6% Speed",
+            "+66% Damage"
+          ],
+          "substatRolls": [
+            "+70% Damage (substat roll)",
+            "+30% Speed (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 398,
+          "level": 23,
+          "label": "Level 23",
+          "stats": [
+            "+6% Speed",
+            "+66% Damage"
+          ],
+          "substatRolls": [
+            "+70% Damage (substat roll)",
+            "+30% Speed (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 318,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+6% Speed",
+            "+66% Damage"
+          ],
+          "substatRolls": [
+            "+140% Speed (substat roll)",
+            "+60% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 492,
+          "level": 39,
+          "label": "Level 39",
+          "stats": [
+            "+6% Speed",
+            "+66% Damage"
+          ],
+          "substatRolls": [
+            "+70% Damage (substat roll)",
+            "+30% Speed (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 512,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [
+            "+6% Speed",
+            "+66% Damage"
+          ],
+          "substatRolls": [
+            "+100% Damage (substat roll)",
+            "+40% Speed (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 337,
@@ -2343,10 +5467,22 @@ window.BATTLERISE_DATA = {
       "stats": [],
       "story": "Treasures, by their very nature, are not only difficult to find or obtain, but can also be deadly in the attempt to seize them. \n\nMany treasure hunters have come to this conclusion after it was too late... Only a few have managed to live another day and learn from it.",
       "storyTitle": "Common Downfall",
-      "displayStats": [
-        "+220% Speed"
-      ],
-      "hiddenCount": 1
+      "displayStats": [],
+      "hiddenCount": 0,
+      "rolls": [
+        {
+          "id": 337,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [],
+          "substatRolls": [
+            "+220% Speed (substat roll)"
+          ],
+          "notes": [
+            "1 unique ability slot"
+          ]
+        }
+      ]
     },
     {
       "id": 405,
@@ -2355,7 +5491,7 @@ window.BATTLERISE_DATA = {
       "spec": "NONE",
       "icon": "Bard",
       "slug": "music-of-soul",
-      "level": 25,
+      "level": 34,
       "gearType": 5,
       "gearTypeLabel": "Relic",
       "image": "assets/battlerise/artifacts/cards/Bard.png",
@@ -2378,7 +5514,93 @@ window.BATTLERISE_DATA = {
         "+18% Speed",
         "+180% Magic RES"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 2,
+      "rolls": [
+        {
+          "id": 323,
+          "level": 21,
+          "label": "Level 21",
+          "stats": [
+            "+18% Speed",
+            "+180% Magic RES"
+          ],
+          "substatRolls": [
+            "+55% Speed (substat roll)",
+            "+55% Magic RES (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 402,
+          "level": 22,
+          "label": "Level 22",
+          "stats": [
+            "+18% Speed",
+            "+180% Magic RES"
+          ],
+          "substatRolls": [
+            "+55% Speed (substat roll)",
+            "+55% Magic RES (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 403,
+          "level": 23,
+          "label": "Level 23",
+          "stats": [
+            "+18% Speed",
+            "+180% Magic RES"
+          ],
+          "substatRolls": [
+            "+55% Speed (substat roll)",
+            "+55% Magic RES (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 404,
+          "level": 24,
+          "label": "Level 24",
+          "stats": [
+            "+18% Speed",
+            "+180% Magic RES"
+          ],
+          "substatRolls": [
+            "+55% Speed (substat roll)",
+            "+55% Magic RES (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 405,
+          "level": 25,
+          "label": "Level 25",
+          "stats": [
+            "+18% Speed",
+            "+180% Magic RES"
+          ],
+          "substatRolls": [
+            "+55% Speed (substat roll)",
+            "+55% Magic RES (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 493,
+          "level": 34,
+          "label": "Level 34",
+          "stats": [
+            "+18% Speed",
+            "+180% Magic RES"
+          ],
+          "substatRolls": [
+            "+85% Speed (substat roll)",
+            "+25% Magic RES (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 276,
@@ -2387,7 +5609,7 @@ window.BATTLERISE_DATA = {
       "spec": "NONE",
       "icon": "Pristine_Feather",
       "slug": "pristine-feather",
-      "level": 1,
+      "level": 31,
       "gearType": 5,
       "gearTypeLabel": "Relic",
       "image": "assets/battlerise/artifacts/cards/Pristine_Feather.png",
@@ -2410,7 +5632,48 @@ window.BATTLERISE_DATA = {
         "+5% Speed",
         "+20% Magic RES"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 1,
+      "rolls": [
+        {
+          "id": 276,
+          "level": 1,
+          "label": "Level 1",
+          "stats": [
+            "+5% Speed",
+            "+20% Magic RES"
+          ],
+          "substatRolls": [
+            "+70% Speed (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 451,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+5% Speed",
+            "+20% Magic RES"
+          ],
+          "substatRolls": [
+            "+70% Speed (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 478,
+          "level": 31,
+          "label": "Level 31",
+          "stats": [
+            "+5% Speed",
+            "+20% Magic RES"
+          ],
+          "substatRolls": [
+            "+70% Speed (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 516,
@@ -2452,7 +5715,29 @@ window.BATTLERISE_DATA = {
         "+10% Speed",
         "+15% Damage"
       ],
-      "hiddenCount": 3
+      "hiddenCount": 7,
+      "rolls": [
+        {
+          "id": 516,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [
+            "+10% Speed",
+            "+15% Damage",
+            "+5 Crit Rate",
+            "+30% Magic RES"
+          ],
+          "substatRolls": [
+            "+120% Damage (substat roll)",
+            "+60% Health (substat roll)",
+            "+20% Magic RES (substat roll)",
+            "+20% Armor (substat roll)"
+          ],
+          "notes": [
+            "1 unique ability slot"
+          ]
+        }
+      ]
     },
     {
       "id": 442,
@@ -2484,7 +5769,37 @@ window.BATTLERISE_DATA = {
         "+10% Magic RES",
         "+10% Health"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 2,
+      "rolls": [
+        {
+          "id": 272,
+          "level": 1,
+          "label": "Level 1",
+          "stats": [
+            "+10% Magic RES",
+            "+10% Health"
+          ],
+          "substatRolls": [
+            "+50% Magic RES (substat roll)",
+            "+40% Health (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 442,
+          "level": 25,
+          "label": "Level 25",
+          "stats": [
+            "+10% Magic RES",
+            "+10% Health"
+          ],
+          "substatRolls": [
+            "+50% Magic RES (substat roll)",
+            "+40% Health (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 324,
@@ -2516,7 +5831,23 @@ window.BATTLERISE_DATA = {
         "+260% Health",
         "+20% Speed"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 2,
+      "rolls": [
+        {
+          "id": 324,
+          "level": 22,
+          "label": "Level 22",
+          "stats": [
+            "+260% Health",
+            "+20% Speed"
+          ],
+          "substatRolls": [
+            "+70% Health (substat roll)",
+            "+35% Speed (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 294,
@@ -2525,7 +5856,7 @@ window.BATTLERISE_DATA = {
       "spec": "NONE",
       "icon": "Seraphs_Augment",
       "slug": "seraph-s-augment",
-      "level": 8,
+      "level": 37,
       "gearType": 11,
       "gearTypeLabel": "Helmet",
       "image": "assets/battlerise/artifacts/cards/Seraphs_Augment.png",
@@ -2553,7 +5884,57 @@ window.BATTLERISE_DATA = {
         "+5 Crit Rate",
         "+60% Armor"
       ],
-      "hiddenCount": 1
+      "hiddenCount": 4,
+      "rolls": [
+        {
+          "id": 294,
+          "level": 8,
+          "label": "Level 8",
+          "stats": [
+            "+5 Crit Rate",
+            "+60% Armor",
+            "+8% Damage"
+          ],
+          "substatRolls": [
+            "+40% Armor (substat roll)",
+            "+40% Damage (substat roll)",
+            "+30% Crit Rate (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 454,
+          "level": 10,
+          "label": "Level 10",
+          "stats": [
+            "+5 Crit Rate",
+            "+60% Armor",
+            "+8% Damage"
+          ],
+          "substatRolls": [
+            "+40% Armor (substat roll)",
+            "+40% Damage (substat roll)",
+            "+30% Crit Rate (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 503,
+          "level": 37,
+          "label": "Level 37",
+          "stats": [
+            "+5 Crit Rate",
+            "+60% Armor",
+            "+8% Damage"
+          ],
+          "substatRolls": [
+            "+40% Armor (substat roll)",
+            "+40% Damage (substat roll)",
+            "+30% Crit Rate (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 278,
@@ -2562,7 +5943,7 @@ window.BATTLERISE_DATA = {
       "spec": "INT",
       "icon": "Seraphims_Oath",
       "slug": "seraphim-s-oath",
-      "level": 5,
+      "level": 31,
       "gearType": 3,
       "gearTypeLabel": "Spell",
       "image": "assets/battlerise/artifacts/cards/Seraphims_Oath.png",
@@ -2585,7 +5966,35 @@ window.BATTLERISE_DATA = {
         "+25% Damage",
         "+20% Magic RES"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 1,
+      "rolls": [
+        {
+          "id": 278,
+          "level": 5,
+          "label": "Level 5",
+          "stats": [
+            "+25% Damage",
+            "+20% Magic RES"
+          ],
+          "substatRolls": [
+            "+75% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 479,
+          "level": 31,
+          "label": "Level 31",
+          "stats": [
+            "+25% Damage",
+            "+20% Magic RES"
+          ],
+          "substatRolls": [
+            "+75% Damage (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 306,
@@ -2594,7 +6003,7 @@ window.BATTLERISE_DATA = {
       "spec": "AGI",
       "icon": "Sinister_Claws",
       "slug": "sinister-claws",
-      "level": 13,
+      "level": 39,
       "gearType": 2,
       "gearTypeLabel": "Minion",
       "image": "assets/battlerise/artifacts/cards/Sinister_Claws.png",
@@ -2622,7 +6031,54 @@ window.BATTLERISE_DATA = {
         "+8% Speed",
         "+31% Damage"
       ],
-      "hiddenCount": 1
+      "hiddenCount": 3,
+      "rolls": [
+        {
+          "id": 306,
+          "level": 13,
+          "label": "Level 13",
+          "stats": [
+            "+8% Speed",
+            "+31% Damage",
+            "+80% Health"
+          ],
+          "substatRolls": [
+            "+50% Damage (substat roll)",
+            "+20% Speed (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 456,
+          "level": 25,
+          "label": "Level 25",
+          "stats": [
+            "+8% Speed",
+            "+31% Damage",
+            "+80% Health"
+          ],
+          "substatRolls": [
+            "+55% Damage (substat roll)",
+            "+25% Speed (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 498,
+          "level": 39,
+          "label": "Level 39",
+          "stats": [
+            "+8% Speed",
+            "+31% Damage",
+            "+80% Health"
+          ],
+          "substatRolls": [
+            "+50% Damage (substat roll)",
+            "+20% Speed (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 289,
@@ -2659,7 +6115,25 @@ window.BATTLERISE_DATA = {
         "+26% Health",
         "+40% Magic RES"
       ],
-      "hiddenCount": 1
+      "hiddenCount": 4,
+      "rolls": [
+        {
+          "id": 289,
+          "level": 3,
+          "label": "Level 3",
+          "stats": [
+            "+26% Health",
+            "+40% Magic RES",
+            "+40% Armor"
+          ],
+          "substatRolls": [
+            "+40% Magic RES (substat roll)",
+            "+40% Armor (substat roll)",
+            "+30% Health (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 302,
@@ -2668,7 +6142,7 @@ window.BATTLERISE_DATA = {
       "spec": "STR",
       "icon": "Belt_of_Endurance",
       "slug": "belt-of-endurance",
-      "level": 10,
+      "level": 30,
       "gearType": 7,
       "gearTypeLabel": "Clothing",
       "image": "assets/battlerise/artifacts/cards/Belt_of_Endurance.png",
@@ -2685,7 +6159,33 @@ window.BATTLERISE_DATA = {
       "displayStats": [
         "+305% Health"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 0,
+      "rolls": [
+        {
+          "id": 302,
+          "level": 10,
+          "label": "Level 10",
+          "stats": [
+            "+305% Health"
+          ],
+          "substatRolls": [
+            "+100% Health (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 485,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+305% Health"
+          ],
+          "substatRolls": [
+            "+100% Health (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 275,
@@ -2711,7 +6211,21 @@ window.BATTLERISE_DATA = {
       "displayStats": [
         "+7% Damage"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 0,
+      "rolls": [
+        {
+          "id": 275,
+          "level": 2,
+          "label": "Level 2",
+          "stats": [
+            "+7% Damage"
+          ],
+          "substatRolls": [
+            "+90% Damage (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 311,
@@ -2720,7 +6234,7 @@ window.BATTLERISE_DATA = {
       "spec": "NONE",
       "icon": "Coward",
       "slug": "coward",
-      "level": 16,
+      "level": 38,
       "gearType": 4,
       "gearTypeLabel": "Armor",
       "image": "assets/battlerise/artifacts/cards/Coward.png",
@@ -2753,7 +6267,73 @@ window.BATTLERISE_DATA = {
         "+200% Health",
         "+30% Speed"
       ],
-      "hiddenCount": 2
+      "hiddenCount": 4,
+      "rolls": [
+        {
+          "id": 311,
+          "level": 16,
+          "label": "Level 16",
+          "stats": [
+            "+200% Health",
+            "+30% Speed",
+            "+-5 Crit Rate",
+            "+-30% Damage"
+          ],
+          "substatRolls": [
+            "+60% Health (substat roll)",
+            "+60% Speed (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 464,
+          "level": 25,
+          "label": "Level 25",
+          "stats": [
+            "+200% Health",
+            "+30% Speed",
+            "+-5 Crit Rate",
+            "+-30% Damage"
+          ],
+          "substatRolls": [
+            "+70% Speed (substat roll)",
+            "+50% Health (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 386,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+200% Health",
+            "+30% Speed",
+            "+-5 Crit Rate",
+            "+-30% Damage"
+          ],
+          "substatRolls": [
+            "+60% Health (substat roll)",
+            "+60% Speed (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 491,
+          "level": 38,
+          "label": "Level 38",
+          "stats": [
+            "+200% Health",
+            "+30% Speed",
+            "+-5 Crit Rate",
+            "+-30% Damage"
+          ],
+          "substatRolls": [
+            "+60% Health (substat roll)",
+            "+60% Speed (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 309,
@@ -2762,7 +6342,7 @@ window.BATTLERISE_DATA = {
       "spec": "NONE",
       "icon": "Dark_Illusion",
       "slug": "dark-illusion",
-      "level": 12,
+      "level": 27,
       "gearType": 3,
       "gearTypeLabel": "Spell",
       "image": "assets/battlerise/artifacts/cards/Dark_Illusion.png",
@@ -2800,7 +6380,82 @@ window.BATTLERISE_DATA = {
         "+110% Health",
         "+-10% Speed"
       ],
-      "hiddenCount": 3
+      "hiddenCount": 7,
+      "rolls": [
+        {
+          "id": 309,
+          "level": 12,
+          "label": "Level 12",
+          "stats": [
+            "+110% Health",
+            "+-10% Speed",
+            "+110% Magic RES",
+            "+110% Armor",
+            "+-3 Crit Rate"
+          ],
+          "substatRolls": [
+            "+50% Health (substat roll)",
+            "+30% Magic RES (substat roll)",
+            "+30% Armor (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 472,
+          "level": 15,
+          "label": "Level 15",
+          "stats": [
+            "+110% Health",
+            "+-10% Speed",
+            "+110% Magic RES",
+            "+110% Armor",
+            "+-3 Crit Rate"
+          ],
+          "substatRolls": [
+            "+100% Health (substat roll)",
+            "+30% Magic RES (substat roll)",
+            "+30% Armor (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 379,
+          "level": 23,
+          "label": "Level 23",
+          "stats": [
+            "+110% Health",
+            "+-10% Speed",
+            "+110% Magic RES",
+            "+110% Armor",
+            "+-3 Crit Rate"
+          ],
+          "substatRolls": [
+            "+50% Health (substat roll)",
+            "+30% Magic RES (substat roll)",
+            "+30% Armor (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 380,
+          "level": 27,
+          "label": "Level 27",
+          "stats": [
+            "+110% Health",
+            "+-10% Speed",
+            "+110% Magic RES",
+            "+110% Armor",
+            "+-3 Crit Rate"
+          ],
+          "substatRolls": [
+            "+80% Health (substat roll)",
+            "+30% Magic RES (substat roll)",
+            "+30% Armor (substat roll)",
+            "+5% Crit Rate (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 439,
@@ -2809,7 +6464,7 @@ window.BATTLERISE_DATA = {
       "spec": "AGI",
       "icon": "Dead_or_Alive",
       "slug": "dead-or-alive",
-      "level": 15,
+      "level": 40,
       "gearType": 6,
       "gearTypeLabel": "Tale",
       "image": "assets/battlerise/artifacts/cards/Dead_or_Alive.png",
@@ -2832,7 +6487,54 @@ window.BATTLERISE_DATA = {
         "+20% Speed",
         "+15% Damage"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 3,
+      "rolls": [
+        {
+          "id": 439,
+          "level": 15,
+          "label": "Level 15",
+          "stats": [
+            "+20% Speed",
+            "+15% Damage"
+          ],
+          "substatRolls": [
+            "+90% Speed (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 307,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+20% Speed",
+            "+15% Damage"
+          ],
+          "substatRolls": [
+            "+90% Speed (substat roll)",
+            "+90% Health (substat roll)"
+          ],
+          "notes": [
+            "5 unique ability slots"
+          ]
+        },
+        {
+          "id": 480,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [
+            "+20% Speed",
+            "+15% Damage"
+          ],
+          "substatRolls": [
+            "+90% Health (substat roll)",
+            "+80% Speed (substat roll)"
+          ],
+          "notes": [
+            "5 unique ability slots"
+          ]
+        }
+      ]
     },
     {
       "id": 300,
@@ -2869,7 +6571,24 @@ window.BATTLERISE_DATA = {
         "+100% Magic RES",
         "+50% Damage"
       ],
-      "hiddenCount": 1
+      "hiddenCount": 3,
+      "rolls": [
+        {
+          "id": 300,
+          "level": 10,
+          "label": "Level 10",
+          "stats": [
+            "+100% Magic RES",
+            "+50% Damage",
+            "+5 Crit Rate"
+          ],
+          "substatRolls": [
+            "+55% Damage (substat roll)",
+            "+35% Magic RES (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 327,
@@ -2895,7 +6614,21 @@ window.BATTLERISE_DATA = {
       "displayStats": [
         "+15 Crit Rate"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 0,
+      "rolls": [
+        {
+          "id": 327,
+          "level": 20,
+          "label": "Level 20",
+          "stats": [
+            "+15 Crit Rate"
+          ],
+          "substatRolls": [
+            "+70% Crit Rate (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 271,
@@ -2904,7 +6637,7 @@ window.BATTLERISE_DATA = {
       "spec": "AGI",
       "icon": "Guardians_Fang",
       "slug": "guardian-s-fang",
-      "level": 1,
+      "level": 30,
       "gearType": 15,
       "gearTypeLabel": "Necklace",
       "image": "assets/battlerise/artifacts/cards/Guardians_Fang.png",
@@ -2921,7 +6654,57 @@ window.BATTLERISE_DATA = {
       "displayStats": [
         "+6% Damage"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 0,
+      "rolls": [
+        {
+          "id": 271,
+          "level": 1,
+          "label": "Level 1",
+          "stats": [
+            "+6% Damage"
+          ],
+          "substatRolls": [
+            "+80% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 523,
+          "level": 1,
+          "label": "Level 1",
+          "stats": [
+            "+1000% Speed"
+          ],
+          "substatRolls": [
+            "+10000% Speed (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 524,
+          "level": 1,
+          "label": "Level 1",
+          "stats": [
+            "+850% Speed"
+          ],
+          "substatRolls": [
+            "+80% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 460,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+6% Damage"
+          ],
+          "substatRolls": [
+            "+130% Damage (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 537,
@@ -2958,7 +6741,23 @@ window.BATTLERISE_DATA = {
         "+2000% Armor",
         "+1000% Health"
       ],
-      "hiddenCount": 1
+      "hiddenCount": 2,
+      "rolls": [
+        {
+          "id": 537,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [
+            "+2000% Armor",
+            "+1000% Health",
+            "+350% Speed"
+          ],
+          "substatRolls": [],
+          "notes": [
+            "1 ability slot"
+          ]
+        }
+      ]
     },
     {
       "id": 540,
@@ -2975,11 +6774,25 @@ window.BATTLERISE_DATA = {
       "stats": [],
       "story": "There exists a spell whispered of only in taverns where maps are drawn in spilled ale and destinies hang on the roll of dice. Legendary Loot is not just magic - it's a call. A siren's cry to those who yearn for more than comfort and safety.\n\nWhen cast, it ignites a fire in the soul, a ravenous hunger for adventure that cannot be sated. The bearer of the spell feels the pull of distant lands, forgotten ruins, and battles yet unfought. Their grip tightens on their blade, their gaze sharpens on the horizon. The need to move, to seek, to conquer -becomes as vital as breath.\n\nSome say the spell was born in the first age, when the gods themselves grew bored and carved the world just to explore it. Others claim it is cursed - that those marked by Legendary Loot can never rest, forever chasing that next great story, even if it leads them straight into the jaws of doom.",
       "storyTitle": "Enchantment Spell",
-      "displayStats": [
-        "+60% Speed",
-        "+60% Armor"
-      ],
-      "hiddenCount": 4
+      "displayStats": [],
+      "hiddenCount": 4,
+      "rolls": [
+        {
+          "id": 540,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [],
+          "substatRolls": [
+            "+60% Speed (substat roll)",
+            "+60% Armor (substat roll)",
+            "+60% Magic RES (substat roll)",
+            "+40% Damage (substat roll)",
+            "+29% Crit Rate (substat roll)",
+            "+20% Health (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 288,
@@ -3011,7 +6824,22 @@ window.BATTLERISE_DATA = {
         "+40% Magic RES",
         "+10% Health"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 1,
+      "rolls": [
+        {
+          "id": 288,
+          "level": 3,
+          "label": "Level 3",
+          "stats": [
+            "+40% Magic RES",
+            "+10% Health"
+          ],
+          "substatRolls": [
+            "+70% Magic RES (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 287,
@@ -3043,7 +6871,22 @@ window.BATTLERISE_DATA = {
         "+30% Health",
         "+50% Armor"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 1,
+      "rolls": [
+        {
+          "id": 287,
+          "level": 5,
+          "label": "Level 5",
+          "stats": [
+            "+30% Health",
+            "+50% Armor"
+          ],
+          "substatRolls": [
+            "+70% Armor (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 312,
@@ -3052,7 +6895,7 @@ window.BATTLERISE_DATA = {
       "spec": "AGI",
       "icon": "Curse_of_The_Moon",
       "slug": "the-mooncurse",
-      "level": 14,
+      "level": 40,
       "gearType": 2,
       "gearTypeLabel": "Minion",
       "image": "assets/battlerise/artifacts/cards/Curse_of_The_Moon.png",
@@ -3085,7 +6928,57 @@ window.BATTLERISE_DATA = {
         "+300% Health",
         "+25% Damage"
       ],
-      "hiddenCount": 2
+      "hiddenCount": 4,
+      "rolls": [
+        {
+          "id": 312,
+          "level": 14,
+          "label": "Level 14",
+          "stats": [
+            "+300% Health",
+            "+25% Damage",
+            "+-10% Speed",
+            "+-6 Crit Rate"
+          ],
+          "substatRolls": [
+            "+40% Damage (substat roll)",
+            "+40% Health (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 471,
+          "level": 23,
+          "label": "Level 23",
+          "stats": [
+            "+300% Health",
+            "+25% Damage",
+            "+-10% Speed",
+            "+-6 Crit Rate"
+          ],
+          "substatRolls": [
+            "+40% Damage (substat roll)",
+            "+40% Health (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 499,
+          "level": 40,
+          "label": "Level 40",
+          "stats": [
+            "+300% Health",
+            "+25% Damage",
+            "+-10% Speed",
+            "+-6 Crit Rate"
+          ],
+          "substatRolls": [
+            "+40% Damage (substat roll)",
+            "+40% Health (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 328,
@@ -3094,7 +6987,7 @@ window.BATTLERISE_DATA = {
       "spec": "NONE",
       "icon": "Peeper",
       "slug": "the-peeper",
-      "level": 10,
+      "level": 38,
       "gearType": 2,
       "gearTypeLabel": "Minion",
       "image": "assets/battlerise/artifacts/cards/Peeper.png",
@@ -3117,7 +7010,37 @@ window.BATTLERISE_DATA = {
         "+12% Speed",
         "+35% Damage"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 2,
+      "rolls": [
+        {
+          "id": 328,
+          "level": 10,
+          "label": "Level 10",
+          "stats": [
+            "+12% Speed",
+            "+35% Damage"
+          ],
+          "substatRolls": [
+            "+60% Speed (substat roll)",
+            "+60% Damage (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 500,
+          "level": 38,
+          "label": "Level 38",
+          "stats": [
+            "+12% Speed",
+            "+35% Damage"
+          ],
+          "substatRolls": [
+            "+60% Speed (substat roll)",
+            "+60% Damage (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 335,
@@ -3135,7 +7058,30 @@ window.BATTLERISE_DATA = {
       "story": "All Undivine Beings seek a moment to rest and relax in their favorite tavern. These places are usually busiest in the evening, when most people gather around the table to drink, laugh, and most importantly, to play games! \n\nPlaying dice can turn out to be a very well paid activity. Some say they do it professionally, but their business longevity isn't as good as they originally intended.",
       "storyTitle": "Lady Luck",
       "displayStats": [],
-      "hiddenCount": 0
+      "hiddenCount": 1,
+      "rolls": [
+        {
+          "id": 335,
+          "level": 32,
+          "label": "Level 32",
+          "stats": [],
+          "substatRolls": [],
+          "notes": []
+        },
+        {
+          "id": 483,
+          "level": 32,
+          "label": "Level 32",
+          "stats": [],
+          "substatRolls": [
+            "+88% Speed (substat roll)",
+            "+20% Crit Rate (substat roll)"
+          ],
+          "notes": [
+            "3 unique ability slots"
+          ]
+        }
+      ]
     },
     {
       "id": 295,
@@ -3144,7 +7090,7 @@ window.BATTLERISE_DATA = {
       "spec": "STR",
       "icon": "Thundercrusher_2000",
       "slug": "thundercrusher-2000",
-      "level": 5,
+      "level": 33,
       "gearType": 13,
       "gearTypeLabel": "Exotic",
       "image": "assets/battlerise/artifacts/cards/Thundercrusher_2000.png",
@@ -3167,7 +7113,37 @@ window.BATTLERISE_DATA = {
         "+80% Armor",
         "+20% Damage"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 2,
+      "rolls": [
+        {
+          "id": 295,
+          "level": 5,
+          "label": "Level 5",
+          "stats": [
+            "+80% Armor",
+            "+20% Damage"
+          ],
+          "substatRolls": [
+            "+50% Damage (substat roll)",
+            "+30% Armor (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 504,
+          "level": 33,
+          "label": "Level 33",
+          "stats": [
+            "+80% Armor",
+            "+20% Damage"
+          ],
+          "substatRolls": [
+            "+50% Damage (substat roll)",
+            "+30% Armor (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 313,
@@ -3176,7 +7152,7 @@ window.BATTLERISE_DATA = {
       "spec": "NONE",
       "icon": "Undertakers_Peace",
       "slug": "undertaker-s-peace",
-      "level": 11,
+      "level": 30,
       "gearType": 2,
       "gearTypeLabel": "Minion",
       "image": "assets/battlerise/artifacts/cards/Undertakers_Peace.png",
@@ -3199,7 +7175,48 @@ window.BATTLERISE_DATA = {
         "+150% Armor",
         "+30% Magic RES"
       ],
-      "hiddenCount": 0
+      "hiddenCount": 1,
+      "rolls": [
+        {
+          "id": 313,
+          "level": 11,
+          "label": "Level 11",
+          "stats": [
+            "+150% Armor",
+            "+30% Magic RES"
+          ],
+          "substatRolls": [
+            "+90% Armor (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 377,
+          "level": 20,
+          "label": "Level 20",
+          "stats": [
+            "+150% Armor",
+            "+30% Magic RES"
+          ],
+          "substatRolls": [
+            "+110% Armor (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 378,
+          "level": 30,
+          "label": "Level 30",
+          "stats": [
+            "+150% Armor",
+            "+30% Magic RES"
+          ],
+          "substatRolls": [
+            "+60% Armor (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     },
     {
       "id": 280,
@@ -3208,7 +7225,7 @@ window.BATTLERISE_DATA = {
       "spec": "AGI",
       "icon": "Wildling_Arrows",
       "slug": "wildling-arrows",
-      "level": 8,
+      "level": 18,
       "gearType": 12,
       "gearTypeLabel": "Material",
       "image": "assets/battlerise/artifacts/cards/Wildling_Arrows.png",
@@ -3236,7 +7253,38 @@ window.BATTLERISE_DATA = {
         "+1% Speed",
         "+7 Crit Rate"
       ],
-      "hiddenCount": 1
+      "hiddenCount": 3,
+      "rolls": [
+        {
+          "id": 280,
+          "level": 8,
+          "label": "Level 8",
+          "stats": [
+            "+1% Speed",
+            "+7 Crit Rate",
+            "+5% Damage"
+          ],
+          "substatRolls": [
+            "+60% Crit Rate (substat roll)"
+          ],
+          "notes": []
+        },
+        {
+          "id": 470,
+          "level": 18,
+          "label": "Level 18",
+          "stats": [
+            "+1% Speed",
+            "+7 Crit Rate",
+            "+5% Damage"
+          ],
+          "substatRolls": [
+            "+60% Speed (substat roll)",
+            "+40% Crit Rate (substat roll)"
+          ],
+          "notes": []
+        }
+      ]
     }
   ],
   "featured": [

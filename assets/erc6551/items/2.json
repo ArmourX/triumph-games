@@ -1,0 +1,13 @@
+{
+  "name": "Pokeball",
+  "description": "A red-and-white capture device used to recruit wild companions on your journey.",
+  "image": "items/pokeball.svg",
+  "external_url": "https://triumph-games.vercel.app/erc6551-test",
+  "attributes": [
+    { "trait_type": "Type", "value": "Item" },
+    { "trait_type": "Category", "value": "Capture" },
+    { "trait_type": "Rarity", "value": "Common" },
+    { "trait_type": "Effect", "value": "Capture companion" },
+    { "trait_type": "Stackable", "value": "Yes" }
+  ]
+}

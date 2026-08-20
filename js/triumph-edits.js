@@ -1,117 +1,6 @@
-/* Triumph Guides — proposed edits with admin approval */
+/* Triumph Guides — proposed edits with admin approval (server-backed) */
 (function (global) {
-  var EDITS_KEY = "triumph_guides_pending_edits";
-  var APPROVED_KEY = "triumph_guides_approved_edits";
-
-  function readJSON(key, fallback) {
-    try {
-      var raw = localStorage.getItem(key);
-      return raw ? JSON.parse(raw) : fallback;
-    } catch (e) {
-      return fallback;
-    }
-  }
-
-  function writeJSON(key, value) {
-    localStorage.setItem(key, JSON.stringify(value));
-  }
-
-  function editKey(game, pageId, field) {
-    return game + "|" + pageId + "|" + field;
-  }
-
-  function getPendingEdits() {
-    return readJSON(EDITS_KEY, []);
-  }
-
-  function savePendingEdits(edits) {
-    writeJSON(EDITS_KEY, edits);
-  }
-
-  function getApprovedEdits() {
-    return readJSON(APPROVED_KEY, {});
-  }
-
-  function saveApprovedEdits(map) {
-    writeJSON(APPROVED_KEY, map);
-  }
-
-  function getApprovedContent(game, pageId, field) {
-    return getApprovedEdits()[editKey(game, pageId, field)] || null;
-  }
-
-  function submitEdit(payload) {
-    var TC = global.TriumphCommunity;
-    if (!TC || !TC.getSession()) {
-      TC.openAuthModal("login");
-      return Promise.reject(new Error("Sign in to submit edits."));
-    }
-    var session = TC.getSession();
-    var edits = getPendingEdits();
-    var entry = {
-      id: "edit_" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
-      userId: session.userId,
-      username: session.username,
-      game: payload.game,
-      pageId: payload.pageId,
-      pageTitle: payload.pageTitle || payload.pageId,
-      field: payload.field,
-      fieldLabel: payload.fieldLabel || payload.field,
-      originalText: payload.originalText || "",
-      proposedText: payload.proposedText || "",
-      status: "pending",
-      createdAt: new Date().toISOString()
-    };
-    edits.unshift(entry);
-    savePendingEdits(edits);
-    return Promise.resolve(entry);
-  }
-
-  function approveEdit(id, reviewer) {
-    var edits = getPendingEdits();
-    var idx = edits.findIndex(function (e) { return e.id === id; });
-    if (idx === -1) return false;
-    var entry = edits[idx];
-    entry.status = "approved";
-    entry.reviewedAt = new Date().toISOString();
-    entry.reviewedBy = reviewer;
-    var approved = getApprovedEdits();
-    approved[editKey(entry.game, entry.pageId, entry.field)] = entry.proposedText;
-    saveApprovedEdits(approved);
-    edits.splice(idx, 1);
-    savePendingEdits(edits);
-    return true;
-  }
-
-  function rejectEdit(id, reviewer, note) {
-    var edits = getPendingEdits();
-    var idx = edits.findIndex(function (e) { return e.id === id; });
-    if (idx === -1) return false;
-    edits[idx].status = "rejected";
-    edits[idx].reviewedAt = new Date().toISOString();
-    edits[idx].reviewedBy = reviewer;
-    edits[idx].rejectNote = note || "";
-    savePendingEdits(edits.filter(function (e) { return e.status === "pending"; }));
-    return true;
-  }
-
-  function applyApprovedToPage() {
-    document.querySelectorAll("[data-editable]").forEach(function (el) {
-      var game = el.getAttribute("data-edit-game");
-      var pageId = el.getAttribute("data-edit-page");
-      var field = el.getAttribute("data-edit-field");
-      var approved = getApprovedContent(game, pageId, field);
-      if (approved != null) {
-        if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
-          el.value = approved;
-        } else {
-          el.innerHTML = approved.split("\n\n").map(function (p) {
-            return "<p>" + escapeHtml(p).replace(/\n/g, "<br>") + "</p>";
-          }).join("");
-        }
-      }
-    });
-  }
+  var API = function () { return global.TriumphAPI; };
 
   function escapeHtml(text) {
     return String(text)
@@ -119,6 +8,71 @@
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;");
+  }
+
+  function applyContentToElement(el, approved) {
+    if (approved == null) return;
+    if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+      el.value = approved;
+    } else {
+      el.innerHTML = approved.split("\n\n").map(function (p) {
+        return "<p>" + escapeHtml(p).replace(/\n/g, "<br>") + "</p>";
+      }).join("");
+    }
+  }
+
+  function applyApprovedToPage() {
+    if (!API()) return Promise.resolve();
+    var byGame = {};
+    document.querySelectorAll("[data-editable]").forEach(function (el) {
+      var game = el.getAttribute("data-edit-game");
+      if (!byGame[game]) byGame[game] = [];
+      byGame[game].push(el);
+    });
+
+    return Promise.all(Object.keys(byGame).map(function (game) {
+      return API().getApprovedBulk(game).then(function (map) {
+        byGame[game].forEach(function (el) {
+          var pageId = el.getAttribute("data-edit-page");
+          var field = el.getAttribute("data-edit-field");
+          var key = pageId + "|" + field;
+          if (map[key] != null) applyContentToElement(el, map[key]);
+        });
+      }).catch(function () {});
+    }));
+  }
+
+  function submitEdit(payload) {
+    if (!API()) return Promise.reject(new Error("API not loaded."));
+    if (!global.TriumphCommunity.getSession()) {
+      global.TriumphCommunity.openAuthModal("login");
+      return Promise.reject(new Error("Sign in to submit edits."));
+    }
+    return API().submitEdit({
+      game: payload.game,
+      pageId: payload.pageId,
+      pageTitle: payload.pageTitle,
+      field: payload.field,
+      fieldLabel: payload.fieldLabel,
+      originalText: payload.originalText,
+      proposedText: payload.proposedText
+    });
+  }
+
+  function getPendingEdits() {
+    if (!API()) return Promise.resolve([]);
+    if (global.TriumphCommunity.isAdmin()) {
+      return API().getPendingEdits();
+    }
+    return API().getMyEdits();
+  }
+
+  function approveEdit(id) {
+    return API().reviewEdit(id, "approve");
+  }
+
+  function rejectEdit(id) {
+    return API().reviewEdit(id, "reject");
   }
 
   var editModal = null;
@@ -137,7 +91,7 @@
         '<div class="tg-modal tg-modal--wide" role="dialog">' +
           '<button type="button" class="tg-modal-close" aria-label="Close">&times;</button>' +
           '<h2 class="tg-modal-title">Propose an edit</h2>' +
-          '<p class="tg-modal-desc">Changes are sent to admin for approval before going live.</p>' +
+          '<p class="tg-modal-desc">Text-only edits are reviewed by admin. Champion portraits and artifact images cannot be changed.</p>' +
           '<p class="tg-edit-meta"></p>' +
           '<label class="tg-field"><span>Current content</span><textarea class="tg-edit-original" rows="4" readonly></textarea></label>' +
           '<label class="tg-field"><span>Your proposed change</span><textarea class="tg-edit-proposed" rows="8" required></textarea></label>' +
@@ -150,9 +104,6 @@
     }
 
     var original = el.innerText || el.textContent || "";
-    if (el.getAttribute("data-edit-html") === "true") {
-      original = el.innerText.trim();
-    }
     editModal.querySelector(".tg-edit-meta").textContent =
       meta.game + " · " + meta.pageTitle + " · " + meta.fieldLabel;
     editModal.querySelector(".tg-edit-original").value = original;
@@ -192,40 +143,39 @@
   }
 
   function initEditableSections() {
-    applyApprovedToPage();
-    var TC = global.TriumphCommunity;
-    var session = TC && TC.getSession();
-
-    document.querySelectorAll("[data-editable]").forEach(function (el) {
-      if (el.parentElement && el.parentElement.querySelector(".tg-edit-btn")) return;
-      var wrap = document.createElement("div");
-      wrap.className = "tg-editable-wrap";
-      el.parentNode.insertBefore(wrap, el);
-      wrap.appendChild(el);
-
-      var btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "tg-edit-btn";
-      btn.title = session ? "Propose edit" : "Sign in to edit";
-      btn.innerHTML = "&#9998;";
-      btn.addEventListener("click", function () {
-        openEditModal({
-          game: el.getAttribute("data-edit-game"),
-          pageId: el.getAttribute("data-edit-page"),
-          pageTitle: el.getAttribute("data-edit-title") || el.getAttribute("data-edit-page"),
-          field: el.getAttribute("data-edit-field"),
-          fieldLabel: el.getAttribute("data-edit-label") || el.getAttribute("data-edit-field")
-        }, el);
+    applyApprovedToPage().finally(function () {
+      var TC = global.TriumphCommunity;
+      var session = TC && TC.getSession();
+      document.querySelectorAll("[data-editable]").forEach(function (el) {
+        if (document.body.getAttribute("data-official-guide") === "true") return;
+        if (el.closest(".tg-guide-view--official")) return;
+        if (el.parentElement && el.parentElement.querySelector(".tg-edit-btn")) return;
+        var wrap = document.createElement("div");
+        wrap.className = "tg-editable-wrap";
+        el.parentNode.insertBefore(wrap, el);
+        wrap.appendChild(el);
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "tg-edit-btn";
+        btn.title = session ? "Propose edit" : "Sign in to edit";
+        btn.innerHTML = "&#9998;";
+        btn.addEventListener("click", function () {
+          openEditModal({
+            game: el.getAttribute("data-edit-game"),
+            pageId: el.getAttribute("data-edit-page"),
+            pageTitle: el.getAttribute("data-edit-title") || el.getAttribute("data-edit-page"),
+            field: el.getAttribute("data-edit-field"),
+            fieldLabel: el.getAttribute("data-edit-label") || el.getAttribute("data-edit-field")
+          }, el);
+        });
+        wrap.appendChild(btn);
       });
-      wrap.appendChild(btn);
     });
   }
 
   global.TriumphEdits = {
     submitEdit: submitEdit,
     getPendingEdits: getPendingEdits,
-    getApprovedEdits: getApprovedEdits,
-    getApprovedContent: getApprovedContent,
     approveEdit: approveEdit,
     rejectEdit: rejectEdit,
     applyApprovedToPage: applyApprovedToPage,
@@ -233,7 +183,9 @@
   };
 
   document.addEventListener("DOMContentLoaded", function () {
-    applyApprovedToPage();
-    setTimeout(initEditableSections, 100);
+    setTimeout(function () {
+      applyApprovedToPage();
+      initEditableSections();
+    }, 200);
   });
 })(window);

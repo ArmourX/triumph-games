@@ -219,7 +219,7 @@ namespace MonsterCollect.Social
             }
 
             var texture = new Texture2D(2, 2, TextureFormat.RGBA32, false);
-            if (!texture.LoadImage(bytes, markNonReadable: true))
+            if (!texture.LoadImage(bytes, markNonReadable: false))
             {
                 UnityEngine.Object.Destroy(texture);
                 return null;
@@ -231,6 +231,7 @@ namespace MonsterCollect.Social
                 return null;
             }
 
+            PortraitBackdropUtility.StripEdgeConnectedBackdrop(texture);
             texture.filterMode = FilterMode.Point;
             return Sprite.Create(
                 texture,

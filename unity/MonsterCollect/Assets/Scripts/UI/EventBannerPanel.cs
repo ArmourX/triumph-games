@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Text;
 using MonsterCollect.Core;
 using MonsterCollect.Events;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,11 +18,11 @@ namespace MonsterCollect.UI
         private GameObject bannerRoot;
         private GameObject detailRoot;
         private Image bannerBackground;
-        private Text bannerTitleText;
-        private Text bannerTimerText;
-        private Text detailTitleText;
-        private Text detailBodyText;
-        private Text detailQuestText;
+        private TMP_Text bannerTitleText;
+        private TMP_Text bannerTimerText;
+        private TMP_Text detailTitleText;
+        private TMP_Text detailBodyText;
+        private TMP_Text detailQuestText;
         private Button bannerOpenButton;
         private Button bannerDismissButton;
         private Button detailCloseButton;
@@ -63,24 +64,31 @@ namespace MonsterCollect.UI
             EventBannerPanel panel = Instance ?? FindObjectOfType<EventBannerPanel>(true);
             if (panel == null)
             {
-                Canvas canvas = FindObjectOfType<Canvas>();
-                if (canvas == null)
+                panel = KitUi.EnsureOverlay<EventBannerPanel>("EventBannerPanel");
+                if (panel == null)
                 {
                     return;
                 }
-
-                Transform parent = LandscapePlayFrame.FindContentRoot(canvas) ?? canvas.transform;
-                var go = new GameObject("EventBannerPanel", typeof(RectTransform), typeof(EventBannerPanel));
-                go.transform.SetParent(parent, false);
-                panel = go.GetComponent<EventBannerPanel>();
             }
 
             panel.RefreshBanner();
         }
 
+        public static void ShowEventDetail()
+        {
+            EnsureVisible();
+            Instance?.ShowDetail();
+        }
+
         private void RefreshBanner()
         {
             EnsureUi();
+            if (HomeHubController.IsHomeVisible)
+            {
+                bannerRoot?.SetActive(false);
+                return;
+            }
+
             SeasonalEventDefinition primary = EventManager.GetPrimaryBannerEvent();
             if (primary == null || EventManager.IsBannerDismissed(primary.EventId))
             {
@@ -97,9 +105,16 @@ namespace MonsterCollect.UI
 
         private void ShowDetail()
         {
+            EnsureUi();
             SeasonalEventDefinition def = EventManager.GetPrimaryBannerEvent();
             if (def == null)
             {
+                selectedEventId = string.Empty;
+                detailTitleText.text = "Events";
+                detailBodyText.text = "No limited event is running right now. Check back later for seasonal rewards and quests.";
+                detailQuestText.text = "Use Adventure and Quick-Play to keep progressing while you wait.";
+                detailRoot.SetActive(true);
+                GameFeedbackService.Instance?.PlayUiTap();
                 return;
             }
 
@@ -211,128 +226,48 @@ namespace MonsterCollect.UI
             }
 
             uiBuilt = true;
-            Font font = MobileGameUiKit.BodyFont;
-            var rootRect = GetComponent<RectTransform>() ?? gameObject.AddComponent<RectTransform>();
-            Stretch(rootRect);
+            KitUi.Stretch(GetComponent<RectTransform>() ?? gameObject.AddComponent<RectTransform>());
+            TmpFonts.PrepareCanvas(GetComponentInParent<Canvas>());
 
             bannerRoot = new GameObject("Banner", typeof(RectTransform), typeof(Image), typeof(Button));
             bannerRoot.transform.SetParent(transform, false);
-            var bannerRect = bannerRoot.GetComponent<RectTransform>();
-            bannerRect.anchorMin = new Vector2(0.14f, 0.86f);
-            bannerRect.anchorMax = new Vector2(0.70f, 0.935f);
-            bannerRect.offsetMin = Vector2.zero;
-            bannerRect.offsetMax = Vector2.zero;
+            KitUi.Anchor(bannerRoot.GetComponent<RectTransform>(), 0.14f, 0.86f, 0.70f, 0.935f);
             bannerBackground = bannerRoot.GetComponent<Image>();
             UiSkinUtility.ApplyPrimaryButton(bannerBackground);
-            bannerBackground.color = new Color(0.85f, 1f, 0.9f, 1f);
             bannerOpenButton = bannerRoot.GetComponent<Button>();
+            bannerOpenButton.targetGraphic = bannerBackground;
             bannerOpenButton.onClick.AddListener(ShowDetail);
 
-            bannerTitleText = CreateText("BannerTitle", bannerRoot.transform, font, 22, FontStyle.Bold, TextAnchor.MiddleLeft);
-            bannerTitleText.rectTransform.anchorMin = new Vector2(0.02f, 0.1f);
-            bannerTitleText.rectTransform.anchorMax = new Vector2(0.62f, 0.9f);
+            bannerTitleText = KitUi.Label(bannerRoot.transform, "BannerTitle", "Event", 22, TextAlignmentOptions.Left, title: true);
+            KitUi.Anchor(bannerTitleText.rectTransform, 0.04f, 0.1f, 0.62f, 0.9f);
 
-            bannerTimerText = CreateText("BannerTimer", bannerRoot.transform, font, 20, FontStyle.Normal, TextAnchor.MiddleRight);
-            bannerTimerText.rectTransform.anchorMin = new Vector2(0.62f, 0.1f);
-            bannerTimerText.rectTransform.anchorMax = new Vector2(0.84f, 0.9f);
+            bannerTimerText = KitUi.Label(bannerRoot.transform, "BannerTimer", string.Empty, 20, TextAlignmentOptions.Right);
+            KitUi.Anchor(bannerTimerText.rectTransform, 0.62f, 0.1f, 0.84f, 0.9f);
 
-            bannerDismissButton = CreateButton("Dismiss", bannerRoot.transform, font, "×", 0.86f, 0.15f, 0.98f, 0.85f);
-            bannerDismissButton.onClick.AddListener(DismissBanner);
+            bannerDismissButton = KitUi.Button(bannerRoot.transform, "Dismiss", "×", 0.86f, 0.15f, 0.98f, 0.85f, DismissBanner, secondary: true);
 
-            detailRoot = CreateImage("Detail", transform, new Color(0f, 0f, 0f, 0.75f)).gameObject;
-            UiSkinUtility.ApplyDimOverlay(detailRoot.GetComponent<Image>());
-            Stretch(detailRoot.GetComponent<RectTransform>());
+            Image dim = KitUi.Dim(transform);
+            detailRoot = dim.gameObject;
+            detailRoot.name = "Detail";
 
-            var card = CreateImage("DetailCard", detailRoot.transform, new Color(0.1f, 0.14f, 0.2f, 0.98f));
-            UiSkinUtility.ApplyModalPanel(card);
-            var cardRect = card.rectTransform;
-            cardRect.anchorMin = new Vector2(0.18f, 0.12f);
-            cardRect.anchorMax = new Vector2(0.82f, 0.88f);
-            cardRect.offsetMin = Vector2.zero;
-            cardRect.offsetMax = Vector2.zero;
+            Image card = KitUi.Card(detailRoot.transform, 0.18f, 0.12f, 0.82f, 0.88f);
+            card.gameObject.name = "DetailCard";
 
-            detailTitleText = CreateText("DetailTitle", card.transform, font, 30, FontStyle.Bold, TextAnchor.UpperCenter);
-            AnchorTop(detailTitleText.rectTransform, 0.82f, 0.95f);
+            detailTitleText = KitUi.Label(card.transform, "DetailTitle", "Events", 32, TextAlignmentOptions.Center, title: true);
+            KitUi.AnchorTop(detailTitleText.rectTransform, 0.82f, 0.95f);
 
-            detailBodyText = CreateText("DetailBody", card.transform, font, 20, FontStyle.Normal, TextAnchor.UpperLeft);
-            detailBodyText.rectTransform.anchorMin = new Vector2(0.06f, 0.58f);
-            detailBodyText.rectTransform.anchorMax = new Vector2(0.94f, 0.8f);
-            detailBodyText.horizontalOverflow = HorizontalWrapMode.Wrap;
+            detailBodyText = KitUi.Label(card.transform, "DetailBody", string.Empty, 20, TextAlignmentOptions.TopLeft);
+            KitUi.Anchor(detailBodyText.rectTransform, 0.06f, 0.58f, 0.94f, 0.8f);
+            detailBodyText.enableWordWrapping = true;
 
-            detailQuestText = CreateText("DetailQuests", card.transform, font, 18, FontStyle.Normal, TextAnchor.UpperLeft);
-            detailQuestText.rectTransform.anchorMin = new Vector2(0.06f, 0.2f);
-            detailQuestText.rectTransform.anchorMax = new Vector2(0.94f, 0.56f);
-            detailQuestText.horizontalOverflow = HorizontalWrapMode.Wrap;
-            detailQuestText.verticalOverflow = VerticalWrapMode.Overflow;
+            detailQuestText = KitUi.Label(card.transform, "DetailQuests", string.Empty, 18, TextAlignmentOptions.TopLeft);
+            KitUi.Anchor(detailQuestText.rectTransform, 0.06f, 0.2f, 0.94f, 0.56f);
+            detailQuestText.enableWordWrapping = true;
 
-            claimButton = CreateButton("Claim", card.transform, font, "Claim Reward", 0.08f, 0.08f, 0.48f, 0.16f);
-            claimButton.onClick.AddListener(TryClaimSelectedQuest);
-
-            detailCloseButton = CreateButton("Close", card.transform, font, "Close", 0.52f, 0.08f, 0.92f, 0.16f);
-            detailCloseButton.onClick.AddListener(HideDetail);
+            claimButton = KitUi.Button(card.transform, "Claim", "CLAIM REWARD", 0.08f, 0.08f, 0.48f, 0.16f, TryClaimSelectedQuest);
+            detailCloseButton = KitUi.Button(card.transform, "Close", "CLOSE", 0.52f, 0.08f, 0.92f, 0.16f, HideDetail, secondary: true);
 
             detailRoot.SetActive(false);
-        }
-
-        private static Image CreateImage(string name, Transform parent, Color color)
-        {
-            var go = new GameObject(name, typeof(RectTransform), typeof(Image));
-            go.transform.SetParent(parent, false);
-            var image = go.GetComponent<Image>();
-            image.color = color;
-            return image;
-        }
-
-        private static Text CreateText(string name, Transform parent, Font font, int size, FontStyle style, TextAnchor anchor)
-        {
-            var go = new GameObject(name, typeof(RectTransform), typeof(Text));
-            go.transform.SetParent(parent, false);
-            var text = go.GetComponent<Text>();
-            text.font = font;
-            text.fontSize = size;
-            text.fontStyle = style;
-            text.alignment = anchor;
-            text.color = Color.white;
-            return text;
-        }
-
-        private static Button CreateButton(string name, Transform parent, Font font, string label, float minX, float minY, float maxX, float maxY)
-        {
-            var go = new GameObject(name, typeof(RectTransform), typeof(Image), typeof(Button));
-            go.transform.SetParent(parent, false);
-            var rect = go.GetComponent<RectTransform>();
-            rect.anchorMin = new Vector2(minX, minY);
-            rect.anchorMax = new Vector2(maxX, maxY);
-            rect.offsetMin = Vector2.zero;
-            rect.offsetMax = Vector2.zero;
-            go.GetComponent<Image>().color = new Color(0.2f, 0.45f, 0.72f, 1f);
-
-            var labelGo = new GameObject("Label", typeof(RectTransform), typeof(Text));
-            labelGo.transform.SetParent(go.transform, false);
-            Stretch(labelGo.GetComponent<RectTransform>());
-            var labelText = labelGo.GetComponent<Text>();
-            labelText.font = font;
-            labelText.fontSize = 20;
-            labelText.alignment = TextAnchor.MiddleCenter;
-            labelText.color = Color.white;
-            labelText.text = label;
-            return go.GetComponent<Button>();
-        }
-
-        private static void Stretch(RectTransform rect)
-        {
-            rect.anchorMin = Vector2.zero;
-            rect.anchorMax = Vector2.one;
-            rect.offsetMin = Vector2.zero;
-            rect.offsetMax = Vector2.zero;
-        }
-
-        private static void AnchorTop(RectTransform rect, float minY, float maxY)
-        {
-            rect.anchorMin = new Vector2(0.05f, minY);
-            rect.anchorMax = new Vector2(0.95f, maxY);
-            rect.offsetMin = Vector2.zero;
-            rect.offsetMax = Vector2.zero;
         }
     }
 }

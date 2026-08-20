@@ -3,18 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="js/site-theme-init.js"></script>
   <title>Triumph Guides | Game wikis, tier lists &amp; strategy guides</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="hub.css">
   <link rel="stylesheet" href="triumph-community.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo">
-        <span class="logo-icon">T</span>
         <span class="logo-text">Triumph Guides</span>
       </a>
       <nav class="main-nav" aria-label="Main">
@@ -33,64 +31,53 @@
 
   <main>
     <section class="hero">
-      <div class="hero-bg"></div>
       <div class="container hero-inner">
         <div class="hero-content">
-          <p class="section-label">Triumph Games resource hub</p>
-          <h1>Guides, tier lists &amp; wikis for every Triumph title.</h1>
+          <p class="section-label">Welcome</p>
+          <h1>Guides have <em>arrived</em></h1>
           <p class="hero-subtitle">
-            Structured databases, up-to-date meta coverage, and community-maintained guides
-            for Legends of Elumia, BattleRise, and ArmourX.
+            Wikis, tier lists, and strategy resources for Legends of Elumia, BattleRise, and ArmourX —
+            structured for clarity, built for Triumph.
           </p>
           <div class="hero-actions">
-            <a href="index.html#games" class="btn btn-primary btn-lg">View game hubs</a>
+            <a href="index.html#games" class="btn btn-primary btn-lg">Explore hubs</a>
             <a href="https://discord.com/invite/triumphgames" class="btn btn-outline btn-lg" target="_blank" rel="noopener">Join Discord</a>
           </div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <span class="hero-stat-value">3</span>
+              <span class="hero-stat-label">Game hubs</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-value">Free</span>
+              <span class="hero-stat-label">Open access</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-value">Live</span>
+              <span class="hero-stat-label">Community updates</span>
+            </div>
+          </div>
         </div>
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <span class="hero-stat-value">3</span>
-            <span class="hero-stat-label">Games covered</span>
-          </div>
-          <div class="hero-stat">
-            <span class="hero-stat-value">Free</span>
-            <span class="hero-stat-label">Always accessible</span>
-          </div>
-          <div class="hero-stat">
-            <span class="hero-stat-value">Weekly</span>
-            <span class="hero-stat-label">Guide updates</span>
-          </div>
+
+        <div class="hero-visual">
+          <img src="https://www.triumphgames.io/images/Card_Image_Elumia.png" alt="Legends of Elumia">
+          <span class="hero-visual-caption">Legends of Elumia · Early access</span>
         </div>
       </div>
     </section>
 
     <section id="games" class="games-section">
       <div class="container">
-        <div class="section-intro">
+        <div class="section-intro section-intro--center">
           <p class="section-label">Game hubs</p>
-          <h2>Pick a title to explore</h2>
-          <p class="section-subtitle">Each hub includes character databases, tier lists, guides, and patch notes.</p>
+          <h2>Pick a title</h2>
+          <p class="section-subtitle">Character databases, tier lists, guides, and patch notes — one hub per game.</p>
         </div>
 
         <div class="games-grid">
-          <a href="elumia.html" class="game-card">
-            <div class="game-card-media">
-              <img src="https://www.triumphgames.io/images/Card_Image_Elumia.png" alt="">
-            </div>
-            <div class="game-card-body">
-              <div class="game-card-meta">
-                <span class="badge badge-featured">Featured</span>
-                <span class="game-card-genre">MMORPG</span>
-              </div>
-              <h3>Legends of Elumia</h3>
-              <p>Character builds, class guides, dungeon walkthroughs, and PvP tier lists.</p>
-              <span class="game-link">Open wiki &rarr;</span>
-            </div>
-          </a>
-
           <a href="battlerise.html" class="game-card">
             <div class="game-card-media">
-              <img src="https://www.triumphgames.io/images/Card_Image_Battlerise.png" alt="">
+              <img src="https://www.triumphgames.io/images/Card_Image_Battlerise.png" alt="BattleRise">
             </div>
             <div class="game-card-body">
               <div class="game-card-meta">
@@ -103,18 +90,33 @@
             </div>
           </a>
 
-          <a href="armourx.html" class="game-card">
+          <a href="elumia.html" class="game-card">
             <div class="game-card-media">
-              <img src="https://www.triumphgames.io/images/Card_Image_ArmourX.png" alt="">
+              <img src="https://www.triumphgames.io/images/Card_Image_Elumia.png" alt="Legends of Elumia">
             </div>
             <div class="game-card-body">
               <div class="game-card-meta">
-                <span class="badge badge-featured">Featured</span>
+                <span class="badge badge-early">Early Access</span>
+                <span class="game-card-genre">MMORPG</span>
+              </div>
+              <h3>Legends of Elumia</h3>
+              <p>Character builds, class guides, dungeon walkthroughs, and PvP tier lists.</p>
+              <span class="game-link">Enter wiki &rarr;</span>
+            </div>
+          </a>
+
+          <a href="armourx.html" class="game-card">
+            <div class="game-card-media">
+              <img src="https://www.triumphgames.io/images/Card_Image_ArmourX.png" alt="ArmourX">
+            </div>
+            <div class="game-card-body">
+              <div class="game-card-meta">
+                <span class="badge badge-soon">Coming Soon</span>
                 <span class="game-card-genre">ARPG</span>
               </div>
               <h3>ArmourX</h3>
-              <p>Warrior loadouts, armor set guides, mission walkthroughs, and meta analysis.</p>
-              <span class="game-link">Open wiki &rarr;</span>
+              <p>Warrior loadouts, armor set guides, and mission walkthroughs.</p>
+              <span class="game-link">Preview hub</span>
             </div>
           </a>
         </div>
@@ -126,29 +128,29 @@
         <div class="section-intro section-intro--center">
           <p class="section-label">Resources</p>
           <h2>Built for repeat use</h2>
-          <p class="section-subtitle">Pages designed to be easy to scan, compare, and bookmark while you play.</p>
+          <p class="section-subtitle">Pages designed to scan fast, compare easily, and bookmark while you play.</p>
         </div>
 
         <div class="features-grid">
           <article class="feature-card">
             <span class="feature-num">01</span>
             <h3>Guides &amp; builds</h3>
-            <p>Step-by-step walkthroughs and build recommendations grounded in current patch data.</p>
+            <p>Step-by-step walkthroughs grounded in current patch data.</p>
           </article>
           <article class="feature-card">
             <span class="feature-num">02</span>
             <h3>Tier lists</h3>
-            <p>Regularly updated rankings so you know where to invest time and resources.</p>
+            <p>Rankings updated so you know where to invest resources.</p>
           </article>
           <article class="feature-card">
             <span class="feature-num">03</span>
-            <h3>Character databases</h3>
-            <p>Stats, skills, and ascension data in one place — no digging through forums.</p>
+            <h3>Databases</h3>
+            <p>Stats, skills, and ascension data in one place.</p>
           </article>
           <article class="feature-card">
             <span class="feature-num">04</span>
             <h3>Community wiki</h3>
-            <p>Maintained by players. Discuss strategies and contribute on Discord.</p>
+            <p>Player-maintained. Discuss and contribute on Discord.</p>
           </article>
         </div>
       </div>
@@ -158,14 +160,14 @@
       <div class="container community-panel">
         <div class="community-content">
           <p class="section-label">Community</p>
-          <h2>Connect with other players</h2>
+          <h2>Connect with players</h2>
           <p>
             Join the Triumph Games Discord for tier list updates, strategy discussion,
             and wiki contributions across all three titles.
           </p>
           <div class="community-actions">
             <a href="https://discord.com/invite/triumphgames" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Join Discord</a>
-            <a href="index.html#games" class="btn btn-outline btn-lg">Browse game hubs</a>
+            <a href="index.html#games" class="btn btn-outline btn-lg">Browse hubs</a>
           </div>
         </div>
       </div>
@@ -176,7 +178,6 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <a href="index.html" class="logo">
-          <span class="logo-icon">T</span>
           <span class="logo-text">Triumph Guides</span>
         </a>
         <p class="footer-tagline">Independent wiki and guide resource for Triumph Games titles.</p>
@@ -189,20 +190,25 @@
       </div>
       <div class="footer-col">
         <h4>Resources</h4>
-        <a href="elumia-tier-list.html">Tier lists</a>
-        <a href="elumia-guides.html">Guides</a>
-        <a href="elumia-characters.html">Databases</a>
+        <a href="battlerise-tier-list.html">Tier lists</a>
+        <a href="battlerise-guides.html">Guides</a>
+        <a href="battlerise-champions.html">Databases</a>
       </div>
       <div class="footer-col">
         <h4>Community</h4>
         <a href="https://discord.com/invite/triumphgames" target="_blank" rel="noopener">Discord</a>
-        <a href="index.html">Home</a>
+        <a href="account.html">Account</a>
       </div>
     </div>
     <div class="container footer-bottom">
       <p>&copy; 2026 Triumph Guides. Not affiliated with Triumph Games or any publishers.</p>
     </div>
   </footer>
+  <script src="js/site-config.js"></script>
+  <script src="js/site-ui.js"></script>
+  <script src="js/site-theme.js"></script>
+  <script src="js/coming-soon-gate.js"></script>
+  <script src="js/triumph-api.js"></script>
   <script src="js/triumph-community.js"></script>
   <script src="js/triumph-edits.js"></script>
 </body>

@@ -57,6 +57,11 @@ namespace MonsterCollect.Appearance
                     layerImages.Add(CreateLayerImage());
                 }
 
+                if (glowImage != null)
+                {
+                    glowImage.color = Color.clear;
+                }
+
                 for (int i = 0; i < layerImages.Count; i++)
                 {
                     Image image = layerImages[i];
@@ -147,6 +152,8 @@ namespace MonsterCollect.Appearance
             Stretch(rt);
             image.raycastTarget = false;
             image.preserveAspect = true;
+            image.raycastTarget = false;
+            image.color = Color.clear;
             return image;
         }
 
@@ -173,7 +180,9 @@ namespace MonsterCollect.Appearance
                         ? QrmonPortraitProvider.GetPortraitSprite(data, displaySize)
                         : MonsterAppearanceCompositor.GetOrCreatePortraitSprite(data, displaySize);
                     Color glowColor = MonsterRarityVisualEffects.GetGlowColor(data);
-                    glowImage.color = new Color(glowColor.r, glowColor.g, glowColor.b, profile.GlowStrength);
+                    glowImage.color = new Color(glowColor.r, glowColor.g, glowColor.b, profile.GlowStrength * 0.45f);
+                    glowImage.preserveAspect = true;
+                    glowImage.raycastTarget = false;
                     glowImage.rectTransform.localScale = Vector3.one * profile.GlowRadius;
                 }
             }
@@ -191,6 +200,8 @@ namespace MonsterCollect.Appearance
             image.gameObject.SetActive(true);
             image.sprite = portrait;
             image.color = Color.white;
+            image.preserveAspect = true;
+            image.raycastTarget = false;
             image.rectTransform.localScale = Vector3.one;
             image.rectTransform.anchoredPosition = Vector2.zero;
 

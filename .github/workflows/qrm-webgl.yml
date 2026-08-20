@@ -1,0 +1,47 @@
+name: Build QRM WebGL
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, master]
+    paths:
+      - "unity/MonsterCollect/**"
+      - "qrm/vercel.json"
+      - ".github/workflows/qrm-webgl.yml"
+
+concurrency:
+  group: qrm-webgl
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Build WebGL
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          QRM_OUTPUT_DIR: ${{ github.workspace }}/qrm
+        with:
+          unityVersion: 6000.3.22f1
+          targetPlatform: WebGL
+          projectPath: unity/MonsterCollect
+          buildMethod: MonsterCollect.Editor.WebGLBuildSetup.BuildForVercel
+
+      - name: Deploy to Vercel
+        if: success()
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: npx vercel deploy --prod --yes --token "$VERCEL_TOKEN"
+        working-directory: qrm

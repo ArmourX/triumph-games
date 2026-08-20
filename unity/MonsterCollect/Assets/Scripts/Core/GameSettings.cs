@@ -31,13 +31,13 @@ namespace MonsterCollect.Core
 
         public static bool SfxEnabled
         {
-            get => PlayerPrefs.GetInt(SfxKey, 1) == 1;
+            get => PlayerPrefs.GetInt(SfxKey, 0) == 1;
             set { PlayerPrefs.SetInt(SfxKey, value ? 1 : 0); PlayerPrefs.Save(); }
         }
 
         public static bool MusicEnabled
         {
-            get => PlayerPrefs.GetInt(MusicKey, 1) == 1;
+            get => PlayerPrefs.GetInt(MusicKey, 0) == 1;
             set { PlayerPrefs.SetInt(MusicKey, value ? 1 : 0); PlayerPrefs.Save(); }
         }
 

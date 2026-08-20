@@ -24,6 +24,8 @@ namespace MonsterCollect.Data
 
         private static MonsterCollectionSaveData saveData;
         private static bool isLoaded;
+        private static bool notifyingCollectionChanged;
+        private static bool saving;
 
         public static event Action CollectionChanged;
 
@@ -276,7 +278,7 @@ namespace MonsterCollect.Data
 
             if (notify)
             {
-                CollectionChanged?.Invoke();
+                NotifyCollectionChanged();
             }
 
             return true;
@@ -355,7 +357,7 @@ namespace MonsterCollect.Data
                 Debug.LogWarning($"[MonsterCollectionService] Post-capture progression update failed: {ex.Message}");
             }
 
-            CollectionChanged?.Invoke();
+            NotifyCollectionChanged();
             return true;
         }
 
@@ -370,7 +372,7 @@ namespace MonsterCollect.Data
 
             saveData.ranchEssence -= amount;
             SaveInternal();
-            CollectionChanged?.Invoke();
+            NotifyCollectionChanged();
             return true;
         }
 
@@ -385,7 +387,7 @@ namespace MonsterCollect.Data
 
             saveData.ranchEssence += amount;
             SaveInternal();
-            CollectionChanged?.Invoke();
+            NotifyCollectionChanged();
         }
 
         public static void RecordBreeding(double utcNowSeconds)
@@ -394,7 +396,7 @@ namespace MonsterCollect.Data
             saveData.breedsToday++;
             saveData.lastBreedUtc = utcNowSeconds;
             SaveInternal();
-            CollectionChanged?.Invoke();
+            NotifyCollectionChanged();
         }
 
         public static void ResetDailyBreedingCounters(string dayKey)
@@ -438,7 +440,7 @@ namespace MonsterCollect.Data
             saveData.lastEnergyDayKey = dayKey;
             saveData.dailyEnergy = RanchEnergyService.DailyMax;
             SaveInternal();
-            CollectionChanged?.Invoke();
+            NotifyCollectionChanged();
         }
 
         public static bool SpendDailyEnergy(int amount)
@@ -452,7 +454,7 @@ namespace MonsterCollect.Data
 
             saveData.dailyEnergy -= amount;
             SaveInternal();
-            CollectionChanged?.Invoke();
+            NotifyCollectionChanged();
             return true;
         }
 
@@ -467,7 +469,7 @@ namespace MonsterCollect.Data
 
             saveData.dailyEnergy = Mathf.Min(RanchEnergyService.DailyMax, saveData.dailyEnergy + amount);
             SaveInternal();
-            CollectionChanged?.Invoke();
+            NotifyCollectionChanged();
         }
 
         public static bool TryRemoveMonster(string monsterId, out string errorMessage)
@@ -499,7 +501,7 @@ namespace MonsterCollect.Data
             }
 
             SaveInternal();
-            CollectionChanged?.Invoke();
+            NotifyCollectionChanged();
             return true;
         }
 
@@ -519,7 +521,7 @@ namespace MonsterCollect.Data
 
             saveData.activeMonsterId = monsterId;
             SaveInternal();
-            CollectionChanged?.Invoke();
+            NotifyCollectionChanged();
             return true;
         }
 
@@ -599,7 +601,7 @@ namespace MonsterCollect.Data
 
                 if (notify)
                 {
-                    CollectionChanged?.Invoke();
+                    NotifyCollectionChanged();
                 }
 
                 return true;
@@ -637,7 +639,7 @@ namespace MonsterCollect.Data
             saveData = new MonsterCollectionSaveData();
             isLoaded = true;
             SaveInternal();
-            CollectionChanged?.Invoke();
+            NotifyCollectionChanged();
         }
 
         internal static void EnsureLoadedForCheats()
@@ -657,7 +659,7 @@ namespace MonsterCollect.Data
 
             saveData.activeMonsterId = saveData.monsters.Length > 0 ? saveData.monsters[0].Id : string.Empty;
             SaveInternal();
-            CollectionChanged?.Invoke();
+            NotifyCollectionChanged();
         }
 
         internal static void CheatSetDailyEnergy(int amount)
@@ -666,7 +668,7 @@ namespace MonsterCollect.Data
             saveData.dailyEnergy = Mathf.Clamp(amount, 0, RanchEnergyService.DailyMax);
             saveData.lastEnergyDayKey = RanchEnergyService.GetLocalDayKey();
             SaveInternal();
-            CollectionChanged?.Invoke();
+            NotifyCollectionChanged();
         }
 
         internal static void CheatSetUnlockedDexNumbers(int[] dexNumbers)
@@ -674,12 +676,26 @@ namespace MonsterCollect.Data
             EnsureLoaded();
             saveData.unlockedDexNumbers = dexNumbers ?? Array.Empty<int>();
             SaveInternal();
-            CollectionChanged?.Invoke();
+            NotifyCollectionChanged();
         }
 
         internal static void NotifyCollectionChanged()
         {
-            CollectionChanged?.Invoke();
+            if (notifyingCollectionChanged)
+            {
+                return;
+            }
+
+            notifyingCollectionChanged = true;
+            try
+            {
+                Action handlers = CollectionChanged;
+                handlers?.Invoke();
+            }
+            finally
+            {
+                notifyingCollectionChanged = false;
+            }
         }
 
         public static void EnsureRanchSystemsLoaded()
@@ -715,7 +731,6 @@ namespace MonsterCollect.Data
         {
             EnsureLoaded();
             SaveInternal();
-            CollectionChanged?.Invoke();
         }
 
         public static void EnsureSocialLoaded()
@@ -737,7 +752,7 @@ namespace MonsterCollect.Data
         {
             EnsureSocialLoaded();
             SaveInternal();
-            CollectionChanged?.Invoke();
+            NotifyCollectionChanged();
         }
 
         public static void EnsureEventsLoaded()
@@ -754,7 +769,7 @@ namespace MonsterCollect.Data
         {
             EnsureEventsLoaded();
             SaveInternal();
-            CollectionChanged?.Invoke();
+            NotifyCollectionChanged();
         }
 
         public static void EnsureExplorationLoaded()
@@ -771,7 +786,7 @@ namespace MonsterCollect.Data
         {
             EnsureExplorationLoaded();
             SaveInternal();
-            CollectionChanged?.Invoke();
+            NotifyCollectionChanged();
         }
 
         public static void EnsureTournamentLoaded()
@@ -788,7 +803,7 @@ namespace MonsterCollect.Data
         {
             EnsureTournamentLoaded();
             SaveInternal();
-            CollectionChanged?.Invoke();
+            NotifyCollectionChanged();
         }
 
         public static IReadOnlyList<InventoryEntry> GetInventorySnapshot()
@@ -825,7 +840,7 @@ namespace MonsterCollect.Data
 
             saveData.inventory = list.ToArray();
             SaveInternal();
-            CollectionChanged?.Invoke();
+            NotifyCollectionChanged();
         }
 
         public static bool TryRemoveInventoryItem(string itemId, int amount)
@@ -858,7 +873,7 @@ namespace MonsterCollect.Data
 
                 saveData.inventory = list.ToArray();
                 SaveInternal();
-                CollectionChanged?.Invoke();
+                NotifyCollectionChanged();
                 return true;
             }
 
@@ -884,7 +899,7 @@ namespace MonsterCollect.Data
             EnsureRanchSystemsLoaded();
             saveData.ranchProgression.carePoints += amount;
             SaveInternal();
-            CollectionChanged?.Invoke();
+            NotifyCollectionChanged();
         }
 
         public static void UnlockFacility(string facilityId)
@@ -904,7 +919,7 @@ namespace MonsterCollect.Data
             list.Add(facilityId);
             saveData.ranchProgression.unlockedFacilityIds = list.ToArray();
             SaveInternal();
-            CollectionChanged?.Invoke();
+            NotifyCollectionChanged();
         }
 
         public static bool SetSelectedBackground(string backgroundId)
@@ -912,7 +927,7 @@ namespace MonsterCollect.Data
             EnsureRanchSystemsLoaded();
             saveData.ranchProgression.selectedBackgroundId = backgroundId;
             SaveInternal();
-            CollectionChanged?.Invoke();
+            NotifyCollectionChanged();
             return true;
         }
 
@@ -939,7 +954,7 @@ namespace MonsterCollect.Data
             list.Add(decorationId);
             saveData.ranchProgression.placedDecorationIds = list.ToArray();
             SaveInternal();
-            CollectionChanged?.Invoke();
+            NotifyCollectionChanged();
             return true;
         }
 
@@ -954,7 +969,7 @@ namespace MonsterCollect.Data
 
             saveData.ranchProgression.placedDecorationIds = list.ToArray();
             SaveInternal();
-            CollectionChanged?.Invoke();
+            NotifyCollectionChanged();
             return true;
         }
 
@@ -1120,6 +1135,12 @@ namespace MonsterCollect.Data
 
         private static void SaveInternal()
         {
+            if (saving)
+            {
+                return;
+            }
+
+            saving = true;
             try
             {
                 string path = GetSavePath();
@@ -1136,6 +1157,10 @@ namespace MonsterCollect.Data
             catch (Exception ex)
             {
                 Debug.LogError($"[MonsterCollectionService] Failed to save: {ex.Message}");
+            }
+            finally
+            {
+                saving = false;
             }
         }
 

@@ -55,6 +55,11 @@ namespace MonsterCollect.UI
 
             if (unlocked)
             {
+                if (backgroundImage != null)
+                {
+                    UiSkinUtility.ApplyModalPanel(backgroundImage);
+                }
+
                 BindUnlocked(entry);
             }
             else
@@ -67,6 +72,7 @@ namespace MonsterCollect.UI
         {
             if (backgroundImage != null)
             {
+                UiSkinUtility.ApplyModalPanel(backgroundImage);
                 backgroundImage.color = LockedBackground;
             }
 
@@ -96,7 +102,8 @@ namespace MonsterCollect.UI
         {
             if (backgroundImage != null)
             {
-                backgroundImage.color = new Color(entry.PrimaryColor.r, entry.PrimaryColor.g, entry.PrimaryColor.b, 0.35f);
+                UiSkinUtility.ApplyModalPanel(backgroundImage);
+                backgroundImage.color = new Color(entry.PrimaryColor.r, entry.PrimaryColor.g, entry.PrimaryColor.b, 0.55f);
             }
 
             if (accentImage != null)

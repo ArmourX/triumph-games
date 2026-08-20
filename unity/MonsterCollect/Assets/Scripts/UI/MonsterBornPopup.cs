@@ -53,6 +53,7 @@ namespace MonsterCollect.UI
             }
 
             WireDismissButton();
+            KitUi.RestyleExisting(transform);
 
             if (!gameObject.activeSelf)
             {

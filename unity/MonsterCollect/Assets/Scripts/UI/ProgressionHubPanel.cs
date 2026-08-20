@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using MonsterCollect.Data;
 using MonsterCollect.Progression;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,9 +20,9 @@ namespace MonsterCollect.UI
         private Tab currentTab = Tab.Quests;
         private bool uiBuilt;
         private GameObject rootPanel;
-        private Text titleText;
-        private Text bodyText;
-        private Text footerText;
+        private TMP_Text titleText;
+        private TMP_Text bodyText;
+        private TMP_Text footerText;
         private Button closeButton;
         private readonly List<Button> actionButtons = new List<Button>();
 
@@ -45,23 +46,33 @@ namespace MonsterCollect.UI
             }
         }
 
-        public static void ShowPanel()
+        public static void ShowPanel() => ShowTab(Tab.Quests);
+
+        public static void ShowQuests() => ShowTab(Tab.Quests);
+
+        public static void ShowShop() => ShowTab(Tab.Shop);
+
+        public static void ShowRank() => ShowTab(Tab.Rank);
+
+        public static void ShowBook() => ShowTab(Tab.Book);
+
+        private static void ShowTab(Tab tab)
         {
             ProgressionHubPanel panel = Instance ?? FindObjectOfType<ProgressionHubPanel>(true);
             if (panel == null)
             {
-                Canvas canvas = FindObjectOfType<Canvas>();
+                Canvas canvas = KitUi.ResolveGameCanvas();
                 if (canvas == null)
                 {
                     return;
                 }
 
                 var go = new GameObject("ProgressionHubPanel", typeof(RectTransform), typeof(ProgressionHubPanel));
-                Transform parent = LandscapePlayFrame.FindContentRoot(canvas) ?? canvas.transform;
-                go.transform.SetParent(parent, false);
+                go.transform.SetParent(KitUi.OverlayParent(canvas), false);
                 panel = go.GetComponent<ProgressionHubPanel>();
             }
 
+            panel.currentTab = tab;
             panel.Show();
         }
 
@@ -101,65 +112,50 @@ namespace MonsterCollect.UI
 
             uiBuilt = true;
             rootPanel = gameObject;
-            Font font = MobileGameUiKit.BodyFont;
             var rect = GetComponent<RectTransform>() ?? gameObject.AddComponent<RectTransform>();
-            Stretch(rect);
+            KitUi.Stretch(rect);
+            TmpFonts.PrepareCanvas(GetComponentInParent<Canvas>());
 
-            var dim = CreateImage("Dim", transform, new Color(0f, 0f, 0f, 0.72f));
-            UiSkinUtility.ApplyDimOverlay(dim);
-            Stretch(dim.rectTransform);
+            KitUi.Dim(transform);
+            Image card = KitUi.Card(transform);
 
-            var card = CreateImage("Card", transform, new Color(0.1f, 0.12f, 0.17f, 0.98f));
-            UiSkinUtility.ApplyModalPanel(card);
-            var cardRect = card.rectTransform;
-            cardRect.anchorMin = new Vector2(0.04f, 0.06f);
-            cardRect.anchorMax = new Vector2(0.96f, 0.94f);
-            cardRect.offsetMin = Vector2.zero;
-            cardRect.offsetMax = Vector2.zero;
+            titleText = KitUi.Label(card.transform, "Title", "Goals", 34, TextAlignmentOptions.Center, title: true);
+            KitUi.AnchorTop(titleText.rectTransform, 0.88f, 0.98f);
 
-            titleText = CreateText("Title", card.transform, font, 30, FontStyle.Bold, TextAnchor.UpperCenter);
-            UiSkinUtility.StyleTitle(titleText);
-            AnchorTop(titleText.rectTransform, 0.88f, 0.98f);
-
-            bodyText = CreateText("Body", card.transform, font, 21, FontStyle.Normal, TextAnchor.UpperLeft);
-            UiSkinUtility.StyleBody(bodyText);
+            bodyText = KitUi.Label(card.transform, "Body", string.Empty, 22, TextAlignmentOptions.TopLeft);
             bodyText.rectTransform.anchorMin = new Vector2(0.05f, 0.28f);
             bodyText.rectTransform.anchorMax = new Vector2(0.95f, 0.86f);
             bodyText.rectTransform.offsetMin = Vector2.zero;
             bodyText.rectTransform.offsetMax = Vector2.zero;
-            bodyText.horizontalOverflow = HorizontalWrapMode.Wrap;
-            bodyText.verticalOverflow = VerticalWrapMode.Overflow;
+            bodyText.enableWordWrapping = true;
 
-            footerText = CreateText("Footer", card.transform, font, 20, FontStyle.Italic, TextAnchor.LowerLeft);
-            AnchorBottom(footerText.rectTransform, 0.02f, 0.12f);
-            UiSkinUtility.StyleMuted(footerText);
+            footerText = KitUi.Label(card.transform, "Footer", string.Empty, 20, TextAlignmentOptions.BottomLeft);
+            KitUi.Anchor(footerText.rectTransform, 0.04f, 0.02f, 0.78f, 0.12f);
+            UiSkinUtility.StyleTmpBody(footerText);
 
             var tabRow = new GameObject("Tabs", typeof(RectTransform)).GetComponent<RectTransform>();
             tabRow.SetParent(card.transform, false);
-            tabRow.anchorMin = new Vector2(0.04f, 0.14f);
-            tabRow.anchorMax = new Vector2(0.96f, 0.24f);
-            tabRow.offsetMin = Vector2.zero;
-            tabRow.offsetMax = Vector2.zero;
+            KitUi.Anchor(tabRow, 0.04f, 0.14f, 0.96f, 0.24f);
 
-            CreateTab(tabRow, font, "Rank", Tab.Rank, 0f, 0.24f);
-            CreateTab(tabRow, font, "Quests", Tab.Quests, 0.25f, 0.49f);
-            CreateTab(tabRow, font, "Shop", Tab.Shop, 0.5f, 0.74f);
-            CreateTab(tabRow, font, "Book", Tab.Book, 0.75f, 1f);
+            CreateTab(tabRow, "Rank", Tab.Rank, 0f, 0.24f);
+            CreateTab(tabRow, "Quests", Tab.Quests, 0.25f, 0.49f);
+            CreateTab(tabRow, "Shop", Tab.Shop, 0.5f, 0.74f);
+            CreateTab(tabRow, "Book", Tab.Book, 0.75f, 1f);
 
             var actionRowGo = new GameObject("Actions", typeof(RectTransform));
             actionRowGo.transform.SetParent(card.transform, false);
-            var actionRect = actionRowGo.GetComponent<RectTransform>();
-            actionRect.anchorMin = new Vector2(0.04f, 0.24f);
-            actionRect.anchorMax = new Vector2(0.96f, 0.28f);
-            actionRect.offsetMin = Vector2.zero;
-            actionRect.offsetMax = Vector2.zero;
+            KitUi.Anchor(actionRowGo.GetComponent<RectTransform>(), 0.04f, 0.24f, 0.96f, 0.28f);
 
-            closeButton = CreateButton("Close", card.transform, font, "Close", Hide, 0.82f, 0.98f, 0.02f, 0.12f);
+            closeButton = KitUi.Button(card.transform, "Close", "CLOSE", 0.82f, 0.02f, 0.98f, 0.12f, Hide, secondary: true);
         }
 
-        private void CreateTab(RectTransform parent, Font font, string label, Tab tab, float minX, float maxX)
+        private void CreateTab(RectTransform parent, string label, Tab tab, float minX, float maxX)
         {
-            CreateButton(label, parent, font, label, () => { currentTab = tab; Refresh(); }, minX, maxX, 0f, 1f);
+            KitUi.Button(parent, label, label.ToUpperInvariant(), minX, 0f, maxX, 1f, () =>
+            {
+                currentTab = tab;
+                Refresh();
+            }, secondary: true);
         }
 
         public void Refresh()
@@ -219,10 +215,9 @@ namespace MonsterCollect.UI
                 return;
             }
 
-            Font font = MobileGameUiKit.BodyFont;
-            AddClaimButtons(actions, font, QuestService.GetActiveQuestIds(QuestCategory.Daily));
-            AddClaimButtons(actions, font, QuestService.GetActiveQuestIds(QuestCategory.Weekly));
-            AddClaimButtons(actions, font, QuestService.GetActiveQuestIds(QuestCategory.Main));
+            AddClaimButtons(actions, QuestService.GetActiveQuestIds(QuestCategory.Daily));
+            AddClaimButtons(actions, QuestService.GetActiveQuestIds(QuestCategory.Weekly));
+            AddClaimButtons(actions, QuestService.GetActiveQuestIds(QuestCategory.Main));
         }
 
         private void AppendQuestSection(StringBuilder sb, string header, IReadOnlyList<string> ids)
@@ -250,7 +245,7 @@ namespace MonsterCollect.UI
             }
         }
 
-        private void AddClaimButtons(Transform actions, Font font, IReadOnlyList<string> ids)
+        private void AddClaimButtons(Transform actions, IReadOnlyList<string> ids)
         {
             int shown = 0;
             for (int i = 0; i < ids.Count && shown < 3; i++)
@@ -263,7 +258,7 @@ namespace MonsterCollect.UI
 
                 string questId = ids[i];
                 float min = shown * 0.33f;
-                AddAction(actions, font, "Claim", () => ClaimQuest(questId), min, min + 0.31f);
+                AddAction(actions, "Claim", () => ClaimQuest(questId), min, min + 0.31f);
                 shown++;
             }
         }
@@ -302,7 +297,6 @@ namespace MonsterCollect.UI
                 return;
             }
 
-            Font font = MobileGameUiKit.BodyFont;
             for (int i = 0; i < offers.Length && i < 3; i++)
             {
                 ShopOfferDefinition offer = offers[i];
@@ -313,7 +307,7 @@ namespace MonsterCollect.UI
 
                 string id = offer.OfferId;
                 float min = i * 0.33f;
-                AddAction(actions, font, offer.DisplayName.Split(' ')[0], () => Buy(id), min, min + 0.31f);
+                AddAction(actions, offer.DisplayName.Split(' ')[0], () => Buy(id), min, min + 0.31f);
             }
         }
 
@@ -362,7 +356,6 @@ namespace MonsterCollect.UI
                 return;
             }
 
-            Font font = MobileGameUiKit.BodyFont;
             int shown = 0;
             for (int i = 0; i < rewards.Length && shown < 3; i++)
             {
@@ -375,7 +368,7 @@ namespace MonsterCollect.UI
 
                 string rewardId = reward.RewardId;
                 float min = shown * 0.33f;
-                AddAction(actions, font, "Claim", () => ClaimBook(rewardId), min, min + 0.31f);
+                AddAction(actions, "Claim", () => ClaimBook(rewardId), min, min + 0.31f);
                 shown++;
             }
         }
@@ -400,82 +393,9 @@ namespace MonsterCollect.UI
             actionButtons.Clear();
         }
 
-        private void AddAction(Transform parent, Font font, string label, Action onClick, float minX, float maxX)
+        private void AddAction(Transform parent, string label, Action onClick, float minX, float maxX)
         {
-            actionButtons.Add(CreateButton(label, parent, font, label, onClick, minX, maxX, 0f, 1f));
-        }
-
-        private static UnityEngine.UI.Image CreateImage(string name, Transform parent, Color color)
-        {
-            var go = new GameObject(name, typeof(RectTransform), typeof(UnityEngine.UI.Image));
-            go.transform.SetParent(parent, false);
-            var image = go.GetComponent<UnityEngine.UI.Image>();
-            image.color = color;
-            return image;
-        }
-
-        private static Text CreateText(string name, Transform parent, Font font, int size, FontStyle style, TextAnchor anchor)
-        {
-            var go = new GameObject(name, typeof(RectTransform), typeof(Text));
-            go.transform.SetParent(parent, false);
-            var text = go.GetComponent<Text>();
-            text.font = font;
-            text.fontSize = size;
-            text.fontStyle = style;
-            text.alignment = anchor;
-            text.color = Color.white;
-            return text;
-        }
-
-        private static Button CreateButton(string name, Transform parent, Font font, string label, Action onClick,
-            float minX, float maxX, float minY, float maxY)
-        {
-            var go = new GameObject(name, typeof(RectTransform), typeof(UnityEngine.UI.Image), typeof(Button));
-            go.transform.SetParent(parent, false);
-            var rect = go.GetComponent<RectTransform>();
-            rect.anchorMin = new Vector2(minX, minY);
-            rect.anchorMax = new Vector2(maxX, maxY);
-            rect.offsetMin = Vector2.zero;
-            rect.offsetMax = Vector2.zero;
-            go.GetComponent<UnityEngine.UI.Image>().color = new Color(0.22f, 0.35f, 0.55f, 1f);
-
-            var textGo = new GameObject("Label", typeof(RectTransform), typeof(Text));
-            textGo.transform.SetParent(go.transform, false);
-            Stretch(textGo.GetComponent<RectTransform>());
-            var text = textGo.GetComponent<Text>();
-            text.font = font;
-            text.fontSize = 20;
-            text.alignment = TextAnchor.MiddleCenter;
-            text.color = Color.white;
-            text.text = label;
-
-            var btn = go.GetComponent<Button>();
-            btn.onClick.AddListener(() => onClick());
-            return btn;
-        }
-
-        private static void Stretch(RectTransform rect)
-        {
-            rect.anchorMin = Vector2.zero;
-            rect.anchorMax = Vector2.one;
-            rect.offsetMin = Vector2.zero;
-            rect.offsetMax = Vector2.zero;
-        }
-
-        private static void AnchorTop(RectTransform rect, float minY, float maxY)
-        {
-            rect.anchorMin = new Vector2(0.05f, minY);
-            rect.anchorMax = new Vector2(0.95f, maxY);
-            rect.offsetMin = Vector2.zero;
-            rect.offsetMax = Vector2.zero;
-        }
-
-        private static void AnchorBottom(RectTransform rect, float minY, float maxY)
-        {
-            rect.anchorMin = new Vector2(0.05f, minY);
-            rect.anchorMax = new Vector2(0.95f, maxY);
-            rect.offsetMin = Vector2.zero;
-            rect.offsetMax = Vector2.zero;
+            actionButtons.Add(KitUi.Button(parent, label, label, minX, 0f, maxX, 1f, onClick));
         }
     }
 }

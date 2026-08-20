@@ -58,6 +58,7 @@ namespace MonsterCollect.UI
 
         public void Show()
         {
+            KitUi.RestyleExisting(transform);
             EnsureActionFooter();
             SetMessage(string.Empty);
 

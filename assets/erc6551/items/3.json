@@ -1,0 +1,13 @@
+{
+  "name": "Pokegold",
+  "description": "Shiny trainer currency stamped with a golden P. Spend it at shops and services.",
+  "image": "items/pokegold.svg",
+  "external_url": "https://triumph-games.vercel.app/erc6551-test",
+  "attributes": [
+    { "trait_type": "Type", "value": "Item" },
+    { "trait_type": "Category", "value": "Currency" },
+    { "trait_type": "Rarity", "value": "Common" },
+    { "trait_type": "Effect", "value": "Trade currency" },
+    { "trait_type": "Stackable", "value": "Yes" }
+  ]
+}

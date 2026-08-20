@@ -93,6 +93,7 @@ namespace MonsterCollect.Editor
 
         public static void ApplyWebGLPlayerSettings()
         {
+            LandscapeMobileSetup.ApplyPlayerSettings();
             PlayerSettings.companyName = "Triumph Games";
             PlayerSettings.productName = "QRM";
             PlayerSettings.WebGL.template = "APPLICATION:Default";
@@ -106,14 +107,6 @@ namespace MonsterCollect.Editor
             PlayerSettings.defaultWebScreenWidth = 1280;
             PlayerSettings.defaultWebScreenHeight = 720;
             PlayerSettings.defaultIsNativeResolution = true;
-
-            // Browser: allow landscape; player can rotate device or resize window.
-            PlayerSettings.defaultInterfaceOrientation = UIOrientation.AutoRotation;
-            PlayerSettings.useAnimatedAutorotation = true;
-            PlayerSettings.allowedAutorotateToLandscapeLeft = true;
-            PlayerSettings.allowedAutorotateToLandscapeRight = true;
-            PlayerSettings.allowedAutorotateToPortrait = true;
-            PlayerSettings.allowedAutorotateToPortraitUpsideDown = false;
         }
 
         private static void RemoveLegacyBrowserDemo(string outputDir)

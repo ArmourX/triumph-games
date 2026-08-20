@@ -51,6 +51,7 @@ namespace MonsterCollect.UI
 
         private void Awake()
         {
+            KitUi.RestyleExisting(transform);
             EnsureRanchSystemsButton();
 
             if (feedButton != null)
