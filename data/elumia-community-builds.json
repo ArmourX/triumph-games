@@ -1,0 +1,94 @@
+[
+  {
+    "id": "community-champion-pvp-bis",
+    "name": "Elumium Champion PvP BiS",
+    "author": "Triumph Guides",
+    "class": "Champion",
+    "tags": ["PVP"],
+    "description": "Peak ★9 Legendary plate loadout for open-world PvP. Weapon sets class — jewelry unlocked for all kits.",
+    "starRank": 9,
+    "masterwork": 4,
+    "items": {
+      "weapon": "WEA-CHA-S9-MW4",
+      "offhand": "OFF-CHA-S9-MW4",
+      "chest": "CHE-CHA-S9-MW4",
+      "helmet": "HEL-CHA-S9-MW4",
+      "amulet": "AMU-ANY-S9-MW4",
+      "ring1": "RIN-ANY-S9-MW4",
+      "ring2": "RIN-ANY-S9-MW4",
+      "ring3": "RIN-ANY-S9-MW4",
+      "ring4": "RIN-ANY-S9-MW4"
+    },
+    "source": "community",
+    "createdAt": "2026-02-01T00:00:00.000Z"
+  },
+  {
+    "id": "community-battlemage-pve-raid",
+    "name": "Solforge Battlemage PvE Caster",
+    "author": "ElumiaTheory",
+    "class": "Battlemage",
+    "tags": ["PVE"],
+    "description": "★6 Epic cloth set for Sunforge Sanctum farming. Prioritizes Intelligence and Mana before upgrading to ★7+.",
+    "starRank": 6,
+    "masterwork": 3,
+    "items": {
+      "weapon": "WEA-BAT-S6-MW3",
+      "offhand": "OFF-BAT-S6-MW3",
+      "chest": "CHE-BAT-S6-MW3",
+      "helmet": "HEL-BAT-S6-MW3",
+      "amulet": "AMU-ANY-S6-MW3",
+      "ring1": "RIN-ANY-S6-MW3",
+      "ring2": "RIN-ANY-S6-MW3",
+      "ring3": "RIN-ANY-S6-MW3",
+      "ring4": "RIN-ANY-S6-MW3"
+    },
+    "source": "community",
+    "createdAt": "2026-01-15T00:00:00.000Z"
+  },
+  {
+    "id": "community-archer-hybrid-open",
+    "name": "Voidium Archer Hybrid",
+    "author": "RiftStalker",
+    "class": "Archer",
+    "tags": ["PVP", "Hybrid"],
+    "description": "★8 Rare leather kit for mixed open-world content. Agility focus with enough Health to survive burst.",
+    "starRank": 8,
+    "masterwork": 2,
+    "items": {
+      "weapon": "WEA-ARC-S8-MW2",
+      "offhand": "OFF-ARC-S8-MW2",
+      "chest": "CHE-ARC-S8-MW2",
+      "helmet": "HEL-ARC-S8-MW2",
+      "amulet": "AMU-ANY-S8-MW2",
+      "ring1": "RIN-ANY-S8-MW2",
+      "ring2": "RIN-ANY-S8-MW2",
+      "ring3": "RIN-ANY-S8-MW2",
+      "ring4": "RIN-ANY-S8-MW2"
+    },
+    "source": "community",
+    "createdAt": "2026-01-28T00:00:00.000Z"
+  },
+  {
+    "id": "community-champion-pve-starter",
+    "name": "Cindrite Champion Starter",
+    "author": "Triumph Guides",
+    "class": "Champion",
+    "tags": ["PVE"],
+    "description": "Entry ★1 Standard set for Emberfall Crags. Craft-friendly first build while leveling to 10.",
+    "starRank": 1,
+    "masterwork": 0,
+    "items": {
+      "weapon": "WEA-CHA-S1-MW0",
+      "offhand": "OFF-CHA-S1-MW0",
+      "chest": "CHE-CHA-S1-MW0",
+      "helmet": "HEL-CHA-S1-MW0",
+      "amulet": "AMU-ANY-S1-MW0",
+      "ring1": "RIN-ANY-S1-MW0",
+      "ring2": "RIN-ANY-S1-MW0",
+      "ring3": "RIN-ANY-S1-MW0",
+      "ring4": "RIN-ANY-S1-MW0"
+    },
+    "source": "community",
+    "createdAt": "2026-02-10T00:00:00.000Z"
+  }
+]

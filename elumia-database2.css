@@ -1,0 +1,196 @@
+/* Elumia Database v2 — password gate + preview badge */
+
+body.elumia-db2-page:not(.edb2-unlocked) {
+  overflow: hidden;
+}
+
+.edb2-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.12), transparent 45%),
+    radial-gradient(circle at 80% 80%, rgba(90, 130, 255, 0.08), transparent 40%),
+    rgba(6, 6, 8, 0.96);
+}
+
+body.edb2-unlocked .edb2-gate {
+  display: none;
+}
+
+.edb2-gate-card {
+  width: min(420px, 100%);
+  padding: 1.75rem 1.5rem;
+  background: var(--hub-surface, #121212);
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  border-radius: 12px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+}
+
+.edb2-gate-kicker {
+  margin: 0 0 0.35rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--hub-accent, #d4af37);
+}
+
+.edb2-gate-title {
+  margin: 0 0 0.5rem;
+  font-family: Montserrat, Inter, sans-serif;
+  font-size: 1.5rem;
+}
+
+.edb2-gate-copy {
+  margin: 0 0 1rem;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--hub-text-muted, #9a9a9a);
+}
+
+.edb2-gate-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.edb2-gate-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--hub-text-muted, #9a9a9a);
+}
+
+.edb2-gate-input {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  font: inherit;
+  color: var(--hub-text, #f2f2f2);
+  background: #0a0a0a;
+  border: 1px solid var(--hub-border, #2a2a2a);
+  border-radius: 8px;
+}
+
+.edb2-gate-input:focus {
+  outline: none;
+  border-color: rgba(212, 175, 55, 0.5);
+}
+
+.edb2-gate-error {
+  min-height: 1.1rem;
+  margin: 0;
+  font-size: 0.8125rem;
+  color: #e07070;
+}
+
+.edb2-gate-submit {
+  margin-top: 0.25rem;
+}
+
+.edb2-badge {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0.1rem 0.45rem;
+  font-size: 0.625rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  vertical-align: middle;
+  color: #0a0a0a;
+  background: var(--hub-accent, #d4af37);
+  border-radius: 4px;
+}
+
+.edb2-toolbar {
+  margin-bottom: 0.75rem;
+}
+
+.edb2-slot-preview {
+  margin-bottom: 1rem;
+  padding: 0.875rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--hub-border, #2a2a2a);
+  border-radius: 8px;
+}
+
+.edb2-slot-preview-title {
+  margin: 0 0 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--hub-accent, #d4af37);
+}
+
+.edb2-slot-preview-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.edb2-stat-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.45rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.edb2-stat-chip.is-locked {
+  opacity: 0.35;
+  text-decoration: line-through;
+}
+
+.edb2-stat-chip-num {
+  font-size: 0.5625rem;
+  font-weight: 800;
+  color: var(--hub-text-muted, #9a9a9a);
+}
+
+.edb2-stat-chip-val {
+  color: var(--hub-accent, #d4af37);
+}
+
+.edb2-metal-tag {
+  display: inline-block;
+  margin-left: 0.35rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--hub-text-muted, #9a9a9a);
+}
+
+.edb2-class-tag {
+  display: inline-block;
+  padding: 0.05rem 0.35rem;
+  font-size: 0.625rem;
+  font-weight: 700;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--hub-text-muted, #9a9a9a);
+}
+
+.edb2-class-tag--champion { color: #ff9a6b; }
+.edb2-class-tag--battlemage { color: #9ab6ff; }
+.edb2-class-tag--archer { color: #7ecf96; }
+
+.edb2-recipe {
+  max-width: 18rem;
+  font-size: 0.8125rem;
+}
+
+.edb2-icon-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 0.5625rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.45);
+  background: linear-gradient(145deg, #222, #111);
+}

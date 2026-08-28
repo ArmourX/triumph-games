@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="js/site-theme-init.js"></script>
+  <title>Build Creator | Legends of Elumia | Triumph Guides</title>
+  <meta name="description" content="Create and browse Legends of Elumia gear builds — fixed stat slots from Database v2.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="hub.css">
+  <link rel="stylesheet" href="elumia-database.css">
+  <link rel="stylesheet" href="elumia-database2.css">
+  <link rel="stylesheet" href="elumia-build.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+</head>
+<body class="hub-page elumia-build-page">
+  <div id="ebld-gate" class="edb2-gate">
+    <div class="edb2-gate-card">
+      <p class="edb2-gate-kicker">Legends of Elumia</p>
+      <h1 class="edb2-gate-title">Build Creator</h1>
+      <p class="edb2-gate-copy">Preview build — craft loadouts from Database v2 gear. Enter the access password.</p>
+      <form id="ebld-gate-form" class="edb2-gate-form" autocomplete="off">
+        <label class="edb2-gate-label" for="ebld-gate-password">Password</label>
+        <input
+          id="ebld-gate-password"
+          class="edb2-gate-input"
+          type="password"
+          autocomplete="off"
+          autocapitalize="off"
+          autocorrect="off"
+          spellcheck="false"
+          placeholder="Enter password"
+          required
+        >
+        <p id="ebld-gate-error" class="edb2-gate-error" aria-live="polite"></p>
+        <button type="submit" class="btn btn-primary edb2-gate-submit">Unlock</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="ebld-app" class="ebld-app" hidden>
+    <header class="hub-header"><div class="container hub-header-inner"><a href="index.html" class="hub-brand"><span class="hub-logo-icon">T</span><span class="hub-logo-text">Triumph Guides</span></a><nav class="hub-games-nav"><a href="elumia.html" class="hub-game-pill active">Elumia</a><a href="battlerise.html" class="hub-game-pill">Battlerise</a><a href="armourx.html" class="hub-game-pill">ArmourX</a></nav></div></header>
+    <nav class="hub-nav"><div class="container hub-nav-inner"><a href="elumia.html" class="hub-nav-link">Overview</a><a href="elumia-characters.html" class="hub-nav-link">Characters</a><a href="elumia-classes.html" class="hub-nav-link">Classes</a><a href="elumia-guides.html" class="hub-nav-link">Guides</a><a href="elumia-tier-list.html" class="hub-nav-link">Tier List</a><a href="elumia-database.html" class="hub-nav-link">Database</a><a href="elumia-database2.html" class="hub-nav-link">Database v2</a><a href="elumia-build.html" class="hub-nav-link active">Build</a></div></nav>
+
+    <div class="container hub-subpage" id="elumia-build-root">
+      <h1>Build Creator <span class="edb2-badge">preview</span></h1>
+      <p class="hub-subpage-intro">Mix any rank and Masterwork from <a href="elumia-database2.html">Database v2</a> for your class. Tag builds PvE / PvP and browse community loadouts.</p>
+
+      <div class="ebld-tabs" role="tablist">
+        <button type="button" class="ebld-tab active" data-view="create" role="tab" aria-selected="true">Create Build</button>
+        <button type="button" class="ebld-tab" data-view="community" role="tab" aria-selected="false">Community Builds</button>
+      </div>
+
+      <section id="ebld-create" class="ebld-view" aria-label="Create build">
+        <div class="ebld-create-layout">
+          <div class="ebld-gear-panel">
+            <div class="ebld-toolbar">
+              <label class="elumia-db-level-filter">
+                <span class="elumia-db-level-filter-label">Build class</span>
+                <select id="ebld-class" class="elumia-db-level-select" aria-label="Build class">
+                  <option value="Champion">Champion</option>
+                  <option value="Battlemage">Battlemage</option>
+                  <option value="Archer">Archer</option>
+                </select>
+              </label>
+              <span class="ebld-toolbar-hint">Gear picker shows <strong id="ebld-class-hint">Champion</strong> items + shared jewelry for the selected build class.</span>
+            </div>
+
+            <div id="ebld-slots" class="ebld-slots"></div>
+          </div>
+
+          <aside class="ebld-summary-panel">
+            <div class="ebld-summary-card">
+              <h2 class="ebld-summary-title">Build stats</h2>
+              <dl class="ebld-summary-meta">
+                <div><dt>Avg IP</dt><dd id="ebld-avg-ip">—</dd></div>
+                <div><dt>Req. level</dt><dd id="ebld-req-level">—</dd></div>
+                <div><dt>Slots filled</dt><dd id="ebld-slots-filled">0 / 9</dd></div>
+              </dl>
+              <div id="ebld-stat-totals" class="ebld-stat-totals"></div>
+            </div>
+
+            <form id="ebld-save-form" class="ebld-save-form">
+              <h2 class="ebld-summary-title">Save build</h2>
+              <label class="ebld-field">
+                <span>Build name</span>
+                <input type="text" id="ebld-name" required maxlength="80" placeholder="e.g. Elumium PvP Bruiser">
+              </label>
+              <label class="ebld-field">
+                <span>Author</span>
+                <input type="text" id="ebld-author" maxlength="40" placeholder="Your name">
+              </label>
+              <fieldset class="ebld-tags-field">
+                <legend>Build type</legend>
+                <label class="ebld-tag-check"><input type="checkbox" name="ebld-tag" value="PVE"> PvE</label>
+                <label class="ebld-tag-check"><input type="checkbox" name="ebld-tag" value="PVP"> PvP</label>
+                <label class="ebld-tag-check"><input type="checkbox" name="ebld-tag" value="Hybrid"> Hybrid</label>
+              </fieldset>
+              <label class="ebld-field">
+                <span>Notes <em>(optional)</em></span>
+                <textarea id="ebld-notes" rows="3" maxlength="500" placeholder="Rotation tips, when to use this build…"></textarea>
+              </label>
+              <div class="ebld-save-actions">
+                <button type="submit" class="btn btn-primary">Save to My Builds</button>
+                <button type="button" id="ebld-share-local" class="btn btn-outline">Share locally</button>
+              </div>
+              <p id="ebld-save-msg" class="ebld-save-msg" aria-live="polite"></p>
+            </form>
+          </aside>
+        </div>
+      </section>
+
+      <section id="ebld-community" class="ebld-view" hidden aria-label="Community builds">
+        <div class="ebld-community-toolbar">
+          <input type="search" id="ebld-browse-search" class="elumia-db-search" placeholder="Search builds…" aria-label="Search builds">
+          <label class="elumia-db-level-filter">
+            <span class="elumia-db-level-filter-label">Class</span>
+            <select id="ebld-browse-class" class="elumia-db-level-select" aria-label="Filter class">
+              <option value="">All classes</option>
+              <option value="Champion">Champion</option>
+              <option value="Battlemage">Battlemage</option>
+              <option value="Archer">Archer</option>
+            </select>
+          </label>
+          <label class="elumia-db-level-filter">
+            <span class="elumia-db-level-filter-label">Type</span>
+            <select id="ebld-browse-tag" class="elumia-db-level-select" aria-label="Filter build type">
+              <option value="">All types</option>
+              <option value="PVE">PvE</option>
+              <option value="PVP">PvP</option>
+              <option value="Hybrid">Hybrid</option>
+            </select>
+          </label>
+          <label class="elumia-db-level-filter">
+            <span class="elumia-db-level-filter-label">Source</span>
+            <select id="ebld-browse-source" class="elumia-db-level-select" aria-label="Filter source">
+              <option value="">All builds</option>
+              <option value="community">Community</option>
+              <option value="mine">My builds</option>
+              <option value="local">Shared locally</option>
+            </select>
+          </label>
+          <span id="ebld-browse-count" class="elumia-db-count"></span>
+        </div>
+
+        <div id="ebld-build-grid" class="ebld-build-grid"></div>
+        <p id="ebld-build-empty" class="elumia-db-empty" hidden>No builds match your filters.</p>
+      </section>
+    </div>
+
+    <dialog id="ebld-picker-dialog" class="ebld-picker-dialog">
+      <div class="ebld-picker-inner">
+        <header class="ebld-picker-head">
+          <div>
+            <p class="ebld-picker-kicker">Equip slot</p>
+            <h2 id="ebld-picker-title" class="ebld-picker-title">Select item</h2>
+          </div>
+          <button type="button" class="ebld-picker-close" id="ebld-picker-close" aria-label="Close">&times;</button>
+        </header>
+        <input type="search" id="ebld-picker-search" class="elumia-db-search ebld-picker-search" placeholder="Search items…" aria-label="Search items in picker">
+        <div id="ebld-picker-grid" class="ebld-picker-grid" tabindex="0" aria-label="Item grid — scroll to browse"></div>
+        <footer class="ebld-picker-foot">
+          <button type="button" class="btn btn-outline" id="ebld-picker-clear">Clear slot</button>
+          <span id="ebld-picker-count" class="ebld-picker-count"></span>
+        </footer>
+      </div>
+    </dialog>
+
+    <dialog id="ebld-detail-dialog" class="ebld-detail-dialog">
+      <div class="ebld-detail-inner">
+        <button type="button" class="ebld-detail-close" id="ebld-detail-close" aria-label="Close">&times;</button>
+        <div id="ebld-detail-content"></div>
+      </div>
+    </dialog>
+
+    <footer class="hub-footer"><div class="container hub-footer-inner"><a href="elumia.html">&larr; Back to Elumia hub</a><p>&copy; 2026 Triumph Guides</p></div></footer>
+  </div>
+
+  <script src="js/elumia-build-gate.js"></script>
+  <script src="js/elumia-build.js"></script>
+  <script src="js/site-theme.js"></script>
+</body>
+</html>
