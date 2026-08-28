@@ -1,0 +1,4 @@
+
+
+.lattice-back{pointer-events:auto;font-family:var(--dispFont);font-size:11px;color:var(--accentBright);text-decoration:none;margin-right:10px;opacity:.85}
+.lattice-back:hover{opacity:1;text-decoration:underline}

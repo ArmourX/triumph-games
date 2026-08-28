@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="js/site-theme-init.js"></script>
+  <title>Sphere Grid | Legends of Elumia</title>
+  <meta name="description" content="Interactive constellation sphere grid prototype for Legends of Elumia classes.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="elumia-grid-gate.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="elumia-lattice.css">
+</head>
+<body class="elumia-grid-page">
+  <div id="elumia-grid-gate" class="elg-gate">
+    <div class="elg-gate-card">
+      <p class="elg-gate-kicker">Legends of Elumia</p>
+      <h1 class="elg-gate-title">Constellation grid</h1>
+      <p class="elg-gate-copy">Enter the preview password to access the interactive sphere grid prototype.</p>
+      <form id="elumia-grid-gate-form" class="elg-gate-form" autocomplete="off">
+        <label class="elg-gate-label" for="elumia-grid-gate-password">Password</label>
+        <input id="elumia-grid-gate-password" class="elg-gate-input" type="password" name="elumia-grid-key" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Enter password" required>
+        <p id="elumia-grid-gate-error" class="elg-gate-error" aria-live="polite"></p>
+        <button type="submit" class="btn btn-primary elg-gate-submit">Unlock</button>
+      </form>
+      <p class="elg-gate-foot"><a href="elumia.html">&larr; Back to Elumia wiki</a></p>
+    </div>
+  </div>
+
+  <div id="elumia-grid-app" class="elumia-grid-app">
+<div id="stage">
+  <canvas id="grid"></canvas>
+</div>
+<div class="hud" id="topbar">
+  <a href="elumia.html" class="lattice-back">&larr; Wiki</a><div class="brand">LEGENDS OF ELUMIA<small>CONSTELLATION · SPHERE GRID</small></div>
+  <select id="class-select" class="class-select" aria-label="Class">
+    <option value="champion">Champion</option>
+    <option value="battlemage">Battlemage</option>
+    <option value="archer">Archer</option>
+  </select>
+  <div class="counter" id="counter"></div>
+</div>
+<div id="hint">Open nodes one by one · each step must touch a node you already own</div>
+<div id="side"><div id="side-scroll">
+  <div class="card">
+    <h3>THE RULES</h3>
+    <div class="sub">Progress one node at a time. A node only opens if it touches a node you already allocated. Locks still gate bridges: burn the listed gem to cross.</div>
+    <div class="row"><span>Class primary</span><b id="sel-primary">Strength</b></div>
+    <div class="row"><span>Allocated</span><b id="sel-lvl">0</b></div>
+    <div class="row"><span>Locks open</span><b id="sel-locks">0</b></div>
+  </div>
+  <div class="card">
+    <h3>NFT CHARACTER</h3>
+    <label class="nft-own"><input type="checkbox" id="nft-owned"> I own an Elumia NFT</label>
+    <div class="nft-elem-row">
+      <label for="nft-element">Awaken element</label>
+      <select id="nft-element" class="nft-element-select" aria-label="NFT element">
+        <option value="FIRE">Fire</option>
+        <option value="WATER">Water</option>
+        <option value="EARTH">Earth</option>
+        <option value="AIR">Air</option>
+        <option value="LIGHT">Light</option>
+        <option value="DARK">Dark</option>
+      </select>
+    </div>
+    <div class="nft-awakened">Sanctum keystone: <b id="nft-elem-label">Fire</b> · allocate the hub to awaken</div>
+    <div class="sub">Sanctum sits south of your class primary on the class ring — <b>Strength</b> (Champion), <b>Agility</b> (Archer), <b>Intelligence</b> (Battlemage). Pick an element above — the NFT Sanctum hub changes to match. NFT stat nodes cap at <b>+10%</b> total bonus.</div>
+    <div class="nft-cap">NFT bonus: <b id="nft-bonus">0</b>% / 10%</div>
+  </div>
+  <div class="card card-catalog">
+    <h3>NODE CATALOG</h3>
+    <div class="sub">Colored dots on the grid = stat type. Counts for STR, AGI, INT, and all other stats.</div>
+    <div id="node-catalog-total">—</div>
+    <div id="node-catalog" class="sub">Building grid…</div>
+  </div>
+  <div class="card">
+    <h3>GEM POUCH</h3>
+    <div class="sub">Burn gems to open locks — Lock 1: Common, Lock 2: Rare, Lock 3: Mystic, Lock 4: Legendary.</div>
+    <div id="pouch"></div>
+  </div>
+</div></div>
+<div id="controls"><button id="fit">Fit</button><button id="reset">Reset</button></div>
+<div id="picker"><h4 id="picker-title">Select</h4><div id="picker-options"></div></div>
+<div id="tip"><div class="tier" id="tip-tier"></div><div class="nm" id="tip-nm"></div><div class="body" id="tip-body"></div></div>
+<div class="toast" id="toast"></div>
+  </div>
+  <script src="js/elumia-grid-gate.js"></script>
+</body>
+</html>
