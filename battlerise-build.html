@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="js/site-theme-init.js"></script>
+  <title>Build Creator | BattleRise | Triumph Guides</title>
+  <meta name="description" content="Build a BattleRise team of 5 champions with 6 artifacts each. Save loadouts and browse community comps.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="hub.css">
+  <link rel="stylesheet" href="battlerise-champion.css">
+  <link rel="stylesheet" href="battlerise-build.css">
+  <link rel="stylesheet" href="triumph-community.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Cinzel:wght@600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+</head>
+<body class="hub-page brbld-page">
+  <header class="hub-header"><div class="container hub-header-inner"><a href="index.html" class="hub-brand"><span class="hub-logo-icon">T</span><span class="hub-logo-text">Triumph Guides</span></a><nav class="hub-games-nav"><a href="elumia.html" class="hub-game-pill">Elumia</a><a href="battlerise.html" class="hub-game-pill active">Battlerise</a><a href="armourx.html" class="hub-game-pill">ArmourX</a></nav></div></header>
+  <nav class="hub-nav"><div class="container hub-nav-inner"><a href="battlerise.html" class="hub-nav-link">Overview</a><a href="battlerise-champions.html" class="hub-nav-link">Champions</a><a href="battlerise-artifacts.html" class="hub-nav-link">Artifacts</a><a href="battlerise-build.html" class="hub-nav-link active">Build</a><a href="battlerise-guides.html" class="hub-nav-link">Guides</a><a href="battlerise-tier-list.html" class="hub-nav-link">Tier List</a></div></nav>
+
+  <div class="container hub-subpage" id="brbld-root">
+    <h1>Build Creator</h1>
+    <p class="hub-subpage-intro">Assemble a team of 5. Each champion holds 6 artifacts — <strong>1 Legendary max</strong> and <strong>2 Epics max</strong> per hero. Slot 1 is the Leader.</p>
+
+    <div class="brbld-tabs" role="tablist">
+      <button type="button" class="brbld-tab active" data-view="create" role="tab" aria-selected="true">Create Build</button>
+      <button type="button" class="brbld-tab" data-view="community" role="tab" aria-selected="false">Community Builds</button>
+    </div>
+
+    <section id="brbld-create" class="brbld-view" aria-label="Create build">
+      <div id="brbld-guest" class="tg-account-panel" hidden>
+        <p>Sign in to create and save builds.</p>
+        <button type="button" class="tg-btn tg-btn--primary" id="brbld-login">Log in</button>
+      </div>
+
+      <div id="brbld-create-wrap" hidden>
+      <div class="brbld-stage">
+        <header class="brbld-stage-head">
+          <a href="battlerise-champions.html" class="brbld-back" aria-label="Back to champions">&#8592;</a>
+          <h2 class="brbld-stage-title">Select Champions</h2>
+        </header>
+        <p class="brbld-hint-banner">Tap a slot to swap Champions. Tap an artifact gem to equip.</p>
+
+        <div id="brbld-team" class="brbld-team"></div>
+
+        <footer class="brbld-stage-foot">
+          <div class="brbld-leader-ability" id="brbld-leader-ability">
+            <span class="brbld-leader-icon" aria-hidden="true"></span>
+            <div>
+              <p class="brbld-leader-kicker">Leader ability</p>
+              <p class="brbld-leader-name" id="brbld-leader-name">Select a leader</p>
+            </div>
+          </div>
+          <div class="brbld-rule-chips" id="brbld-rule-chips"></div>
+          <div class="brbld-power-plaque">
+            <span class="brbld-power-label">Champions Power</span>
+            <strong id="brbld-team-power">0</strong>
+          </div>
+        </footer>
+      </div>
+
+      <div class="brbld-create-layout">
+        <div class="brbld-notes-card">
+          <h2 class="brbld-summary-title">Artifact rules</h2>
+          <ul class="brbld-rules">
+            <li>Each hero equips <strong>6 artifacts</strong>.</li>
+            <li><strong>1 Legendary</strong> per hero (max).</li>
+            <li><strong>2 Epics</strong> per hero (max).</li>
+            <li><strong>1 Mythic</strong> per hero (max) — same cap as Legendary, top-tier unique.</li>
+            <li>Rares fill the remaining slots. Same artifact cannot be duplicated on one hero.</li>
+            <li>Champions cannot be repeated on the same team.</li>
+          </ul>
+        </div>
+
+        <form id="brbld-save-form" class="brbld-save-form">
+          <h2 class="brbld-summary-title">Save build</h2>
+          <label class="brbld-field">
+            <span>Build name</span>
+            <input type="text" id="brbld-name" required maxlength="80" placeholder="e.g. Undead Dungeon Sweep">
+          </label>
+          <p class="brbld-field brbld-author-line">Publishing as <strong id="brbld-author-label">—</strong></p>
+          <fieldset class="brbld-tags-field">
+            <legend>Build type</legend>
+            <label class="brbld-tag-check"><input type="checkbox" name="brbld-tag" value="PVE"> PvE</label>
+            <label class="brbld-tag-check"><input type="checkbox" name="brbld-tag" value="PVP"> PvP</label>
+            <label class="brbld-tag-check"><input type="checkbox" name="brbld-tag" value="Hybrid"> Hybrid</label>
+          </fieldset>
+          <label class="brbld-field">
+            <span>Notes <em>(optional)</em></span>
+            <textarea id="brbld-notes" rows="3" maxlength="500" placeholder="Wave order, who to Leader, when to swap…"></textarea>
+          </label>
+          <div class="brbld-save-actions">
+            <button type="submit" class="btn btn-primary">Save &amp; publish</button>
+            <button type="button" id="brbld-clear-team" class="btn btn-outline">Clear team</button>
+          </div>
+          <p id="brbld-save-msg" class="brbld-save-msg" aria-live="polite"></p>
+        </form>
+      </div>
+      </div>
+    </section>
+
+    <section id="brbld-community" class="brbld-view" hidden aria-label="Community builds">
+      <div class="brbld-community-toolbar">
+        <input type="search" id="brbld-browse-search" class="br-search" placeholder="Search builds…" aria-label="Search builds">
+        <label class="brbld-filter">
+          <span>Type</span>
+          <select id="brbld-browse-tag" aria-label="Filter build type">
+            <option value="">All types</option>
+            <option value="PVE">PvE</option>
+            <option value="PVP">PvP</option>
+            <option value="Hybrid">Hybrid</option>
+          </select>
+        </label>
+        <label class="brbld-filter">
+          <span>Source</span>
+          <select id="brbld-browse-source" aria-label="Filter source">
+            <option value="">All builds</option>
+            <option value="community">Community</option>
+            <option value="mine">My builds</option>
+          </select>
+        </label>
+        <span id="brbld-browse-count" class="brbld-count"></span>
+      </div>
+      <div id="brbld-build-grid" class="brbld-build-grid"></div>
+      <p id="brbld-build-empty" class="brbld-empty" hidden>No builds match your filters.</p>
+    </section>
+  </div>
+
+  <dialog id="brbld-picker-dialog" class="brbld-picker-dialog">
+    <div class="brbld-picker-inner">
+      <header class="brbld-picker-head">
+        <div>
+          <p class="brbld-picker-kicker" id="brbld-picker-kicker">Select</p>
+          <h2 id="brbld-picker-title" class="brbld-picker-title">Select champion</h2>
+        </div>
+        <button type="button" class="brbld-picker-close" id="brbld-picker-close" aria-label="Close">&times;</button>
+      </header>
+      <input type="search" id="brbld-picker-search" class="brbld-picker-search" placeholder="Search…" aria-label="Search picker">
+      <div id="brbld-picker-filters" class="brbld-picker-filters"></div>
+      <p id="brbld-picker-rule" class="brbld-picker-rule" hidden></p>
+      <div id="brbld-picker-grid" class="brbld-picker-grid" tabindex="0" aria-label="Selection grid — scroll to browse"></div>
+      <footer class="brbld-picker-foot">
+        <button type="button" class="btn btn-outline" id="brbld-picker-clear">Clear slot</button>
+        <span id="brbld-picker-count" class="brbld-picker-count"></span>
+      </footer>
+    </div>
+  </dialog>
+
+  <dialog id="brbld-detail-dialog" class="brbld-detail-dialog">
+    <div class="brbld-detail-inner">
+      <button type="button" class="brbld-detail-close" id="brbld-detail-close" aria-label="Close">&times;</button>
+      <div id="brbld-detail-content"></div>
+    </div>
+  </dialog>
+
+  <footer class="hub-footer"><div class="container hub-footer-inner"><a href="battlerise.html">&larr; Back to BattleRise hub</a><p>&copy; 2026 Triumph Guides</p></div></footer>
+
+  <script src="js/battlerise-data.js"></script>
+  <script src="js/battlerise-champion-extras.js"></script>
+  <script src="js/triumph-api.js"></script>
+  <script src="js/triumph-community.js"></script>
+  <script src="js/battlerise-build.js"></script>
+  <script src="js/site-config.js"></script>
+  <script src="js/site-ui.js"></script>
+  <script src="js/site-theme.js"></script>
+  <script src="js/coming-soon-gate.js"></script>
+</body>
+</html>

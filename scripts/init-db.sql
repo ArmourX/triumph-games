@@ -94,3 +94,19 @@ CREATE TABLE IF NOT EXISTS elumia_item_entries (
 
 CREATE INDEX IF NOT EXISTS idx_elumia_items_cat ON elumia_item_entries(category, status);
 CREATE INDEX IF NOT EXISTS idx_elumia_items_name ON elumia_item_entries(category, name);
+
+CREATE TABLE IF NOT EXISTS battlerise_builds (
+  id TEXT PRIMARY KEY,
+  name TEXT NOT NULL,
+  description TEXT,
+  tags_json TEXT NOT NULL DEFAULT '[]',
+  slots_json TEXT NOT NULL,
+  author_id TEXT NOT NULL,
+  author_username TEXT NOT NULL,
+  status TEXT NOT NULL DEFAULT 'published',
+  created_at TEXT NOT NULL,
+  updated_at TEXT NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_br_builds_status ON battlerise_builds(status, updated_at DESC);
+CREATE INDEX IF NOT EXISTS idx_br_builds_author ON battlerise_builds(author_id, updated_at DESC);

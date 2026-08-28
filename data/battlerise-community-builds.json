@@ -1,0 +1,95 @@
+[
+  {
+    "id": "community-undead-dungeon",
+    "name": "Undead Dungeon Sweep",
+    "author": "Triumph Guides",
+    "tags": ["PVE"],
+    "description": "Bonelord leads a control-heavy wave clear. Keep 1 Legendary and 2 Epics on each hero — leftover slots are Rares.",
+    "slots": [
+      {
+        "champion": "bonelord",
+        "artifacts": ["necromancer-s-veil", "plague-of-decay", "seraphim-s-oath", "finest-shield", "bone-talisman", "dark-illusion"]
+      },
+      {
+        "champion": "honnari",
+        "artifacts": ["assassin-s-mercy", "born-in-infernal", "dead-or-alive", "coward", "potion-of-eternity", "belt-of-endurance"]
+      },
+      {
+        "champion": "tristan",
+        "artifacts": ["dragonslayer-sword", "plate-of-justice", "finest-shield", "assassin-s-mercy", "belt-of-endurance", "bone-talisman"]
+      },
+      {
+        "champion": "unshaken",
+        "artifacts": ["skullcrusher", "infernal-reaper", "finest-shield", "born-in-infernal", "coward", "dark-illusion"]
+      },
+      {
+        "champion": "skeleton-knight",
+        "artifacts": ["souldrainer", "purity-breeze", "finest-shield", "seraphim-s-oath", "bone-talisman", "belt-of-endurance"]
+      }
+    ],
+    "source": "community",
+    "createdAt": "2026-02-01T00:00:00.000Z"
+  },
+  {
+    "id": "community-arena-burst",
+    "name": "Arena Burst Core",
+    "author": "RiseTheory",
+    "tags": ["PVP"],
+    "description": "Invictus as Leader for the team shield. Hirada and Honnari provide the kill window; Cassiel keeps the backline alive.",
+    "slots": [
+      {
+        "champion": "invictus",
+        "artifacts": ["plate-of-justice", "dragonslayer-sword", "finest-shield", "seraphim-s-oath", "belt-of-endurance", "coward"]
+      },
+      {
+        "champion": "hirada",
+        "artifacts": ["dragonslayer-sword", "assassin-s-mercy", "born-in-infernal", "dead-or-alive", "bone-talisman", "dark-illusion"]
+      },
+      {
+        "champion": "honnari",
+        "artifacts": ["souldrainer", "assassin-s-mercy", "dead-or-alive", "potion-of-eternity", "coward", "belt-of-endurance"]
+      },
+      {
+        "champion": "tristan",
+        "artifacts": ["skullcrusher", "infernal-reaper", "finest-shield", "born-in-infernal", "bone-talisman", "dark-illusion"]
+      },
+      {
+        "champion": "cassiel",
+        "artifacts": ["ancestral-inspiration", "purity-breeze", "seraphim-s-oath", "finest-shield", "potion-of-eternity", "coward"]
+      }
+    ],
+    "source": "community",
+    "createdAt": "2026-02-12T00:00:00.000Z"
+  },
+  {
+    "id": "community-hybrid-gauntlet",
+    "name": "Gauntlet Sustain Hybrid",
+    "author": "Lastline",
+    "tags": ["PVE", "Hybrid"],
+    "description": "Mix of sustain and execute. Swap Tristan off if you need a second healer for long Gauntlet floors.",
+    "slots": [
+      {
+        "champion": "fionann",
+        "artifacts": ["purity-breeze", "ancestral-inspiration", "seraphim-s-oath", "finest-shield", "potion-of-eternity", "coward"]
+      },
+      {
+        "champion": "ursan",
+        "artifacts": ["plate-of-justice", "skullcrusher", "finest-shield", "born-in-infernal", "belt-of-endurance", "bone-talisman"]
+      },
+      {
+        "champion": "gozu",
+        "artifacts": ["dragonslayer-sword", "infernal-reaper", "assassin-s-mercy", "born-in-infernal", "dead-or-alive", "dark-illusion"]
+      },
+      {
+        "champion": "fara",
+        "artifacts": ["souldrainer", "assassin-s-mercy", "dead-or-alive", "coward", "bone-talisman", "potion-of-eternity"]
+      },
+      {
+        "champion": "caelan",
+        "artifacts": ["plague-of-decay", "necromancer-s-veil", "seraphim-s-oath", "finest-shield", "dark-illusion", "coward"]
+      }
+    ],
+    "source": "community",
+    "createdAt": "2026-03-02T00:00:00.000Z"
+  }
+]

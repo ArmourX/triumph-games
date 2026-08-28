@@ -16,6 +16,8 @@ import * as adminUsers from "../server/lib/routes/admin-users.js";
 import * as contributors from "../server/lib/routes/contributors.js";
 import * as elumiaItems from "../server/lib/routes/elumia-items.js";
 import * as elumiaItemsId from "../server/lib/routes/elumia-items-id.js";
+import * as buildsIndex from "../server/lib/routes/builds-index.js";
+import * as buildsId from "../server/lib/routes/builds-id.js";
 
 const staticRoutes = {
   "auth/login": authLogin,
@@ -30,7 +32,8 @@ const staticRoutes = {
   "admin/queue": adminQueue,
   "admin/users": adminUsers,
   contributors,
-  "elumia/items": elumiaItems
+  "elumia/items": elumiaItems,
+  builds: buildsIndex
 };
 
 function apiPath(req) {
@@ -72,6 +75,10 @@ export default async function handler(req, res) {
 
   if (parts.length === 3 && parts[0] === "elumia" && parts[1] === "items") {
     return elumiaItemsId.handle(req, res, parts[2]);
+  }
+
+  if (parts.length === 2 && parts[0] === "builds") {
+    return buildsId.handle(req, res, parts[1]);
   }
 
   return sendJson(res, 404, { error: "Not found." });

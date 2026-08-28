@@ -115,6 +115,20 @@
       return request("/elumia/items/" + id, { method: "PATCH", body: { action: "updateIcon", iconId: iconId } });
     },
 
+    listBuilds: function (status) {
+      var q = status ? "?status=" + encodeURIComponent(status) : "";
+      return request("/builds" + q).then(function (d) { return d.builds || []; });
+    },
+    createBuild: function (payload) {
+      return request("/builds", { method: "POST", body: payload }).then(function (d) { return d.build; });
+    },
+    updateBuild: function (id, payload) {
+      return request("/builds/" + id, { method: "PUT", body: payload }).then(function (d) { return d.build; });
+    },
+    deleteBuild: function (id) {
+      return request("/builds/" + id, { method: "DELETE" });
+    },
+
     getAdminQueue: function () { return request("/admin/queue"); },
     getAdminUsers: function () { return request("/admin/users").then(function (d) { return d.users || []; }); },
     updateAdminUser: function (id, action) {

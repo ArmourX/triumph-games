@@ -45,7 +45,8 @@
 
 .br-meta-pill--legendary { color: #f5ba14; border-color: rgba(245, 186, 20, 0.35); }
 .br-meta-pill--epic { color: #b48cff; border-color: rgba(180, 140, 255, 0.35); }
-.br-meta-pill--rare { color: #6eb5ff; border-color: rgba(110, 181, 255, 0.35); }
+.br-meta-pill--rare { color: #ff6b8a; border-color: rgba(255, 107, 138, 0.35); }
+.br-meta-pill--common { color: #9aa3ad; border-color: rgba(154, 163, 173, 0.35); }
 .br-meta-pill--mythic { color: #ff6b8a; border-color: rgba(255, 107, 138, 0.35); }
 
 .br-meta-pill--str { color: #e07070; }
