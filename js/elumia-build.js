@@ -53,6 +53,10 @@
     localStorage.setItem(key, JSON.stringify(data));
   }
 
+  function isClassless(cls) {
+    return !cls || cls === "Any" || cls === "Classless";
+  }
+
   function isClassLockedSlot(slotDef) {
     return slotDef.category !== "amulet" && slotDef.category !== "rings";
   }
@@ -64,7 +68,7 @@
       if (isClassLockedSlot(slotDef)) {
         return it.class === state.class;
       }
-      return it.class === "Any";
+      return isClassless(it.class);
     });
   }
 
@@ -102,7 +106,7 @@
 
   function itemMetaLine(item) {
     var parts = [];
-    if (item.class && item.class !== "Any") parts.push(item.class);
+    if (!isClassless(item.class)) parts.push(item.class);
     parts.push("Lv" + item.level);
     parts.push("IP " + item.ip);
     return parts.join(" · ");
@@ -487,7 +491,7 @@
       var item = getItem(build.items && build.items[slotDef.id]);
       var label = item
         ? esc(item.masterworkName) + " " + esc(item.stars) + " " + esc(item.baseName) +
-          (item.class && item.class !== "Any" ? " (" + esc(item.class) + ")" : "")
+          (item.class && !isClassless(item.class) ? " (" + esc(item.class) + ")" : "")
         : "—";
       return '<div class="ebld-detail-slot"><strong>' + esc(slotDef.label) + "</strong> " + label + "</div>";
     }).join("");

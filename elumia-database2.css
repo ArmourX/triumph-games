@@ -177,6 +177,7 @@ body.edb2-unlocked .edb2-gate {
 .edb2-class-tag--champion { color: #ff9a6b; }
 .edb2-class-tag--battlemage { color: #9ab6ff; }
 .edb2-class-tag--archer { color: #7ecf96; }
+.edb2-class-tag--classless { color: #b0b0b0; }
 
 .edb2-recipe {
   max-width: 18rem;

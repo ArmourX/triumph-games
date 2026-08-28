@@ -23,8 +23,16 @@
     return String(name || "").replace(/[^A-Za-z]/g, "").slice(0, 2).toUpperCase() || "?";
   }
 
+  function isClassless(cls) {
+    return !cls || cls === "Any" || cls === "Classless";
+  }
+
+  function isJewelryCategory(category) {
+    return category === "amulet" || category === "rings";
+  }
+
   function classTag(cls) {
-    if (!cls || cls === "Any") return '<span class="edb2-class-tag">Any</span>';
+    if (isClassless(cls)) return '<span class="edb2-class-tag edb2-class-tag--classless">Classless</span>';
     var mod = cls.toLowerCase();
     return '<span class="edb2-class-tag edb2-class-tag--' + esc(mod) + '">' + esc(cls) + "</span>";
   }
@@ -39,12 +47,8 @@
       if (it.category !== activeCategory) return false;
       if (Number(it.starRank) !== Number(filters.star)) return false;
       if (Number(it.masterwork) !== Number(filters.mw)) return false;
-      if (filters.cls) {
-        if (filters.cls === "Any") {
-          if (it.class !== "Any") return false;
-        } else if (it.class !== filters.cls) {
-          return false;
-        }
+      if (filters.cls && !isJewelryCategory(activeCategory)) {
+        if (it.class !== filters.cls) return false;
       }
       if (filters.q) {
         var hay = [
@@ -169,7 +173,7 @@
     host.hidden = false;
     host.innerHTML =
       '<p class="edb2-slot-preview-title">Fixed slot order — ' + esc(sample.slot) +
-        (sample.class !== "Any" ? " (" + esc(sample.class) + ")" : "") +
+        (sample.class && !isClassless(sample.class) ? " (" + esc(sample.class) + ")" : "") +
         " · " + statCount + " / " + maxSlots + " unlocked at " + esc(mwMeta ? mwMeta.name : "") + "</p>" +
       '<div class="edb2-slot-preview-grid">' +
         fullStats.map(function (s) {

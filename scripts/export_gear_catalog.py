@@ -47,7 +47,7 @@ def placeholder_url(slot: str, cls: str, star: int) -> str:
         "Ring": "RNG",
     }
     text = labels.get(slot, "ITM")
-    if cls not in ("Any",):
+    if cls in ("Any", "Classless", ""):
         text = {"Champion": "CH", "Battlemage": "MG", "Archer": "AR"}.get(cls, text) + text[:2]
     bg = ["2d1b0e", "1a2a3a", "1a3a2a", "2a1a3a", "3a2a1a", "3a3a1a", "1a2a4a", "2a1a4a", "4a3a1a"][star - 1]
     return f"https://placehold.co/60x60/{bg}/e8c872?text={text}"
