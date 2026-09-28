@@ -1,7 +1,7 @@
 (function () {
   var catalog = null;
   var activeCategory = "weapons";
-  var filters = { star: 9, mw: 4, cls: "", q: "" };
+  var filters = { star: 9, mw: 4, cls: "", line: "", q: "" };
 
   var HEADERS = {
     weapons: ["Name", "Rank", "Masterwork", "Req.", "IP", "Fixed Stats", "Class", "Slot", "Recipe"],
@@ -45,8 +45,10 @@
     if (!catalog) return [];
     return catalog.items.filter(function (it) {
       if (it.category !== activeCategory) return false;
+      var itemLine = it.gearLine || "standard";
+      if (filters.line && itemLine !== filters.line) return false;
+      if (itemLine !== "water" && Number(it.masterwork) !== Number(filters.mw)) return false;
       if (Number(it.starRank) !== Number(filters.star)) return false;
-      if (Number(it.masterwork) !== Number(filters.mw)) return false;
       if (filters.cls && !isJewelryCategory(activeCategory)) {
         if (it.class !== filters.cls) return false;
       }
@@ -98,7 +100,8 @@
         iconHtml(item) +
         "<div>" +
           '<span class="elumia-db-item-link ' + rarityClass(item.rarity) + '">' + esc(item.baseName) + "</span>" +
-          '<span class="elumia-db-sub">' + esc(item.masterworkName) + " · " + esc(item.stars) + " " + esc(item.starName) + "</span>" +
+          '<span class="elumia-db-sub">' + esc(item.masterworkName) + " · " + esc(item.stars) + " " + esc(item.starName) +
+            (item.element ? " · " + esc(item.element) : "") + "</span>" +
         "</div>" +
       "</div>"
     );
@@ -251,6 +254,7 @@
     var starSel = document.getElementById("edb2-star");
     var mwSel = document.getElementById("edb2-mw");
     var clsSel = document.getElementById("edb2-class");
+    var lineSel = document.getElementById("edb2-line");
 
     if (search) {
       search.addEventListener("input", function () {
@@ -273,6 +277,12 @@
     if (clsSel) {
       clsSel.addEventListener("change", function () {
         filters.cls = clsSel.value;
+        render();
+      });
+    }
+    if (lineSel) {
+      lineSel.addEventListener("change", function () {
+        filters.line = lineSel.value;
         render();
       });
     }
@@ -307,7 +317,5 @@
     }
   };
 
-  if (document.body.classList.contains("edb2-unlocked")) {
-    window.ElumiaDatabase2.init();
-  }
+  window.ElumiaDatabase2.init();
 })();

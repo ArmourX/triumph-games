@@ -212,6 +212,48 @@
   white-space: pre-wrap;
 }
 
+.tg-guide-view-section ul,
+.tg-guide-view-section ol {
+  margin: 0 0 0.85rem 1.25rem;
+  color: var(--hub-text);
+}
+
+.tg-guide-view-section li {
+  margin-bottom: 0.4rem;
+  line-height: 1.55;
+}
+
+.tg-guide-table-wrap {
+  overflow-x: auto;
+  margin: 0.75rem 0 1rem;
+}
+
+.tg-guide-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.tg-guide-table th,
+.tg-guide-table td {
+  text-align: left;
+  padding: 0.5rem 0.65rem;
+  border-bottom: 1px solid var(--hub-border);
+  vertical-align: top;
+}
+
+.tg-guide-table th {
+  color: var(--hub-text-gold);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.guide-page-item .tg-guide-official-tag {
+  display: inline-block;
+  margin-top: 0.65rem;
+}
+
 .tg-guide-view-figure {
   margin: 1rem 0;
 }
