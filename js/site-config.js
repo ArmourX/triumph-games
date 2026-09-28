@@ -10,13 +10,6 @@
     comingSoon: {
       armourx: "ArmourX"
     },
-    passwordProtected: {
-      elumia: {
-        title: "Legends of Elumia",
-        password: "11223344",
-        storageKey: "triumph_unlock_elumia"
-      }
-    },
     discordUrl: "https://discord.com/invite/triumphgames"
   };
 })(window);
